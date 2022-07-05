@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>CoverageCalculator.plot API documentation</title>
+<meta name="description" content="This module contains functions which plot the coverage results." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>CoverageCalculator.plot</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains functions which plot the coverage results.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+This module contains functions which plot the coverage results.
+&#39;&#39;&#39;
+
+import csv
+import time
+import math
+import plotly
+import chart_studio.plotly as py 
+import plotly.graph_objects as go
+import plotly.offline as offline
+import seaborn as sns
+import matplotlib.pyplot as matplt
+
+from data import *
+from utils import *
+from datetime import datetime
+import calendar
+
+# colors used at plotting
+MyColors = [&#34;#217ca3&#34;, &#34;#e29930&#34;, &#34;#919636&#34;, &#34;#af1c1c&#34;, &#34;#e7552c&#34;, &#34;#1b4b5a&#34;, &#34;#e4535e&#34;, &#34;#aebd38&#34;, &#34;#ffbb00&#34;, &#34;#2c7873&#34;]
+
+
+def PlotCoverage_Bars( PlotTitle = &#34;&#34; ):
+    &#34;&#34;&#34;
+    Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
+    Bins are colored and labeled according to the time the satellite spends inside them.
+    One plot per Magnetic Latitude range is created.
+    Args:
+         PlotTitle: a title to be displayed on the top of the plot (if not empty)
+    &#34;&#34;&#34;
+    ColumnWidth = 80
+            
+    All_MagLatRanges = list()
+    for B in Bins:
+        if [B.MagLat_min, B.MagLat_max] not in All_MagLatRanges:
+            All_MagLatRanges.append( [B.MagLat_min, B.MagLat_max] )            
+    
+    for aMagLatRange in All_MagLatRanges:
+        # We will create one plot for each MagLatRange 
+        fig = go.Figure()
+        # init
+        Xposition = 20
+        XaxisTickPositions = list()
+        XaxisTickLabels = list()
+        TheLowestAltitudeInThePlot  = 10000
+        TheHighestAltitudeInThePlot = 0
+        
+        # find out all MLT ranges for this MagLat range
+        All_MLTRanges = list()
+        tickValues = list()
+        for B in Bins:
+            if B.MagLat_min==aMagLatRange[0] and  B.MagLat_max==aMagLatRange[1]:
+                # remember all Altitudes in order to display them as tick values on the y axis
+                if B.Altitude_min not in tickValues: tickValues.append( B.Altitude_min )
+                if B.Altitude_max not in tickValues: tickValues.append( B.Altitude_max )
+                #
+                if [B.MLT_min, B.MLT_max] not in All_MLTRanges:
+                    All_MLTRanges.append( [B.MLT_min, B.MLT_max] )
+        
+        # find out all Kp ranges for this MagLat range and this MLTrange 
+        for aMLTrange in All_MLTRanges:
+            All_KpRanges = list()
+            for B in Bins:
+                if B.MagLat_min==aMagLatRange[0] and  B.MagLat_max==aMagLatRange[1]:
+                    if B.MLT_min==aMLTrange[0] and  B.MLT_max==aMLTrange[1]:
+                        if [B.Kp_min, B.Kp_max] not in All_KpRanges:
+                            All_KpRanges.append( [B.Kp_min, B.Kp_max] )
+
+            # find out all Altitude ranges for this MagLat range, this MLT range and this Kp range            
+            for aKpRange in All_KpRanges:
+                XaxisTickPositions.append( Xposition + ColumnWidth/2 )
+                XaxisTickLabels.append( &#34;Kp &#34; + str(aKpRange[0]) + &#34;-&#34; + str(aKpRange[1]) + &#34;&lt;br&gt;&#34; + str(aMLTrange[0]) + &#34;-&#34; + str(aMLTrange[1]) )
+                ####
+                All_AltitudeRanges = list()
+                for B in Bins:
+                    if B.MagLat_min==aMagLatRange[0] and  B.MagLat_max==aMagLatRange[1]:
+                        if B.MLT_min==aMLTrange[0] and  B.MLT_max==aMLTrange[1]:
+                            if B.Kp_min==aKpRange[0] and  B.Kp_max==aKpRange[1]:
+                                All_AltitudeRanges.append( [B.Altitude_min, B.Altitude_max] )
+                                # calculate the range of the Vertical Axis
+                                if B.Altitude_min&lt;TheLowestAltitudeInThePlot: TheLowestAltitudeInThePlot=B.Altitude_min
+                                if B.Altitude_max&gt;TheHighestAltitudeInThePlot: TheHighestAltitudeInThePlot=B.Altitude_max
+            
+                # create one figure per altitude range
+                for anAltitudeRange in All_AltitudeRanges:
+                    currentBin = getBinByItsProperties( aMLTrange[0], aMLTrange[1], aMagLatRange[0], aMagLatRange[1], anAltitudeRange[0], anAltitudeRange[1], aKpRange[0], aKpRange[1] )
+                    fig.add_shape(go.layout.Shape(
+                        type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, 
+                        x0=Xposition, y0=currentBin.Altitude_min, x1=Xposition+ColumnWidth, y1=currentBin.Altitude_max,
+                        line=dict( color=&#34;RoyalBlue&#34;, width=3,), fillcolor=getColor(currentBin.CumulativeTime, 0, currentBin.DesirableCumulativeTime, &#34;BuPu&#34;), opacity=0.8, 
+                    ))
+                    BinTitle = currentBin.ID + &#34;&lt;br&gt;&#34; + &#34;{:3.0f}&#34;.format(currentBin.CumulativeTime/60) +  &#34; / &#34; + &#34;{:2.0f}&#34;.format(currentBin.DesirableCumulativeTime/60)
+                    fig.add_trace(go.Scatter(x=[Xposition + ColumnWidth/2],y=[(currentBin.Altitude_max+currentBin.Altitude_min)/2],text=[&#34;&lt;b&gt;&#34;+BinTitle+&#34;&lt;/b&gt;&#34;],mode=&#34;text&#34;, ))
+                Xposition += ColumnWidth + 10
+            Xposition += 28
+        
+        FigureTitle = &#34;&#34;
+        if len(PlotTitle) &gt; 0: FigureTitle += PlotTitle
+        FigureTitle += &#34;&lt;b&gt;Magnetic Latitudes from &#34; + str(aMagLatRange[0]) + &#34;&amp;#176; to &#34;+str(aMagLatRange[1])+&#34;&amp;#176;&#34;+&#34;&lt;/b&gt;&lt;br&gt;&#34;
+        fig.update_layout(width=1100, height=1640, showlegend=False, title=FigureTitle,
+                          xaxis_title=&#34;Kp index range&lt;br&gt;Magnetic Local Time range&#34;, yaxis_title=&#34;Altitude (km)&#34;, 
+                          margin=go.layout.Margin(b=150,t=150) ) 
+        # add a colorbar
+        fig.add_trace(go.Scatter( x=[0,0], y=[0,0], opacity=0,  mode=&#34;markers&#34;,
+            marker=dict(colorscale=&#34;BuPu&#34;, color=[0,100], colorbar=dict(tickvals=[0,100], ticktext=[&#39;empty&#39;,&#39;full&#39;] ),),
+        ))
+        
+        fig.update_xaxes(range=[0, Xposition-10], showgrid=False)
+        fig.update_xaxes( tickmode = &#39;array&#39;, tickvals=XaxisTickPositions,  ticktext=XaxisTickLabels )
+        fig.update_yaxes(type=&#34;log&#34;, range=[ math.log(TheLowestAltitudeInThePlot,10)-0.004, math.log(TheHighestAltitudeInThePlot,10)+0.008], tickvals=tickValues ) 
+        plotly.offline.init_notebook_mode(connected=True)
+        plotly.offline.iplot(fig) 
+        
+        
+def PlotCoverage_Bars_GroupedByRegion(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;AEE&#34;, &#34;AEM&#34;,&#34;AED&#34;],  [&#34;AFM&#34;,&#34;CF&#34;,&#34;PCF&#34;],  [&#34;EPB&#34;, &#34;SQ&#34;],  [&#34;EEJ&#34;]]):
+    &#34;&#34;&#34;
+    Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
+    Bins are colored and labeled according to the time the satellite spends inside them.
+    One plot per Region Group is created.
+    Args:
+        PlotTitle: a title to be displayed on the top of the plot (if not empty)
+        RegionGroups: a list o lists containing region names to be pllotted together
+    &#34;&#34;&#34;
+    ColumnWidth = 100
+    DistanceBetweenColumns = 15
+    DistanceBetweenRegions = 40
+    
+    # populate groups with full Bin-IDs 
+    Groups =list()
+    for i in range(0, len(RegionGroups)):
+        Groups.append( list() )
+        for BinGeneralID in RegionGroups[i]:
+            for B in Bins:
+                if B.ID.startswith( BinGeneralID ):
+                    Groups[i].append( B.ID )
+    
+    for G in Groups:
+        # We will create one plot for each group
+        fig = go.Figure()
+        
+        # contruct X-axis labels 
+        currentTickPosition = 20 + ColumnWidth / 2
+        XaxisTickPositions = list()
+        XaxisTickLabels = list()
+        for BinID in G:
+            currentBin = getBinByItsID( BinID )
+            aLabel =  &#34;Kp &#34; + str(currentBin.Kp_min) + &#34;-&#34; + str(currentBin.Kp_max) + &#34;&lt;br&gt;MLT &#34; + str(currentBin.MLT_min) + &#34;-&#34; + str(currentBin.MLT_max) + &#34;&lt;br&gt;&#34; + str(currentBin.MagLat_min) + &#34;&amp;#xb0;-&#34; + str(currentBin.MagLat_max) + &#34;&amp;#xb0;&#34;
+            if aLabel not in XaxisTickLabels:                
+                XaxisTickLabels.append( aLabel )
+                if len(XaxisTickLabels) &gt;= 2:
+                    currentTickPosition += ColumnWidth + DistanceBetweenColumns 
+                    if XaxisTickLabels[-1][XaxisTickLabels[-1].find(&#34;MLT&#34;):] !=  XaxisTickLabels[-2][XaxisTickLabels[-2].find(&#34;MLT&#34;):]:
+                        currentTickPosition += DistanceBetweenRegions
+                XaxisTickPositions.append( currentTickPosition )   
+        
+        # remember all Altitudes in order to display them as tick values on the y axis
+        AllAltitudes = list()
+        for i in range(0, len(G)):
+            currentBinID = G[i]
+            currentBin = getBinByItsID( currentBinID )
+            if currentBin.Altitude_min not in AllAltitudes: AllAltitudes.append( currentBin.Altitude_min )
+            if currentBin.Altitude_max not in AllAltitudes: AllAltitudes.append( currentBin.Altitude_max )
+        # find min and max altitude
+        TheLowestAltitudeInThePlot  = min( AllAltitudes )
+        TheHighestAltitudeInThePlot = max( AllAltitudes )
+    
+        for i in range(0, len(G)): # create one rectangle per bin
+            currentBinID = G[i]
+            currentBin = getBinByItsID( currentBinID )
+            currentBinGeneralID = currentBinID[ : currentBinID.find(&#39;_&#39;) ]
+            
+            #### calculate the X position where the rectanlge will be drawn ####
+            group_idx = 0
+            for aGeneralGroup in RegionGroups:
+                if currentBinGeneralID in aGeneralGroup:
+                    group_idx = 0
+                    for i in  range(0, len(aGeneralGroup)):
+                        if aGeneralGroup[i] == currentBinGeneralID: group_idx = i
+            #
+            KpRanges = list()
+            for B in Bins:
+                if B.ID.startswith( currentBinGeneralID ):
+                    if [B.Kp_min, B.Kp_max] not in KpRanges:
+                        KpRanges.append( [B.Kp_min, B.Kp_max] )
+            KPrange_idx = 0
+            for i in range( 0, len(KpRanges) ):
+                if currentBin.Kp_min==KpRanges[i][0] and currentBin.Kp_max==KpRanges[i][1]: KPrange_idx = i
+            #
+            Xposition = 20 + group_idx*(len(KpRanges)*(ColumnWidth+DistanceBetweenColumns)+DistanceBetweenRegions) + KPrange_idx*(ColumnWidth+DistanceBetweenColumns)
+            
+            
+            fig.add_shape(go.layout.Shape( type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, 
+                        x0=Xposition, y0=currentBin.Altitude_min, x1=Xposition+ColumnWidth, y1=currentBin.Altitude_max,
+                        line=dict( color=&#34;RoyalBlue&#34;, width=3,), fillcolor=getColor(currentBin.CumulativeTime, 0, currentBin.DesirableCumulativeTime, &#34;BuPu&#34;), opacity=0.8, 
+            ))
+            BinTitle = currentBin.ID + &#34;&lt;br&gt;&#34; + &#34;{:3.0f}&#34;.format(currentBin.CumulativeTime/60) +  &#34; / &#34; + &#34;{:2.0f}&#34;.format(currentBin.DesirableCumulativeTime/60)
+            fig.add_trace(go.Scatter(x=[Xposition + ColumnWidth/2],y=[(currentBin.Altitude_max+currentBin.Altitude_min)/2],text=[&#34;&lt;b&gt;&#34;+BinTitle+&#34;&lt;/b&gt;&#34;],mode=&#34;text&#34;, ))
+                            
+        FigureTitle = &#34;&#34;
+        if len(PlotTitle) &gt; 0: FigureTitle += PlotTitle
+        #FigureTitle += &#34;(boxes contain minutes of cummulative time the satellite spends inside each bin)&#34;
+        fig.update_layout(width=1100, height=650, showlegend=False, title=FigureTitle,
+                          xaxis_title=&#34;Kp index range&lt;br&gt;Magnetic Local Time range (hours)&lt;br&gt;Magnetic Latitude (degrees)&#34;, yaxis_title=&#34;Altitude (km)&#34;, 
+                          margin=go.layout.Margin(b=150,t=150) ) 
+        # add a colorbar
+        fig.add_trace(go.Scatter( x=[0,0], y=[0,0], opacity=0,  mode=&#34;markers&#34;,
+            marker=dict(colorscale=&#34;BuPu&#34;, color=[0,100], colorbar=dict(tickvals=[0,100], ticktext=[&#39;empty&#39;,&#39;full&#39;] ),),
+        ))
+        
+        fig.update_xaxes(range=[0, Xposition+ColumnWidth+20], showgrid=False)
+        fig.update_xaxes( tickmode = &#39;array&#39;, tickvals=XaxisTickPositions,  ticktext=XaxisTickLabels )
+        fig.update_yaxes(range=[TheLowestAltitudeInThePlot,TheHighestAltitudeInThePlot+1+int((TheHighestAltitudeInThePlot-TheLowestAltitudeInThePlot)/30)], tickvals=AllAltitudes ) 
+        plotly.offline.init_notebook_mode(connected=True)
+        plotly.offline.iplot(fig) 
+        
+        
+        
+        
+def PlotCoverage_PolarChart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
+    &#34;&#34;&#34;
+    Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
+    Bins are colored and the coverage results are displayed beside the chart.
+    One plot per Altitude range is created.
+    Args:
+        PlotTitle: a title to be displayed on the top of the plot (if not empty).
+        size_multiplicator: changes the chart&#39;s size by multipling its dimensions by this number.
+    &#34;&#34;&#34;
+    PlotBackgroundColor = &#34;Gainsboro&#34;
+    MyColorsIndex = 0
+    AltitudeREGIONS = [ [115,140], [140,500] ]
+    num_of_extra_legend_lines = 0
+    
+    for anAltitudeREGION in AltitudeREGIONS:    
+        MyColorsIndex = 0
+        # Find out all Magnetic Latitude Values which will be displayed in the plot, at the radial axis
+        AllMagLatValues = list()
+        for B in Bins:
+            if B.Altitude_min&gt;=anAltitudeREGION[0] and B.Altitude_max&lt;=anAltitudeREGION[1]:
+                if B.MagLat_min not in AllMagLatValues: AllMagLatValues.append(B.MagLat_min)
+                if B.MagLat_max not in AllMagLatValues: AllMagLatValues.append(B.MagLat_max)
+                
+        # for each bin which belongs to the region
+        fig = go.Figure()
+        for B in Bins:
+            if B.Altitude_min&gt;=anAltitudeREGION[0] and B.Altitude_max&lt;=anAltitudeREGION[1]:
+                # convert bin values in order to be displayed on the polar plot
+                MLTmin = B.MLT_min
+                MLTmax = B.MLT_max
+                if MLTmin &gt; MLTmax: MLTmax += 24 # takes account of durations like 22:00-02:00
+                SliceAngle  = 15*(MLTmin+(MLTmax - MLTmin)/2) -90 # 360degrees/24hours=15
+                SliceWidth  = 15*(MLTmax - MLTmin)
+                # construct the bin info string
+                BinInfo = &#34;{:3.0f}&#34;.format(B.Altitude_min) + &#34;-&#34; + &#34;{:3.0f}&#34;.format(B.Altitude_max) + &#34;km &#34; + &#34;: Kp&#34;+ str(B.Kp_min) + &#34;-&#34; + str(B.Kp_max) + &#34;: &#34; 
+                if B.CumulativeTime &gt; B.DesirableCumulativeTime: BinInfo += &#34;&lt;b&gt;&#34;
+                BinInfo += &#34;{:3.0f}&#34;.format(B.CumulativeTime/60) 
+                if B.CumulativeTime &gt;= B.DesirableCumulativeTime: BinInfo += &#34;&lt;/b&gt;&#34;
+                BinInfo += &#34;/&#34; + &#34;{:3.0f}&#34;.format(B.DesirableCumulativeTime/60)  + &#34;min&#34;
+                    
+                # check if this slice has been already plotted
+                FoundFigureIndex = -1
+                for i in range( len(fig.data) ):
+                    if fig.data[i][&#34;theta&#34;][0]==SliceAngle and fig.data[i][&#34;width&#34;][0]==SliceWidth:
+                        FoundFigureIndex = i
+                        break
+
+                # plot a new slice for this bin or add info about this bin to the legend text
+                if FoundFigureIndex &gt;= 0:
+                    fig.data[ FoundFigureIndex ][ &#34;name&#34; ] += BinInfo + &#34;&lt;br&gt;&#34;
+                    num_of_extra_legend_lines += 1
+                else:
+                    fig.add_trace(go.Barpolar( base=[B.MagLat_min], r=[B.MagLat_max-B.MagLat_min], theta=[SliceAngle], width=[SliceWidth], 
+                        text=[B.ID], marker_color=[MyColors[MyColorsIndex]],   opacity=0.84,
+                        name = &#34;&lt;b&gt;&#34; + B.Description + &#34;&lt;/b&gt;&#34; + &#34;&lt;br&gt;&#34; + BinInfo + &#34;&lt;br&gt;&#34;
+                    ))
+                    num_of_extra_legend_lines += 2
+                    MyColorsIndex += 1
+                    if MyColorsIndex &gt;= len(MyColors): MyColorsIndex = 0
+            
+        # construct the radial axis values
+        if 0 not in AllMagLatValues:
+            there_are_positives = there_are_negatives = False
+            for aMagLatVal in AllMagLatValues:
+                if aMagLatVal &gt; 0: there_are_positives = True
+                if aMagLatVal &lt; 0: there_are_negatives = True
+            if there_are_positives and there_are_negatives: 
+                AllMagLatValues.append(0)
+                fig.add_trace(go.Barpolar( base=[0], r=[1], theta=[0], width=[360], 
+                        text=[&#34;Equator&#34;], marker_color=&#34;gray&#34;,   opacity=0.84,
+                        name = &#34;&lt;b&gt;&#34; + &#34;Equator&#34; + &#34;&lt;/b&gt;&#34;
+                ))
+        #
+        if 90 not in AllMagLatValues: AllMagLatValues.append(90)
+        RadialAxisTickValues= list()
+        for i in range( len(AllMagLatValues) ):
+            RadialAxisTickValues.append( &#34;&lt;b&gt;&#34; + str(AllMagLatValues[i]) + &#34;&amp;#176;&#34; + &#34;&lt;/b&gt;&#34;)
+             
+        
+        # Construct the plot&#39;s title
+        FigureTitle = &#34;&#34;
+        if len(PlotTitle) &gt; 0: FigureTitle += PlotTitle
+        FigureTitle += &#34;&lt;b&gt;Altitude from &#34; + str(anAltitudeREGION[0]) + &#34; to &#34; + str(anAltitudeREGION[1]) + &#34;&lt;/b&gt;&#34; + &#34;&lt;br&gt;&#34;
+        # define the plot&#39;s layout
+        num_of_extra_legend_lines -= 33
+        if num_of_extra_legend_lines &lt; 0 : num_of_extra_legend_lines = 0
+        size_multiplicator = 1
+        fig.update_layout(width=780*size_multiplicator, height=900 + num_of_extra_legend_lines*18 + (size_multiplicator-1)*200, showlegend=True, title=FigureTitle, 
+                          polar = dict(
+                            bgcolor=PlotBackgroundColor, 
+                            radialaxis  =  dict(range = [90, min(AllMagLatValues)], tickvals=AllMagLatValues, ticktext=RadialAxisTickValues, tickangle=90, categoryorder = &#34;category descending&#34; ), 
+                            angularaxis = dict(tickvals=[      0,      30,      60,      90,     120,     150,     180,     210,     240,     270,     300,     330], 
+                                               ticktext=[&#39;06:00&#39;, &#39;08:00&#39;, &#39;10:00&#39;, &#39;12:00&#39;, &#39;14:00&#39;, &#39;16:00&#39;, &#39;18:00&#39;, &#39;20:00&#39;, &#39;22:00&#39;, &#39;00:00&#39;, &#39;02:00&#39;, &#39;04:00&#39;])
+                         ),
+                         margin=go.layout.Margin(b=150,t=150), )
+        # plot it
+        plotly.offline.init_notebook_mode(connected=True)
+        plotly.offline.iplot(fig) 
+        
+
+        
+def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
+    &#34;&#34;&#34;
+    This plot displays all satellite positions as points colored by Kp-index. 
+    The Kp-indexes related to the orbit can be chosen by setting kp_startYear.
+    The Magnetic Latitude is at Vertical Axis and Magnetic Local Time is at the Horizontal Axis.
+    Args:
+        OrbitFileName: the filename of the csv file describing the satellite&#39;s orbit
+        kp_startYear: decides which Kp-index values to assign to each satellite position
+        from_date_str: the first satellite position to be displayed
+        to_date_str: the last satellite position to be displayed
+        from_Altitude: include only positions from this altitude and above
+        to_Altitude: include only positions until this altitude.
+    &#34;&#34;&#34;
+    StartSecs = time.time()
+    
+    with open( Orbit_Files_Path + OrbitFileName ) as CSVfile:
+        CSVreader = csv.reader( CSVfile )
+        # locate the column numnbers of interest inside the csv file
+        CSVheader = next( CSVreader )
+        Time_idx     = CSVheader.index( &#34;Epoch(UTCG)&#34; ) #CSVheader.index( &#34;EpochText&#34; )
+        Lat_idx      = CSVheader.index( &#34;Lat_GEOD(deg)&#34; ) #CSVheader.index( &#34;Latitude&#34; )
+        Lon_idx      = CSVheader.index( &#34;Lon_GEOD(deg)&#34; ) #CSVheader.index( &#34;Longitude&#34; )
+        Altitude_idx = CSVheader.index( &#34;Height_WGS84 (km)&#34; ) #CSVheader.index( &#34;Height&#34; )
+        MagLat_idx   = CSVheader.index( &#34;Magnetic Latitude&#34; )
+        MLT_idx      = CSVheader.index( &#34;MLT&#34; )
+        # read the satellite positions and add them to lists for ploting
+        new_x_axis = list()
+        new_y_axis = list()
+        kp_array   = list()
+        lineNum=0
+        for row in CSVreader: # for each satellite position
+            lineNum += 1
+            if lineNum == 1: OrbitStartYear = parseDate( row[Time_idx] ).year
+            CURR_Altitude = float( row[Altitude_idx] )
+            CURR_time = parseDate( row[Time_idx] )
+            if CURR_time == None:
+                print( &#34;ERROR during Kp-scatter while reading&#34;, OrbitFileName, &#34;: Wrong time format:&#34;, row[Time_idx] )
+                return 0, 0, &#34;&#34;, 0 # &lt;&lt;&lt;&lt;
+            CURR_timestamp = calendar.timegm( CURR_time.utctimetuple() ) 
+            FROM_timestamp = calendar.timegm( datetime.strptime( from_date_str,  &#34;%d-%m-%Y&#34; ).utctimetuple() ) 
+            TO_timestamp   = calendar.timegm( datetime.strptime( to_date_str,  &#34;%d-%m-%Y&#34; ).utctimetuple() ) 
+            if CURR_Altitude&gt;=from_Altitude and CURR_Altitude&lt;=to_Altitude and CURR_timestamp&gt;=FROM_timestamp and CURR_timestamp&lt;=TO_timestamp:
+                year  = CURR_time.year
+                month = CURR_time.month
+                day   = CURR_time.day
+                hour  = CURR_time.hour
+                Kp = -1
+                try: # calculate the Kp index for this particular time
+                    Kp = GeomagneticIndices[(num_to_2digit_str(day), num_to_2digit_str(month), num_to_2digit_str(kp_startYear+year-OrbitStartYear), str(hour//3))]
+                except:
+                    if month==2 and day==29: # the leap years may correspond to non-leap years at the selected range of years for Kp calculation
+                        Kp = GeomagneticIndices[(num_to_2digit_str(28), num_to_2digit_str(month), num_to_2digit_str(kp_startYear.value+year-OrbitStartYear), str(hour//3))]
+                # remember some useful properties of this satellite position
+                new_x_axis.append( float( row[MLT_idx]    ) )
+                new_y_axis.append( float( row[MagLat_idx] ) )
+                kp_array.append  ( Kp )
+    
+    #df[&#39;MLT&#39;] = df[&#39;MLT&#39;][0::3]
+    #df[&#39;Magnetic Latidude&#39;] = df[&#39;Magnetic Latidude&#39;][0::3]
+    #df[&#39;Kp&#39;] = df[&#39;Kp&#39;][0::3]
+    
+    # thin out the data because thery are too many 
+    #new_x_axis = new_x_axis[::3]
+    #new_y_axis = new_y_axis[::3]
+    #kp_array   = kp_array[::3]
+    print( &#34;I will plot&#34;, len(new_x_axis), &#34;dots&#34;)
+
+    # create the Kp scatter 
+    fig = go.Figure()
+    fig.add_trace(go.Scattergl( x=new_x_axis, y=new_y_axis,
+                              mode=&#39;markers&#39;, marker=dict(color=kp_array, cmin=0, cmax=9, size=1, colorscale=&#39;rainbow&#39;,showscale=True, 
+                                                          colorbar=dict(title=&#34;Kp&#34;, xanchor=&#34;left&#34;, x=-0.26, tick0=0, dtick=1, tickvals=[0,1,2,3,4,5,6,7,8,9], ticks=&#34;inside&#34;) ) ))
+    fig.update_layout( width=3000, height=2000, showlegend=False, coloraxis_showscale=False, title=&#34;Orbit file:&#34; + OrbitFileName + &#34;&lt;br&gt;&#34; + &#34;Kp values start year is &#34; + str(kp_startYear) + &#34;&lt;br&gt;&#34; + &#34;&lt;b&gt;Kp Indices during &#34; + from_date_str + &#34; - &#34; + to_date_str +  &#34; for Altitudes: &#34;+str(from_Altitude)+&#34;-&#34;+str(to_Altitude)+&#34; km&lt;/b&gt;&#34;)
+    fig.update_xaxes(title=&#34;Magnetic Local Time&#34;, showgrid=True, gridwidth=0.5, gridcolor=&#39;grey&#39;)
+    fig.update_layout(xaxis = dict(tickmode = &#39;linear&#39;,tick0 = 0,dtick = 2))    
+    fig.update_yaxes(title=&#34;Magnetic Latitude (deg)&#34;, showgrid=True, gridwidth=0.5, gridcolor=&#39;gray&#39;) 
+    fig.update_layout(yaxis = dict(tickmode = &#39;linear&#39;,tick0 = -90,dtick =30), margin=go.layout.Margin(b=150,t=150), width=1000, height=800, showlegend=True)
+    fig.update_xaxes(range=[0, 24],  showline=True, linewidth=2, linecolor=&#39;gray&#39;, mirror=True)
+    fig.update_yaxes(range=[-90, 90],showline=True, linewidth=2, linecolor=&#39;gray&#39;, mirror=True)
+    # draw rectangles to represent the bins on the figure        
+    MyColorsIndex = 0
+    for B in Bins:
+        if B.Altitude_min&gt;=from_Altitude and B.Altitude_max&lt;=to_Altitude:
+            BinInfo = &#34;{:3.0f}&#34;.format(B.Altitude_min) + &#34;-&#34; + &#34;{:3.0f}&#34;.format(B.Altitude_max) + &#34;km &#34; + &#34;: Kp&#34;+ str(B.Kp_min) + &#34;-&#34; + str(B.Kp_max) + &#34;: &#34; 
+            if B.CumulativeTime &gt; B.DesirableCumulativeTime: BinInfo += &#34;&lt;b&gt;&#34;
+            BinInfo += &#34;{:3.0f}&#34;.format(B.CumulativeTime/60) 
+            if B.CumulativeTime &gt; B.DesirableCumulativeTime: BinInfo += &#34;&lt;/b&gt;&#34;
+            BinInfo += &#34;/&#34; + &#34;{:3.0f}&#34;.format(B.DesirableCumulativeTime/60)  + &#34;min&#34;
+            if B.MLT_min &lt;= B.MLT_max: # ex: 10:00-14:00
+                Xmin1 = B.MLT_min
+                Xmax1 = B.MLT_max
+                Xmin2 = -1
+                Xmax2 = -1
+
+            else: # ex: 22:00-02:00
+                Xmin1 = B.MLT_min
+                Xmax1 = 24
+                Xmin2 = 0
+                Xmax2 = B.MLT_max
+            # check if this rectangle has been already plotted
+            FoundFigureIndex = -1 
+            for i in range( len(fig.layout[&#39;shapes&#39;]) ):
+                if fig.layout[&#39;shapes&#39;][i][&#34;x0&#34;]==Xmin1 and fig.layout[&#39;shapes&#39;][i][&#34;y0&#34;]==B.MagLat_min and fig.layout[&#39;shapes&#39;][i][&#34;x1&#34;]==Xmax1 and fig.layout[&#39;shapes&#39;][i][&#34;y1&#34;]==B.MagLat_max:
+                    FoundFigureIndex = i
+                    break
+            # add info about this bin to the legend text and/or draw a new rectangle
+            if FoundFigureIndex &gt;= 0: 
+                for i in range( len(fig[&#39;data&#39;]) ):
+                    if fig[&#39;data&#39;][i][&#39;name&#39;] is not None  and   B.Description in fig[&#39;data&#39;][i][&#39;name&#39;]:
+                        fig[&#39;data&#39;][i][&#39;name&#39;] += BinInfo + &#34;&lt;br&gt;&#34;
+            else:
+                # draw a rectangle representing the bin
+                fig.add_shape(go.layout.Shape( type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, opacity=0.7, layer=&#34;above&#34;,
+                    x0=Xmin1, y0=B.MagLat_min, x1=Xmax1, y1=B.MagLat_max, 
+                    line=dict(color=MyColors[MyColorsIndex], width=2,), fillcolor=MyColors[MyColorsIndex], 
+                ))
+                # add a trace so that a legend about the rectangle is created
+                fig.add_trace(go.Scatter( x=[0], y=[0], marker=dict(color=MyColors[MyColorsIndex], size=0, opacity=0), 
+                              name=&#34;&lt;b&gt;&#34; + B.Description + &#34;&lt;br&gt;&#34; + BinInfo + &#34;&lt;br&gt;&#34; ))
+                # draw a 2nd rectangle if necessary for this bin (when for ex it is 22:00-02:00)
+                if Xmin1&gt;=0 and Xmin2&gt;=0:
+                    fig.add_shape(go.layout.Shape( type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, opacity=0.7, layer=&#34;above&#34;,
+                        x0=Xmin2, y0=B.MagLat_min, x1=Xmax2, y1=B.MagLat_max, 
+                        line=dict(color=MyColors[MyColorsIndex], width=2,), fillcolor=MyColors[MyColorsIndex],
+                    ))
+                MyColorsIndex += 1
+                
+    # plot it
+    fig.update_layout( width=1000, height=1240, legend_orientation=&#34;h&#34; )
+    plotly.offline.init_notebook_mode(connected=True)
+    plotly.offline.iplot(fig) 
+
+    
+    
+def PlotOrbit_Heatmap( OrbitFileName ):
+    &#34;&#34;&#34;
+    Plots the satellite positions as heatmap using seaborn.JointGrid.
+    Altitude is at the Vertical Axis and Magnetic Latitude at the Horizontal Axis.
+    The color represents the time spent at each area.
+    Args:
+        OrbitFileName: the filename of the csv file describing the satellite&#39;s orbit
+    &#34;&#34;&#34;
+    
+    with open( Orbit_Files_Path + OrbitFileName ) as CSVfile:  # read data from the orbit file
+        CSVreader = csv.reader( CSVfile )
+        # locate the column numnbers of interest inside the csv file
+        CSVheader = next( CSVreader )
+        Time_idx     = CSVheader.index( &#34;Epoch(UTCG)&#34;  ) #CSVheader.index( &#34;EpochText&#34; ) &#34;Time (UTCG)&#34;
+        Lat_idx      = CSVheader.index( &#34;Lat_GEOD(deg)&#34; ) #CSVheader.index( &#34;Latitude&#34; ) &#34;Lat (deg)&#34;
+        Lon_idx      = CSVheader.index( &#34;Lon_GEOD(deg)&#34; ) #CSVheader.index( &#34;Longitude&#34; ) &#34;Lon (deg)&#34;
+        Altitude_idx = CSVheader.index( &#34;Height_WGS84 (km)&#34; ) #CSVheader.index( &#34;Height&#34; ) &#34;Alt (km)&#34;
+        MagLat_idx   = CSVheader.index( &#34;Magnetic Latitude&#34; )
+        MLT_idx      = CSVheader.index( &#34;MLT&#34; )
+        X = list()
+        Y = list()
+        lineNum = 0
+        for row in CSVreader: # for each satellite position
+            lineNum += 1
+            if lineNum &gt; 1:
+                if float( row[Altitude_idx] ) &lt; 500: # only low altitudes are useful for this plot
+                    X.append( float(row[MagLat_idx]) )
+                    Y.append( float(row[Altitude_idx]) )
+
+    # Create a JointGrid seaborn-plot
+    joint_kws=dict(gridsize=50) #hex bin size; the higher the gridsize number the smaller the bins
+    plot = sns.jointplot(X, Y, kind=&#34;hex&#34;, cmap=&#39;rainbow&#39;, joint_kws=joint_kws)
+    # style Axes
+    sns.set(style=&#34;ticks&#34;)
+    plot.ax_marg_x.set_xlim(-90, 90)
+    plot.ax_marg_y.set_ylim(80, 500)
+    plot.set_axis_labels(xlabel=&#39;Magnetic Latitude (degrees)&#39;, ylabel=&#39;Altitude (km)&#39;)
+    # add a colorbar
+    cbar_ax = plot.fig.add_axes([.85, .25, .05, .4])  # x, y, width, height
+    cbar    = matplt.colorbar(cax=cbar_ax)
+    matplt.subplots_adjust(left=0.2, right=0.8, top=0.8, bottom=0.2) # shrink fig so cbar is visible
+    # display
+    matplt.show()
+    </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="CoverageCalculator.plot.PlotCoverage_Bars"><code class="name flex">
+<span>def <span class="ident">PlotCoverage_Bars</span></span>(<span>PlotTitle='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
+Bins are colored and labeled according to the time the satellite spends inside them.
+One plot per Magnetic Latitude range is created.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>PlotTitle</code></strong></dt>
+<dd>a title to be displayed on the top of the plot (if not empty)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def PlotCoverage_Bars( PlotTitle = &#34;&#34; ):
+    &#34;&#34;&#34;
+    Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
+    Bins are colored and labeled according to the time the satellite spends inside them.
+    One plot per Magnetic Latitude range is created.
+    Args:
+         PlotTitle: a title to be displayed on the top of the plot (if not empty)
+    &#34;&#34;&#34;
+    ColumnWidth = 80
+            
+    All_MagLatRanges = list()
+    for B in Bins:
+        if [B.MagLat_min, B.MagLat_max] not in All_MagLatRanges:
+            All_MagLatRanges.append( [B.MagLat_min, B.MagLat_max] )            
+    
+    for aMagLatRange in All_MagLatRanges:
+        # We will create one plot for each MagLatRange 
+        fig = go.Figure()
+        # init
+        Xposition = 20
+        XaxisTickPositions = list()
+        XaxisTickLabels = list()
+        TheLowestAltitudeInThePlot  = 10000
+        TheHighestAltitudeInThePlot = 0
+        
+        # find out all MLT ranges for this MagLat range
+        All_MLTRanges = list()
+        tickValues = list()
+        for B in Bins:
+            if B.MagLat_min==aMagLatRange[0] and  B.MagLat_max==aMagLatRange[1]:
+                # remember all Altitudes in order to display them as tick values on the y axis
+                if B.Altitude_min not in tickValues: tickValues.append( B.Altitude_min )
+                if B.Altitude_max not in tickValues: tickValues.append( B.Altitude_max )
+                #
+                if [B.MLT_min, B.MLT_max] not in All_MLTRanges:
+                    All_MLTRanges.append( [B.MLT_min, B.MLT_max] )
+        
+        # find out all Kp ranges for this MagLat range and this MLTrange 
+        for aMLTrange in All_MLTRanges:
+            All_KpRanges = list()
+            for B in Bins:
+                if B.MagLat_min==aMagLatRange[0] and  B.MagLat_max==aMagLatRange[1]:
+                    if B.MLT_min==aMLTrange[0] and  B.MLT_max==aMLTrange[1]:
+                        if [B.Kp_min, B.Kp_max] not in All_KpRanges:
+                            All_KpRanges.append( [B.Kp_min, B.Kp_max] )
+
+            # find out all Altitude ranges for this MagLat range, this MLT range and this Kp range            
+            for aKpRange in All_KpRanges:
+                XaxisTickPositions.append( Xposition + ColumnWidth/2 )
+                XaxisTickLabels.append( &#34;Kp &#34; + str(aKpRange[0]) + &#34;-&#34; + str(aKpRange[1]) + &#34;&lt;br&gt;&#34; + str(aMLTrange[0]) + &#34;-&#34; + str(aMLTrange[1]) )
+                ####
+                All_AltitudeRanges = list()
+                for B in Bins:
+                    if B.MagLat_min==aMagLatRange[0] and  B.MagLat_max==aMagLatRange[1]:
+                        if B.MLT_min==aMLTrange[0] and  B.MLT_max==aMLTrange[1]:
+                            if B.Kp_min==aKpRange[0] and  B.Kp_max==aKpRange[1]:
+                                All_AltitudeRanges.append( [B.Altitude_min, B.Altitude_max] )
+                                # calculate the range of the Vertical Axis
+                                if B.Altitude_min&lt;TheLowestAltitudeInThePlot: TheLowestAltitudeInThePlot=B.Altitude_min
+                                if B.Altitude_max&gt;TheHighestAltitudeInThePlot: TheHighestAltitudeInThePlot=B.Altitude_max
+            
+                # create one figure per altitude range
+                for anAltitudeRange in All_AltitudeRanges:
+                    currentBin = getBinByItsProperties( aMLTrange[0], aMLTrange[1], aMagLatRange[0], aMagLatRange[1], anAltitudeRange[0], anAltitudeRange[1], aKpRange[0], aKpRange[1] )
+                    fig.add_shape(go.layout.Shape(
+                        type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, 
+                        x0=Xposition, y0=currentBin.Altitude_min, x1=Xposition+ColumnWidth, y1=currentBin.Altitude_max,
+                        line=dict( color=&#34;RoyalBlue&#34;, width=3,), fillcolor=getColor(currentBin.CumulativeTime, 0, currentBin.DesirableCumulativeTime, &#34;BuPu&#34;), opacity=0.8, 
+                    ))
+                    BinTitle = currentBin.ID + &#34;&lt;br&gt;&#34; + &#34;{:3.0f}&#34;.format(currentBin.CumulativeTime/60) +  &#34; / &#34; + &#34;{:2.0f}&#34;.format(currentBin.DesirableCumulativeTime/60)
+                    fig.add_trace(go.Scatter(x=[Xposition + ColumnWidth/2],y=[(currentBin.Altitude_max+currentBin.Altitude_min)/2],text=[&#34;&lt;b&gt;&#34;+BinTitle+&#34;&lt;/b&gt;&#34;],mode=&#34;text&#34;, ))
+                Xposition += ColumnWidth + 10
+            Xposition += 28
+        
+        FigureTitle = &#34;&#34;
+        if len(PlotTitle) &gt; 0: FigureTitle += PlotTitle
+        FigureTitle += &#34;&lt;b&gt;Magnetic Latitudes from &#34; + str(aMagLatRange[0]) + &#34;&amp;#176; to &#34;+str(aMagLatRange[1])+&#34;&amp;#176;&#34;+&#34;&lt;/b&gt;&lt;br&gt;&#34;
+        fig.update_layout(width=1100, height=1640, showlegend=False, title=FigureTitle,
+                          xaxis_title=&#34;Kp index range&lt;br&gt;Magnetic Local Time range&#34;, yaxis_title=&#34;Altitude (km)&#34;, 
+                          margin=go.layout.Margin(b=150,t=150) ) 
+        # add a colorbar
+        fig.add_trace(go.Scatter( x=[0,0], y=[0,0], opacity=0,  mode=&#34;markers&#34;,
+            marker=dict(colorscale=&#34;BuPu&#34;, color=[0,100], colorbar=dict(tickvals=[0,100], ticktext=[&#39;empty&#39;,&#39;full&#39;] ),),
+        ))
+        
+        fig.update_xaxes(range=[0, Xposition-10], showgrid=False)
+        fig.update_xaxes( tickmode = &#39;array&#39;, tickvals=XaxisTickPositions,  ticktext=XaxisTickLabels )
+        fig.update_yaxes(type=&#34;log&#34;, range=[ math.log(TheLowestAltitudeInThePlot,10)-0.004, math.log(TheHighestAltitudeInThePlot,10)+0.008], tickvals=tickValues ) 
+        plotly.offline.init_notebook_mode(connected=True)
+        plotly.offline.iplot(fig) </code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.plot.PlotCoverage_Bars_GroupedByRegion"><code class="name flex">
+<span>def <span class="ident">PlotCoverage_Bars_GroupedByRegion</span></span>(<span>PlotTitle='', RegionGroups=[['AEE', 'AEM', 'AED'], ['AFM', 'CF', 'PCF'], ['EPB', 'SQ'], ['EEJ']])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
+Bins are colored and labeled according to the time the satellite spends inside them.
+One plot per Region Group is created.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>PlotTitle</code></strong></dt>
+<dd>a title to be displayed on the top of the plot (if not empty)</dd>
+<dt><strong><code>RegionGroups</code></strong></dt>
+<dd>a list o lists containing region names to be pllotted together</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def PlotCoverage_Bars_GroupedByRegion(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;AEE&#34;, &#34;AEM&#34;,&#34;AED&#34;],  [&#34;AFM&#34;,&#34;CF&#34;,&#34;PCF&#34;],  [&#34;EPB&#34;, &#34;SQ&#34;],  [&#34;EEJ&#34;]]):
+    &#34;&#34;&#34;
+    Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
+    Bins are colored and labeled according to the time the satellite spends inside them.
+    One plot per Region Group is created.
+    Args:
+        PlotTitle: a title to be displayed on the top of the plot (if not empty)
+        RegionGroups: a list o lists containing region names to be pllotted together
+    &#34;&#34;&#34;
+    ColumnWidth = 100
+    DistanceBetweenColumns = 15
+    DistanceBetweenRegions = 40
+    
+    # populate groups with full Bin-IDs 
+    Groups =list()
+    for i in range(0, len(RegionGroups)):
+        Groups.append( list() )
+        for BinGeneralID in RegionGroups[i]:
+            for B in Bins:
+                if B.ID.startswith( BinGeneralID ):
+                    Groups[i].append( B.ID )
+    
+    for G in Groups:
+        # We will create one plot for each group
+        fig = go.Figure()
+        
+        # contruct X-axis labels 
+        currentTickPosition = 20 + ColumnWidth / 2
+        XaxisTickPositions = list()
+        XaxisTickLabels = list()
+        for BinID in G:
+            currentBin = getBinByItsID( BinID )
+            aLabel =  &#34;Kp &#34; + str(currentBin.Kp_min) + &#34;-&#34; + str(currentBin.Kp_max) + &#34;&lt;br&gt;MLT &#34; + str(currentBin.MLT_min) + &#34;-&#34; + str(currentBin.MLT_max) + &#34;&lt;br&gt;&#34; + str(currentBin.MagLat_min) + &#34;&amp;#xb0;-&#34; + str(currentBin.MagLat_max) + &#34;&amp;#xb0;&#34;
+            if aLabel not in XaxisTickLabels:                
+                XaxisTickLabels.append( aLabel )
+                if len(XaxisTickLabels) &gt;= 2:
+                    currentTickPosition += ColumnWidth + DistanceBetweenColumns 
+                    if XaxisTickLabels[-1][XaxisTickLabels[-1].find(&#34;MLT&#34;):] !=  XaxisTickLabels[-2][XaxisTickLabels[-2].find(&#34;MLT&#34;):]:
+                        currentTickPosition += DistanceBetweenRegions
+                XaxisTickPositions.append( currentTickPosition )   
+        
+        # remember all Altitudes in order to display them as tick values on the y axis
+        AllAltitudes = list()
+        for i in range(0, len(G)):
+            currentBinID = G[i]
+            currentBin = getBinByItsID( currentBinID )
+            if currentBin.Altitude_min not in AllAltitudes: AllAltitudes.append( currentBin.Altitude_min )
+            if currentBin.Altitude_max not in AllAltitudes: AllAltitudes.append( currentBin.Altitude_max )
+        # find min and max altitude
+        TheLowestAltitudeInThePlot  = min( AllAltitudes )
+        TheHighestAltitudeInThePlot = max( AllAltitudes )
+    
+        for i in range(0, len(G)): # create one rectangle per bin
+            currentBinID = G[i]
+            currentBin = getBinByItsID( currentBinID )
+            currentBinGeneralID = currentBinID[ : currentBinID.find(&#39;_&#39;) ]
+            
+            #### calculate the X position where the rectanlge will be drawn ####
+            group_idx = 0
+            for aGeneralGroup in RegionGroups:
+                if currentBinGeneralID in aGeneralGroup:
+                    group_idx = 0
+                    for i in  range(0, len(aGeneralGroup)):
+                        if aGeneralGroup[i] == currentBinGeneralID: group_idx = i
+            #
+            KpRanges = list()
+            for B in Bins:
+                if B.ID.startswith( currentBinGeneralID ):
+                    if [B.Kp_min, B.Kp_max] not in KpRanges:
+                        KpRanges.append( [B.Kp_min, B.Kp_max] )
+            KPrange_idx = 0
+            for i in range( 0, len(KpRanges) ):
+                if currentBin.Kp_min==KpRanges[i][0] and currentBin.Kp_max==KpRanges[i][1]: KPrange_idx = i
+            #
+            Xposition = 20 + group_idx*(len(KpRanges)*(ColumnWidth+DistanceBetweenColumns)+DistanceBetweenRegions) + KPrange_idx*(ColumnWidth+DistanceBetweenColumns)
+            
+            
+            fig.add_shape(go.layout.Shape( type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, 
+                        x0=Xposition, y0=currentBin.Altitude_min, x1=Xposition+ColumnWidth, y1=currentBin.Altitude_max,
+                        line=dict( color=&#34;RoyalBlue&#34;, width=3,), fillcolor=getColor(currentBin.CumulativeTime, 0, currentBin.DesirableCumulativeTime, &#34;BuPu&#34;), opacity=0.8, 
+            ))
+            BinTitle = currentBin.ID + &#34;&lt;br&gt;&#34; + &#34;{:3.0f}&#34;.format(currentBin.CumulativeTime/60) +  &#34; / &#34; + &#34;{:2.0f}&#34;.format(currentBin.DesirableCumulativeTime/60)
+            fig.add_trace(go.Scatter(x=[Xposition + ColumnWidth/2],y=[(currentBin.Altitude_max+currentBin.Altitude_min)/2],text=[&#34;&lt;b&gt;&#34;+BinTitle+&#34;&lt;/b&gt;&#34;],mode=&#34;text&#34;, ))
+                            
+        FigureTitle = &#34;&#34;
+        if len(PlotTitle) &gt; 0: FigureTitle += PlotTitle
+        #FigureTitle += &#34;(boxes contain minutes of cummulative time the satellite spends inside each bin)&#34;
+        fig.update_layout(width=1100, height=650, showlegend=False, title=FigureTitle,
+                          xaxis_title=&#34;Kp index range&lt;br&gt;Magnetic Local Time range (hours)&lt;br&gt;Magnetic Latitude (degrees)&#34;, yaxis_title=&#34;Altitude (km)&#34;, 
+                          margin=go.layout.Margin(b=150,t=150) ) 
+        # add a colorbar
+        fig.add_trace(go.Scatter( x=[0,0], y=[0,0], opacity=0,  mode=&#34;markers&#34;,
+            marker=dict(colorscale=&#34;BuPu&#34;, color=[0,100], colorbar=dict(tickvals=[0,100], ticktext=[&#39;empty&#39;,&#39;full&#39;] ),),
+        ))
+        
+        fig.update_xaxes(range=[0, Xposition+ColumnWidth+20], showgrid=False)
+        fig.update_xaxes( tickmode = &#39;array&#39;, tickvals=XaxisTickPositions,  ticktext=XaxisTickLabels )
+        fig.update_yaxes(range=[TheLowestAltitudeInThePlot,TheHighestAltitudeInThePlot+1+int((TheHighestAltitudeInThePlot-TheLowestAltitudeInThePlot)/30)], tickvals=AllAltitudes ) 
+        plotly.offline.init_notebook_mode(connected=True)
+        plotly.offline.iplot(fig) </code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.plot.PlotCoverage_PolarChart"><code class="name flex">
+<span>def <span class="ident">PlotCoverage_PolarChart</span></span>(<span>PlotTitle='', size_multiplicator=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
+Bins are colored and the coverage results are displayed beside the chart.
+One plot per Altitude range is created.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>PlotTitle</code></strong></dt>
+<dd>a title to be displayed on the top of the plot (if not empty).</dd>
+<dt><strong><code>size_multiplicator</code></strong></dt>
+<dd>changes the chart's size by multipling its dimensions by this number.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def PlotCoverage_PolarChart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
+    &#34;&#34;&#34;
+    Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
+    Bins are colored and the coverage results are displayed beside the chart.
+    One plot per Altitude range is created.
+    Args:
+        PlotTitle: a title to be displayed on the top of the plot (if not empty).
+        size_multiplicator: changes the chart&#39;s size by multipling its dimensions by this number.
+    &#34;&#34;&#34;
+    PlotBackgroundColor = &#34;Gainsboro&#34;
+    MyColorsIndex = 0
+    AltitudeREGIONS = [ [115,140], [140,500] ]
+    num_of_extra_legend_lines = 0
+    
+    for anAltitudeREGION in AltitudeREGIONS:    
+        MyColorsIndex = 0
+        # Find out all Magnetic Latitude Values which will be displayed in the plot, at the radial axis
+        AllMagLatValues = list()
+        for B in Bins:
+            if B.Altitude_min&gt;=anAltitudeREGION[0] and B.Altitude_max&lt;=anAltitudeREGION[1]:
+                if B.MagLat_min not in AllMagLatValues: AllMagLatValues.append(B.MagLat_min)
+                if B.MagLat_max not in AllMagLatValues: AllMagLatValues.append(B.MagLat_max)
+                
+        # for each bin which belongs to the region
+        fig = go.Figure()
+        for B in Bins:
+            if B.Altitude_min&gt;=anAltitudeREGION[0] and B.Altitude_max&lt;=anAltitudeREGION[1]:
+                # convert bin values in order to be displayed on the polar plot
+                MLTmin = B.MLT_min
+                MLTmax = B.MLT_max
+                if MLTmin &gt; MLTmax: MLTmax += 24 # takes account of durations like 22:00-02:00
+                SliceAngle  = 15*(MLTmin+(MLTmax - MLTmin)/2) -90 # 360degrees/24hours=15
+                SliceWidth  = 15*(MLTmax - MLTmin)
+                # construct the bin info string
+                BinInfo = &#34;{:3.0f}&#34;.format(B.Altitude_min) + &#34;-&#34; + &#34;{:3.0f}&#34;.format(B.Altitude_max) + &#34;km &#34; + &#34;: Kp&#34;+ str(B.Kp_min) + &#34;-&#34; + str(B.Kp_max) + &#34;: &#34; 
+                if B.CumulativeTime &gt; B.DesirableCumulativeTime: BinInfo += &#34;&lt;b&gt;&#34;
+                BinInfo += &#34;{:3.0f}&#34;.format(B.CumulativeTime/60) 
+                if B.CumulativeTime &gt;= B.DesirableCumulativeTime: BinInfo += &#34;&lt;/b&gt;&#34;
+                BinInfo += &#34;/&#34; + &#34;{:3.0f}&#34;.format(B.DesirableCumulativeTime/60)  + &#34;min&#34;
+                    
+                # check if this slice has been already plotted
+                FoundFigureIndex = -1
+                for i in range( len(fig.data) ):
+                    if fig.data[i][&#34;theta&#34;][0]==SliceAngle and fig.data[i][&#34;width&#34;][0]==SliceWidth:
+                        FoundFigureIndex = i
+                        break
+
+                # plot a new slice for this bin or add info about this bin to the legend text
+                if FoundFigureIndex &gt;= 0:
+                    fig.data[ FoundFigureIndex ][ &#34;name&#34; ] += BinInfo + &#34;&lt;br&gt;&#34;
+                    num_of_extra_legend_lines += 1
+                else:
+                    fig.add_trace(go.Barpolar( base=[B.MagLat_min], r=[B.MagLat_max-B.MagLat_min], theta=[SliceAngle], width=[SliceWidth], 
+                        text=[B.ID], marker_color=[MyColors[MyColorsIndex]],   opacity=0.84,
+                        name = &#34;&lt;b&gt;&#34; + B.Description + &#34;&lt;/b&gt;&#34; + &#34;&lt;br&gt;&#34; + BinInfo + &#34;&lt;br&gt;&#34;
+                    ))
+                    num_of_extra_legend_lines += 2
+                    MyColorsIndex += 1
+                    if MyColorsIndex &gt;= len(MyColors): MyColorsIndex = 0
+            
+        # construct the radial axis values
+        if 0 not in AllMagLatValues:
+            there_are_positives = there_are_negatives = False
+            for aMagLatVal in AllMagLatValues:
+                if aMagLatVal &gt; 0: there_are_positives = True
+                if aMagLatVal &lt; 0: there_are_negatives = True
+            if there_are_positives and there_are_negatives: 
+                AllMagLatValues.append(0)
+                fig.add_trace(go.Barpolar( base=[0], r=[1], theta=[0], width=[360], 
+                        text=[&#34;Equator&#34;], marker_color=&#34;gray&#34;,   opacity=0.84,
+                        name = &#34;&lt;b&gt;&#34; + &#34;Equator&#34; + &#34;&lt;/b&gt;&#34;
+                ))
+        #
+        if 90 not in AllMagLatValues: AllMagLatValues.append(90)
+        RadialAxisTickValues= list()
+        for i in range( len(AllMagLatValues) ):
+            RadialAxisTickValues.append( &#34;&lt;b&gt;&#34; + str(AllMagLatValues[i]) + &#34;&amp;#176;&#34; + &#34;&lt;/b&gt;&#34;)
+             
+        
+        # Construct the plot&#39;s title
+        FigureTitle = &#34;&#34;
+        if len(PlotTitle) &gt; 0: FigureTitle += PlotTitle
+        FigureTitle += &#34;&lt;b&gt;Altitude from &#34; + str(anAltitudeREGION[0]) + &#34; to &#34; + str(anAltitudeREGION[1]) + &#34;&lt;/b&gt;&#34; + &#34;&lt;br&gt;&#34;
+        # define the plot&#39;s layout
+        num_of_extra_legend_lines -= 33
+        if num_of_extra_legend_lines &lt; 0 : num_of_extra_legend_lines = 0
+        size_multiplicator = 1
+        fig.update_layout(width=780*size_multiplicator, height=900 + num_of_extra_legend_lines*18 + (size_multiplicator-1)*200, showlegend=True, title=FigureTitle, 
+                          polar = dict(
+                            bgcolor=PlotBackgroundColor, 
+                            radialaxis  =  dict(range = [90, min(AllMagLatValues)], tickvals=AllMagLatValues, ticktext=RadialAxisTickValues, tickangle=90, categoryorder = &#34;category descending&#34; ), 
+                            angularaxis = dict(tickvals=[      0,      30,      60,      90,     120,     150,     180,     210,     240,     270,     300,     330], 
+                                               ticktext=[&#39;06:00&#39;, &#39;08:00&#39;, &#39;10:00&#39;, &#39;12:00&#39;, &#39;14:00&#39;, &#39;16:00&#39;, &#39;18:00&#39;, &#39;20:00&#39;, &#39;22:00&#39;, &#39;00:00&#39;, &#39;02:00&#39;, &#39;04:00&#39;])
+                         ),
+                         margin=go.layout.Margin(b=150,t=150), )
+        # plot it
+        plotly.offline.init_notebook_mode(connected=True)
+        plotly.offline.iplot(fig) </code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.plot.PlotOrbit_Heatmap"><code class="name flex">
+<span>def <span class="ident">PlotOrbit_Heatmap</span></span>(<span>OrbitFileName)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plots the satellite positions as heatmap using seaborn.JointGrid.
+Altitude is at the Vertical Axis and Magnetic Latitude at the Horizontal Axis.
+The color represents the time spent at each area.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>OrbitFileName</code></strong></dt>
+<dd>the filename of the csv file describing the satellite's orbit</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def PlotOrbit_Heatmap( OrbitFileName ):
+    &#34;&#34;&#34;
+    Plots the satellite positions as heatmap using seaborn.JointGrid.
+    Altitude is at the Vertical Axis and Magnetic Latitude at the Horizontal Axis.
+    The color represents the time spent at each area.
+    Args:
+        OrbitFileName: the filename of the csv file describing the satellite&#39;s orbit
+    &#34;&#34;&#34;
+    
+    with open( Orbit_Files_Path + OrbitFileName ) as CSVfile:  # read data from the orbit file
+        CSVreader = csv.reader( CSVfile )
+        # locate the column numnbers of interest inside the csv file
+        CSVheader = next( CSVreader )
+        Time_idx     = CSVheader.index( &#34;Epoch(UTCG)&#34;  ) #CSVheader.index( &#34;EpochText&#34; ) &#34;Time (UTCG)&#34;
+        Lat_idx      = CSVheader.index( &#34;Lat_GEOD(deg)&#34; ) #CSVheader.index( &#34;Latitude&#34; ) &#34;Lat (deg)&#34;
+        Lon_idx      = CSVheader.index( &#34;Lon_GEOD(deg)&#34; ) #CSVheader.index( &#34;Longitude&#34; ) &#34;Lon (deg)&#34;
+        Altitude_idx = CSVheader.index( &#34;Height_WGS84 (km)&#34; ) #CSVheader.index( &#34;Height&#34; ) &#34;Alt (km)&#34;
+        MagLat_idx   = CSVheader.index( &#34;Magnetic Latitude&#34; )
+        MLT_idx      = CSVheader.index( &#34;MLT&#34; )
+        X = list()
+        Y = list()
+        lineNum = 0
+        for row in CSVreader: # for each satellite position
+            lineNum += 1
+            if lineNum &gt; 1:
+                if float( row[Altitude_idx] ) &lt; 500: # only low altitudes are useful for this plot
+                    X.append( float(row[MagLat_idx]) )
+                    Y.append( float(row[Altitude_idx]) )
+
+    # Create a JointGrid seaborn-plot
+    joint_kws=dict(gridsize=50) #hex bin size; the higher the gridsize number the smaller the bins
+    plot = sns.jointplot(X, Y, kind=&#34;hex&#34;, cmap=&#39;rainbow&#39;, joint_kws=joint_kws)
+    # style Axes
+    sns.set(style=&#34;ticks&#34;)
+    plot.ax_marg_x.set_xlim(-90, 90)
+    plot.ax_marg_y.set_ylim(80, 500)
+    plot.set_axis_labels(xlabel=&#39;Magnetic Latitude (degrees)&#39;, ylabel=&#39;Altitude (km)&#39;)
+    # add a colorbar
+    cbar_ax = plot.fig.add_axes([.85, .25, .05, .4])  # x, y, width, height
+    cbar    = matplt.colorbar(cax=cbar_ax)
+    matplt.subplots_adjust(left=0.2, right=0.8, top=0.8, bottom=0.2) # shrink fig so cbar is visible
+    # display
+    matplt.show()</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.plot.PlotOrbit_KpScatter"><code class="name flex">
+<span>def <span class="ident">PlotOrbit_KpScatter</span></span>(<span>OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This plot displays all satellite positions as points colored by Kp-index.
+The Kp-indexes related to the orbit can be chosen by setting kp_startYear.
+The Magnetic Latitude is at Vertical Axis and Magnetic Local Time is at the Horizontal Axis.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>OrbitFileName</code></strong></dt>
+<dd>the filename of the csv file describing the satellite's orbit</dd>
+<dt><strong><code>kp_startYear</code></strong></dt>
+<dd>decides which Kp-index values to assign to each satellite position</dd>
+<dt><strong><code>from_date_str</code></strong></dt>
+<dd>the first satellite position to be displayed</dd>
+<dt><strong><code>to_date_str</code></strong></dt>
+<dd>the last satellite position to be displayed</dd>
+<dt><strong><code>from_Altitude</code></strong></dt>
+<dd>include only positions from this altitude and above</dd>
+<dt><strong><code>to_Altitude</code></strong></dt>
+<dd>include only positions until this altitude.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
+    &#34;&#34;&#34;
+    This plot displays all satellite positions as points colored by Kp-index. 
+    The Kp-indexes related to the orbit can be chosen by setting kp_startYear.
+    The Magnetic Latitude is at Vertical Axis and Magnetic Local Time is at the Horizontal Axis.
+    Args:
+        OrbitFileName: the filename of the csv file describing the satellite&#39;s orbit
+        kp_startYear: decides which Kp-index values to assign to each satellite position
+        from_date_str: the first satellite position to be displayed
+        to_date_str: the last satellite position to be displayed
+        from_Altitude: include only positions from this altitude and above
+        to_Altitude: include only positions until this altitude.
+    &#34;&#34;&#34;
+    StartSecs = time.time()
+    
+    with open( Orbit_Files_Path + OrbitFileName ) as CSVfile:
+        CSVreader = csv.reader( CSVfile )
+        # locate the column numnbers of interest inside the csv file
+        CSVheader = next( CSVreader )
+        Time_idx     = CSVheader.index( &#34;Epoch(UTCG)&#34; ) #CSVheader.index( &#34;EpochText&#34; )
+        Lat_idx      = CSVheader.index( &#34;Lat_GEOD(deg)&#34; ) #CSVheader.index( &#34;Latitude&#34; )
+        Lon_idx      = CSVheader.index( &#34;Lon_GEOD(deg)&#34; ) #CSVheader.index( &#34;Longitude&#34; )
+        Altitude_idx = CSVheader.index( &#34;Height_WGS84 (km)&#34; ) #CSVheader.index( &#34;Height&#34; )
+        MagLat_idx   = CSVheader.index( &#34;Magnetic Latitude&#34; )
+        MLT_idx      = CSVheader.index( &#34;MLT&#34; )
+        # read the satellite positions and add them to lists for ploting
+        new_x_axis = list()
+        new_y_axis = list()
+        kp_array   = list()
+        lineNum=0
+        for row in CSVreader: # for each satellite position
+            lineNum += 1
+            if lineNum == 1: OrbitStartYear = parseDate( row[Time_idx] ).year
+            CURR_Altitude = float( row[Altitude_idx] )
+            CURR_time = parseDate( row[Time_idx] )
+            if CURR_time == None:
+                print( &#34;ERROR during Kp-scatter while reading&#34;, OrbitFileName, &#34;: Wrong time format:&#34;, row[Time_idx] )
+                return 0, 0, &#34;&#34;, 0 # &lt;&lt;&lt;&lt;
+            CURR_timestamp = calendar.timegm( CURR_time.utctimetuple() ) 
+            FROM_timestamp = calendar.timegm( datetime.strptime( from_date_str,  &#34;%d-%m-%Y&#34; ).utctimetuple() ) 
+            TO_timestamp   = calendar.timegm( datetime.strptime( to_date_str,  &#34;%d-%m-%Y&#34; ).utctimetuple() ) 
+            if CURR_Altitude&gt;=from_Altitude and CURR_Altitude&lt;=to_Altitude and CURR_timestamp&gt;=FROM_timestamp and CURR_timestamp&lt;=TO_timestamp:
+                year  = CURR_time.year
+                month = CURR_time.month
+                day   = CURR_time.day
+                hour  = CURR_time.hour
+                Kp = -1
+                try: # calculate the Kp index for this particular time
+                    Kp = GeomagneticIndices[(num_to_2digit_str(day), num_to_2digit_str(month), num_to_2digit_str(kp_startYear+year-OrbitStartYear), str(hour//3))]
+                except:
+                    if month==2 and day==29: # the leap years may correspond to non-leap years at the selected range of years for Kp calculation
+                        Kp = GeomagneticIndices[(num_to_2digit_str(28), num_to_2digit_str(month), num_to_2digit_str(kp_startYear.value+year-OrbitStartYear), str(hour//3))]
+                # remember some useful properties of this satellite position
+                new_x_axis.append( float( row[MLT_idx]    ) )
+                new_y_axis.append( float( row[MagLat_idx] ) )
+                kp_array.append  ( Kp )
+    
+    #df[&#39;MLT&#39;] = df[&#39;MLT&#39;][0::3]
+    #df[&#39;Magnetic Latidude&#39;] = df[&#39;Magnetic Latidude&#39;][0::3]
+    #df[&#39;Kp&#39;] = df[&#39;Kp&#39;][0::3]
+    
+    # thin out the data because thery are too many 
+    #new_x_axis = new_x_axis[::3]
+    #new_y_axis = new_y_axis[::3]
+    #kp_array   = kp_array[::3]
+    print( &#34;I will plot&#34;, len(new_x_axis), &#34;dots&#34;)
+
+    # create the Kp scatter 
+    fig = go.Figure()
+    fig.add_trace(go.Scattergl( x=new_x_axis, y=new_y_axis,
+                              mode=&#39;markers&#39;, marker=dict(color=kp_array, cmin=0, cmax=9, size=1, colorscale=&#39;rainbow&#39;,showscale=True, 
+                                                          colorbar=dict(title=&#34;Kp&#34;, xanchor=&#34;left&#34;, x=-0.26, tick0=0, dtick=1, tickvals=[0,1,2,3,4,5,6,7,8,9], ticks=&#34;inside&#34;) ) ))
+    fig.update_layout( width=3000, height=2000, showlegend=False, coloraxis_showscale=False, title=&#34;Orbit file:&#34; + OrbitFileName + &#34;&lt;br&gt;&#34; + &#34;Kp values start year is &#34; + str(kp_startYear) + &#34;&lt;br&gt;&#34; + &#34;&lt;b&gt;Kp Indices during &#34; + from_date_str + &#34; - &#34; + to_date_str +  &#34; for Altitudes: &#34;+str(from_Altitude)+&#34;-&#34;+str(to_Altitude)+&#34; km&lt;/b&gt;&#34;)
+    fig.update_xaxes(title=&#34;Magnetic Local Time&#34;, showgrid=True, gridwidth=0.5, gridcolor=&#39;grey&#39;)
+    fig.update_layout(xaxis = dict(tickmode = &#39;linear&#39;,tick0 = 0,dtick = 2))    
+    fig.update_yaxes(title=&#34;Magnetic Latitude (deg)&#34;, showgrid=True, gridwidth=0.5, gridcolor=&#39;gray&#39;) 
+    fig.update_layout(yaxis = dict(tickmode = &#39;linear&#39;,tick0 = -90,dtick =30), margin=go.layout.Margin(b=150,t=150), width=1000, height=800, showlegend=True)
+    fig.update_xaxes(range=[0, 24],  showline=True, linewidth=2, linecolor=&#39;gray&#39;, mirror=True)
+    fig.update_yaxes(range=[-90, 90],showline=True, linewidth=2, linecolor=&#39;gray&#39;, mirror=True)
+    # draw rectangles to represent the bins on the figure        
+    MyColorsIndex = 0
+    for B in Bins:
+        if B.Altitude_min&gt;=from_Altitude and B.Altitude_max&lt;=to_Altitude:
+            BinInfo = &#34;{:3.0f}&#34;.format(B.Altitude_min) + &#34;-&#34; + &#34;{:3.0f}&#34;.format(B.Altitude_max) + &#34;km &#34; + &#34;: Kp&#34;+ str(B.Kp_min) + &#34;-&#34; + str(B.Kp_max) + &#34;: &#34; 
+            if B.CumulativeTime &gt; B.DesirableCumulativeTime: BinInfo += &#34;&lt;b&gt;&#34;
+            BinInfo += &#34;{:3.0f}&#34;.format(B.CumulativeTime/60) 
+            if B.CumulativeTime &gt; B.DesirableCumulativeTime: BinInfo += &#34;&lt;/b&gt;&#34;
+            BinInfo += &#34;/&#34; + &#34;{:3.0f}&#34;.format(B.DesirableCumulativeTime/60)  + &#34;min&#34;
+            if B.MLT_min &lt;= B.MLT_max: # ex: 10:00-14:00
+                Xmin1 = B.MLT_min
+                Xmax1 = B.MLT_max
+                Xmin2 = -1
+                Xmax2 = -1
+
+            else: # ex: 22:00-02:00
+                Xmin1 = B.MLT_min
+                Xmax1 = 24
+                Xmin2 = 0
+                Xmax2 = B.MLT_max
+            # check if this rectangle has been already plotted
+            FoundFigureIndex = -1 
+            for i in range( len(fig.layout[&#39;shapes&#39;]) ):
+                if fig.layout[&#39;shapes&#39;][i][&#34;x0&#34;]==Xmin1 and fig.layout[&#39;shapes&#39;][i][&#34;y0&#34;]==B.MagLat_min and fig.layout[&#39;shapes&#39;][i][&#34;x1&#34;]==Xmax1 and fig.layout[&#39;shapes&#39;][i][&#34;y1&#34;]==B.MagLat_max:
+                    FoundFigureIndex = i
+                    break
+            # add info about this bin to the legend text and/or draw a new rectangle
+            if FoundFigureIndex &gt;= 0: 
+                for i in range( len(fig[&#39;data&#39;]) ):
+                    if fig[&#39;data&#39;][i][&#39;name&#39;] is not None  and   B.Description in fig[&#39;data&#39;][i][&#39;name&#39;]:
+                        fig[&#39;data&#39;][i][&#39;name&#39;] += BinInfo + &#34;&lt;br&gt;&#34;
+            else:
+                # draw a rectangle representing the bin
+                fig.add_shape(go.layout.Shape( type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, opacity=0.7, layer=&#34;above&#34;,
+                    x0=Xmin1, y0=B.MagLat_min, x1=Xmax1, y1=B.MagLat_max, 
+                    line=dict(color=MyColors[MyColorsIndex], width=2,), fillcolor=MyColors[MyColorsIndex], 
+                ))
+                # add a trace so that a legend about the rectangle is created
+                fig.add_trace(go.Scatter( x=[0], y=[0], marker=dict(color=MyColors[MyColorsIndex], size=0, opacity=0), 
+                              name=&#34;&lt;b&gt;&#34; + B.Description + &#34;&lt;br&gt;&#34; + BinInfo + &#34;&lt;br&gt;&#34; ))
+                # draw a 2nd rectangle if necessary for this bin (when for ex it is 22:00-02:00)
+                if Xmin1&gt;=0 and Xmin2&gt;=0:
+                    fig.add_shape(go.layout.Shape( type=&#34;rect&#34;, xref=&#34;x&#34;, yref=&#34;y&#34;, opacity=0.7, layer=&#34;above&#34;,
+                        x0=Xmin2, y0=B.MagLat_min, x1=Xmax2, y1=B.MagLat_max, 
+                        line=dict(color=MyColors[MyColorsIndex], width=2,), fillcolor=MyColors[MyColorsIndex],
+                    ))
+                MyColorsIndex += 1
+                
+    # plot it
+    fig.update_layout( width=1000, height=1240, legend_orientation=&#34;h&#34; )
+    plotly.offline.init_notebook_mode(connected=True)
+    plotly.offline.iplot(fig) </code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="CoverageCalculator" href="index.html">CoverageCalculator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="CoverageCalculator.plot.PlotCoverage_Bars" href="#CoverageCalculator.plot.PlotCoverage_Bars">PlotCoverage_Bars</a></code></li>
+<li><code><a title="CoverageCalculator.plot.PlotCoverage_Bars_GroupedByRegion" href="#CoverageCalculator.plot.PlotCoverage_Bars_GroupedByRegion">PlotCoverage_Bars_GroupedByRegion</a></code></li>
+<li><code><a title="CoverageCalculator.plot.PlotCoverage_PolarChart" href="#CoverageCalculator.plot.PlotCoverage_PolarChart">PlotCoverage_PolarChart</a></code></li>
+<li><code><a title="CoverageCalculator.plot.PlotOrbit_Heatmap" href="#CoverageCalculator.plot.PlotOrbit_Heatmap">PlotOrbit_Heatmap</a></code></li>
+<li><code><a title="CoverageCalculator.plot.PlotOrbit_KpScatter" href="#CoverageCalculator.plot.PlotOrbit_KpScatter">PlotOrbit_KpScatter</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

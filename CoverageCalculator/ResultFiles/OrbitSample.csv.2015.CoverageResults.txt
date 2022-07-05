@@ -1,0 +1,119 @@
+# -- COVERAGE RESULTS -- 
+# Date of execution: 04-07-2022 18:18:07
+# Title: Sample Execution
+# Description: These results are created for demonstration purposes.
+# Parsed 125949 lines from orbit file ./OrbitFiles/OrbitSample.csv
+# Used Kp indices starting from year 2015
+# Bin Misses: 12861     Bin Hits: 2388
+# Duration of execution: 6 seconds  or  0.11 minutes
+# 
+AEM_L1  : 22<MLT<=02 060<MagLat<=075 115<Alt<=120 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEM_L2  : 22<MLT<=02 060<MagLat<=075 120<Alt<=125 0<Kp<=2 Coverage=   44.000/ 50.00min     2640/ 3000sec
+AEM_L3  : 22<MLT<=02 060<MagLat<=075 125<Alt<=130 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEM_L4  : 22<MLT<=02 060<MagLat<=075 130<Alt<=135 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEM_L5  : 22<MLT<=02 060<MagLat<=075 135<Alt<=140 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEM_L6  : 22<MLT<=02 060<MagLat<=075 140<Alt<=145 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEM_L7  : 22<MLT<=02 060<MagLat<=075 145<Alt<=150 0<Kp<=2 Coverage=   10.000/ 50.00min      600/ 3000sec
+AEM_M1  : 21<MLT<=03 060<MagLat<=075 115<Alt<=122 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEM_M2  : 21<MLT<=03 060<MagLat<=075 122<Alt<=129 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEM_M3  : 21<MLT<=03 060<MagLat<=075 129<Alt<=136 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEM_M4  : 21<MLT<=03 060<MagLat<=075 136<Alt<=143 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEM_M5  : 21<MLT<=03 060<MagLat<=075 143<Alt<=150 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEM_H1  : 22<MLT<=02 060<MagLat<=075 115<Alt<=150 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+AFM_L1  : 21<MLT<=03 060<MagLat<=075 150<Alt<=185 0<Kp<=2 Coverage=  127.000/ 50.00min     7620/ 3000sec
+AFM_L2  : 21<MLT<=03 060<MagLat<=075 185<Alt<=220 0<Kp<=2 Coverage=   47.000/ 50.00min     2820/ 3000sec
+AFM_L3  : 21<MLT<=03 060<MagLat<=075 220<Alt<=255 0<Kp<=2 Coverage=   13.000/ 50.00min      780/ 3000sec
+AFM_L4  : 21<MLT<=03 060<MagLat<=075 255<Alt<=290 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_L5  : 21<MLT<=03 060<MagLat<=075 290<Alt<=325 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_L6  : 21<MLT<=03 060<MagLat<=075 325<Alt<=360 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_L7  : 21<MLT<=03 060<MagLat<=075 360<Alt<=395 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_L8  : 21<MLT<=03 060<MagLat<=075 395<Alt<=430 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_L9  : 21<MLT<=03 060<MagLat<=075 430<Alt<=465 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_L10 : 21<MLT<=03 060<MagLat<=075 465<Alt<=500 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AFM_M1  : 21<MLT<=03 060<MagLat<=075 150<Alt<=238 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AFM_M2  : 21<MLT<=03 060<MagLat<=075 238<Alt<=325 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AFM_M3  : 21<MLT<=03 060<MagLat<=075 325<Alt<=412 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AFM_M4  : 21<MLT<=03 060<MagLat<=075 412<Alt<=500 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AFM_H1  : 21<MLT<=03 060<MagLat<=075 150<Alt<=265 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+AFM_H2  : 21<MLT<=03 060<MagLat<=075 265<Alt<=380 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+AFM_H3  : 21<MLT<=03 060<MagLat<=075 380<Alt<=500 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+AEE_L1  : 15<MLT<=21 060<MagLat<=075 115<Alt<=120 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEE_L2  : 15<MLT<=21 060<MagLat<=075 120<Alt<=125 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEE_L3  : 15<MLT<=21 060<MagLat<=075 125<Alt<=130 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEE_L4  : 15<MLT<=21 060<MagLat<=075 130<Alt<=135 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEE_L5  : 15<MLT<=21 060<MagLat<=075 135<Alt<=140 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEE_L6  : 15<MLT<=21 060<MagLat<=075 140<Alt<=145 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AEE_L7  : 15<MLT<=21 060<MagLat<=075 145<Alt<=150 0<Kp<=2 Coverage=   14.000/ 50.00min      840/ 3000sec
+AEE_M1  : 15<MLT<=21 060<MagLat<=075 115<Alt<=122 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEE_M2  : 15<MLT<=21 060<MagLat<=075 122<Alt<=129 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEE_M3  : 15<MLT<=21 060<MagLat<=075 129<Alt<=136 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEE_M4  : 15<MLT<=21 060<MagLat<=075 136<Alt<=143 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEE_M5  : 15<MLT<=21 060<MagLat<=075 143<Alt<=150 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AEE_H1  : 15<MLT<=21 060<MagLat<=075 115<Alt<=150 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+AED_L1  : 03<MLT<=09 060<MagLat<=075 115<Alt<=120 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_L2  : 03<MLT<=09 060<MagLat<=075 120<Alt<=125 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_L3  : 03<MLT<=09 060<MagLat<=075 125<Alt<=130 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_L4  : 03<MLT<=09 060<MagLat<=075 130<Alt<=135 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_L5  : 03<MLT<=09 060<MagLat<=075 135<Alt<=140 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_L6  : 03<MLT<=09 060<MagLat<=075 140<Alt<=145 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_L7  : 03<MLT<=09 060<MagLat<=075 145<Alt<=150 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+AED_M1  : 03<MLT<=09 060<MagLat<=075 115<Alt<=122 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AED_M2  : 03<MLT<=09 060<MagLat<=075 122<Alt<=129 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AED_M3  : 03<MLT<=09 060<MagLat<=075 129<Alt<=136 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AED_M4  : 03<MLT<=09 060<MagLat<=075 136<Alt<=143 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AED_M5  : 03<MLT<=09 060<MagLat<=075 143<Alt<=150 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+AED_H1  : 03<MLT<=09 060<MagLat<=075 115<Alt<=150 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+EEJ_A1  : 10<MLT<=13 -07<MagLat<=007 115<Alt<=127 0<Kp<=9 Coverage=    0.000/ 10.00min        0/  600sec
+EEJ_A2  : 10<MLT<=13 -07<MagLat<=007 127<Alt<=139 0<Kp<=9 Coverage=    0.000/ 10.00min        0/  600sec
+EEJ_A3  : 10<MLT<=13 -07<MagLat<=007 139<Alt<=150 0<Kp<=9 Coverage=    0.000/ 10.00min        0/  600sec
+EPB_A1  : 18<MLT<=04 -30<MagLat<=030 150<Alt<=185 0<Kp<=9 Coverage=  191.000/150.00min    11460/ 9000sec
+EPB_A2  : 18<MLT<=04 -30<MagLat<=030 185<Alt<=220 0<Kp<=9 Coverage=   64.000/150.00min     3840/ 9000sec
+EPB_A3  : 18<MLT<=04 -30<MagLat<=030 220<Alt<=255 0<Kp<=9 Coverage=   15.000/150.00min      900/ 9000sec
+EPB_A4  : 18<MLT<=04 -30<MagLat<=030 255<Alt<=290 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+EPB_A5  : 18<MLT<=04 -30<MagLat<=030 290<Alt<=325 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+EPB_A6  : 18<MLT<=04 -30<MagLat<=030 325<Alt<=360 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+EPB_A7  : 18<MLT<=04 -30<MagLat<=030 360<Alt<=395 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+EPB_A8  : 18<MLT<=04 -30<MagLat<=030 395<Alt<=430 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+EPB_A9  : 18<MLT<=04 -30<MagLat<=030 430<Alt<=465 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+EPB_A10 : 18<MLT<=04 -30<MagLat<=030 465<Alt<=500 0<Kp<=9 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A1   : 06<MLT<=19 -60<MagLat<=060 150<Alt<=185 0<Kp<=3 Coverage=  754.000/150.00min    45240/ 9000sec
+SQ_A2   : 06<MLT<=19 -60<MagLat<=060 185<Alt<=220 0<Kp<=3 Coverage=  188.000/150.00min    11280/ 9000sec
+SQ_A3   : 06<MLT<=19 -60<MagLat<=060 220<Alt<=255 0<Kp<=3 Coverage=   44.000/150.00min     2640/ 9000sec
+SQ_A4   : 06<MLT<=19 -60<MagLat<=060 255<Alt<=290 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A5   : 06<MLT<=19 -60<MagLat<=060 290<Alt<=325 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A6   : 06<MLT<=19 -60<MagLat<=060 325<Alt<=360 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A7   : 06<MLT<=19 -60<MagLat<=060 360<Alt<=395 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A8   : 06<MLT<=19 -60<MagLat<=060 395<Alt<=430 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A9   : 06<MLT<=19 -60<MagLat<=060 430<Alt<=465 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+SQ_A10  : 06<MLT<=19 -60<MagLat<=060 465<Alt<=500 0<Kp<=3 Coverage=    0.000/150.00min        0/ 9000sec
+CF_L1   : 10<MLT<=14 070<MagLat<=080 140<Alt<=185 0<Kp<=2 Coverage=   55.000/ 50.00min     3300/ 3000sec
+CF_L2   : 10<MLT<=14 070<MagLat<=080 185<Alt<=230 0<Kp<=2 Coverage=   22.000/ 50.00min     1320/ 3000sec
+CF_L3   : 10<MLT<=14 070<MagLat<=080 230<Alt<=275 0<Kp<=2 Coverage=   10.000/ 50.00min      600/ 3000sec
+CF_L4   : 10<MLT<=14 070<MagLat<=080 275<Alt<=320 0<Kp<=2 Coverage=    5.000/ 50.00min      300/ 3000sec
+CF_L5   : 10<MLT<=14 070<MagLat<=080 320<Alt<=365 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+CF_L6   : 10<MLT<=14 070<MagLat<=080 365<Alt<=410 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+CF_L7   : 10<MLT<=14 070<MagLat<=080 410<Alt<=455 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+CF_L8   : 10<MLT<=14 070<MagLat<=080 455<Alt<=500 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+CF_M1   : 10<MLT<=14 070<MagLat<=080 140<Alt<=230 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+CF_M2   : 10<MLT<=14 070<MagLat<=080 230<Alt<=320 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+CF_M3   : 10<MLT<=14 070<MagLat<=080 320<Alt<=410 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+CF_M4   : 10<MLT<=14 070<MagLat<=080 410<Alt<=500 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+CF_H1   : 10<MLT<=14 070<MagLat<=080 140<Alt<=260 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+CF_H2   : 10<MLT<=14 070<MagLat<=080 260<Alt<=380 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+CF_H3   : 10<MLT<=14 070<MagLat<=080 380<Alt<=500 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+PCF_L1  : 14<MLT<=10 070<MagLat<=090 140<Alt<=185 0<Kp<=2 Coverage=  591.000/ 50.00min    35460/ 3000sec
+PCF_L2  : 14<MLT<=10 070<MagLat<=090 185<Alt<=230 0<Kp<=2 Coverage=  122.000/ 50.00min     7320/ 3000sec
+PCF_L3  : 14<MLT<=10 070<MagLat<=090 230<Alt<=275 0<Kp<=2 Coverage=   58.000/ 50.00min     3480/ 3000sec
+PCF_L4  : 14<MLT<=10 070<MagLat<=090 275<Alt<=320 0<Kp<=2 Coverage=   13.000/ 50.00min      780/ 3000sec
+PCF_L5  : 14<MLT<=10 070<MagLat<=090 320<Alt<=365 0<Kp<=2 Coverage=    1.000/ 50.00min       60/ 3000sec
+PCF_L6  : 14<MLT<=10 070<MagLat<=090 365<Alt<=410 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+PCF_L7  : 14<MLT<=10 070<MagLat<=090 410<Alt<=455 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+PCF_L8  : 14<MLT<=10 070<MagLat<=090 455<Alt<=500 0<Kp<=2 Coverage=    0.000/ 50.00min        0/ 3000sec
+PCF_M1  : 14<MLT<=10 070<MagLat<=090 140<Alt<=230 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+PCF_M2  : 14<MLT<=10 070<MagLat<=090 230<Alt<=320 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+PCF_M3  : 14<MLT<=10 070<MagLat<=090 320<Alt<=410 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+PCF_M4  : 14<MLT<=10 070<MagLat<=090 410<Alt<=500 2<Kp<=4 Coverage=    0.000/ 30.00min        0/ 1800sec
+PCF_H1  : 14<MLT<=10 070<MagLat<=090 140<Alt<=260 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+PCF_H2  : 14<MLT<=10 070<MagLat<=090 260<Alt<=380 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+PCF_H3  : 14<MLT<=10 070<MagLat<=090 380<Alt<=500 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec
+SMP_A1  : 22<MLT<=02 070<MagLat<=080 100<Alt<=150 4<Kp<=9 Coverage=    0.000/ 20.00min        0/ 1200sec

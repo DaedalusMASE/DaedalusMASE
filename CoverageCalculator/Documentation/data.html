@@ -1,0 +1,1367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>CoverageCalculator.data API documentation</title>
+<meta name="description" content="This module contains the data holders necessary to calculate coverage and the Coverage-Calculation function.
+The main data element is the &#34;Bin&#34;. A Bin …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>CoverageCalculator.data</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains the data holders necessary to calculate coverage and the Coverage-Calculation function.
+The main data element is the "Bin". A Bin is defined by ranges of Magnetic Local Time, Magnetic Latitude, Altitude and Kp.
+Every position of the satellite that falls inside these ranges is assigned to the respective Bin.
+Thus the coverage for this Bin can be calculated.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#39;&#39;&#39;
+This module contains the data holders necessary to calculate coverage and the Coverage-Calculation function.
+The main data element is the &#34;Bin&#34;. A Bin is defined by ranges of Magnetic Local Time, Magnetic Latitude, Altitude and Kp.
+Every position of the satellite that falls inside these ranges is assigned to the respective Bin.
+Thus the coverage for this Bin can be calculated.
+&#39;&#39;&#39;
+
+# imports used by the coverage calculation
+import csv
+import time
+from os import path
+from utils import *
+
+Orbit_Files_Path = &#34;./OrbitFiles/&#34;  # holds the csv files which describe the orbit. Columns: Time Latitude Longitude MagneticLatitude MagneticLongitude MagneticLocalTime
+CoverageResults_Files_Path = &#34;./ResultFiles/&#34;  # holds the files
+GeomagneticIndices_Files_Path = &#34;./GeomagneticIndices/&#34;  # holds the files with the Kp index of the sun for several years. 
+
+
+def set_OrbitFilesPath( path ):
+    &#34;&#34;&#34;
+        Sets the path where the csv files describing the satellite orbit are located.
+        The csv file must contain the following columns:
+        Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magnetic Longitude,MLT
+
+        Args:
+            path (string): a path to the files
+    &#34;&#34;&#34;
+    Orbit_Files_Path = path
+    
+def set_CoverageResultsFilesPath( path ):
+    &#34;&#34;&#34;
+        Sets the path where the results of the coverage calculation are stored.
+        The results are plain text files which describe the coverage results for each bin.
+
+        Args:
+            path (string): a path to the files
+    &#34;&#34;&#34;
+    CoverageResults_Files_Path = path
+    
+def set_GeomagneticIndicesFilesPath( path ):
+    &#34;&#34;&#34;
+        Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
+        The Kp-index is a value from 0 to 9 which characterizes the magnitude of geomagnetic storms. 
+        Explanation of Kp files: https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html   
+        Download location of Kp files: ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP  
+
+        Args:
+            path (string): a path to the files
+    &#34;&#34;&#34;
+    GeomagneticIndices_Files_Path = path
+    
+
+# Holds the Geomagnetic kp Indices. 
+# Accessing examples: GeomagneticIndices[(&#34;23&#34;, &#34;05&#34;, &#34;2011&#34;, &#34;0&#34;)] stores the kp index for 23-05-2001 00:00-03:00
+#                     GeomagneticIndices[(&#34;23&#34;, &#34;05&#34;, &#34;2011&#34;, &#34;3&#34;)] stores the kp index for 23-05-2001 09:00-12:00
+# Explanation: https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html   
+# Download location: ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP  
+GeomagneticIndices = dict()
+
+
+&#39;&#39;&#39;
+Define a class which to describe a bin
+&#39;&#39;&#39;
+class Bin:
+    ID             = &#34;&#34;
+    Description    = &#34;&#34;
+    MLT_min        = 0 # Magnetic Local Time (hour &amp; min of the 24-hour day) (string)
+    MLT_max        = 0 # Magnetic Local Time (hour &amp; min of the 24-hour day) (string)
+    MagLat_min     = 0 # Magnetic Latitude (degrees)
+    MagLat_max     = 0 # Magnetic Latitude (degrees)
+    Altitude_min   = 0 # Satellite&#39;s Altitude measured from Earth&#39;s surface (km)
+    Altitude_max   = 0 # Satellite&#39;s Altitude measured from Earth&#39;s surface (km)
+    Kp_min         = 0 #
+    Kp_max         = 0 #
+    NumOfBins      = 0 # How many parts will the Altitude range be splitted in
+    CumulativeTime = 0 # (sec)
+    DesirableCumulativeTime = 0 # (sec)
+    
+    def __init__(self, ID, Description, MLT_min, MLT_max, MagLat_min, MagLat_max, Altitude_min, Altitude_max, Kp_min, Kp_max, DesirableCumulativeTime):
+        self.ID             = ID
+        self.Description    = Description
+        self.MLT_min        = MLT_min 
+        self.MLT_max        = MLT_max
+        self.MagLat_min     = MagLat_min
+        self.MagLat_max     = MagLat_max
+        self.Altitude_min   = Altitude_min
+        self.Altitude_max   = Altitude_max
+        self.Kp_min         = Kp_min
+        self.Kp_max         = Kp_max
+        self.DesirableCumulativeTime = DesirableCumulativeTime
+        
+    def getInfo(self):
+        s  = self.ID.ljust(8, &#39; &#39;) + &#34;: &#34;
+        s += &#34;{:02.0f}&#34;.format(self.MLT_min)      + &#34;&lt;MLT&lt;=&#34;    + &#34;{:02.0f}&#34;.format(self.MLT_max)      + &#34; &#34;
+        s += &#34;{:03.0f}&#34;.format(self.MagLat_min)   + &#34;&lt;MagLat&lt;=&#34; + &#34;{:03.0f}&#34;.format(self.MagLat_max)   + &#34; &#34;
+        s += &#34;{:03.0f}&#34;.format(self.Altitude_min) + &#34;&lt;Alt&lt;=&#34;    + &#34;{:03.0f}&#34;.format(self.Altitude_max) + &#34; &#34;
+        s += str(self.Kp_min)             + &#34;&lt;Kp&lt;=&#34;     + str(self.Kp_max)       + &#34; &#34;
+        s += &#34;Coverage=&#34; 
+        s += ConvertLeadingZerosToSpaces( &#34;{:09.3f}&#34;.format(self.CumulativeTime/60) ) + &#34;/&#34; 
+        s += ConvertLeadingZerosToSpaces( &#34;{:06.2f}&#34;.format(self.DesirableCumulativeTime/60) ) + &#34;min &#34;
+        s += ConvertLeadingZerosToSpaces( &#34;{:08.0f}&#34;.format(self.CumulativeTime) ) + &#34;/&#34; 
+        s += ConvertLeadingZerosToSpaces( &#34;{:05.0f}&#34;.format(self.DesirableCumulativeTime) ) + &#34;sec&#34;
+        return s
+    
+    def printMe(self):
+        print( self.getInfo() )
+
+# this list holds the definitions of all bins
+Bins = list()
+#                ID        Description                          MLT      MagLat    Altitude                Kp       DesirableTime(sec)
+Bins.append( Bin(&#34;AEM_L1&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   115, 120,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_L2&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   120, 125,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_L3&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   125, 130,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_L4&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   130, 135,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_L5&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   135, 140,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_L6&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   140, 145,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_L7&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   145, 150,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEM_M1&#34;, &#34;Auroral E region, midnight sector&#34;, 21, 3,   60, 75,   115, 122,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEM_M2&#34;, &#34;Auroral E region, midnight sector&#34;, 21, 3,   60, 75,   122, 129,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEM_M3&#34;, &#34;Auroral E region, midnight sector&#34;, 21, 3,   60, 75,   129, 136,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEM_M4&#34;, &#34;Auroral E region, midnight sector&#34;, 21, 3,   60, 75,   136, 143,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEM_M5&#34;, &#34;Auroral E region, midnight sector&#34;, 21, 3,   60, 75,   143, 150,               2, 4,   30*60 ) )    
+Bins.append( Bin(&#34;AEM_H1&#34;, &#34;Auroral E region, midnight sector&#34;, 22, 2,   60, 75,   115, 150,               4, 9,   20*60 ) )
+
+Bins.append( Bin(&#34;AFM_L1&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   150, 185,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L2&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   185, 220,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L3&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   220, 255,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L4&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   255, 290,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L5&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   290, 325,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L6&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   325, 360,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L7&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   360, 395,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L8&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   395, 430,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L9&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   430, 465,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_L10&#34;,&#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   465, 500,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AFM_M1&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   150.0, 237.5,           2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AFM_M2&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   237.5, 325.0,           2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AFM_M3&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   325.0, 412.5,           2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AFM_M4&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   412.5, 500.0,           2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AFM_H1&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   150, 265,               4, 9,   20*60 ) )
+Bins.append( Bin(&#34;AFM_H2&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   265, 380,               4, 9,   20*60 ) )
+Bins.append( Bin(&#34;AFM_H3&#34;, &#34;Auroral F region, midnight sector&#34;, 21, 3,   60, 75,   380, 500,               4, 9,   20*60 ) )
+
+Bins.append( Bin(&#34;AEE_L1&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   115, 120,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_L2&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   120, 125,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_L3&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   125, 130,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_L4&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   130, 135,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_L5&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   135, 140,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_L6&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   140, 145,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_L7&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   145, 150,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AEE_M1&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   115, 122,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEE_M2&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   122, 129,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEE_M3&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   129, 136,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEE_M4&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   136, 143,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEE_M5&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   143, 150,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AEE_H1&#34;, &#34;Auroral E region, evening sector&#34;,  15, 21,  60, 75,   115, 150,               4, 9,   20*60 ) )
+
+Bins.append( Bin(&#34;AED_L1&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   115, 120,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_L2&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   120, 125,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_L3&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   125, 130,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_L4&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   130, 135,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_L5&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   135, 140,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_L6&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   140, 145,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_L7&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   145, 150,                 0, 2,   50*60 ) )
+Bins.append( Bin(&#34;AED_M1&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   115, 122,                 2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AED_M2&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   122, 129,                 2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AED_M3&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   129, 136,                 2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AED_M4&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   136, 143,                 2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AED_M5&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   143, 150,                 2, 4,   30*60 ) )
+Bins.append( Bin(&#34;AED_H1&#34;, &#34;Auroral E region, dawn sector&#34;,     3, 9,   60, 75,   115, 150,                 4, 9,   20*60 ) )
+
+Bins.append( Bin(&#34;EEJ_A1&#34;, &#34;Equatorial E-region&#34;,             10, 13,  -7,  7,   115,   127,               0, 9,   10*60 ) )
+Bins.append( Bin(&#34;EEJ_A2&#34;, &#34;Equatorial E-region&#34;,             10, 13,  -7,  7,   127,   139,               0, 9,   10*60 ) )
+Bins.append( Bin(&#34;EEJ_A3&#34;, &#34;Equatorial E-region&#34;,             10, 13,  -7,  7,   139,   150,               0, 9,   10*60 ) )
+
+Bins.append( Bin(&#34;EPB_A1&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   150, 185,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A2&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   185, 220,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A3&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   220, 255,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A4&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   255, 290,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A5&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   290, 325,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A6&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   325, 360,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A7&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   360, 395,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A8&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   395, 430,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A9&#34;, &#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   430, 465,                  0, 9,   150*60 ) )
+Bins.append( Bin(&#34;EPB_A10&#34;,&#34;Equatorial Plasma Bubbles&#34;,       18,  4, -30, 30,   465, 500,                  0, 9,   150*60 ) )
+
+Bins.append( Bin(&#34;SQ_A1&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   150, 185,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A2&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   185, 220,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A3&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   220, 255,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A4&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   255, 290,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A5&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   290, 325,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A6&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   325, 360,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A7&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   360, 395,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A8&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   395, 430,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A9&#34;,  &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   430, 465,                  0, 3,   150*60 ) )
+Bins.append( Bin(&#34;SQ_A10&#34;, &#34;Sq &amp; midlat F region currents&#34;,    6, 19, -60, 60,   465, 500,                  0, 3,   150*60 ) )
+
+Bins.append( Bin(&#34;CF_L1&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   140, 185,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L2&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   185, 230,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L3&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   230, 275,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L4&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   275, 320,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L5&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   320, 365,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L6&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   365, 410,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L7&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   410, 455,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_L8&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   455, 500,                0, 2,   50*60 ) )
+Bins.append( Bin(&#34;CF_M1&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   140, 230,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;CF_M2&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   230, 320,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;CF_M3&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   320, 410,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;CF_M4&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   410, 500,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;CF_H1&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   140, 260,               4, 9,   20*60 ) )
+Bins.append( Bin(&#34;CF_H2&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   260, 380,               4, 9,   20*60 ) )
+Bins.append( Bin(&#34;CF_H3&#34;, &#34;Dayside Cusp F-region&#34;,            10, 14,   70,  80,   380, 500,               4, 9,   20*60 ) )
+
+Bins.append( Bin(&#34;PCF_L1&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   140, 185,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L2&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   185, 230,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L3&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   230, 275,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L4&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   275, 320,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L5&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   320, 365,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L6&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   365, 410,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L7&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   410, 455,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_L8&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   455, 500,               0, 2,   50*60 ) )
+Bins.append( Bin(&#34;PCF_M1&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   140, 230,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;PCF_M2&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   230, 320,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;PCF_M3&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   320, 410,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;PCF_M4&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   410, 500,               2, 4,   30*60 ) )
+Bins.append( Bin(&#34;PCF_H1&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   140, 260,               4, 9,   20*60 ) )
+Bins.append( Bin(&#34;PCF_H2&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   260, 380,               4, 9,   20*60 ) )
+Bins.append( Bin(&#34;PCF_H3&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   380, 500,               4, 9,   20*60 ) )
+
+def ClearBins():
+    &#34;&#34;&#34;
+        Removes all Bins.
+    &#34;&#34;&#34;
+    Bins.clear()     
+
+def CreateNewBin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
+    &#34;&#34;&#34;
+        Defines a new Bin according to the specified ranges.
+        All satellite positions which fall in these ranges will be assigned to this Bin. 
+        The plots will be created according to all the defined Bins.
+        The library initializes certain predefined Bins. Call ClearBins() in order to remove them.
+        Args:
+            ID (string): a code name for this Bin. It will be displayed on the plots.
+            Description (string): a description for this Bin. It will be displayed on the plots.
+            MagneticLocalTime_from: range for Magnetic-Local-Time of the Bin.
+            MagneticLocalTime_to: range for Magnetic-Local-Time of the Bin.
+            MagneticLatitude_from: range for Magnetic-Latitude of the Bin.
+            MagneticLatitude_to: range for Magnetic-Latitude of the Bin.
+            Altitude_from: range for Altitude of the Bin.
+            Altitude_to: range for Altitude of the Bin.
+            Kp_from: range for Kp-index of the Bin.
+            Kp_to: range for Kp-index of the Bin.
+            DesirableTime: (seconds) The minimun time for the satellite to stay inside the Bin in order to accomplish its mission.
+    &#34;&#34;&#34;
+    Bins.append( Bin(ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime) )
+    
+    
+def GetMatchedBin( MLT, MagLat, Altitude, Kp ):
+    &#34;&#34;&#34;
+        Finds and returns the Bin object which matches the position of the satellite described by the arguments.
+        
+        Args:
+                MLT: the Magnetic Local Time
+                MagLat: The Magnetic Latitude
+                Altitude: The Altitude
+                Kp: the Kp-index
+        Returns:
+                Bin: the Bin in which the position represented by the arguments is matched.
+    &#34;&#34;&#34;
+    
+    MatchedBin = None
+    for B in Bins:
+        Kp_min_to_check = B.Kp_min
+        if Kp_min_to_check == 0: Kp_min_to_check = -1
+        ####
+        if is_MLT_inside_range(MLT, B.MLT_min, B.MLT_max):
+            if         MagLat   &gt; B.MagLat_min    and  MagLat   &lt;= B.MagLat_max:
+                if     Altitude &gt; B.Altitude_min  and  Altitude &lt;= B.Altitude_max:
+                    if Kp       &gt; Kp_min_to_check and  Kp       &lt;= B.Kp_max:
+                        MatchedBin = B
+                        break
+    return MatchedBin
+
+
+
+def getBinByItsProperties( MLT_min, MLT_max, MagLat_min, MagLat_max, Altitude_min, Altitude_max, Kp_min, Kp_max ):
+    &#34;&#34;&#34;
+        Finds and returns the Bin object having the ranges of the arguments.
+        
+        Args:
+                MLT_min: the Magnetic Local Time minimum
+                MLT_max: the Magnetic Local Time maximum
+                MagLat_min: The Magnetic Latitude minimum
+                MagLat_max: The Magnetic Latitude maximum
+                Altitude_min: The Altitude minimum
+                Altitude_max: The Altitude maximum
+                Kp_min: the Kp-index minimum
+                Kp_max: the Kp-index maximum
+                
+        Returns:
+                Bin: the Bin in which the position represented by the arguments is matched
+    &#34;&#34;&#34;
+    
+    CorrectBin = None
+    for B in Bins:
+        if             MLT_min      == B.MLT_min       and  MLT_max      == B.MLT_max:
+            if         MagLat_min   == B.MagLat_min    and  MagLat_max   == B.MagLat_max:
+                if     Altitude_min == B.Altitude_min  and  Altitude_max == B.Altitude_max:
+                    if Kp_min       == B.Kp_min        and  Kp_max       == B.Kp_max:
+                        CorrectBin = B
+                        break
+    return CorrectBin
+
+
+# returns: the bin object which matches the arguments
+def getBinByItsID( IDstr ):
+    &#34;&#34;&#34;
+        Finds and returns a Bin object given its ID.
+        
+        Args:
+                IDstr (string): an ID                 
+        Returns:
+                Bin: the Bin which has the same ID as the argument
+    &#34;&#34;&#34;
+
+    CorrectBin = None
+    for B in Bins:
+        if B.ID == IDstr:
+            CorrectBin = B
+            break
+    return CorrectBin
+
+
+# Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
+# Data Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
+# Data Source (download)   : ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP
+def readGeomagneticIndices(fromYear, toYear):
+    &#34;&#34;&#34;
+        Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
+        Geomagnetic kp Indices Files Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
+        Geomagnetic kp Indices Files Source (download)   : ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP
+        
+        Args:
+                fromYear: the first year for which the Geomagnetic kp Indices will be loaded
+                toYear: the last year for which the Geomagnetic kp Indices will be loaded
+        Returns:
+                -
+    &#34;&#34;&#34;
+    
+    global GeomagneticIndices
+    for Y in range(fromYear, toYear): # this range should be small for execution speed
+        with open(GeomagneticIndices_Files_Path + str(Y)) as fp:
+            for line in fp:
+                year  = &#34;20&#34; + line[0:2]
+                month = line[2:4]
+                day   = line[4:6]
+                kp00  = float(line[12:14]) / 10
+                kp03  = float(line[14:16]) / 10
+                kp06  = float(line[16:18]) / 10
+                kp09  = float(line[18:20]) / 10
+                kp12  = float(line[20:22]) / 10
+                kp15  = float(line[22:24]) / 10
+                kp18  = float(line[24:26]) / 10
+                kp21  = float(line[26:28]) / 10
+                GeomagneticIndices[(day, month, year, &#34;0&#34;)] = kp00
+                GeomagneticIndices[(day, month, year, &#34;1&#34;)] = kp03
+                GeomagneticIndices[(day, month, year, &#34;2&#34;)] = kp06
+                GeomagneticIndices[(day, month, year, &#34;3&#34;)] = kp09
+                GeomagneticIndices[(day, month, year, &#34;4&#34;)] = kp12
+                GeomagneticIndices[(day, month, year, &#34;5&#34;)] = kp15
+                GeomagneticIndices[(day, month, year, &#34;6&#34;)] = kp18
+                GeomagneticIndices[(day, month, year, &#34;7&#34;)] = kp21
+            fp.close()
+
+
+
+def is_MLT_inside_range( MLT, MLT_min, MLT_max ):
+    &#34;&#34;&#34;
+        Checks if certain Magnetic-Local-Time lies in a certain range. It can handle ranges like 22-2
+        Returns:
+            true if MLT falls inside [MLT_min, MLT_max]
+    &#34;&#34;&#34;
+    if MLT_min &lt;= MLT_max: # example: from 13 to 18 hour
+        return (MLT &gt; MLT_min  and  MLT &lt;= MLT_max)
+    else: # example: from 22 to 3 hour
+        return (MLT &gt; MLT_min  or   MLT &lt;= MLT_max)
+
+            
+            
+def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear ):
+    &#34;&#34;&#34;
+        Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
+        The results are stored in a text file for later usage.
+        Args:
+            Title: to be stored inside the results text file
+            Description: to be stored inside the results text file
+            OrbitFilename: the csv file which describes a satellite orbit. Only the filename, not the path.
+            KpStartYear (string): the Kp-indexes to be used for the calculation. Choose a period during which the Sun&#39;s activity was similar to the one anticipated during your future satellite mission. 
+        Returns: 
+            int: how many bin misses occured
+            int: how many bin hits occured
+            string: the filename where the coverage results are stored
+            int: the duration of execution in seconds
+    &#34;&#34;&#34;
+    KpStartYear = str(KpStartYear)
+    ResultsFilename = CoverageResults_Files_Path + OrbitFilename + &#34;.&#34; + KpStartYear + &#34;.CoverageResults.txt&#34;    
+    ####
+    Kp = 0
+    startSecs = time.time()
+    BinMisses = BinHits = 0
+    PREV_time  = CURR_time  = None
+    PREV_BinID = CURR_BinID = &#34;&#34;
+    if path.exists( ResultsFilename ):
+        print( &#34;File &#34; + ResultsFilename + &#34; already exists. Cannot continue in order to prevent overwriting useful data.&#34; )
+        return 0, 0, &#34;&#34;, 0 # &lt;&lt;&lt;&lt;
+    ########
+    with open( Orbit_Files_Path + OrbitFilename ) as CSVfile:        
+        CSVreader = csv.reader( CSVfile )
+        # locate the column numnbers of interest inside the csv file
+        CSVheader = next( CSVreader )
+        Time_idx     = CSVheader.index( &#34;Epoch(UTCG)&#34; ) 
+        Lat_idx      = CSVheader.index( &#34;Lat_GEOD(deg)&#34; )
+        Lon_idx      = CSVheader.index( &#34;Lon_GEOD(deg)&#34; )
+        Altitude_idx = CSVheader.index( &#34;Height_WGS84 (km)&#34; )
+        MagLat_idx   = CSVheader.index( &#34;Magnetic Latitude&#34; )
+        MLT_idx      = CSVheader.index( &#34;MLT&#34; )
+        # read the satellite positions and try to fill the bins
+        n = 0
+        num_of_errors = 0
+        for row in CSVreader: # for each satellite position
+            n = n + 1
+            if n == 1: OrbitStartYear = parseDate( row[Time_idx] ).year
+            PREV_time = CURR_time
+            # parse the date-time of this satellite position
+            CURR_time = parseDate( row[Time_idx] ) 
+            if CURR_time == None:
+                print( &#34;ERROR during coverage calculation while reading&#34;, Orbit_Files_Path + OrbitFilename, &#34;: Wrong time format:&#34;,row[Time_idx],&#34;.:  &#34;, row )
+                num_of_errors += 1
+                if num_of_errors &lt; 50:
+                    continue
+                else:
+                    print(&#34;Too many errors. Aborting.&#34;)
+                    return 0, 0, &#34;&#34;, 0 # &lt;&lt;&lt;&lt;
+            year  = CURR_time.year
+            month = CURR_time.month
+            day   = CURR_time.day
+            hour  = CURR_time.hour
+            # calculate the Kp index for this particular time
+            try:
+                Kp = GeomagneticIndices[(num_to_2digit_str(day), num_to_2digit_str(month), num_to_2digit_str(Years_Dropdown.value+year-OrbitStartYear), str(hour//3))]
+            except:
+                if month==2 and day==29: # the leap years may correspond to non-leap years at the selected range of years for Kp calculation
+                    Kp = GeomagneticIndices[(num_to_2digit_str(28), num_to_2digit_str(month), num_to_2digit_str(Years_Dropdown.value+year-OrbitStartYear), str(hour//3))]
+            # remember some useful properties of this satellite position
+            MLT      = float( row[MLT_idx] )
+            MagLat   = float( row[MagLat_idx] )
+            Altitude = float( row[Altitude_idx] )
+            # Check if the satellite position can be assigned to a bin
+            mathedBin = GetMatchedBin( MLT, MagLat, Altitude, Kp )
+            # If the satellite is inside a bin during the last 2 positions then calculate the duration
+            PREV_BinID = CURR_BinID
+            if mathedBin is None:
+                CURR_BinID = &#34;&#34;
+            else:
+                CURR_BinID = mathedBin.ID            
+            if len(CURR_BinID) &gt; 0  and  CURR_BinID == PREV_BinID:
+                BinHits = BinHits + 1
+                DurationInsideBin = (CURR_time - PREV_time).seconds
+                mathedBin.CumulativeTime += DurationInsideBin 
+            elif len(CURR_BinID) &gt; 0:
+                BinMisses = BinMisses + 1
+    # calculate duration of execution
+    finishSecs = time.time()
+    DurationOfExecution = finishSecs-startSecs
+    # Save the results in a text file
+    nowstr = datetime.now().strftime(&#34;%d-%m-%Y %H:%M:%S&#34;)    
+    F = open(ResultsFilename, &#39;w&#39;)
+    F.write( &#34;# -- COVERAGE RESULTS -- &#34; + &#34;\n&#34;  )
+    F.write( &#34;# Date of execution: &#34; + nowstr + &#34;\n&#34; )
+    F.write( &#34;# Title: &#34; + Title + &#34;\n&#34; )
+    F.write( &#34;# Description: &#34; + Description + &#34;\n&#34;)
+    F.write( &#34;# Parsed &#34; + str(n) + &#34; lines from orbit file &#34; + Orbit_Files_Path + OrbitFilename + &#34;\n&#34;)
+    F.write( &#34;# Used Kp indices starting from year &#34; + KpStartYear + &#34;\n&#34;)
+    F.write( &#34;# Bin Misses: &#34; + str(BinMisses) + &#34;     Bin Hits: &#34; + str(BinHits) + &#34;\n&#34;)
+    F.write( &#34;# Duration of execution: &#34; + ConvertLeadingZerosToSpaces(&#34;{0:.0f}&#34;.format(DurationOfExecution)) + &#34; seconds  or  &#34; + ConvertLeadingZerosToSpaces(&#34;{0:.2f}&#34;.format(DurationOfExecution/60))  + &#34; minutes&#34; + &#34;\n&#34; )
+    F.write( &#34;# &#34; + &#34;\n&#34;)    
+    for B in Bins:
+        F.write( B.getInfo() + &#34;\n&#34; )
+    F.close()
+    #
+    return BinMisses, BinHits, ResultsFilename, DurationOfExecution
+            
+    
+    
+def LoadCoverageResults( ResultsFilename ):
+    &#34;&#34;&#34;
+        Loads a coverage-results file and store the information in the Bins. 
+        Args:
+            ResultsFilename: the coverage-results file to read
+        Returns:
+            (string): the title of the loaded calculation.
+            (string): the description of the loaded calculation.
+            (string): the orbit filename used for the loaded calculation.
+            (string): the Kp-start-year used for the loaded calculation.
+    &#34;&#34;&#34;
+    with open(ResultsFilename, &#39;r&#39;) as F:
+        for line in F:
+            if line[0:1] == &#39;#&#39;: # this line contains a comment, print it as it is.
+                print ( line[1:len(line)-1] )
+                if line.startswith(&#34;# Title:&#34;): COVERAGE_Title = line[8:].strip()
+                if line.startswith(&#34;# Description:&#34;): COVERAGE_Description = line[14:].strip()
+                if line.startswith(&#34;# Parsed&#34;): COVERAGE_OrbitFilename = line[line.find(&#34;orbit file&#34;)+11:].strip()
+                if line.startswith(&#34;# Used Kp&#34;): COVERAGE_KpStartYear = line[37:].strip()
+            else: # this line contains bin info, print it and store them in the correct bin.
+                print ( line[:len(line)-1] )
+                aBinID = line[:line.find(&#34;:&#34;)].strip()
+                secondsInBin = float( line[line.rfind(&#34;min&#34;)+3:line.rfind(&#34;/&#34;)] )
+                for B in Bins:
+                    if B.ID == aBinID:
+                        B.CumulativeTime = secondsInBin
+                        break
+    F.close()
+    return COVERAGE_Title, COVERAGE_Description, COVERAGE_OrbitFilename, COVERAGE_KpStartYear</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="CoverageCalculator.data.GeomagneticIndices"><code class="name">var <span class="ident">GeomagneticIndices</span></code></dt>
+<dd>
+<div class="desc"><p>Define a class which to describe a bin</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="CoverageCalculator.data.CalculateCoverage"><code class="name flex">
+<span>def <span class="ident">CalculateCoverage</span></span>(<span>Title, Description, OrbitFilename, KpStartYear)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
+The results are stored in a text file for later usage.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>Title</code></strong></dt>
+<dd>to be stored inside the results text file</dd>
+<dt><strong><code>Description</code></strong></dt>
+<dd>to be stored inside the results text file</dd>
+<dt><strong><code>OrbitFilename</code></strong></dt>
+<dd>the csv file which describes a satellite orbit. Only the filename, not the path.</dd>
+<dt><strong><code>KpStartYear</code></strong> :&ensp;<code>string</code></dt>
+<dd>the Kp-indexes to be used for the calculation. Choose a period during which the Sun's activity was similar to the one anticipated during your future satellite mission. </dd>
+</dl>
+<p>Returns:
+int: how many bin misses occured
+int: how many bin hits occured
+string: the filename where the coverage results are stored
+int: the duration of execution in seconds</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear ):
+    &#34;&#34;&#34;
+        Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
+        The results are stored in a text file for later usage.
+        Args:
+            Title: to be stored inside the results text file
+            Description: to be stored inside the results text file
+            OrbitFilename: the csv file which describes a satellite orbit. Only the filename, not the path.
+            KpStartYear (string): the Kp-indexes to be used for the calculation. Choose a period during which the Sun&#39;s activity was similar to the one anticipated during your future satellite mission. 
+        Returns: 
+            int: how many bin misses occured
+            int: how many bin hits occured
+            string: the filename where the coverage results are stored
+            int: the duration of execution in seconds
+    &#34;&#34;&#34;
+    KpStartYear = str(KpStartYear)
+    ResultsFilename = CoverageResults_Files_Path + OrbitFilename + &#34;.&#34; + KpStartYear + &#34;.CoverageResults.txt&#34;    
+    ####
+    Kp = 0
+    startSecs = time.time()
+    BinMisses = BinHits = 0
+    PREV_time  = CURR_time  = None
+    PREV_BinID = CURR_BinID = &#34;&#34;
+    if path.exists( ResultsFilename ):
+        print( &#34;File &#34; + ResultsFilename + &#34; already exists. Cannot continue in order to prevent overwriting useful data.&#34; )
+        return 0, 0, &#34;&#34;, 0 # &lt;&lt;&lt;&lt;
+    ########
+    with open( Orbit_Files_Path + OrbitFilename ) as CSVfile:        
+        CSVreader = csv.reader( CSVfile )
+        # locate the column numnbers of interest inside the csv file
+        CSVheader = next( CSVreader )
+        Time_idx     = CSVheader.index( &#34;Epoch(UTCG)&#34; ) 
+        Lat_idx      = CSVheader.index( &#34;Lat_GEOD(deg)&#34; )
+        Lon_idx      = CSVheader.index( &#34;Lon_GEOD(deg)&#34; )
+        Altitude_idx = CSVheader.index( &#34;Height_WGS84 (km)&#34; )
+        MagLat_idx   = CSVheader.index( &#34;Magnetic Latitude&#34; )
+        MLT_idx      = CSVheader.index( &#34;MLT&#34; )
+        # read the satellite positions and try to fill the bins
+        n = 0
+        num_of_errors = 0
+        for row in CSVreader: # for each satellite position
+            n = n + 1
+            if n == 1: OrbitStartYear = parseDate( row[Time_idx] ).year
+            PREV_time = CURR_time
+            # parse the date-time of this satellite position
+            CURR_time = parseDate( row[Time_idx] ) 
+            if CURR_time == None:
+                print( &#34;ERROR during coverage calculation while reading&#34;, Orbit_Files_Path + OrbitFilename, &#34;: Wrong time format:&#34;,row[Time_idx],&#34;.:  &#34;, row )
+                num_of_errors += 1
+                if num_of_errors &lt; 50:
+                    continue
+                else:
+                    print(&#34;Too many errors. Aborting.&#34;)
+                    return 0, 0, &#34;&#34;, 0 # &lt;&lt;&lt;&lt;
+            year  = CURR_time.year
+            month = CURR_time.month
+            day   = CURR_time.day
+            hour  = CURR_time.hour
+            # calculate the Kp index for this particular time
+            try:
+                Kp = GeomagneticIndices[(num_to_2digit_str(day), num_to_2digit_str(month), num_to_2digit_str(Years_Dropdown.value+year-OrbitStartYear), str(hour//3))]
+            except:
+                if month==2 and day==29: # the leap years may correspond to non-leap years at the selected range of years for Kp calculation
+                    Kp = GeomagneticIndices[(num_to_2digit_str(28), num_to_2digit_str(month), num_to_2digit_str(Years_Dropdown.value+year-OrbitStartYear), str(hour//3))]
+            # remember some useful properties of this satellite position
+            MLT      = float( row[MLT_idx] )
+            MagLat   = float( row[MagLat_idx] )
+            Altitude = float( row[Altitude_idx] )
+            # Check if the satellite position can be assigned to a bin
+            mathedBin = GetMatchedBin( MLT, MagLat, Altitude, Kp )
+            # If the satellite is inside a bin during the last 2 positions then calculate the duration
+            PREV_BinID = CURR_BinID
+            if mathedBin is None:
+                CURR_BinID = &#34;&#34;
+            else:
+                CURR_BinID = mathedBin.ID            
+            if len(CURR_BinID) &gt; 0  and  CURR_BinID == PREV_BinID:
+                BinHits = BinHits + 1
+                DurationInsideBin = (CURR_time - PREV_time).seconds
+                mathedBin.CumulativeTime += DurationInsideBin 
+            elif len(CURR_BinID) &gt; 0:
+                BinMisses = BinMisses + 1
+    # calculate duration of execution
+    finishSecs = time.time()
+    DurationOfExecution = finishSecs-startSecs
+    # Save the results in a text file
+    nowstr = datetime.now().strftime(&#34;%d-%m-%Y %H:%M:%S&#34;)    
+    F = open(ResultsFilename, &#39;w&#39;)
+    F.write( &#34;# -- COVERAGE RESULTS -- &#34; + &#34;\n&#34;  )
+    F.write( &#34;# Date of execution: &#34; + nowstr + &#34;\n&#34; )
+    F.write( &#34;# Title: &#34; + Title + &#34;\n&#34; )
+    F.write( &#34;# Description: &#34; + Description + &#34;\n&#34;)
+    F.write( &#34;# Parsed &#34; + str(n) + &#34; lines from orbit file &#34; + Orbit_Files_Path + OrbitFilename + &#34;\n&#34;)
+    F.write( &#34;# Used Kp indices starting from year &#34; + KpStartYear + &#34;\n&#34;)
+    F.write( &#34;# Bin Misses: &#34; + str(BinMisses) + &#34;     Bin Hits: &#34; + str(BinHits) + &#34;\n&#34;)
+    F.write( &#34;# Duration of execution: &#34; + ConvertLeadingZerosToSpaces(&#34;{0:.0f}&#34;.format(DurationOfExecution)) + &#34; seconds  or  &#34; + ConvertLeadingZerosToSpaces(&#34;{0:.2f}&#34;.format(DurationOfExecution/60))  + &#34; minutes&#34; + &#34;\n&#34; )
+    F.write( &#34;# &#34; + &#34;\n&#34;)    
+    for B in Bins:
+        F.write( B.getInfo() + &#34;\n&#34; )
+    F.close()
+    #
+    return BinMisses, BinHits, ResultsFilename, DurationOfExecution</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.ClearBins"><code class="name flex">
+<span>def <span class="ident">ClearBins</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes all Bins.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ClearBins():
+    &#34;&#34;&#34;
+        Removes all Bins.
+    &#34;&#34;&#34;
+    Bins.clear()     </code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.CreateNewBin"><code class="name flex">
+<span>def <span class="ident">CreateNewBin</span></span>(<span>ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines a new Bin according to the specified ranges.
+All satellite positions which fall in these ranges will be assigned to this Bin.
+The plots will be created according to all the defined Bins.
+The library initializes certain predefined Bins. Call ClearBins() in order to remove them.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ID</code></strong> :&ensp;<code>string</code></dt>
+<dd>a code name for this Bin. It will be displayed on the plots.</dd>
+<dt><strong><code>Description</code></strong> :&ensp;<code>string</code></dt>
+<dd>a description for this Bin. It will be displayed on the plots.</dd>
+<dt><strong><code>MagneticLocalTime_from</code></strong></dt>
+<dd>range for Magnetic-Local-Time of the Bin.</dd>
+<dt><strong><code>MagneticLocalTime_to</code></strong></dt>
+<dd>range for Magnetic-Local-Time of the Bin.</dd>
+<dt><strong><code>MagneticLatitude_from</code></strong></dt>
+<dd>range for Magnetic-Latitude of the Bin.</dd>
+<dt><strong><code>MagneticLatitude_to</code></strong></dt>
+<dd>range for Magnetic-Latitude of the Bin.</dd>
+<dt><strong><code>Altitude_from</code></strong></dt>
+<dd>range for Altitude of the Bin.</dd>
+<dt><strong><code>Altitude_to</code></strong></dt>
+<dd>range for Altitude of the Bin.</dd>
+<dt><strong><code>Kp_from</code></strong></dt>
+<dd>range for Kp-index of the Bin.</dd>
+<dt><strong><code>Kp_to</code></strong></dt>
+<dd>range for Kp-index of the Bin.</dd>
+<dt><strong><code>DesirableTime</code></strong></dt>
+<dd>(seconds) The minimun time for the satellite to stay inside the Bin in order to accomplish its mission.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def CreateNewBin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
+    &#34;&#34;&#34;
+        Defines a new Bin according to the specified ranges.
+        All satellite positions which fall in these ranges will be assigned to this Bin. 
+        The plots will be created according to all the defined Bins.
+        The library initializes certain predefined Bins. Call ClearBins() in order to remove them.
+        Args:
+            ID (string): a code name for this Bin. It will be displayed on the plots.
+            Description (string): a description for this Bin. It will be displayed on the plots.
+            MagneticLocalTime_from: range for Magnetic-Local-Time of the Bin.
+            MagneticLocalTime_to: range for Magnetic-Local-Time of the Bin.
+            MagneticLatitude_from: range for Magnetic-Latitude of the Bin.
+            MagneticLatitude_to: range for Magnetic-Latitude of the Bin.
+            Altitude_from: range for Altitude of the Bin.
+            Altitude_to: range for Altitude of the Bin.
+            Kp_from: range for Kp-index of the Bin.
+            Kp_to: range for Kp-index of the Bin.
+            DesirableTime: (seconds) The minimun time for the satellite to stay inside the Bin in order to accomplish its mission.
+    &#34;&#34;&#34;
+    Bins.append( Bin(ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime) )</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.GetMatchedBin"><code class="name flex">
+<span>def <span class="ident">GetMatchedBin</span></span>(<span>MLT, MagLat, Altitude, Kp)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns the Bin object which matches the position of the satellite described by the arguments.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>MLT</code></strong></dt>
+<dd>the Magnetic Local Time</dd>
+<dt><strong><code>MagLat</code></strong></dt>
+<dd>The Magnetic Latitude</dd>
+<dt><strong><code>Altitude</code></strong></dt>
+<dd>The Altitude</dd>
+<dt><strong><code>Kp</code></strong></dt>
+<dd>the Kp-index</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="CoverageCalculator.data.Bin" href="#CoverageCalculator.data.Bin">Bin</a></code></dt>
+<dd>the Bin in which the position represented by the arguments is matched.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetMatchedBin( MLT, MagLat, Altitude, Kp ):
+    &#34;&#34;&#34;
+        Finds and returns the Bin object which matches the position of the satellite described by the arguments.
+        
+        Args:
+                MLT: the Magnetic Local Time
+                MagLat: The Magnetic Latitude
+                Altitude: The Altitude
+                Kp: the Kp-index
+        Returns:
+                Bin: the Bin in which the position represented by the arguments is matched.
+    &#34;&#34;&#34;
+    
+    MatchedBin = None
+    for B in Bins:
+        Kp_min_to_check = B.Kp_min
+        if Kp_min_to_check == 0: Kp_min_to_check = -1
+        ####
+        if is_MLT_inside_range(MLT, B.MLT_min, B.MLT_max):
+            if         MagLat   &gt; B.MagLat_min    and  MagLat   &lt;= B.MagLat_max:
+                if     Altitude &gt; B.Altitude_min  and  Altitude &lt;= B.Altitude_max:
+                    if Kp       &gt; Kp_min_to_check and  Kp       &lt;= B.Kp_max:
+                        MatchedBin = B
+                        break
+    return MatchedBin</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.LoadCoverageResults"><code class="name flex">
+<span>def <span class="ident">LoadCoverageResults</span></span>(<span>ResultsFilename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads a coverage-results file and store the information in the Bins. </p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ResultsFilename</code></strong></dt>
+<dd>the coverage-results file to read</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(string): the title of the loaded calculation.
+(string): the description of the loaded calculation.
+(string): the orbit filename used for the loaded calculation.
+(string): the Kp-start-year used for the loaded calculation.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def LoadCoverageResults( ResultsFilename ):
+    &#34;&#34;&#34;
+        Loads a coverage-results file and store the information in the Bins. 
+        Args:
+            ResultsFilename: the coverage-results file to read
+        Returns:
+            (string): the title of the loaded calculation.
+            (string): the description of the loaded calculation.
+            (string): the orbit filename used for the loaded calculation.
+            (string): the Kp-start-year used for the loaded calculation.
+    &#34;&#34;&#34;
+    with open(ResultsFilename, &#39;r&#39;) as F:
+        for line in F:
+            if line[0:1] == &#39;#&#39;: # this line contains a comment, print it as it is.
+                print ( line[1:len(line)-1] )
+                if line.startswith(&#34;# Title:&#34;): COVERAGE_Title = line[8:].strip()
+                if line.startswith(&#34;# Description:&#34;): COVERAGE_Description = line[14:].strip()
+                if line.startswith(&#34;# Parsed&#34;): COVERAGE_OrbitFilename = line[line.find(&#34;orbit file&#34;)+11:].strip()
+                if line.startswith(&#34;# Used Kp&#34;): COVERAGE_KpStartYear = line[37:].strip()
+            else: # this line contains bin info, print it and store them in the correct bin.
+                print ( line[:len(line)-1] )
+                aBinID = line[:line.find(&#34;:&#34;)].strip()
+                secondsInBin = float( line[line.rfind(&#34;min&#34;)+3:line.rfind(&#34;/&#34;)] )
+                for B in Bins:
+                    if B.ID == aBinID:
+                        B.CumulativeTime = secondsInBin
+                        break
+    F.close()
+    return COVERAGE_Title, COVERAGE_Description, COVERAGE_OrbitFilename, COVERAGE_KpStartYear</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.getBinByItsID"><code class="name flex">
+<span>def <span class="ident">getBinByItsID</span></span>(<span>IDstr)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns a Bin object given its ID.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>IDstr</code></strong> :&ensp;<code>string</code></dt>
+<dd>an ID
+</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="CoverageCalculator.data.Bin" href="#CoverageCalculator.data.Bin">Bin</a></code></dt>
+<dd>the Bin which has the same ID as the argument</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBinByItsID( IDstr ):
+    &#34;&#34;&#34;
+        Finds and returns a Bin object given its ID.
+        
+        Args:
+                IDstr (string): an ID                 
+        Returns:
+                Bin: the Bin which has the same ID as the argument
+    &#34;&#34;&#34;
+
+    CorrectBin = None
+    for B in Bins:
+        if B.ID == IDstr:
+            CorrectBin = B
+            break
+    return CorrectBin</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.getBinByItsProperties"><code class="name flex">
+<span>def <span class="ident">getBinByItsProperties</span></span>(<span>MLT_min, MLT_max, MagLat_min, MagLat_max, Altitude_min, Altitude_max, Kp_min, Kp_max)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds and returns the Bin object having the ranges of the arguments.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>MLT_min</code></strong></dt>
+<dd>the Magnetic Local Time minimum</dd>
+<dt><strong><code>MLT_max</code></strong></dt>
+<dd>the Magnetic Local Time maximum</dd>
+<dt><strong><code>MagLat_min</code></strong></dt>
+<dd>The Magnetic Latitude minimum</dd>
+<dt><strong><code>MagLat_max</code></strong></dt>
+<dd>The Magnetic Latitude maximum</dd>
+<dt><strong><code>Altitude_min</code></strong></dt>
+<dd>The Altitude minimum</dd>
+<dt><strong><code>Altitude_max</code></strong></dt>
+<dd>The Altitude maximum</dd>
+<dt><strong><code>Kp_min</code></strong></dt>
+<dd>the Kp-index minimum</dd>
+<dt><strong><code>Kp_max</code></strong></dt>
+<dd>the Kp-index maximum</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="CoverageCalculator.data.Bin" href="#CoverageCalculator.data.Bin">Bin</a></code></dt>
+<dd>the Bin in which the position represented by the arguments is matched</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBinByItsProperties( MLT_min, MLT_max, MagLat_min, MagLat_max, Altitude_min, Altitude_max, Kp_min, Kp_max ):
+    &#34;&#34;&#34;
+        Finds and returns the Bin object having the ranges of the arguments.
+        
+        Args:
+                MLT_min: the Magnetic Local Time minimum
+                MLT_max: the Magnetic Local Time maximum
+                MagLat_min: The Magnetic Latitude minimum
+                MagLat_max: The Magnetic Latitude maximum
+                Altitude_min: The Altitude minimum
+                Altitude_max: The Altitude maximum
+                Kp_min: the Kp-index minimum
+                Kp_max: the Kp-index maximum
+                
+        Returns:
+                Bin: the Bin in which the position represented by the arguments is matched
+    &#34;&#34;&#34;
+    
+    CorrectBin = None
+    for B in Bins:
+        if             MLT_min      == B.MLT_min       and  MLT_max      == B.MLT_max:
+            if         MagLat_min   == B.MagLat_min    and  MagLat_max   == B.MagLat_max:
+                if     Altitude_min == B.Altitude_min  and  Altitude_max == B.Altitude_max:
+                    if Kp_min       == B.Kp_min        and  Kp_max       == B.Kp_max:
+                        CorrectBin = B
+                        break
+    return CorrectBin</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.is_MLT_inside_range"><code class="name flex">
+<span>def <span class="ident">is_MLT_inside_range</span></span>(<span>MLT, MLT_min, MLT_max)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if certain Magnetic-Local-Time lies in a certain range. It can handle ranges like 22-2</p>
+<h2 id="returns">Returns</h2>
+<p>true if MLT falls inside [MLT_min, MLT_max]</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_MLT_inside_range( MLT, MLT_min, MLT_max ):
+    &#34;&#34;&#34;
+        Checks if certain Magnetic-Local-Time lies in a certain range. It can handle ranges like 22-2
+        Returns:
+            true if MLT falls inside [MLT_min, MLT_max]
+    &#34;&#34;&#34;
+    if MLT_min &lt;= MLT_max: # example: from 13 to 18 hour
+        return (MLT &gt; MLT_min  and  MLT &lt;= MLT_max)
+    else: # example: from 22 to 3 hour
+        return (MLT &gt; MLT_min  or   MLT &lt;= MLT_max)</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.readGeomagneticIndices"><code class="name flex">
+<span>def <span class="ident">readGeomagneticIndices</span></span>(<span>fromYear, toYear)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
+Geomagnetic kp Indices Files Source (explanation): <a href="https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html">https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html</a>
+Geomagnetic kp Indices Files Source (download)
+: <a href="ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP">ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP</a></p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>fromYear</code></strong></dt>
+<dd>the first year for which the Geomagnetic kp Indices will be loaded</dd>
+<dt><strong><code>toYear</code></strong></dt>
+<dd>the last year for which the Geomagnetic kp Indices will be loaded</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>-</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def readGeomagneticIndices(fromYear, toYear):
+    &#34;&#34;&#34;
+        Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
+        Geomagnetic kp Indices Files Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
+        Geomagnetic kp Indices Files Source (download)   : ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP
+        
+        Args:
+                fromYear: the first year for which the Geomagnetic kp Indices will be loaded
+                toYear: the last year for which the Geomagnetic kp Indices will be loaded
+        Returns:
+                -
+    &#34;&#34;&#34;
+    
+    global GeomagneticIndices
+    for Y in range(fromYear, toYear): # this range should be small for execution speed
+        with open(GeomagneticIndices_Files_Path + str(Y)) as fp:
+            for line in fp:
+                year  = &#34;20&#34; + line[0:2]
+                month = line[2:4]
+                day   = line[4:6]
+                kp00  = float(line[12:14]) / 10
+                kp03  = float(line[14:16]) / 10
+                kp06  = float(line[16:18]) / 10
+                kp09  = float(line[18:20]) / 10
+                kp12  = float(line[20:22]) / 10
+                kp15  = float(line[22:24]) / 10
+                kp18  = float(line[24:26]) / 10
+                kp21  = float(line[26:28]) / 10
+                GeomagneticIndices[(day, month, year, &#34;0&#34;)] = kp00
+                GeomagneticIndices[(day, month, year, &#34;1&#34;)] = kp03
+                GeomagneticIndices[(day, month, year, &#34;2&#34;)] = kp06
+                GeomagneticIndices[(day, month, year, &#34;3&#34;)] = kp09
+                GeomagneticIndices[(day, month, year, &#34;4&#34;)] = kp12
+                GeomagneticIndices[(day, month, year, &#34;5&#34;)] = kp15
+                GeomagneticIndices[(day, month, year, &#34;6&#34;)] = kp18
+                GeomagneticIndices[(day, month, year, &#34;7&#34;)] = kp21
+            fp.close()</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.set_CoverageResultsFilesPath"><code class="name flex">
+<span>def <span class="ident">set_CoverageResultsFilesPath</span></span>(<span>path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the path where the results of the coverage calculation are stored.
+The results are plain text files which describe the coverage results for each bin.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>a path to the files</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_CoverageResultsFilesPath( path ):
+    &#34;&#34;&#34;
+        Sets the path where the results of the coverage calculation are stored.
+        The results are plain text files which describe the coverage results for each bin.
+
+        Args:
+            path (string): a path to the files
+    &#34;&#34;&#34;
+    CoverageResults_Files_Path = path</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.set_GeomagneticIndicesFilesPath"><code class="name flex">
+<span>def <span class="ident">set_GeomagneticIndicesFilesPath</span></span>(<span>path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
+The Kp-index is a value from 0 to 9 which characterizes the magnitude of geomagnetic storms.
+Explanation of Kp files: <a href="https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html">https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html</a> <br>
+Download location of Kp files: <a href="ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP">ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP</a>
+</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>a path to the files</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_GeomagneticIndicesFilesPath( path ):
+    &#34;&#34;&#34;
+        Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
+        The Kp-index is a value from 0 to 9 which characterizes the magnitude of geomagnetic storms. 
+        Explanation of Kp files: https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html   
+        Download location of Kp files: ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP  
+
+        Args:
+            path (string): a path to the files
+    &#34;&#34;&#34;
+    GeomagneticIndices_Files_Path = path</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.set_OrbitFilesPath"><code class="name flex">
+<span>def <span class="ident">set_OrbitFilesPath</span></span>(<span>path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the path where the csv files describing the satellite orbit are located.
+The csv file must contain the following columns:
+Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magnetic Longitude,MLT</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>a path to the files</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_OrbitFilesPath( path ):
+    &#34;&#34;&#34;
+        Sets the path where the csv files describing the satellite orbit are located.
+        The csv file must contain the following columns:
+        Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magnetic Longitude,MLT
+
+        Args:
+            path (string): a path to the files
+    &#34;&#34;&#34;
+    Orbit_Files_Path = path</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="CoverageCalculator.data.Bin"><code class="flex name class">
+<span>class <span class="ident">Bin</span></span>
+<span>(</span><span>ID, Description, MLT_min, MLT_max, MagLat_min, MagLat_max, Altitude_min, Altitude_max, Kp_min, Kp_max, DesirableCumulativeTime)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Bin:
+    ID             = &#34;&#34;
+    Description    = &#34;&#34;
+    MLT_min        = 0 # Magnetic Local Time (hour &amp; min of the 24-hour day) (string)
+    MLT_max        = 0 # Magnetic Local Time (hour &amp; min of the 24-hour day) (string)
+    MagLat_min     = 0 # Magnetic Latitude (degrees)
+    MagLat_max     = 0 # Magnetic Latitude (degrees)
+    Altitude_min   = 0 # Satellite&#39;s Altitude measured from Earth&#39;s surface (km)
+    Altitude_max   = 0 # Satellite&#39;s Altitude measured from Earth&#39;s surface (km)
+    Kp_min         = 0 #
+    Kp_max         = 0 #
+    NumOfBins      = 0 # How many parts will the Altitude range be splitted in
+    CumulativeTime = 0 # (sec)
+    DesirableCumulativeTime = 0 # (sec)
+    
+    def __init__(self, ID, Description, MLT_min, MLT_max, MagLat_min, MagLat_max, Altitude_min, Altitude_max, Kp_min, Kp_max, DesirableCumulativeTime):
+        self.ID             = ID
+        self.Description    = Description
+        self.MLT_min        = MLT_min 
+        self.MLT_max        = MLT_max
+        self.MagLat_min     = MagLat_min
+        self.MagLat_max     = MagLat_max
+        self.Altitude_min   = Altitude_min
+        self.Altitude_max   = Altitude_max
+        self.Kp_min         = Kp_min
+        self.Kp_max         = Kp_max
+        self.DesirableCumulativeTime = DesirableCumulativeTime
+        
+    def getInfo(self):
+        s  = self.ID.ljust(8, &#39; &#39;) + &#34;: &#34;
+        s += &#34;{:02.0f}&#34;.format(self.MLT_min)      + &#34;&lt;MLT&lt;=&#34;    + &#34;{:02.0f}&#34;.format(self.MLT_max)      + &#34; &#34;
+        s += &#34;{:03.0f}&#34;.format(self.MagLat_min)   + &#34;&lt;MagLat&lt;=&#34; + &#34;{:03.0f}&#34;.format(self.MagLat_max)   + &#34; &#34;
+        s += &#34;{:03.0f}&#34;.format(self.Altitude_min) + &#34;&lt;Alt&lt;=&#34;    + &#34;{:03.0f}&#34;.format(self.Altitude_max) + &#34; &#34;
+        s += str(self.Kp_min)             + &#34;&lt;Kp&lt;=&#34;     + str(self.Kp_max)       + &#34; &#34;
+        s += &#34;Coverage=&#34; 
+        s += ConvertLeadingZerosToSpaces( &#34;{:09.3f}&#34;.format(self.CumulativeTime/60) ) + &#34;/&#34; 
+        s += ConvertLeadingZerosToSpaces( &#34;{:06.2f}&#34;.format(self.DesirableCumulativeTime/60) ) + &#34;min &#34;
+        s += ConvertLeadingZerosToSpaces( &#34;{:08.0f}&#34;.format(self.CumulativeTime) ) + &#34;/&#34; 
+        s += ConvertLeadingZerosToSpaces( &#34;{:05.0f}&#34;.format(self.DesirableCumulativeTime) ) + &#34;sec&#34;
+        return s
+    
+    def printMe(self):
+        print( self.getInfo() )</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="CoverageCalculator.data.Bin.Altitude_max"><code class="name">var <span class="ident">Altitude_max</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.Altitude_min"><code class="name">var <span class="ident">Altitude_min</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.CumulativeTime"><code class="name">var <span class="ident">CumulativeTime</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.Description"><code class="name">var <span class="ident">Description</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.DesirableCumulativeTime"><code class="name">var <span class="ident">DesirableCumulativeTime</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.ID"><code class="name">var <span class="ident">ID</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.Kp_max"><code class="name">var <span class="ident">Kp_max</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.Kp_min"><code class="name">var <span class="ident">Kp_min</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.MLT_max"><code class="name">var <span class="ident">MLT_max</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.MLT_min"><code class="name">var <span class="ident">MLT_min</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.MagLat_max"><code class="name">var <span class="ident">MagLat_max</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.MagLat_min"><code class="name">var <span class="ident">MagLat_min</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="CoverageCalculator.data.Bin.NumOfBins"><code class="name">var <span class="ident">NumOfBins</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="CoverageCalculator.data.Bin.getInfo"><code class="name flex">
+<span>def <span class="ident">getInfo</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getInfo(self):
+    s  = self.ID.ljust(8, &#39; &#39;) + &#34;: &#34;
+    s += &#34;{:02.0f}&#34;.format(self.MLT_min)      + &#34;&lt;MLT&lt;=&#34;    + &#34;{:02.0f}&#34;.format(self.MLT_max)      + &#34; &#34;
+    s += &#34;{:03.0f}&#34;.format(self.MagLat_min)   + &#34;&lt;MagLat&lt;=&#34; + &#34;{:03.0f}&#34;.format(self.MagLat_max)   + &#34; &#34;
+    s += &#34;{:03.0f}&#34;.format(self.Altitude_min) + &#34;&lt;Alt&lt;=&#34;    + &#34;{:03.0f}&#34;.format(self.Altitude_max) + &#34; &#34;
+    s += str(self.Kp_min)             + &#34;&lt;Kp&lt;=&#34;     + str(self.Kp_max)       + &#34; &#34;
+    s += &#34;Coverage=&#34; 
+    s += ConvertLeadingZerosToSpaces( &#34;{:09.3f}&#34;.format(self.CumulativeTime/60) ) + &#34;/&#34; 
+    s += ConvertLeadingZerosToSpaces( &#34;{:06.2f}&#34;.format(self.DesirableCumulativeTime/60) ) + &#34;min &#34;
+    s += ConvertLeadingZerosToSpaces( &#34;{:08.0f}&#34;.format(self.CumulativeTime) ) + &#34;/&#34; 
+    s += ConvertLeadingZerosToSpaces( &#34;{:05.0f}&#34;.format(self.DesirableCumulativeTime) ) + &#34;sec&#34;
+    return s</code></pre>
+</details>
+</dd>
+<dt id="CoverageCalculator.data.Bin.printMe"><code class="name flex">
+<span>def <span class="ident">printMe</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def printMe(self):
+    print( self.getInfo() )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="CoverageCalculator" href="index.html">CoverageCalculator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="CoverageCalculator.data.GeomagneticIndices" href="#CoverageCalculator.data.GeomagneticIndices">GeomagneticIndices</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="CoverageCalculator.data.CalculateCoverage" href="#CoverageCalculator.data.CalculateCoverage">CalculateCoverage</a></code></li>
+<li><code><a title="CoverageCalculator.data.ClearBins" href="#CoverageCalculator.data.ClearBins">ClearBins</a></code></li>
+<li><code><a title="CoverageCalculator.data.CreateNewBin" href="#CoverageCalculator.data.CreateNewBin">CreateNewBin</a></code></li>
+<li><code><a title="CoverageCalculator.data.GetMatchedBin" href="#CoverageCalculator.data.GetMatchedBin">GetMatchedBin</a></code></li>
+<li><code><a title="CoverageCalculator.data.LoadCoverageResults" href="#CoverageCalculator.data.LoadCoverageResults">LoadCoverageResults</a></code></li>
+<li><code><a title="CoverageCalculator.data.getBinByItsID" href="#CoverageCalculator.data.getBinByItsID">getBinByItsID</a></code></li>
+<li><code><a title="CoverageCalculator.data.getBinByItsProperties" href="#CoverageCalculator.data.getBinByItsProperties">getBinByItsProperties</a></code></li>
+<li><code><a title="CoverageCalculator.data.is_MLT_inside_range" href="#CoverageCalculator.data.is_MLT_inside_range">is_MLT_inside_range</a></code></li>
+<li><code><a title="CoverageCalculator.data.readGeomagneticIndices" href="#CoverageCalculator.data.readGeomagneticIndices">readGeomagneticIndices</a></code></li>
+<li><code><a title="CoverageCalculator.data.set_CoverageResultsFilesPath" href="#CoverageCalculator.data.set_CoverageResultsFilesPath">set_CoverageResultsFilesPath</a></code></li>
+<li><code><a title="CoverageCalculator.data.set_GeomagneticIndicesFilesPath" href="#CoverageCalculator.data.set_GeomagneticIndicesFilesPath">set_GeomagneticIndicesFilesPath</a></code></li>
+<li><code><a title="CoverageCalculator.data.set_OrbitFilesPath" href="#CoverageCalculator.data.set_OrbitFilesPath">set_OrbitFilesPath</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="CoverageCalculator.data.Bin" href="#CoverageCalculator.data.Bin">Bin</a></code></h4>
+<ul class="">
+<li><code><a title="CoverageCalculator.data.Bin.Altitude_max" href="#CoverageCalculator.data.Bin.Altitude_max">Altitude_max</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.Altitude_min" href="#CoverageCalculator.data.Bin.Altitude_min">Altitude_min</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.CumulativeTime" href="#CoverageCalculator.data.Bin.CumulativeTime">CumulativeTime</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.Description" href="#CoverageCalculator.data.Bin.Description">Description</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.DesirableCumulativeTime" href="#CoverageCalculator.data.Bin.DesirableCumulativeTime">DesirableCumulativeTime</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.ID" href="#CoverageCalculator.data.Bin.ID">ID</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.Kp_max" href="#CoverageCalculator.data.Bin.Kp_max">Kp_max</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.Kp_min" href="#CoverageCalculator.data.Bin.Kp_min">Kp_min</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.MLT_max" href="#CoverageCalculator.data.Bin.MLT_max">MLT_max</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.MLT_min" href="#CoverageCalculator.data.Bin.MLT_min">MLT_min</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.MagLat_max" href="#CoverageCalculator.data.Bin.MagLat_max">MagLat_max</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.MagLat_min" href="#CoverageCalculator.data.Bin.MagLat_min">MagLat_min</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.NumOfBins" href="#CoverageCalculator.data.Bin.NumOfBins">NumOfBins</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.getInfo" href="#CoverageCalculator.data.Bin.getInfo">getInfo</a></code></li>
+<li><code><a title="CoverageCalculator.data.Bin.printMe" href="#CoverageCalculator.data.Bin.printMe">printMe</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
