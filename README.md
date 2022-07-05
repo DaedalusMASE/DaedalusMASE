@@ -15,5 +15,5 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 # Python in Space Physics
-# # Daedalus Mission Assessment through Simulation Exercise (Daedalus MASE)
+## Daedalus Mission Assessment through Simulation Exercise (Daedalus MASE)
 This project is a toolset for processing in-situ measurements and global circulation model outputs in the Lower Thermosphere-Ionosphere.
