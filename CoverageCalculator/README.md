@@ -3,12 +3,13 @@
 ## Introduction
 Satellites which take in-situ measurements have to pass many times through certain regions. Usually, the cumulative time spent inside each region of interest has to be large enough for the accomplishment of the scienttific mission.
 The inputs of this software are:
-	- A satellite orbit in csv format 
-	- The description of the regions of interest according to their Altitude, Magnetic Local Time, Magnetic Latitude and Kp-index. Predfined regions are supplied and the user can define new ones freely.
-	- The Geomagnetic Kp-index files. These are freely available online.
+- A satellite orbit in csv format 
+- The description of the regions of interest according to their Altitude, Magnetic Local Time, Magnetic Latitude and Kp-index. Predfined regions are supplied and the user can define new ones freely.
+- The Geomagnetic Kp-index files. These are freely available online.
+
 Based on the above data, the software:
-	- Calculates the cumulative time the satellite spends in each region of interest.
-	- Plots the results in various charts utilizing the satellite orbit or both the orbit and the time spent in the various regions.
+- Calculates the cumulative time the satellite spends in each region of interest.
+- Plots the results in various charts utilizing the satellite orbit or both the orbit and the time spent in the various regions.
 
 The calculation results of this software facilitate the adjustment of the orbit parameters so that the satellite visits the desirable regions for enough time.
 The areas of interest are called 'Bins' and a goal of desirable time of satellite presence is assigned to each bin.
@@ -20,7 +21,7 @@ The bin boundaries are defined by ranges of:
 
 ## Usage
 A sample usage is demonstrated in python code below:
-'''
+```
 # python imports
 import ipywidgets as w
 import glob
@@ -58,7 +59,7 @@ PlotCoverage_Bars_GroupedByRegion( "My Title", [ ["SMP"], ["AEE", "AEM","AED"], 
 PlotCoverage_PolarChart( "My Title", 1.4 )
 PlotOrbit_KpScatter("OrbitSample.csv", 2015, "01-01-2015", "20-01-2015", 100, 220 )
 PlotOrbit_Heatmap( "OrbitSample.csv" )
-'''
+```
 
 
 ## Data
@@ -85,7 +86,7 @@ Below you can see the solar cycle of the years 1995-2019:
     
 ![Previous Years Solar Cycle](SolarCycle.png)
 
-# # # Results
+### Results
 The results of the calculation are stored in plain text files at a local folder (default name is "ResultFiles").
 These can be loaded in order to be plotted again.
 
