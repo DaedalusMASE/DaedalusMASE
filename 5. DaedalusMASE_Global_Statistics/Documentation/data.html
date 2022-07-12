@@ -28,83 +28,27 @@ The main data container is called Bin. A Bin is defined by ranges of Magnetic La
 There are several predefined Bins, but they can be deleted and new ones added.
 The first letters of the Bin's ID is consiered the region name, which is a central notion for grouping the data and ploting them.
 During calculations values of many variables are read from the TIEGCM or/and ORBIT NeyCDF files and are stored into the corresponding Bins along with their positions. These data can then be stored to a NetCDF result-file and are used to produce various plots.
-The variables which are expected to be at the source and are stored to the result files are:<br>
-|Variable description
-|Unit
-|Name in NetCDF files | Comment
-|<br>
-| ------------------------------ | --------------- | ------------------- | ------------ |<br>
-|UTC timestamp
-|seconds
-|time
-|
-|<br>
-|Altitude
-|cm
-|ZGMID
-|
-|<br>
-|Latitude
-|degrees
-|lat
-|
-|<br>
-|Magnetic Latitude
-|degrees
-|mlat_qdf
-|
-|<br>
-|Magnetic Local Time
-|hours
-|mlt_qdf
-|
-|<br>
-|Kp index
-|0-9
-|Kp
-|
-|<br>
-|midpoint levels
-|-
-|lev
-|
-|<br>
-|Ohmic (Joule) Heating
-|W/m3
-|Ohmic
-|can be plotted|
-<br>
-|Convection Heating
-|W/m3
-|Convection_heating
-|can be plotted|
-<br>
-|Wind Heating
-|W/m3
-|Wind_heating
-|can be plotted|
-<br>
-|Electric field strength East
-|V/m
-|EEX
-|can be plotted| <br>
-|Electric field strength North
-|V/m
-|EEY
-|can be plotted|<br>
-|Total Density
-|g/cm3
-|DEN
-|can be plotted|<br>
-|Pedersen Conductivity
-|S/m
-|SIGMA_PED
-|can be plotted| <br>
-|Hall Conductivity
-|S/m
-|SIGMA_HAL
-|can be plotted|<br>
-Because many large files may contain the source data, folders are used to keep each file category:<br>
+The variables which are expected to be at the source and are stored to the result files are:
+</p>
+<pre><code>| Variable description            | Unit             | Name in NetCDF files | Comment        |  
+| ------------------------------- | ---------------- | -------------------- | -------------- |  
+| UTC timestamp                   | seconds          | time                 |                |  
+| Altitude                        | cm               | ZGMID                |                |  
+| Latitude                        | degrees          | lat                  |                |  
+| Magnetic Latitude               | degrees          | mlat_qdf             |                |  
+| Magnetic Local Time             | hours            | mlt_qdf              |                |  
+| Kp index                        | 0-9              | Kp                   |                |  
+| midpoint levels                 | -                | lev                  |                |  
+| Ohmic (Joule) Heating           | W/m3             | Ohmic                | can be plotted |    
+| Convection Heating              | W/m3             | Convection_heating   | can be plotted |    
+| Wind Heating                    | W/m3             | Wind_heating         | can be plotted |    
+| Electric field strength East    | V/m              | EEX                  | can be plotted |   
+| Electric field strength North   | V/m              | EEY                  | can be plotted |  
+| Total Density                   | g/cm3            | DEN                  | can be plotted |  
+| Pedersen Conductivity           | S/m              | SIGMA_PED            | can be plotted |   
+| Hall Conductivity               | S/m              | SIGMA_HAL            | can be plotted |
+</code></pre>
+<p>Because many large files may contain the source data, folders are used to keep each file category:<br>
 ORBITdata: all netcdf files containing the data along the orbit of a satellite<br>
 RESULTS: netcdf files which this software creates as results and can be loaded in order to produce plots<br>
 TIEGCMdata/*/: all netcdf files containing the data from the TIEGCM model. There must be one subfolder for each year.</p>
@@ -119,23 +63,25 @@ There are several predefined Bins, but they can be deleted and new ones added.
 The first letters of the Bin&#39;s ID is consiered the region name, which is a central notion for grouping the data and ploting them.
 During calculations values of many variables are read from the TIEGCM or/and ORBIT NeyCDF files and are stored into the corresponding Bins along with their positions. These data can then be stored to a NetCDF result-file and are used to produce various plots. 
 The variables which are expected to be at the source and are stored to the result files are:  
-    |Variable description            |Unit             |Name in NetCDF files | Comment      |  
-    | ------------------------------ | --------------- | ------------------- | ------------ |  
-    |UTC timestamp                   |seconds          |time                 |              |  
-    |Altitude                        |cm               |ZGMID                |              |  
-    |Latitude                        |degrees          |lat                  |              |  
-    |Magnetic Latitude               |degrees          |mlat_qdf             |              |  
-    |Magnetic Local Time             |hours            |mlt_qdf              |              |  
-    |Kp index                        |0-9              |Kp                   |              |  
-    |midpoint levels                 |-                |lev                  |              |  
-    |Ohmic (Joule) Heating           |W/m3             |Ohmic                |can be plotted|    
-    |Convection Heating              |W/m3             |Convection_heating   |can be plotted|    
-    |Wind Heating                    |W/m3             |Wind_heating         |can be plotted|    
-    |Electric field strength East    |V/m              |EEX                  |can be plotted|   
-    |Electric field strength North   |V/m              |EEY                  |can be plotted|  
-    |Total Density                   |g/cm3            |DEN                  |can be plotted|  
-    |Pedersen Conductivity           |S/m              |SIGMA_PED            |can be plotted|   
-    |Hall Conductivity               |S/m              |SIGMA_HAL            |can be plotted|  
+    
+    | Variable description            | Unit             | Name in NetCDF files | Comment        |  
+    | ------------------------------- | ---------------- | -------------------- | -------------- |  
+    | UTC timestamp                   | seconds          | time                 |                |  
+    | Altitude                        | cm               | ZGMID                |                |  
+    | Latitude                        | degrees          | lat                  |                |  
+    | Magnetic Latitude               | degrees          | mlat_qdf             |                |  
+    | Magnetic Local Time             | hours            | mlt_qdf              |                |  
+    | Kp index                        | 0-9              | Kp                   |                |  
+    | midpoint levels                 | -                | lev                  |                |  
+    | Ohmic (Joule) Heating           | W/m3             | Ohmic                | can be plotted |    
+    | Convection Heating              | W/m3             | Convection_heating   | can be plotted |    
+    | Wind Heating                    | W/m3             | Wind_heating         | can be plotted |    
+    | Electric field strength East    | V/m              | EEX                  | can be plotted |   
+    | Electric field strength North   | V/m              | EEY                  | can be plotted |  
+    | Total Density                   | g/cm3            | DEN                  | can be plotted |  
+    | Pedersen Conductivity           | S/m              | SIGMA_PED            | can be plotted |   
+    | Hall Conductivity               | S/m              | SIGMA_HAL            | can be plotted |  
+
 Because many large files may contain the source data, folders are used to keep each file category:  
     ORBITdata: all netcdf files containing the data along the orbit of a satellite  
     RESULTS: netcdf files which this software creates as results and can be loaded in order to produce plots  
