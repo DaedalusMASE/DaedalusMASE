@@ -21,27 +21,30 @@ AEM is divided in 9 bins according to smaller ranges of altitude and Kp index.
 There are several predefined Bins, which the user can use and he han also delete them and/or create new ones freely.
 
 ## Data
+Sample data files can be found at https://drive.google.com/drive/folders/1FUY84B_ncAMg-2HSmN2tkmVnNvRI3ezH?usp=sharing
+
 #### TIEGCM grid data 
 The Thermosphere is described in several TIEGCM files of netCDF type. These are stored in a folder with subfolders for each year (ex: ./TIEGCMdata/2015/tiegcm001.nc is a default path which can be altered).
 Each file contains simulated data for 5 days and we have files for the satellite's 3 years lifetime. Inside the file there are data for every 2.5 degrees of Latitude, for every 2.5 degrees of Longitude, for every 2 hours and for 57 pressure levels.
 The variables which are expected to be at the source files (tiegcm and orbit) and are stored to the result files are:
-    Variable description            Unit             Name in NetCDF files           Comment
-    ------------------------------------------------------------------------------------------------------------
-    UTC timestamp                   seconds          time
-    Altitude                        cm               ZGMID
-    Latitude                        degrees          lat
-    Magnetic Latitude               degrees          mlat_qdf
-    Magnetic Local Time             hours            mlt_qdf
-    Kp index                        0-9              Kp
-    midpoint levels                 -                lev          
-    Ohmic (Joule) Heating           W/m3             Ohmic                          can be plotted 
-    Convection Heating              W/m3             Convection_heating             can be plotted
-    Wind Heating                    W/m3             Wind_heating                   can be plotted
-    Electric field strength East    V/m              EEX                            can be plotted
-    Electric field strength North   V/m              EEY                            can be plotted
-    Total Density                   g/cm3            DEN                            can be plotted
-    Pedersen Conductivity           S/m              SIGMA_PED                      can be plotted 
-    Hall Conductivity               S/m              SIGMA_HAL                      can be plotted
+
+    | Variable description            | Unit             | Name in NetCDF files | Comment        |  
+    | ------------------------------- | ---------------- | -------------------- | -------------- |  
+    | UTC timestamp                   | seconds          | time                 |                |  
+    | Altitude                        | cm               | ZGMID                |                |  
+    | Latitude                        | degrees          | lat                  |                |  
+    | Magnetic Latitude               | degrees          | mlat_qdf             |                |  
+    | Magnetic Local Time             | hours            | mlt_qdf              |                |  
+    | Kp index                        | 0-9              | Kp                   |                |  
+    | midpoint levels                 | -                | lev                  |                |  
+    | Ohmic (Joule) Heating           | W/m3             | Ohmic                | can be plotted |    
+    | Convection Heating              | W/m3             | Convection_heating   | can be plotted |    
+    | Wind Heating                    | W/m3             | Wind_heating         | can be plotted |    
+    | Electric field strength East    | V/m              | EEX                  | can be plotted |   
+    | Electric field strength North   | V/m              | EEY                  | can be plotted |  
+    | Total Density                   | g/cm3            | DEN                  | can be plotted |  
+    | Pedersen Conductivity           | S/m              | SIGMA_PED            | can be plotted |   
+    | Hall Conductivity               | S/m              | SIGMA_HAL            | can be plotted |  
 
 #### Orbit data
 Orbit data contain the measurements a satellite would take along its path, one record for each position. (ex: ./ORBITdata/*.nc is a default path which can be altered).
@@ -58,9 +61,11 @@ Several plots have been constructed to display different aspects of the multi-di
 The user can select the Region and the Variable he is interested in and plot them.
 Both TIEGCM-grid and along-Orbit results are previewed using the same plots as described below.
 #### Scatter plots
+
 ![Variable versus Altitude for large Kp](Var_vs_Alt.png)
 ![Variable versus Magnetic-Latitude](Var_vs_MagLat.png)
 ![Altitude versus Magnetic-Latitude](Alt_vs_MagLat.png)
+
 - function plotVariable():
 In these scatter plots each dot represents an instance of a measurement which was taken inside the area of interest. 
 The plot usually does not display all the measurements because of their vast number. The plot also contains lines which indicate the Variable's mean and standard deviation calculated on all the values of the area of interest. The mean is displayed as a horizontal line and the standard deviation as a vertical line. 
