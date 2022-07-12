@@ -62,7 +62,7 @@ The user can select the Region and the Variable he is interested in and plot the
 Both TIEGCM-grid and along-Orbit results are previewed using the same plots as described below.
 #### Scatter plots
 
-![Variable versus Altitude for large Kp](Var_vs_Alt_kp.png | width=400)
+![Variable versus Altitude for large Kp](Var_vs_Alt_kp.png)
 ![Variable versus Magnetic-Latitude](Var_vs_MagLat.png)
 ![Altitude versus Magnetic-Latitude](Alt_vs_MagLat.png)
 
