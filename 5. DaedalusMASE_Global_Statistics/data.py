@@ -1038,8 +1038,14 @@ def AssignJouleHeatingValuesToBins_AlongOrbit( TIEGCM_filesPath, Orbit_filesPath
             continue
         # Load data from the netCDF file
         ORBIT_Times      = Orbit_CDF.variables['time'][:]
-        ORBIT_MagLats    = Orbit_CDF.variables['DaedalusMagneticLatitude'][:]
-        ORBIT_MLTs       = Orbit_CDF.variables['DaedalusMLT'][:]
+        try:
+            ORBIT_MagLats    = Orbit_CDF.variables['DaedalusMagneticLatitude'][:]
+        except:
+            ORBIT_MagLats    = Orbit_CDF.variables['MagneticLatitude'][:]
+        try:
+            ORBIT_MLTs       = Orbit_CDF.variables['DaedalusMLT'][:]
+        except:
+            ORBIT_MLTs       = Orbit_CDF.variables['MLT'][:]
         ORBIT_Altitudes  = Orbit_CDF.variables['ZGMID'][:] / 100000
         ORBIT_Lats       = Orbit_CDF.variables['lat'][:]
         ORBIT_Ohmic      = Orbit_CDF.variables['Ohmic'][:]
