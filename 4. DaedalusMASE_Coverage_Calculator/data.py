@@ -421,8 +421,14 @@ def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear ):
         Lat_idx      = CSVheader.index( "Lat_GEOD(deg)" )
         Lon_idx      = CSVheader.index( "Lon_GEOD(deg)" )
         Altitude_idx = CSVheader.index( "Height_WGS84 (km)" )
-        MagLat_idx   = CSVheader.index( "Magnetic Latitude" )
-        MLT_idx      = CSVheader.index( "MLT" )
+        try:
+            MagLat_idx   = CSVheader.index( "Magnetic Latitude" )
+        except:
+            MagLat_idx   = CSVheader.index( "Daedalus.Magnetic Latitude" )
+        try:
+            MLT_idx      = CSVheader.index( "MLT" )
+        except:
+            MLT_idx      = CSVheader.index( "Daedalus.MLT" )
         # read the satellite positions and try to fill the bins
         n = 0
         num_of_errors = 0
