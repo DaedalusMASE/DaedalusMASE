@@ -8,7 +8,7 @@ These areas of interest are called 'Bins'. The Bin boundaries are defined by ran
 1. Magnetic Local Time
 2. Latitude
 3. Altitude
-4. Geomagnetic Kp index
+4. Geomagnetic Kp index  
 The values which fall inside the Bins are averaged at each timestep so that the results can be better compared with 
 the measuremetns from the EISCAT incoherent scatter radars which study the ionosphere. 
 During averaging each value can be assigned a weight according to which latitude it comes from. This gives larger impact to regions having larger area.
