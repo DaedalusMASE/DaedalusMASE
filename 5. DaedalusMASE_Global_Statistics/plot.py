@@ -1645,7 +1645,7 @@ def plotAltProfiles_perKpRange(RegionName, Variable_toPlot, x_axis_min, x_axis_m
         RegionName: the name of the Region of Interest as defined in the Data.
         Variable_toPlot: the name of the variable to be plotted
         x_axis_min: the minimum value for the horizontal axis
-        y_axis_max: the maximum value for the horizontal axis
+        x_axis_max: the maximum value for the horizontal axis
         MultiplicationFactor: All values will be multiplied by this one before plotting
         PlotTitle: the title to be displayed on top of the plot.
         Units_of_Variable: the units.
