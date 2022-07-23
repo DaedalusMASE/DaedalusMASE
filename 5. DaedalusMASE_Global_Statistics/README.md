@@ -80,7 +80,7 @@ function Plot_JH_Distribution_perBin():
 A distribution plot is created for each area of interest and each bin. This plot can also display fitting functions along the data (An Euler function is usually the best fit).
 #### Altitude Profiles
 ![Altitude Profiles](AltProf.png)
-Plots several the 10th, 25th, 50th, 75th and 90th percentiles of the variable versus altitude. Sub-figures are displayed for low and high Kp-index and for different Magnetic Local Time ranges.
+Plots the 10th, 25th, 50th, 75th and 90th percentiles of the variable versus altitude. Sub-figures are displayed for low and high Kp-index and for different Magnetic Local Time ranges.
 #### Color Spreads
 ![ColorSpread per Kp-range](ColorSpread.png)
 function plotColorSpread_KpSeparated():
