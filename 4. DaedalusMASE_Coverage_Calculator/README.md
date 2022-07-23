@@ -157,7 +157,7 @@ the Magnetic Latitude (radial axis) and the Magnetic Local Time (angular axis).
 The coverage information is displayed at the legend.
 
 ### Kp Scatter
-<img src="ScatterPlot.png" alt="Kp Scatter Plot" style="width: 600px;"/>
+<img src="KpScatter.png" alt="Kp Scatter Plot" style="width: 600px;"/>
 The Kp-scatter-plot consists of a single figure. The x-axis represents the Magnetic Local Time and the
 y-axis the Magnetic Latitude. The points are colored by their Kp value. The bins positions are depicted as
 rectangles on the plot and the coverage information is displayed at the legend.
