@@ -1,4 +1,4 @@
-# Satellite Coverage Calculator
+# Coverage Calculator
 
 ## Introduction
 Satellites which take in-situ measurements have to pass many times through certain regions. Usually, the cumulative time spent inside each region of interest has to be large enough for the accomplishment of the scienttific mission.
