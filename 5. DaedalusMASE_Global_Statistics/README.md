@@ -26,25 +26,25 @@ Sample data files can be found at https://drive.google.com/drive/folders/1FUY84B
 #### TIEGCM grid data 
 The Thermosphere is described in several TIEGCM files of netCDF type. These include primary and derived products and are stored in a folder with subfolders for each year (ex: ./TIEGCMdata/2015/tiegcm001.nc is a default path which can be altered).
 Each file contains data for 5 days and there are files for the satellite's 3 years lifetime. Inside the file there are data for every 2.5 degrees of Latitude, for every 2.5 degrees of Longitude, for every 2 hours and for 57 pressure levels.
-The variables (primary and derived) which are expected to be at the source files (tiegcm and orbit) and are stored to the result files are:
+The variables (primary and derived) which are expected to be at the source files (tiegcm and orbit) and are stored to the result files are:  
 
-    | Variable description            | Unit             | Name in NetCDF files | Comment        |  
-    | ------------------------------- | ---------------- | -------------------- | -------------- |  
-    | UTC timestamp                   | seconds          | time                 |                |  
-    | Altitude                        | cm               | ZGMID                |                |  
-    | Latitude                        | degrees          | lat                  |                |  
-    | Magnetic Latitude               | degrees          | mlat_qdf             |                |  
-    | Magnetic Local Time             | hours            | mlt_qdf              |                |  
-    | Kp index                        | 0-9              | Kp                   |                |  
-    | midpoint levels                 | -                | lev                  |                |  
-    | Ohmic (Joule) Heating           | W/m3             | Ohmic                | can be plotted |    
-    | Convection Heating              | W/m3             | Convection_heating   | can be plotted |    
-    | Wind Heating                    | W/m3             | Wind_heating         | can be plotted |    
-    | Electric field strength East    | V/m              | EEX                  | can be plotted |   
-    | Electric field strength North   | V/m              | EEY                  | can be plotted |  
-    | Total Density                   | g/cm3            | DEN                  | can be plotted |  
-    | Pedersen Conductivity           | S/m              | SIGMA_PED            | can be plotted |   
-    | Hall Conductivity               | S/m              | SIGMA_HAL            | can be plotted |  
+| Variable description            | Unit             | Name in NetCDF files | Comment        |  
+| ------------------------------- | ---------------- | -------------------- | -------------- |  
+| UTC timestamp                   | seconds          | time                 |                |  
+| Altitude                        | cm               | ZGMID                |                |  
+| Latitude                        | degrees          | lat                  |                |  
+| Magnetic Latitude               | degrees          | mlat_qdf             |                |  
+| Magnetic Local Time             | hours            | mlt_qdf              |                |  
+| Kp index                        | 0-9              | Kp                   |                |  
+| midpoint levels                 | -                | lev                  |                |  
+| Ohmic (Joule) Heating           | W/m3             | Ohmic                | can be plotted |    
+| Convection Heating              | W/m3             | Convection_heating   | can be plotted |    
+| Wind Heating                    | W/m3             | Wind_heating         | can be plotted |    
+| Electric field strength East    | V/m              | EEX                  | can be plotted |   
+| Electric field strength North   | V/m              | EEY                  | can be plotted |  
+| Total Density                   | g/cm3            | DEN                  | can be plotted |  
+| Pedersen Conductivity           | S/m              | SIGMA_PED            | can be plotted |   
+| Hall Conductivity               | S/m              | SIGMA_HAL            | can be plotted |  
 
 #### Orbit data
 Orbit data contain the measurements a satellite would take along its path, one record for each position. (ex: ./ORBITdata/*.nc is a default path which can be altered).
@@ -54,7 +54,9 @@ The values can be extracted from the TEIGCM model through interpolation by emplo
 #### Result data
 The result data are stored in order to be ploted easier without the time intensive calculation.
 The execution and ploting is separated in regions to make results easier to handle and plot.
-The result data are stored in netCDF files and contain the measurements across an Area of Interest. 
+The result data are stored in netCDF files and contain the measurement values of Joule Heating, Wind Heating, Convection Heating, Density, Electric Field components, Hall Conductivity and Pedersen Conductivity for each Region of Interest. 
+Statistical properties like mean and variance are calculated based on these data, which are useful to the plotting functions in order to create figures.
+
 
 ## Plots
 Several plots have been constructed to display different aspects of the multi-dimensional data.
