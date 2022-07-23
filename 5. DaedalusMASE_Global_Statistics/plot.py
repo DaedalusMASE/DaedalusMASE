@@ -1581,6 +1581,269 @@ def executeStatTest( TIEGCMresults_filename, ORBITresults_filename, RegionName, 
             
             
             
+  
+
+
+
+
+
+
+
+
+    
+Profiles = dict()    
+MLTsequence = list()
+ALTsequence = list()
+MLT_duration_of_a_profile = 0
+ALT_distance_of_a_bucket = 0
+regionMLTmax = 0
+regionMLTmin = 0
+ProfilesUpdateLock = threading.Lock()   
+class Thread_AltProfBinner (threading.Thread):
+    def __init__(self, from_idx, to_idx):
+        threading.Thread.__init__(self)
+        self.from_idx = from_idx
+        self.to_idx = to_idx
+    def run(self):
+        global Profiles
+        for i in range( self.from_idx, self.to_idx ):
+            mlt_to_fall = alt_to_fall = -1  
+            # find correct Alt
+            for seq_idx in range(0, len(ALTsequence)):
+                if all_Altitude_values[i]>=ALTsequence[seq_idx] and all_Altitude_values[i]<ALTsequence[seq_idx]+ALT_distance_of_a_bucket:
+                    alt_to_fall=ALTsequence[seq_idx]
+                    break
+            if alt_to_fall == -1: continue # ignore highest altitudes        
+            # find correct kp
+            if all_Kp_values[i] < 3: 
+                kp_to_fall = 0
+            else:
+                kp_to_fall = 3
+            # find correct MLT
+            MLT_tocheck = all_MLT_values[i]
+            if regionMLTmax>24  and  MLT_tocheck<=regionMLTmax-24:
+                MLT_tocheck += 24
+            for seq_idx in range(0, len(MLTsequence)):
+                if MLT_tocheck>=MLTsequence[seq_idx] and MLT_tocheck<MLTsequence[seq_idx]+MLT_duration_of_a_profile: 
+                    mlt_to_fall=MLTsequence[seq_idx]
+                    break
+            if MLT_tocheck == MLTsequence[len(MLTsequence)-1]+MLT_duration_of_a_profile: mlt_to_fall = MLTsequence[len(MLTsequence)-1] # for last MLT position
+            # store the value at the right place
+            #ProfilesUpdateLock.acquire()
+            if all_JH_values[ i ] > 10: print("!!!!!!!!!!!!!!!! JH=",all_JH_values[ i ], "at",i, kp_to_fall, mlt_to_fall, alt_to_fall)
+            Profiles[ (kp_to_fall, mlt_to_fall, alt_to_fall) ].append( all_JH_values[ i ] )
+            #ProfilesUpdateLock.release()   
+
+    
+def plotAltProfiles_perKpRange(RegionName, Variable_toPlot, x_axis_min, x_axis_max, MultiplicationFactor, PlotTitle, Units_of_Variable=""):
+    """
+    Creates a plot depicting the altitude profiles of the data as calculated for each bin.
+    For each Bin the 10th, 25th, 50th, 75ht and 90th percentiles are displayed. 
+    Sub-figures are created for low and high Kp-index and of different Magnetic Local Time ranges.
+    
+    Args:
+        RegionName: the name of the Region of Interest as defined in the Data.
+        Variable_toPlot: the name of the variable to be plotted
+        x_axis_min: the minimum value for the horizontal axis
+        y_axis_max: the maximum value for the horizontal axis
+        MultiplicationFactor: All values will be multiplied by this one before plotting
+        PlotTitle: the title to be displayed on top of the plot.
+        Units_of_Variable: the units.
+    """
+    global Profiles, MLTsequence, ALTsequence, MLT_duration_of_a_profile, ALT_distance_of_a_bucket, regionMLTmax, regionMLTmin
+    # init parameters
+    if len(Units_of_Variable)==0:
+        if Variable_toPlot == "Ohmic":
+            Units_of_Variable = "W/m^3"
+        elif Variable_toPlot == "DEN":
+            Units_of_Variable = "g/cm^3"    
+        elif Variable_toPlot == "SIGMA_PED" or Variable_toPlot == "SIGMA_HAL":
+            Units_of_Variable = "S/m"
+        elif Variable_toPlot == "Convection_heating" or Variable_toPlot == "Wind_heating":
+            Units_of_Variable = "W/m^3"           
+        elif Variable_toPlot == "EEX" or Variable_toPlot == "EEY":
+            Units_of_Variable = "V/m"      
+        else:
+            Units_of_Variable = "?" 
+
+    x_axes_range = [ x_axis_min, x_axis_max]        
+    
+    # Region specific binning:
+    regionMLTmin = 999
+    regionMLTmax = -999
+    regionALTmin = 999
+    regionALTmax = -999
+    for B in Bins:
+        if B.ID.startswith( RegionName ):
+            if regionMLTmin>B.MLT_min: regionMLTmin = B.MLT_min
+            if regionMLTmax<B.MLT_max: regionMLTmax = B.MLT_max
+            if regionALTmin>B.Altitude_min: regionALTmin = B.Altitude_min
+            if regionALTmax<B.Altitude_max: regionALTmax = B.Altitude_max
+    if regionMLTmax <= regionMLTmin: regionMLTmax += 24
+        
+    # find lowest altitude
+    LowestAltitude = 999999
+    for i in range(0, len(all_Altitude_values)):
+        if LowestAltitude > all_Altitude_values[i]: LowestAltitude = all_Altitude_values[i]
+    
+    # init data structures
+    Profiles = dict()
+    if "TRO" in RegionName:
+        MLT_duration_of_a_profile = 3        
+    else:
+        MLT_duration_of_a_profile = 6
+    ALT_distance_of_a_bucket  = 5
+    MLTsequence     = list( range( regionMLTmin, regionMLTmax, MLT_duration_of_a_profile) )
+    ALTsequence     = list( range( regionALTmin, regionALTmax, ALT_distance_of_a_bucket ) )
+    KPsequence      = [ 0, 3 ] 
+    for aMLT in MLTsequence:
+        for anALT in ALTsequence:
+            for aKP in KPsequence:
+                Profiles[(aKP, aMLT, anALT)] = list()
+
+    print( "Parsing", len(all_JH_values), "values.", datetime.now().strftime("%d-%m-%Y %H:%M:%S") )
+    # parse all values and decide into which sum they must fall
+    AllThreads = list()
+    positions_per_thread = int ( len(all_JH_values) / 10 )
+    from_pos = 0
+    while from_pos < len(all_JH_values):
+        # calculate boundaries for thread
+        to_pos = from_pos + positions_per_thread
+        if to_pos >= len(all_JH_values): to_pos = len(all_JH_values)-1
+        if len(all_JH_values)-to_pos<positions_per_thread : to_pos = len(all_JH_values)-1
+        # spawn new thread
+        print("Thread:", from_pos, "-", to_pos, " of " ,len(all_JH_values), "positions")
+        T = Thread_AltProfBinner(from_pos, to_pos)
+        AllThreads.append(T)
+        T.start()
+        # go on
+        from_pos += positions_per_thread
+        
+    # wait for all threads to terminate
+    for T in AllThreads: T.join()
+
+    # plot
+    Color10 = '#c4dfe6'
+    Color25 = '#a1d6e2'
+    Color50 = '#1995ad'
+    Color75 = '#a1d6e2'
+    Color90 = '#c4dfe6'
+    
+    # construct the column MLT titles #("0-3", "3-6", "6-9", "9-12", "12-15", "15-18", "18-21", "21-24")
+    ColumnTitles = list()
+    
+    for i in range(0, len(MLTsequence)):
+        ColumnTitles.append( "MLT " + str(MLTsequence[i]) + "-"  + str(MLTsequence[i]+MLT_duration_of_a_profile) )
+    # define secondary y-axis at the right of the plot
+    mySpecs = list()
+    for row in range(0, len(KPsequence)):
+        mySpecs.append( list() )
+        for col in range(0, len(MLTsequence)):
+            mySpecs[row].append( {"secondary_y": True} )
+        
+    #make plot
+    fig = make_subplots(rows=len(KPsequence), cols=len(MLTsequence), shared_xaxes=True, shared_yaxes=True, vertical_spacing=0.035, horizontal_spacing=0.01, subplot_titles=ColumnTitles, specs=mySpecs)
+    for aKP in KPsequence:
+        for aMLT in MLTsequence:
+            #Means = list()
+            Percentiles10 = list()
+            Percentiles25 = list()
+            Percentiles50 = list()            
+            Percentiles75 = list()
+            Percentiles90 = list()
+            visibleALTsequence = list()
+            hits  = 0
+            for anALT in ALTsequence:
+                print("  ", anALT, "km     hits =",  len(Profiles[(aKP, aMLT, anALT)]))
+                hits += len(Profiles[(aKP, aMLT, anALT)])
+                if len(Profiles[(aKP, aMLT, anALT)]) > 0:
+                    #Means.append(  sum(Profiles[(aKP, aMLT, anALT)]) / len(Profiles[(aKP, aMLT, anALT)]) )
+                    Percentiles10.append( np.percentile(Profiles[(aKP, aMLT, anALT)], 10) )
+                    Percentiles25.append( np.percentile(Profiles[(aKP, aMLT, anALT)], 25) )
+                    Percentiles50.append( np.percentile(Profiles[(aKP, aMLT, anALT)], 50) )                    
+                    Percentiles75.append( np.percentile(Profiles[(aKP, aMLT, anALT)], 75) )
+                    Percentiles90.append( np.percentile(Profiles[(aKP, aMLT, anALT)], 90) )
+                    visibleALTsequence.append( anALT )
+                #else:
+                    #Means.append( 0 )
+                    #Percentiles10.append( 0 )
+                    #Percentiles25.append( 0 )
+                    #Percentiles50.append( 0 )                    
+                    #Percentiles75.append( 0 )
+                    #Percentiles90.append( 0 )
+            print( "Kp = ", aKP, "MLT =", aMLT, "   Hits =", hits, "  ", datetime.now().strftime("%d-%m-%Y %H:%M:%S") )
+            
+            # change units
+            for i in range(0,len(Percentiles50)): 
+                #Means[i] *= MultiplicationFactor
+                Percentiles10[i] *= MultiplicationFactor
+                Percentiles25[i] *= MultiplicationFactor
+                Percentiles50[i] *= MultiplicationFactor
+                Percentiles75[i] *= MultiplicationFactor
+                Percentiles90[i] *= MultiplicationFactor
+            
+            # alter visibleALTsequence so that data are displayed correctly
+            '''
+            for i in range(0, len(visibleALTsequence)):
+                visibleALTsequence[i] += ALT_distance_of_a_bucket/2
+            '''                
+            #for anALT in ALTsequence:
+            #    if len(Profiles[(aKP, aMLT, anALT)]) > 0:
+            #        visibleALTsequence[0]  = anALT #regionALTmin
+            #        break
+            '''
+            visibleALTsequence[0] = LowestAltitude
+            '''
+            try:
+                visibleALTsequence[-1] = regionALTmax
+            except:
+                pass
+            #print( visibleALTsequence )
+            
+            fig.add_trace( go.Scatter(x=[0]*len(visibleALTsequence), y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles10, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles25, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color25, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles50, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color50, line=dict(color='black',width=2,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            # plot mean
+            #fig.add_trace( go.Scatter(x=Means, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor='black', line=dict(color='black',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            # plot percentiles
+            fig.add_trace( go.Scatter(x=Percentiles75, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color75, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles90, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color90, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1,  )
+            # add a trace in order to display secondary y-axis at the right
+            fig.add_trace( go.Scatter(x=[-1000], y=[-1000], showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1, secondary_y=True )
+            
+    # display legends
+    fig.add_trace( go.Scatter(name='90th Perc.', x=[-10], y=[-10], mode='lines', fill='tonexty', fillcolor=Color90, line=dict(color=Color90,width=1,), showlegend=True), row=1, col=1 )
+    fig.add_trace( go.Scatter(name='75th Perc.', x=[-10], y=[-10], mode='lines', fill='tonexty', fillcolor=Color75, line=dict(color=Color75,width=1,), showlegend=True), row=1, col=1 )
+    fig.add_trace( go.Scatter(name='50th Perc.', x=[-10], y=[-10], mode='lines', fill='tonexty', fillcolor=Color50, line=dict(color=Color50,width=2,), showlegend=True), row=1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='25th Perc.', x=[-10], y=[-10], mode='lines', fill='tonexty', fillcolor=Color25, line=dict(color=Color25,width=1,), showlegend=True), row=1, col=1 )
+    fig.add_trace( go.Scatter(name='10th Perc.', x=[-10], y=[-10], mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color=Color10,width=1,), showlegend=True), row=1, col=1 )
+    
+    #fig.update_yaxes( title="Altitude(km)" )
+    for aKP in KPsequence:
+        fig.update_yaxes( title_text="Altitude (km)", row=KPsequence.index(aKP)+1, col=1, side='left', secondary_y=False)
+        row_title = "Kp " + str(aKP) + " - "
+        if aKP == 0:
+            row_title +=  "3"
+        elif aKP == 3:
+            row_title +=  "9"
+        else:
+            row_title +=  "?"
+        fig.update_yaxes( title_text=row_title, row=KPsequence.index(aKP)+1, col=len(MLTsequence),  side='right', secondary_y=True, showticklabels=False )
+        for aMLT in MLTsequence:
+            fig.update_yaxes( row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1, secondary_y=True, showticklabels=False )
+    fig.update_xaxes( range=x_axes_range )
+    fig.update_yaxes( range=[80, 160], dtick=10 )  
+    fig.update_layout( title = PlotTitle,
+                       width=250+len(MLTsequence)*300, height=200+260*len(KPsequence) , legend_orientation="h", legend_y=-0.04) 
+    
+    plotly.offline.init_notebook_mode(connected=True)
+    plotly.offline.iplot(fig) 
+
+
+
+
+
             
             
             
