@@ -12,7 +12,7 @@ The boundaries are defined by ranges of:
 2. Magnetic Latitude (MagLat)
 3. Altitude
 4. Geomagnetic Kp index
-For example, we have defined a region called "AEM - Auroral E region, midnight sector". AEM's boundaries are:
+For example, the boundaries of a region called "AEM - Auroral E region, midnight sector" are:
      60 <  Magnetic Latitude  < 75
   22:00 < Magnetic Local Time < 02:00
     115 < Altitude            < 140
@@ -24,9 +24,9 @@ There are several predefined Bins, which the user can use and he han also delete
 Sample data files can be found at https://drive.google.com/drive/folders/1FUY84B_ncAMg-2HSmN2tkmVnNvRI3ezH?usp=sharing
 
 #### TIEGCM grid data 
-The Thermosphere is described in several TIEGCM files of netCDF type. These are stored in a folder with subfolders for each year (ex: ./TIEGCMdata/2015/tiegcm001.nc is a default path which can be altered).
-Each file contains simulated data for 5 days and we have files for the satellite's 3 years lifetime. Inside the file there are data for every 2.5 degrees of Latitude, for every 2.5 degrees of Longitude, for every 2 hours and for 57 pressure levels.
-The variables which are expected to be at the source files (tiegcm and orbit) and are stored to the result files are:
+The Thermosphere is described in several TIEGCM files of netCDF type. These include primary and derived products and are stored in a folder with subfolders for each year (ex: ./TIEGCMdata/2015/tiegcm001.nc is a default path which can be altered).
+Each file contains data for 5 days and there are files for the satellite's 3 years lifetime. Inside the file there are data for every 2.5 degrees of Latitude, for every 2.5 degrees of Longitude, for every 2 hours and for 57 pressure levels.
+The variables (primary and derived) which are expected to be at the source files (tiegcm and orbit) and are stored to the result files are:
 
     | Variable description            | Unit             | Name in NetCDF files | Comment        |  
     | ------------------------------- | ---------------- | -------------------- | -------------- |  
