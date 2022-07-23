@@ -111,7 +111,7 @@ We used Kp indices from previous years as they are recorded from NOAA web site:
   
 There are available data since 1932, separated in one file per year. These files should be stored at a local folder (default name is "GeomagneticIndices").
 The user can select which of these years' values to use for the calculations.
-Below you can see the solar cycle of the years 1995-2019:
+Below you can see the solar cycle of the years 1995-2019, along with an forecasting of the next solar cycle:
     
 ![Previous Years Solar Cycle](SolarCycle.png)
 
