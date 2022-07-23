@@ -67,9 +67,37 @@ PlotOrbit_Heatmap( "OrbitSample.csv" )
 
 ### Orbit data
 The main input of this notebook is a satellite orbit. The orbit is described in a csv file as several snapshots of its track. Each snapshot contains information about Time, Latitide, Longitude, Altitude, Magnetic Latitude and Magnetic Local Time of the certain position.
-The csv headers are: 
-Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magnetic Longitude,MLT
+The csv headers are:  
+Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magnetic Longitude,MLT  
 These files should be stored at a local folder (default name is "OrbitFiles").
+  
+The orbit files contain magnetic coordinates of the orbit. 
+A utility called "OrbitFileConversions.py" can be used to add the magnetic coordinates to a csv-formatted orbit file with geographic coordinates.  
+    The utility reads a csv orbit file with format:
+        | Field Description | Example value            | Column Name in CSV file |
+        | ----------------- | ------------------------ | ----------------------- |
+        | Time (UTCG)       | 01 Jan 2015 00:00:00.000 | "Epoch(UTCG)"           |
+        | Latitude (deg)    | -22.048                  | "Lat_GEOD(deg)"         |
+        | Longitude (deg)   | 83.92                    | "Lon_GEOD(deg)"         |
+        | Altitude (km)     | 218.728507               | "Height_WGS84 (km)"     |
+          
+    and creates a new csv orbit file with the same fields plus the extra fields:
+
+        | Field Description         | Example value        | Column Name in CSV file |
+        | ------------------------- | -------------------- | ----------------------- |
+        | Magnetic Latitude (deg)   | -34.185760498046875  | "Magnetic Latitude"     |
+        | Magnetic Longitude (deg)  | 153.52354431152344   | "Magnetic Longitude"    |
+        | Magnetic Local Time       | 5.061925760904948    | "MLT"                   |
+           
+    The values are calculated for modified apex at 90 km - used by TIEGCM as well.
+	  
+	A sample usage of OrbitFileConversions is demonstrated in python code below:
+	```
+	OrbitFileConversions.AddMagneticCoordinates( "./OrbitSamples/OrbitSample.csv", "./OrbitSamples/OrbitExtra.csv" 	)
+	OrbitFileConversions.AddMagneticCoordinates( "./OrbitSamples/OrbitSample2.csv", "./OrbitSamples/OrbitExtra2.csv" 	)
+	plot_MagneticProperties_ofTwoOrbits( "./OrbitFiles/OrbitExtra.csv", "./OrbitFiles/OrbitExtra2.csv", "Orbit1", "Orbit2" )    
+
+	```
 
 ### Geomagnetic Kp Indices
 
