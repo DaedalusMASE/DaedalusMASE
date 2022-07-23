@@ -73,8 +73,8 @@ These files should be stored at a local folder (default name is "OrbitFiles").
   
 The orbit files need to contain magnetic coordinates of the orbit. 
 A utility called "OrbitFileConversions.py" can be used to add the magnetic coordinates to a csv-formatted orbit file with geographic coordinates.  
-It uses the apexpy library (https://pypi.org/project/apexpy/  and  https://github.com/aburrell/apexpy)
-The utility reads a csv orbit file with format:  
+It uses the apexpy library (https://pypi.org/project/apexpy/  and  https://github.com/aburrell/apexpy).
+The utility reads a CSV orbit file with format:  
     
 | Field Description | Example value            | Column Name in CSV file |
 | ----------------- | ------------------------ | ----------------------- |
