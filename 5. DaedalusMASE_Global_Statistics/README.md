@@ -79,8 +79,8 @@ The same plots are also available in a form. The Variabe versus Altiude plot dis
 function Plot_JH_Distribution_perBin():
 A distribution plot is created for each area of interest and each bin. This plot can also display fitting functions along the data (An Euler function is usually the best fit).
 #### Altitude Profiles
-functions plotAltProfilesCanonical_perKpRange() and plotAltProfilesNatural_perKpRange():
-Plots several percentiles of the variable versus altitude. There are different graphs per Kp-range and MLT-range
+![Altitude Profiles](AltProf.png)
+Plots several the 10th, 25th, 50th, 75th and 90th percentiles of the variable versus altitude. Sub-figures are displayed for low and high Kp-index and for different Magnetic Local Time ranges.
 #### Color Spreads
 ![ColorSpread per Kp-range](ColorSpread.png)
 function plotColorSpread_KpSeparated():
@@ -128,6 +128,7 @@ plotVariable( "AAA", "Ohmic" )
 plotVariable_KpSeparated( "AAA", "Ohmic" )
 Plot_Distributions( "AAA", "Ohmic")
 plotColorSpread_KpSeparated( "AAA", "Ohmic" )
+plotAltProfiles_perKpRange( "AAA", "Ohmic", 0, 4, 10**8, "Altitude Profiles of Joule Heating for Auroral E region, midnight sector (10^-8W/m^3) - Sample Plot" )
 
 # Plot comparison charts between to result-files
 plotComparisonOfResults( "./RESULTS/tiegcm010.stats.nc", "./RESULTS/orbit_stats.cdf", "Ohmic", "Comparison of mean values" )
