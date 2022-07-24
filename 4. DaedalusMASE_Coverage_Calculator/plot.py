@@ -340,7 +340,7 @@ def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str,
     """
     StartSecs = time.time()
     
-    with open( Orbit_Files_Path + OrbitFileName ) as CSVfile:
+    with open( OrbitFileName ) as CSVfile:
         CSVreader = csv.reader( CSVfile )
         # locate the column numnbers of interest inside the csv file
         CSVheader = next( CSVreader )
