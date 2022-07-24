@@ -382,7 +382,7 @@ def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str,
                     Kp = GeomagneticIndices[(num_to_2digit_str(day), num_to_2digit_str(month), num_to_2digit_str(kp_startYear+year-OrbitStartYear), str(hour//3))]
                 except:
                     if month==2 and day==29: # the leap years may correspond to non-leap years at the selected range of years for Kp calculation
-                        Kp = GeomagneticIndices[(num_to_2digit_str(28), num_to_2digit_str(month), num_to_2digit_str(kp_startYear.value+year-OrbitStartYear), str(hour//3))]
+                        Kp = GeomagneticIndices[(num_to_2digit_str(28), num_to_2digit_str(month), num_to_2digit_str(kp_startYear+year-OrbitStartYear), str(hour//3))]
                 # remember some useful properties of this satellite position
                 new_x_axis.append( float( row[MLT_idx]    ) )
                 new_y_axis.append( float( row[MagLat_idx] ) )
