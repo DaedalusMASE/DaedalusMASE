@@ -468,7 +468,7 @@ def PlotOrbit_Heatmap( OrbitFileName ):
         OrbitFileName: the filename of the csv file describing the satellite's orbit
     """
     
-    with open( Orbit_Files_Path + OrbitFileName ) as CSVfile:  # read data from the orbit file
+    with open( OrbitFileName ) as CSVfile:  # read data from the orbit file
         CSVreader = csv.reader( CSVfile )
         # locate the column numnbers of interest inside the csv file
         CSVheader = next( CSVreader )
