@@ -122,6 +122,7 @@ def PlotCoverage_Bars_GroupedByRegion(PlotTitle="", RegionGroups=[["AEE", "AEM",
         PlotTitle: a title to be displayed on the top of the plot (if not empty)
         RegionGroups: a list o lists containing region names to be pllotted together
     """
+    Xposition = 20
     ColumnWidth = 100
     DistanceBetweenColumns = 15
     DistanceBetweenRegions = 40
@@ -162,8 +163,14 @@ def PlotCoverage_Bars_GroupedByRegion(PlotTitle="", RegionGroups=[["AEE", "AEM",
             if currentBin.Altitude_min not in AllAltitudes: AllAltitudes.append( currentBin.Altitude_min )
             if currentBin.Altitude_max not in AllAltitudes: AllAltitudes.append( currentBin.Altitude_max )
         # find min and max altitude
-        TheLowestAltitudeInThePlot  = min( AllAltitudes )
-        TheHighestAltitudeInThePlot = max( AllAltitudes )
+        try:
+            TheLowestAltitudeInThePlot  = min( AllAltitudes )
+        except:
+            TheLowestAltitudeInThePlot = 100
+        try:
+            TheHighestAltitudeInThePlot = max( AllAltitudes )
+        except:
+            TheHighestAltitudeInThePlot = 500
     
         for i in range(0, len(G)): # create one rectangle per bin
             currentBinID = G[i]
