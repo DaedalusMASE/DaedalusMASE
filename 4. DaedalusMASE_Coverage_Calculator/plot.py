@@ -348,8 +348,14 @@ def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str,
         Lat_idx      = CSVheader.index( "Lat_GEOD(deg)" ) #CSVheader.index( "Latitude" )
         Lon_idx      = CSVheader.index( "Lon_GEOD(deg)" ) #CSVheader.index( "Longitude" )
         Altitude_idx = CSVheader.index( "Height_WGS84 (km)" ) #CSVheader.index( "Height" )
-        MagLat_idx   = CSVheader.index( "Magnetic Latitude" )
-        MLT_idx      = CSVheader.index( "MLT" )
+        try:
+            MagLat_idx   = CSVheader.index( "Magnetic Latitude" )
+        except:
+            MagLat_idx   = CSVheader.index( "Daedalus.Magnetic Latitude" )
+        try:
+            MLT_idx      = CSVheader.index( "MLT" )
+        except:
+            MLT_idx      = CSVheader.index( "Daedalus.MLT" )
         # read the satellite positions and add them to lists for ploting
         new_x_axis = list()
         new_y_axis = list()
@@ -476,8 +482,14 @@ def PlotOrbit_Heatmap( OrbitFileName ):
         Lat_idx      = CSVheader.index( "Lat_GEOD(deg)" ) #CSVheader.index( "Latitude" ) "Lat (deg)"
         Lon_idx      = CSVheader.index( "Lon_GEOD(deg)" ) #CSVheader.index( "Longitude" ) "Lon (deg)"
         Altitude_idx = CSVheader.index( "Height_WGS84 (km)" ) #CSVheader.index( "Height" ) "Alt (km)"
-        MagLat_idx   = CSVheader.index( "Magnetic Latitude" )
-        MLT_idx      = CSVheader.index( "MLT" )
+        try:
+            MagLat_idx   = CSVheader.index( "Magnetic Latitude" )
+        except:
+            MagLat_idx   = CSVheader.index( "Daedalus.Magnetic Latitude" )
+        try:
+            MLT_idx      = CSVheader.index( "MLT" )
+        except:
+            MLT_idx      = CSVheader.index( "Daedalus.MLT" )
         X = list()
         Y = list()
         lineNum = 0
