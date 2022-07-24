@@ -771,7 +771,7 @@ def LoadResults_CDF( filepath, VariableToLoad, loadBinValues=True, loadGlobalVal
         User must choose a Variable to work with (see start of this module for available variables).
         User can choose which other parallel data to load in order to produce the plots he is interested in, in order to speed up loading
         Args: 
-             filepath: the netcdf result-file to be loaded
+             filepath: the netcdf resul-filename to be loaded or a folder (the last character has to be a slash '/') which contains many netcdf result-files.
              VariableToLoad: the variable which the user is interested in. Only data about this variable will be loaded
     """
     global CALCULATIONS_Title, CALCULATIONS_Description, CALCULATIONS_RegionName, CALCULATIONS_OrbitFilesPath, CALCULATIONS_TIEGCMfolder, CALCULATIONS_ExecutionDuration
