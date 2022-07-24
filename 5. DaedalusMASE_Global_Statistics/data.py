@@ -842,8 +842,12 @@ def LoadResults_CDF( filepath, VariableToLoad, loadBinValues=True, loadGlobalVal
                         pass
                     if loadKpValues: concatLists(B.Kp_values, list(resultsCDF.variables[ B.ID+"_KpValues" ][:]) )
                     if VariableToLoad == "Ohmic":    
-                        Ohmics = resultsCDF.variables[ B.ID+"_ConvectionHeatingValues" ][:] + resultsCDF.variables[ B.ID+"_WindHeatingValues" ][:]
-                        concatLists( B.JH_values, list(Ohmics) ) #    if VariableToLoad == "Ohmic":     concatLists( B.JH_values, list(resultsCDF.variables[ B.ID+"_ConvenctionHeatingValues" ][:]+resultsCDF.variables[ B.ID+"_WindHeatingValues" ][:]) )
+                        try:
+                            Ohmics = resultsCDF.variables[ B.ID+"_ConvectionHeatingValues" ][:] + resultsCDF.variables[ B.ID+"_WindHeatingValues" ][:]
+                            concatLists( B.JH_values, list(Ohmics) ) #    if VariableToLoad == "Ohmic":     concatLists( B.JH_values, list(resultsCDF.variables[ B.ID+"_ConvenctionHeatingValues" ][:]+resultsCDF.variables[ B.ID+"_WindHeatingValues" ][:]) )
+                        except:
+                            Ohmics = resultsCDF.variables[ B.ID+"_JHValues" ][:]
+                            concatLists( B.JH_values, list(Ohmics) )
                     if VariableToLoad == "EEX":    concatLists( B.JH_values, list(resultsCDF.variables[ B.ID+"_EEXValues" ][:])*1000 ) #if VariableToLoad == "EEX_si":    B.EEX_values = list(resultsCDF.variables[ B.ID+"_EEXValues" ][:])
                     if VariableToLoad == "EEY":    concatLists( B.JH_values, list(resultsCDF.variables[ B.ID+"_EEYValues" ][:])*1000 ) #if VariableToLoad == "EEY_si":    B.EEY_values = list(resultsCDF.variables[ B.ID+"_EEYValues" ][:])
                     if VariableToLoad == "SIGMA_PED": concatLists( B.JH_values, list(resultsCDF.variables[ B.ID+"_PedersenValues" ][:]) ) #if VariableToLoad == "SIGMA_PED": B.Pedersen_values = list(resultsCDF.variables[ B.ID+"_PedersenValues" ][:])
@@ -867,8 +871,12 @@ def LoadResults_CDF( filepath, VariableToLoad, loadBinValues=True, loadGlobalVal
                 pass
             if loadKpValues: concatLists( all_Kp_values, list(resultsCDF.variables[ "allKpValues" ][:]) )
             if VariableToLoad == "Ohmic": 
-                Ohmics = resultsCDF.variables[ "allConvectionHeatingValues" ][:] + resultsCDF.variables[ "allWindHeatingValues" ][:]
-                concatLists( all_JH_values, list(Ohmics) ) #if VariableToLoad == "Ohmic":     concatLists( all_JH_values, list(resultsCDF.variables[ "allConvenctionHeatingValues" ][:] + resultsCDF.variables[ "allWindHeatingValues" ][:]) )
+                try:
+                    Ohmics = resultsCDF.variables[ "allConvectionHeatingValues" ][:] + resultsCDF.variables[ "allWindHeatingValues" ][:]
+                    concatLists( all_JH_values, list(Ohmics) ) #if VariableToLoad == "Ohmic":     concatLists( all_JH_values, list(resultsCDF.variables[ "allConvenctionHeatingValues" ][:] + resultsCDF.variables[ "allWindHeatingValues" ][:]) )
+                except:
+                    Ohmics = resultsCDF.variables[ "allJHValues" ][:]
+                    concatLists( all_JH_values, list(Ohmics) ) 
             if VariableToLoad == "EEX":    concatLists( all_JH_values, list(resultsCDF.variables[ "allEEXValues" ][:]*1000) )#if VariableToLoad == "EEX_si":    all_EEX_values = list(resultsCDF.variables[ "allEEXValues" ][:])
             if VariableToLoad == "EEY":    concatLists( all_JH_values, list(resultsCDF.variables[ "allEEYValues" ][:]*1000) )#if VariableToLoad == "EEY_si":    all_EEY_values = list(resultsCDF.variables[ "allEEYValues" ][:])
             if VariableToLoad == "SIGMA_PED": concatLists( all_JH_values, list(resultsCDF.variables[ "allPedersenValues" ][:]) )#if VariableToLoad == "SIGMA_PED": all_Pedersen_values = list(resultsCDF.variables[ "allPedersenValues" ][:])
