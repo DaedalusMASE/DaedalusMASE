@@ -429,13 +429,12 @@ def plotMatlabFile_fromEISCAT( Variable, Filename, x_axis_min, x_axis_max, Multi
             fig.add_trace( go.Scatter(x=[-1000], y=[-1000], showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1, secondary_y=True )
             
     # display legends
-    fig.add_trace( go.Scatter(name='10th Perc.', x=Percentiles10, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
-    fig.add_trace( go.Scatter(name='25th Perc.', x=Percentiles25, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color25, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
-    fig.add_trace( go.Scatter(name='50th Perc.', x=Percentiles50, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color50, line=dict(color='black',width=2,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
-    #fig.add_trace( go.Scatter(name='Mean value', x=Means, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor='#5cc5ef', line=dict(color='black',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )            
-    fig.add_trace( go.Scatter(name='75th Perc.', x=Percentiles75, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color75, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
     fig.add_trace( go.Scatter(name='90th Perc.', x=Percentiles90, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color90, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
-
+    fig.add_trace( go.Scatter(name='75th Perc.', x=Percentiles75, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color75, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='50th Perc.', x=Percentiles50, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color50, line=dict(color='black',width=2,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='25th Perc.', x=Percentiles25, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color25, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='10th Perc.', x=Percentiles10, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    
     fig.update_xaxes( range=x_axes_range, row=1, col=1)
     fig.update_xaxes( range=x_axes_range, row=1, col=2)
     fig.update_xaxes( range=x_axes_range, row=1, col=3)
