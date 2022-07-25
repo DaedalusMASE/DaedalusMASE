@@ -13,6 +13,8 @@ import plotly.figure_factory as ff
 from plotly.subplots import make_subplots
 from scicolorscales import *
 
+import scipy
+
 def plotAltProfiles( VariableLongname, Bins, x_axis_min, x_axis_max, MultiplicationFactor=1, Units="", SuperTitle="" ):
     """
     Creates a plot depicting the altitude profiles of the data as calculated for each bin.
@@ -316,4 +318,157 @@ def plotColoredDistributions( VariableName, Bins, x_axis_min, x_axis_max, Multip
 
     
     
+    
+
+    
+    
+    
+    
+    
+def plotMatlabFile_fromEISCAT( Variable, Filename, x_axis_min, x_axis_max, MultiplicationFactor=1, Units="", PlotTitle="" ):
+    """
+    Creates a plot depicting the altitude profiles of data read from a Matlab file, composed by EISCAT.
+    The 10th, 25th, 50th, 75ht and 90th percentiles are displayed.
+    
+    Args:
+        Variable: string, the name of the variable to be plotted: "Joule Heating" or "Pedersen Conductivity"
+        x_axis_min: the minimum value for the horizontal axis
+        y_axis_max: the maximum value for the horizontal axis
+        MultiplicationFactor: All values will be multiplied by this one before plotting
+        Units: to be displayed on the plot.
+        PllotTitle: a title to be added at the top of the plot
+    """
+
+    if '/' in Filename: # linux
+        struct_name = Filename[Filename.rindex('/')+1:-4]
+    elif '\\' in Filename: # windows
+        struct_name = Filename[Filename.rindex('\\')+1:-4]
+    else:
+        struct_name = Filename[:-4]
+    
+    matlabStruct = scipy.io.loadmat( Filename )
+    
+    allALTs = np.array( matlabStruct[ struct_name ][0][0][0] ).flatten()
+    allKPs  = list( np.array( matlabStruct[ struct_name ][0][0][1][0] ) )
+    allMLTs = list( np.array( matlabStruct[ struct_name ][0][0][2][0] )[:-1] )
+    allJHs  = np.array( matlabStruct[ struct_name ][0][0][3] )
+    allPEDs = np.array( matlabStruct[ struct_name ][0][0][4] )
+    
+    print( "Altitudes:", allALTs[0], allALTs[1], "...", allALTs[-1] )
+    print( "KPs:", allKPs  )
+    print( "MLTs:", allMLTs )
+    print( "JHs shape:", allJHs.shape )
+    print( "PEDs shape:", allPEDs.shape )
+    print( "" )
+    
+    x_axes_range=[ x_axis_min, x_axis_max ]
+    
+    if Variable == "Joule Heating":
+        Values = allJHs
+    else:
+        Values = allPEDs
+    
+    ALTsequence =  allALTs
+    MLTsequence = allMLTs
+    KPsequence = [ 0, 2, 4 ]  #list( mat_medians[ 'jouleMedians' ][0][0][3] )
+    MLT_duration_of_a_profile = 6
+    
+    # alter visibleALTsequence so that the point is displayed in the middle of the sub-bin
+    visibleALTsequence = ALTsequence.copy()
+    for i in range(1, len(visibleALTsequence)-1):
+        visibleALTsequence[i] += 0.5
+    
+    # plot
+    Color10 = '#00FFAA' #'#c4dfe6'
+    Color25 = '#00DCAA' #'#a1d6e2'
+    Color50 = '#008C78' #'#1995ad'
+    Color75 = '#00DCAA' #'#a1d6e2'
+    Color90 = '#00FFAA' #'#c4dfe6'
+    
+    # construct the column MLT titles #("0-3", "3-6", "6-9", "9-12", "12-15", "15-18", "18-21", "21-24")
+    ColumnTitles = list()
+    
+    for i in range(0, len(MLTsequence)):
+        ColumnTitles.append( "MLT " + str(MLTsequence[i]) + "-"  + str(MLTsequence[i]+MLT_duration_of_a_profile) )
+    # define secondary y-axis at the right of the plot
+    mySpecs = list()
+    for row in range(0, len(KPsequence)):
+        mySpecs.append( list() )
+        for col in range(0, len(MLTsequence)):
+            mySpecs[row].append( {"secondary_y": True} )
+
+    #make plot
+    fig = make_subplots(rows=len(KPsequence), cols=len(MLTsequence), shared_xaxes=True, shared_yaxes=True, vertical_spacing=0.035, horizontal_spacing=0.02, subplot_titles=ColumnTitles, specs=mySpecs)
+    for aKP in KPsequence:
+        for aMLT in MLTsequence:
+            #Means = list()
+            Percentiles10 = list()
+            Percentiles25 = list()
+            Percentiles50 = list()            
+            Percentiles75 = list()
+            Percentiles90 = list()
+            hits  = 0
+            
+            # compute percentiles
+            Percentiles10 = Values[KPsequence.index(aKP), MLTsequence.index(aMLT), :, 0] * MultiplicationFactor
+            Percentiles25 = Values[KPsequence.index(aKP), MLTsequence.index(aMLT), :, 1] * MultiplicationFactor
+            Percentiles50 = Values[KPsequence.index(aKP), MLTsequence.index(aMLT), :, 2] * MultiplicationFactor #Percentiles50 = JHmedians[1,1,:] * MultiplicationFactor 
+            Percentiles75 = Values[KPsequence.index(aKP), MLTsequence.index(aMLT), :, 3] * MultiplicationFactor
+            Percentiles90 = Values[KPsequence.index(aKP), MLTsequence.index(aMLT), :, 4] * MultiplicationFactor
+
+            fig.add_trace( go.Scatter(x=[0]*len(visibleALTsequence), y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles10, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles25, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color25, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles50, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color50, line=dict(color='black',width=2,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            # plot mean
+            #fig.add_trace( go.Scatter(x=Means, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor='black', line=dict(color='black',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            # plot percentiles
+            fig.add_trace( go.Scatter(x=Percentiles75, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color75, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+            fig.add_trace( go.Scatter(x=Percentiles90, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color90, line=dict(color='gray',width=1,), showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1,  )
+            # add a trace in order to display secondary y-axis at the right
+            fig.add_trace( go.Scatter(x=[-1000], y=[-1000], showlegend=False), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1, secondary_y=True )
+            
+    # display legends
+    fig.add_trace( go.Scatter(name='10th Perc.', x=Percentiles10, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color10, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='25th Perc.', x=Percentiles25, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color25, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='50th Perc.', x=Percentiles50, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color50, line=dict(color='black',width=2,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    #fig.add_trace( go.Scatter(name='Mean value', x=Means, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor='#5cc5ef', line=dict(color='black',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )            
+    fig.add_trace( go.Scatter(name='75th Perc.', x=Percentiles75, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color75, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+    fig.add_trace( go.Scatter(name='90th Perc.', x=Percentiles90, y=visibleALTsequence, mode='lines', fill='tonexty', fillcolor=Color90, line=dict(color='gray',width=1,), showlegend=True), row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1 )
+
+    fig.update_xaxes( range=x_axes_range, row=1, col=1)
+    fig.update_xaxes( range=x_axes_range, row=1, col=2)
+    fig.update_xaxes( range=x_axes_range, row=1, col=3)
+    fig.update_xaxes( range=x_axes_range, row=1, col=4)
+    
+    fig.update_xaxes( range=x_axes_range, row=2, col=1)
+    fig.update_xaxes( range=x_axes_range, row=2, col=2)
+    fig.update_xaxes( range=x_axes_range, row=2, col=3)
+    fig.update_xaxes( range=x_axes_range, row=2, col=4)
+    
+    fig.update_xaxes( range=x_axes_range, row=3, col=1)
+    fig.update_xaxes( range=x_axes_range, row=3, col=2)
+    fig.update_xaxes( range=x_axes_range, row=3, col=3)
+    fig.update_xaxes( range=x_axes_range, row=3, col=4)
+    
+    for aKP in KPsequence:
+        fig.update_yaxes( title_text="Altitude (km)", row=KPsequence.index(aKP)+1, col=1, side='left', secondary_y=False)
+        row_title = "Kp " + str(aKP) + " - "
+        if aKP == 0:
+            row_title +=  "2"
+        elif aKP == 2:
+            row_title +=  "4"
+        else:
+            row_title +=  "9"
+        fig.update_yaxes( title_text=row_title, row=KPsequence.index(aKP)+1, col=len(MLTsequence),  side='right', secondary_y=True, showticklabels=False )
+        for aMLT in MLTsequence:
+            fig.update_yaxes( row=KPsequence.index(aKP)+1, col=MLTsequence.index(aMLT)+1, secondary_y=True, showticklabels=False )
+    #fig.update_xaxes( range=x_axes_range )
+    fig.update_yaxes( range=[80, 150], dtick=10 )  
+    fig.update_layout( title = PlotTitle,
+                       width=400+len(MLTsequence)*250, height=200+200*len(KPsequence), showlegend=True, legend_orientation="h", legend_y=-0.04) 
+
+    
+    plotly.offline.init_notebook_mode(connected=True)
+    plotly.offline.iplot(fig)     
     
