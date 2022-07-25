@@ -144,17 +144,24 @@ def get_MATLAB_value( Filename, Variable,    Kp, Altitude, MLT ):
     """
     Reads a matlab File and returns the value of the Variable for a certain Kp, Altitude, MLT combination
     """
+    if '/' in Filename: # linux
+        struct_name = Filename[Filename.rindex('/')+1:-4]
+    elif '\\' in Filename: # windows
+        struct_name = Filename[Filename.rindex('\\')+1:-4]
+    else:
+        struct_name = Filename[:-4]
+
     Result = 0
     matlabStruct = scipy.io.loadmat( Filename )
-    ALTsequence = list(np.array( matlabStruct[ 'data_2009_2019_TS' ][0][0][0] ).flatten() )
-    allKPs  = list( np.array( matlabStruct[ 'data_2009_2019_TS' ][0][0][1][0] ) )
-    MLTsequence = list( np.array( matlabStruct[ 'data_2009_2019_TS' ][0][0][2][0] )[:-1] )
+    ALTsequence = list(np.array( matlabStruct[ struct_name ][0][0][0] ).flatten() )
+    allKPs  = list( np.array( matlabStruct[ struct_name ][0][0][1][0] ) )
+    MLTsequence = list( np.array( matlabStruct[ struct_name ][0][0][2][0] )[:-1] )
     KPsequence = [ 0, 2, 4 ]
     if Variable == "Joule Heating":
-        allJHs  = np.array( matlabStruct[ 'data_2009_2019_TS' ][0][0][3] )
+        allJHs  = np.array( matlabStruct[ struct_name  ][0][0][3] )
         Values = allJHs
     else:
-        allPEDs = np.array( matlabStruct[ 'data_2009_2019_TS' ][0][0][4] )
+        allPEDs = np.array( matlabStruct[ struct_name  ][0][0][4] )
         Values = allPEDs
     
     
