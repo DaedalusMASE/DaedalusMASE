@@ -6,28 +6,35 @@ Values of products, errors and error contribution are calculated using proper fu
 ## Usage
 A sample usage of the software is demonstrated in python code below:
 ```
-import productDerivation as pD
+#import the required packages
+sys.path.insert(0,"../daedalusmase_errorpropagation")
+import factors
+import productderivation as pD
+import supportfunctions
 import Plots
-import ErrorProgation as EP
+import errorprogation as EP
+
+#select the input file
 filename="tiegcm2.0_res2.5_3years_sech_016.nc"
+#select timestep, latitude and longitude values
 timer=5
 lat_value=0 #63.75 deg
 lon_value=49 #-57.5 deg
-# Load variables needed from TIEGCM file
+#read model inputs
 pD.models_input(filename, timer, lat_value, lon_value)
-# Calculate Products
+#calculate products
 pD.products(lat_value, lon_value)
-
+#minimum and maximun altitude for plot purposes
 min_alt=100
 max_alt=400
-# Plot of conductivities
 Plots.plot_conductivities(lat_value, lon_value, min_alt, max_alt)
-error_flag=True
-# Error calculation
-EP.error(error_flag=error_flag, lat_value=lat_value, lon_value=lon_value)
-Plots error of conductivities
-Plots.plot_conductivities_error(lat_value, lon_value, min_alt, max_alt)
 
+error_flag=True # Error save flag
+
+#call calculate error routine
+EP.error(error_flag=error_flag, lat_value=lat_value, lon_value=lon_value)
+#plot errors
+Plots.plot_conductivities_error(lat_value, lon_value, min_alt, max_alt)
 ```
 
 ## Data

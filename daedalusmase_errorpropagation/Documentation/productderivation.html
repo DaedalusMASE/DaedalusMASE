@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>ATBDs.productDerivation API documentation</title>
+<title>daedalusmase_errorpropagation.productderivation API documentation</title>
 <meta name="description" content="This file containts the functions with are used to calculate all Low Atmosphere and Ionoshpere
 quantities.
 models_input function used to read inputs …" />
@@ -21,7 +21,7 @@ models_input function used to read inputs …" />
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>ATBDs.productDerivation</code></h1>
+<h1 class="title">Module <code>daedalusmase_errorpropagation.productderivation</code></h1>
 </header>
 <section id="section-intro">
 <p>This file containts the functions with are used to calculate all Low Atmosphere and Ionoshpere
@@ -58,7 +58,7 @@ from matplotlib import ticker
 from matplotlib.colors import LogNorm
 from cmcrameri import cm
 import factors
-import SupportFunctions
+import supportfunctions
 my_dpi=300
 
 # ##################################### GET INPUT FROM TIE-GCM AND I-GRF #####################################
@@ -197,19 +197,19 @@ def models_input(file_name, timer, lat_value=-1, lon_value=-1, pressure_level=-1
                 Bu = pt.Bz  # in tesla
 
                 # Magnetic field from ENU to ECEF (in tesla)
-                factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
+                factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
 
                 # Electric field from ENU to ECEF (in V/m)
                 Ee_temp = Ee_in[timer, lev, lat, lon]
                 En_temp = En_in[timer, lev, lat, lon]
                 Eu_temp = Eu_in[timer, lev, lat, lon]
-                factors.Ex[lat, lon, lev], factors.Ey[lat, lon, lev], factors.Ez[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Ee_temp, En_temp, Eu_temp)
+                factors.Ex[lat, lon, lev], factors.Ey[lat, lon, lev], factors.Ez[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Ee_temp, En_temp, Eu_temp)
 
                 # Neutral wind from ENU to ECEF (in m/sec)
                 Un_e_temp = Un_east_in[timer, lev, lat, lon]
                 Un_n_temp = Un_north_in[timer, lev, lat, lon]
                 Un_u_temp = Un_up_in[timer, lev, lat, lon]
-                factors.Unx[lat, lon, lev], factors.Uny[lat, lon, lev], factors.Unz[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Un_e_temp, Un_n_temp, Un_u_temp)
+                factors.Unx[lat, lon, lev], factors.Uny[lat, lon, lev], factors.Unz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Un_e_temp, Un_n_temp, Un_u_temp)
 
                 # Assign densities (in cm^(-3))
                 factors.NO[lat, lon, lev] = O_in[timer, lev, lat, lon]
@@ -602,7 +602,7 @@ def products(lat_value=-1, lon_value=-1, pressure_level=-1):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="ATBDs.productDerivation.models_input"><code class="name flex">
+<dt id="daedalusmase_errorpropagation.productderivation.models_input"><code class="name flex">
 <span>def <span class="ident">models_input</span></span>(<span>file_name, timer, lat_value=-1, lon_value=-1, pressure_level=-1)</span>
 </code></dt>
 <dd>
@@ -760,19 +760,19 @@ Returns the sturcture of input variables needed to calculate LTI products
                 Bu = pt.Bz  # in tesla
 
                 # Magnetic field from ENU to ECEF (in tesla)
-                factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
+                factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
 
                 # Electric field from ENU to ECEF (in V/m)
                 Ee_temp = Ee_in[timer, lev, lat, lon]
                 En_temp = En_in[timer, lev, lat, lon]
                 Eu_temp = Eu_in[timer, lev, lat, lon]
-                factors.Ex[lat, lon, lev], factors.Ey[lat, lon, lev], factors.Ez[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Ee_temp, En_temp, Eu_temp)
+                factors.Ex[lat, lon, lev], factors.Ey[lat, lon, lev], factors.Ez[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Ee_temp, En_temp, Eu_temp)
 
                 # Neutral wind from ENU to ECEF (in m/sec)
                 Un_e_temp = Un_east_in[timer, lev, lat, lon]
                 Un_n_temp = Un_north_in[timer, lev, lat, lon]
                 Un_u_temp = Un_up_in[timer, lev, lat, lon]
-                factors.Unx[lat, lon, lev], factors.Uny[lat, lon, lev], factors.Unz[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Un_e_temp, Un_n_temp, Un_u_temp)
+                factors.Unx[lat, lon, lev], factors.Uny[lat, lon, lev], factors.Unz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Un_e_temp, Un_n_temp, Un_u_temp)
 
                 # Assign densities (in cm^(-3))
                 factors.NO[lat, lon, lev] = O_in[timer, lev, lat, lon]
@@ -805,7 +805,7 @@ Returns the sturcture of input variables needed to calculate LTI products
     print(&#39; &#39;)</code></pre>
 </details>
 </dd>
-<dt id="ATBDs.productDerivation.products"><code class="name flex">
+<dt id="daedalusmase_errorpropagation.productderivation.products"><code class="name flex">
 <span>def <span class="ident">products</span></span>(<span>lat_value=-1, lon_value=-1, pressure_level=-1)</span>
 </code></dt>
 <dd>
@@ -1193,13 +1193,13 @@ Returns all the LTI pruducts structures as factors.xxx. See file factor.py lines
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="ATBDs" href="index.html">ATBDs</a></code></li>
+<li><code><a title="daedalusmase_errorpropagation" href="index.html">daedalusmase_errorpropagation</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="ATBDs.productDerivation.models_input" href="#ATBDs.productDerivation.models_input">models_input</a></code></li>
-<li><code><a title="ATBDs.productDerivation.products" href="#ATBDs.productDerivation.products">products</a></code></li>
+<li><code><a title="daedalusmase_errorpropagation.productderivation.models_input" href="#daedalusmase_errorpropagation.productderivation.models_input">models_input</a></code></li>
+<li><code><a title="daedalusmase_errorpropagation.productderivation.products" href="#daedalusmase_errorpropagation.productderivation.products">products</a></code></li>
 </ul>
 </li>
 </ul>

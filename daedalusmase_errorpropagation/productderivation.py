@@ -22,7 +22,7 @@ from matplotlib import ticker
 from matplotlib.colors import LogNorm
 from cmcrameri import cm
 import factors
-import SupportFunctions
+import supportfunctions
 my_dpi=300
 
 # ##################################### GET INPUT FROM TIE-GCM AND I-GRF #####################################
@@ -161,19 +161,19 @@ def models_input(file_name, timer, lat_value=-1, lon_value=-1, pressure_level=-1
                 Bu = pt.Bz  # in tesla
 
                 # Magnetic field from ENU to ECEF (in tesla)
-                factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
+                factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
 
                 # Electric field from ENU to ECEF (in V/m)
                 Ee_temp = Ee_in[timer, lev, lat, lon]
                 En_temp = En_in[timer, lev, lat, lon]
                 Eu_temp = Eu_in[timer, lev, lat, lon]
-                factors.Ex[lat, lon, lev], factors.Ey[lat, lon, lev], factors.Ez[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Ee_temp, En_temp, Eu_temp)
+                factors.Ex[lat, lon, lev], factors.Ey[lat, lon, lev], factors.Ez[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Ee_temp, En_temp, Eu_temp)
 
                 # Neutral wind from ENU to ECEF (in m/sec)
                 Un_e_temp = Un_east_in[timer, lev, lat, lon]
                 Un_n_temp = Un_north_in[timer, lev, lat, lon]
                 Un_u_temp = Un_up_in[timer, lev, lat, lon]
-                factors.Unx[lat, lon, lev], factors.Uny[lat, lon, lev], factors.Unz[lat, lon, lev] = SupportFunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Un_e_temp, Un_n_temp, Un_u_temp)
+                factors.Unx[lat, lon, lev], factors.Uny[lat, lon, lev], factors.Unz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Un_e_temp, Un_n_temp, Un_u_temp)
 
                 # Assign densities (in cm^(-3))
                 factors.NO[lat, lon, lev] = O_in[timer, lev, lat, lon]
