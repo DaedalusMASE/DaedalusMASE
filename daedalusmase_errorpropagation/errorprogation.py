@@ -5,7 +5,7 @@ error on the caculation of LTI products
 import time
 import numpy as np
 import factors
-import SupportFunctions
+
 
 # ############################################ CALCULATE ERROR ############################################
 # #########################################################################################################

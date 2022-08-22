@@ -1,9 +1,9 @@
 import numpy as np
-import SupportFuctions as SF
-import IO as IO
+import supportfuctions as SF
+import inout as inout
 from tqdm import tqdm
 
-def TrilinearInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+def trilinearinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
     """
     This function performs Trilinear interpolation of a given orbit in TIEGCM grid
     Args: 
@@ -81,7 +81,7 @@ def TrilinearInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
 
     return m
 
-def TriCubicSplineInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+def tricubicsplineInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
     """
     This function performs Tricubic interpolation of a given orbit in TIEGCM grid
     Args: 
@@ -258,7 +258,7 @@ def TriCubicSplineInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
 
     return m
 
-def IDWInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+def idwinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
     """
     This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points
     Args: 
@@ -349,7 +349,7 @@ def IDWInterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
 
 
 
-def RunInterpolator(model_data_file,orbit_file,TGvar="TN",Interpolation="Trilinear",Save=True,outfileName="InterResults.nc"):
+def runinterpolator(model_data_file,orbit_file,TGvar="TN",Interpolation="Trilinear",Save=True,outfileName="InterResults.nc"):
     """
     This function begins the execution of the selected interpolation scheme
     Args: 
@@ -364,8 +364,8 @@ def RunInterpolator(model_data_file,orbit_file,TGvar="TN",Interpolation="Triline
         Save(bool): Enables the saving of orbit parameters in the ouput file the results
         outfileName (String): The name of the output file, default name is "InterResults.nc"
     """
-    model=IO.Model(model_data_file ,500,100)  #initialize model
-    orbit=IO.Orbit(orbit_file)                #initialize  orbit
+    model=inout.Model(model_data_file ,500,100)  #initialize model
+    orbit=inout.Orbit(orbit_file)                #initialize  orbit
     outfile=outfileName
     dtime,dlat,dlon,dalt,index,int_final=orbit.createorbit(orbit.name,model.minAltitude,model.maxAltitude,outfile,Save)
     gtime,glat,glon,glev,zg=model.readGrid(model.name)                                     #get model stats
@@ -377,28 +377,28 @@ def RunInterpolator(model_data_file,orbit_file,TGvar="TN",Interpolation="Triline
     if Interpolation=="Trilinear":
         for jj in tqdm(range(len(TGvar))):
             var=model.readVar(model.name,TGvar[jj])
-            interpolatedDataTrilinear=TrilinearInterpolation(glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedDataTrilinear=trilinearinterpolation(glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
             interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTrilinear)
 
             if Save == True: 
-                IO.Write(outfile,interpolatedData,TGvar[jj])
+                inout.Write(outfile,interpolatedData,TGvar[jj])
                 
     if Interpolation=="Tricubic":
         for jj in tqdm(range(len(TGvar))):
             var=model.readVar(model.name,TGvar[jj])
 
-            interpolatedDataTricubic=TriCubicSplineInterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedDataTricubic=tricubicsplineInterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
             interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTricubic)
             
             if Save == True: 
-                IO.Write(outfile,interpolatedData,TGvar[jj])
+                inout.Write(outfile,interpolatedData,TGvar[jj])
 
     if Interpolation=="IDW":
         for jj in tqdm(range(len(TGvar))):
             var=model.readVar(model.name,TGvar[jj])
 
-            interpolatedDataTricubic=IDWInterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedDataTricubic=idwinterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
             interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTricubic)
             
             if Save == True: 
-                IO.Write(outfile,interpolatedData,TGvar[jj])
+                inout.Write(outfile,interpolatedData,TGvar[jj])

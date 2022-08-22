@@ -6,10 +6,12 @@ Values of simulated measuremets, are estimated using classes and functionslocate
 ## Usage
 A sample usage of the software is demonstrated in python code below:
 ```
-import InterpolationMASE_MainFunc as INT
+import sys
+sys.path.insert(0,"../daedalusmase_interpolation")
+import Interpolationmase_mainfunc as INT
 ModelName="tiegcm2.0_res2.5_3years_sech_016.nc"
 OrbitFile="orbit.nc"
-INT.RunInterpolator(ModelName,OrbitFile,TGvar="TN",Interpolation="Trilinear",Save=True,outfileName="InterResults.nc")
+INT.runinterpolator(ModelName,OrbitFile,TGvar="TN",Interpolation="Trilinear",Save=True,outfileName="InterResults.nc")
 
 ```
 

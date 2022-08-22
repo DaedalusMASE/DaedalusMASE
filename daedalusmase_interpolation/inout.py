@@ -6,7 +6,7 @@ import pandas as pd
 from pandas import DataFrame
 from datetime import datetime
 import warnings
-import SupportFuctions as SF
+import supportfuctions as SF
 warnings.filterwarnings('ignore')
 
 
