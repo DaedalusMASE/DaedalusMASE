@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>daedalusmase_interpolation.interpolationmase_mainfunc API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>daedalusmase_interpolation.interpolationmase_mainfunc</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import supportfuctions as SF
+import inout as inout
+from tqdm import tqdm
+
+def trilinearinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            gtime (float): 1D array of times of TIEGCM
+            glat (float): 1D array of latitudes of TIEGCM
+            glon (float): 1D array of longitudes of TIEGCM
+            dtime (float): 1D array of time of interpolation orbit
+            dlat (float): 1D array of latitudes of interpolation orbit
+            dlon (float): 1D array of longitudes of interpolation orbit
+            dalt (float): 1D array of altitudes of interpolation orbit
+            zg (float): 4D array of altitudes of TIEGCM midpoint levels
+            ne (float): 4D array of variable values on gridded point of TIEGCM grid
+        Returns:
+            m (float): 1D array of Trilinear Interpolation Results
+    &#34;&#34;&#34;
+    deltaphi= np.abs(glon[2]-glon[1])
+    deltatheta=np.abs(glat[2]-glat[1])
+    Re=6378137.0/1e3
+    # arc_theta=2*np.pi*Re*(deltatheta/360)
+    # arc_phi=2*np.pi*Re*(deltaphi/360)
+
+    m=np.zeros((len(dalt)))
+    
+
+    for i in range(0,len(dalt)):
+        counter=SF.local(dtime[i],gtime)
+        phi_local=SF.local(dlon[i],glon)
+        theta_local=SF.local(dlat[i],glat)
+
+
+        if dlon[i] &gt;= 177.5 :
+            phi_local=len(glon)-2
+            lonbnd=1
+
+        if dlon[i] &lt;= -177.5:
+            phi_local=1
+
+        if dlat[i] &gt;= 87.5:
+            theta_local=len(glat)-2
+            latbnd=1
+
+        if dlat[i] &lt;= -87.5:
+            theta_local=0
+
+
+        alts=zg[counter,:,theta_local,phi_local]/1e5
+        r_local=SF.local(dalt[i],alts)
+        deltarho=alts[r_local+1]-alts[r_local]
+        dx=(((dalt[i]-alts[r_local])/deltarho))
+        dy=(((dlat[i]-glat[theta_local])/deltatheta))
+        dz=np.abs(((dlon[i]-glon[phi_local])/deltaphi))
+
+        # Calculate Weights
+                
+        w1=np.abs((1-dx)*(1-dy)*(1-dz))
+        w2=np.abs((dx)*(1-dy)*(1-dz))
+        w3=np.abs((1-dx)*(dy)*(1-dz))
+        w4=np.abs((dx)*(dy)*(1-dz))
+        w5=np.abs((1-dx)*(1-dy)*(dz))
+        w6=np.abs((dx)*(1-dy)*(dz))
+        w7=np.abs((1-dx)*(dy)*(dz))
+        w8=np.abs((dx)*(dy)*(dz))
+
+        
+        m[i]=0.0
+        m[i]=       ne[counter,r_local,theta_local,phi_local]*w1
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local,phi_local]*w2
+        m[i]=m[i]+  ne[counter,r_local,theta_local+1,phi_local]*w3
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local+1,phi_local]*w4
+
+        m[i]=m[i]+  ne[counter,r_local,theta_local,phi_local+1]*w5
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local,phi_local+1]*w6
+        m[i]=m[i]+  ne[counter,r_local,theta_local+1,phi_local+1]*w7
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local+1,phi_local+1]*w8
+
+    return m
+
+def tricubicsplineinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            gtime (float): 1D array of times of TIEGCM
+            glat (float): 1D array of latitudes of TIEGCM
+            glon (float): 1D array of longitudes of TIEGCM
+            dtime (float): 1D array of time of interpolation orbit
+            dlat (float): 1D array of latitudes of interpolation orbit
+            dlon (float): 1D array of longitudes of interpolation orbit
+            dalt (float): 1D array of altitudes of interpolation orbit
+            zg (float): 4D array of altitudes of TIEGCM midpoint levels
+            ne (float): 4D array of variable values on gridded point of TIEGCM grid
+        Returns:
+            m (float): 1D array of Tricubic Spline Interpolation Results
+    &#34;&#34;&#34;
+    deltaphi= np.abs(glon[2]-glon[1])
+    deltatheta=np.abs(glat[2]-glat[1])
+    Re=6378137.0/1e3
+    # arc_theta=2*np.pi*Re*(deltatheta/360)
+    # arc_phi=2*np.pi*Re*(deltaphi/360)
+
+    m=np.zeros((len(dalt)))
+    fval=np.zeros(8)
+    fdx=np.zeros(8)
+    fdy=np.zeros(8)
+    fdz=np.zeros(8)
+    fdxdy=np.zeros(8)
+    fdxdz=np.zeros(8)
+    fdydz=np.zeros(8)
+    fdxdydz=np.zeros(8)
+    x=np.zeros(64)
+
+    for i in range(0,len(dalt)):
+        counter=SF.local(dtime[i],gtime)
+        phi_local=SF.local(dlon[i],glon)
+        theta_local=SF.local(dlat[i],glat)
+
+        if dlon[i] &gt;= 177.5 :
+            phi_local=len(glon)-2
+            lonbnd=1
+
+        if dlon[i] &lt;= -177.5:
+            phi_local=1
+
+        if dlat[i] &gt;= 87.5:
+            theta_local=len(glat)-2
+            latbnd=1
+
+        if dlat[i] &lt;= -87.5:
+            theta_local=0
+
+
+
+        alts=zg[counter,:,theta_local,phi_local]/1e5
+        r_local=SF.local(dalt[i],alts)
+        deltarho=alts[r_local+1]-alts[r_local]
+        dx=(((dalt[i]-alts[r_local])/deltarho))
+        dy=np.abs((((dlat[i]-glat[theta_local])/deltatheta)))
+        dz=np.abs(((dlon[i]-glon[phi_local])/deltaphi))
+        
+
+
+        # Get 8 Nearest Neighbors Values
+        fval[0]=ne[counter,r_local,theta_local,phi_local]
+        fval[1]=ne[counter,r_local+1,theta_local,phi_local]
+        fval[2]=ne[counter,r_local,theta_local+1,phi_local]
+        fval[3]=ne[counter,r_local+1,theta_local+1,phi_local]
+        fval[4]=ne[counter,r_local,theta_local,phi_local+1]
+        fval[5]=ne[counter,r_local+1,theta_local,phi_local+1]
+        fval[6]=ne[counter,r_local,theta_local+1,phi_local+1]
+        fval[7]=ne[counter,r_local+1,theta_local+1,phi_local+1]
+        
+        # Get 1st Order Derivatives Nearest Neighbors Values
+        fdx[0]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local,&#34;X&#34;)  
+        fdx[1]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;X&#34;)  
+        fdx[2]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;X&#34;)  
+        fdx[3]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;X&#34;)  
+        fdx[4]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;X&#34;)  
+        fdx[5]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;X&#34;)  
+        fdx[6]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;X&#34;)  
+        fdx[7]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;X&#34;)  
+
+        fdy[0]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local,&#34;Y&#34;)  
+        fdy[1]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;Y&#34;)  
+        fdy[2]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;Y&#34;)  
+        fdy[3]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;Y&#34;)  
+        fdy[4]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;Y&#34;)  
+        fdy[5]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;Y&#34;)  
+        fdy[6]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;Y&#34;)  
+        fdy[7]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;Y&#34;)  
+
+        fdz[0]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local,&#34;Z&#34;)  
+        fdz[1]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;Z&#34;)  
+        fdz[2]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;Z&#34;)  
+        fdz[3]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;Z&#34;)  
+        fdz[4]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;Z&#34;)  
+        fdz[5]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;Z&#34;)  
+        fdz[6]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;Z&#34;)  
+        fdz[7]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;Z&#34;)  
+
+
+     
+        # Get 2nd Order Mixed Derivatives Nearest Neighbors Values
+        fdxdy[0]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local,&#34;XY&#34;)  
+        fdxdy[1]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;XY&#34;)  
+        fdxdy[2]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;XY&#34;)  
+        fdxdy[3]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;XY&#34;)  
+        fdxdy[4]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;XY&#34;)  
+        fdxdy[5]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;XY&#34;)  
+        fdxdy[6]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;XY&#34;)  
+        fdxdy[7]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;XY&#34;)  
+
+        
+        fdxdz[0]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local,&#34;XZ&#34;)  
+        fdxdz[1]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;XZ&#34;)  
+        fdxdz[2]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;XZ&#34;)  
+        fdxdz[3]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;XZ&#34;)  
+        fdxdz[4]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;XZ&#34;)  
+        fdxdz[5]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;XZ&#34;)  
+        fdxdz[6]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;XZ&#34;)  
+        fdxdz[7]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;XZ&#34;)  
+        
+        fdydz[0]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local,&#34;YZ&#34;)  
+        fdydz[1]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;YZ&#34;)  
+        fdydz[2]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;YZ&#34;)  
+        fdydz[3]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;YZ&#34;)  
+        fdydz[4]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;YZ&#34;)  
+        fdydz[5]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;YZ&#34;)  
+        fdydz[6]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;YZ&#34;)  
+        fdydz[7]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;YZ&#34;)  
+
+        
+        # Get 3rd Order Mixed Derivatives Nearest Neighbors Values
+
+        fdxdydz[0]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local)  
+        fdxdydz[1]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local)  
+        fdxdydz[2]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local)  
+        fdxdydz[3]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local)  
+        fdxdydz[4]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1)  
+        fdxdydz[5]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1)  
+        fdxdydz[6]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1)  
+        fdxdydz[7]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1)  
+
+
+        for ii in range(8):
+            x[0+ii]=fval[ii]
+            x[8+ii]=fdx[ii]
+            x[16+ii]=fdy[ii]
+            x[24+ii]=fdz[ii]
+            x[32+ii]=fdxdy[ii]
+            x[40+ii]=fdxdz[ii]
+            x[48+ii]=fdydz[ii]
+            x[56+ii]=fdxdydz[ii]
+
+
+        a =np.zeros(64)
+        for ii in range(64):
+            a[ii]=0.0
+            for j in range(64):
+                a[ii]+=SF.A[ii,j]*x[j]
+
+        m[i]=0.0
+
+        for ii in range(4):
+            for j in range(4):
+                for k in range(4):
+                    m[i]+=a[ii+4*j+16*k]*pow(dx,ii)*pow(dy,j)*pow(dz,k)
+
+        
+    min=np.zeros((len(dtime)))
+    for i in range(0,len(dtime)):
+        min[i] = (dtime[i] - SF.startTime)/1000/60
+        
+
+    return m
+
+def idwinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            gtime (float): 1D array of times of TIEGCM
+            glat (float): 1D array of latitudes of TIEGCM
+            glon (float): 1D array of longitudes of TIEGCM
+            dtime (float): 1D array of time of interpolation orbit
+            dlat (float): 1D array of latitudes of interpolation orbit
+            dlon (float): 1D array of longitudes of interpolation orbit
+            dalt (float): 1D array of altitudes of interpolation orbit
+            zg (float): 4D array of altitudes of TIEGCM midpoint levels
+            ne (float): 4D array of variable values on gridded point of TIEGCM grid
+        Returns:
+            m (float): 1D array of Inverse Distanse Weight Interpolation Results
+    &#34;&#34;&#34;
+  
+    m=np.zeros((len(dalt)))
+    p=2 #IDW parameter
+    for i in range(0,len(dalt)):
+        counter=SF.local(dtime[i],gtime)
+        phi_local=SF.local(dlon[i],glon)
+        theta_local=SF.local(dlat[i],glat)
+        alts=zg[counter,:,theta_local,phi_local]/1e5
+        r_local=SF.local(dalt[i],alts)
+
+
+        if dlon[i] &gt;= 177.5 :
+            phi_local=len(glon)-2
+            lonbnd=1
+
+        if dlon[i] &lt;= -177.5:
+            phi_local=1
+
+        if dlat[i] &gt;= 87.5:
+            theta_local=len(glat)-2
+            latbnd=1
+
+        if dlat[i] &lt;= -87.5:
+            theta_local=0
+
+        p_0=[dlat[i],dlon[i],dalt[i]]
+
+        p_1=[glat[theta_local],glon[phi_local],alts[r_local]]
+        p_2=[glat[theta_local],glon[phi_local],alts[r_local+1]]
+        p_3=[glat[theta_local+1],glon[phi_local],alts[r_local]]
+        p_4=[glat[theta_local+1],glon[phi_local],alts[r_local+1]]
+        p_5=[glat[theta_local],glon[phi_local+1],alts[r_local]]
+        p_6=[glat[theta_local],glon[phi_local+1],alts[r_local+1]]
+        p_7=[glat[theta_local+1],glon[phi_local+1],alts[r_local]]
+        p_8=[glat[theta_local+1],glon[phi_local+1],alts[r_local+1]]
+
+        d_01=SF.euclidianDistance(p_0,p_1)
+        d_02=SF.euclidianDistance(p_0,p_2)
+        d_03=SF.euclidianDistance(p_0,p_3)
+        d_04=SF.euclidianDistance(p_0,p_4)
+        d_05=SF.euclidianDistance(p_0,p_5)
+        d_06=SF.euclidianDistance(p_0,p_6)
+        d_07=SF.euclidianDistance(p_0,p_7)
+        d_08=SF.euclidianDistance(p_0,p_8)
+
+        if d_01==0: m[i]=ne[counter,r_local,theta_local,phi_local] 
+        if d_02==0: m[i]=ne[counter,r_local+1,theta_local,phi_local] 
+        if d_03==0: m[i]=ne[counter,r_local,theta_local+1,phi_local] 
+        if d_03==0: m[i]=ne[counter,r_local+1,theta_local+1,phi_local] 
+        if d_04==0: m[i]=ne[counter,r_local,theta_local,phi_local+1] 
+        if d_05==0: m[i]=ne[counter,r_local+1,theta_local,phi_local+1] 
+        if d_06==0: m[i]=ne[counter,r_local,theta_local+1,phi_local+1] 
+        if d_07==0: m[i]=ne[counter,r_local+1,theta_local+1,phi_local+1] 
+
+        p_1_weight=1/d_01**p
+        p_2_weight=1/d_02**p
+        p_3_weight=1/d_03**p
+        p_4_weight=1/d_04**p
+        p_5_weight=1/d_05**p
+        p_6_weight=1/d_06**p
+        p_7_weight=1/d_07**p
+        p_8_weight=1/d_08**p
+        
+        WeightsSum = p_1_weight+p_2_weight+p_3_weight+p_4_weight+p_5_weight+p_6_weight+p_7_weight+p_8_weight
+        WeightsMultSum = p_1_weight*ne[counter,r_local,theta_local,phi_local]+p_2_weight*ne[counter,r_local+1,theta_local,phi_local]+\
+                        p_3_weight*ne[counter,r_local,theta_local+1,phi_local]+p_4_weight*ne[counter,r_local+1,theta_local+1,phi_local]+\
+                        p_5_weight*ne[counter,r_local,theta_local,phi_local+1]+p_6_weight*ne[counter,r_local+1,theta_local,phi_local+1]+\
+                        p_7_weight*ne[counter,r_local,theta_local+1,phi_local+1]+p_8_weight*ne[counter,r_local+1,theta_local+1,phi_local+1]
+
+        m[i] = WeightsMultSum / WeightsSum
+
+    return m
+
+
+
+def runinterpolator(model_data_file,orbit_file,tgvar=&#34;TN&#34;,interpolation=&#34;Trilinear&#34;,Save=True,outfilename=&#34;InterResults.nc&#34;):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            model_data_file (String): name of TIEGCM input file, netCDF4 file
+            orbit_file (String): name of orbit file, netCDF4 file
+            tgvar (String): Variables for interpolation, select between &#39;XNMBAR&#39;,&#39;TI&#39;,&#39;TN&#39;,s&#39;OP&#39;,&#39;DEN&#39;,&#39;HALL&#39;,&#39;HE&#39;,&#39;PEDERSEN&#39;,&#39;POTEN&#39;,&#39;TE&#39;,&#39;O2_CM3&#39;, &#39;EEX&#39;, &#39;EEY&#39;, &#39;EEZ&#39;, &#39;ELECDEN&#39;, &#39;N2_CM3&#39;, &#39;NOP_LAM&#39;, &#39;NPLUS&#39;, &#39;02P&#39;, &#39;O_CM3&#39;, &#39;UN&#39;, &#39;VN&#39;, &#39;WN_lev&#39;, &#39;HALL&#39;, &#39;N2D&#39;, &#39;N4S&#39;, &#39;NO&#39;, &#39;Ui_lev&#39;, &#39;Vi_lev&#39;, &#39;WI_LEV&#39; in case that &#34;All&#34; is selected then intepolation implemented on all of the above variables default selection is &#34;TN&#34;
+            interpolation (String): Select between &#34;Trilinear&#34;, &#34;Tricubic&#34; and &#34;IDW&#34;
+            Save (bool): Enables the saving of orbit parameters in the ouput file the results
+            outfilename (String): The name of the output file, default name is &#34;InterResults.nc&#34;
+            dalt (float): 1D array of altitudes of interpolation orbit
+    &#34;&#34;&#34;
+
+    model=inout.model(model_data_file ,500,100)  #initialize model
+    orbit=inout.orbit(orbit_file)                #initialize  orbit
+    outfile=outfilename
+    dtime,dlat,dlon,dalt,index,int_final=orbit.createorbit(orbit.name,model.minAltitude,model.maxAltitude,outfile,Save)
+    gtime,glat,glon,glev,zg=model.readGrid(model.name)                                     #get model stats
+    if tgvar==&#39;All&#39;:
+        tgvar=[&#39;XNMBAR&#39;,&#39;TI&#39;,&#39;TN&#39;,&#39;OP&#39;,&#39;DEN&#39;,&#39;HALL&#39;,&#39;HE&#39;,&#39;PEDERSEN&#39;,&#39;POTEN&#39;,&#39;TE&#39;,
+                &#39;O2_CM3&#39;, &#39;EEX&#39;, &#39;EEY&#39;, &#39;EEZ&#39;, &#39;ELECDEN&#39;, &#39;N2_CM3&#39;, &#39;NOP_LAM&#39;, &#39;NPLUS&#39;, &#39;02P&#39;, &#39;O_CM3&#39;
+                &#39;UN&#39;, &#39;VN&#39;, &#39;WN_lev&#39;, &#39;HALL&#39;, &#39;N2D&#39;, &#39;N4S&#39;, &#39;NO&#39;, &#39;Ui_lev&#39;, &#39;Vi_lev&#39;, &#39;WI_LEV&#39;]  
+    #select variable
+    if interpolation==&#34;Trilinear&#34;:
+        for jj in tqdm(range(len(tgvar))):
+            var=model.readvar(model.name,tgvar[jj])
+            interpolatedDataTrilinear=trilinearinterpolation(glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedData=orbit.mergedata(index,int_final,interpolatedDataTrilinear)
+
+            if Save == True: 
+                inout.write(outfile,interpolatedData,tgvar[jj])
+                
+    if interpolation==&#34;Tricubic&#34;:
+        for jj in tqdm(range(len(tgvar))):
+            var=model.readVar(model.name,tgvar[jj])
+
+            interpolatedDataTricubic=tricubicsplineinterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTricubic)
+            
+            if Save == True: 
+                inout.write(outfile,interpolatedData,tgvar[jj])
+
+    if interpolation==&#34;IDW&#34;:
+        for jj in tqdm(range(len(tgvar))):
+            var=model.readVar(model.name,tgvar[jj])
+
+            interpolatedDataTricubic=idwinterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTricubic)
+            
+            if Save == True: 
+                inout.write(outfile,interpolatedData,tgvar[jj])</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="daedalusmase_interpolation.interpolationmase_mainfunc.idwinterpolation"><code class="name flex">
+<span>def <span class="ident">idwinterpolation</span></span>(<span>gtime, glat, glon, dtime, dlat, dlon, dalt, zg, ne)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gtime</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of times of TIEGCM</dd>
+<dt><strong><code>glat</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of latitudes of TIEGCM</dd>
+<dt><strong><code>glon</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of longitudes of TIEGCM</dd>
+<dt><strong><code>dtime</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of time of interpolation orbit</dd>
+<dt><strong><code>dlat</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of latitudes of interpolation orbit</dd>
+<dt><strong><code>dlon</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of longitudes of interpolation orbit</dd>
+<dt><strong><code>dalt</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of altitudes of interpolation orbit</dd>
+<dt><strong><code>zg</code></strong> :&ensp;<code>float</code></dt>
+<dd>4D array of altitudes of TIEGCM midpoint levels</dd>
+<dt><strong><code>ne</code></strong> :&ensp;<code>float</code></dt>
+<dd>4D array of variable values on gridded point of TIEGCM grid</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>m (float): 1D array of Inverse Distanse Weight Interpolation Results</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def idwinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            gtime (float): 1D array of times of TIEGCM
+            glat (float): 1D array of latitudes of TIEGCM
+            glon (float): 1D array of longitudes of TIEGCM
+            dtime (float): 1D array of time of interpolation orbit
+            dlat (float): 1D array of latitudes of interpolation orbit
+            dlon (float): 1D array of longitudes of interpolation orbit
+            dalt (float): 1D array of altitudes of interpolation orbit
+            zg (float): 4D array of altitudes of TIEGCM midpoint levels
+            ne (float): 4D array of variable values on gridded point of TIEGCM grid
+        Returns:
+            m (float): 1D array of Inverse Distanse Weight Interpolation Results
+    &#34;&#34;&#34;
+  
+    m=np.zeros((len(dalt)))
+    p=2 #IDW parameter
+    for i in range(0,len(dalt)):
+        counter=SF.local(dtime[i],gtime)
+        phi_local=SF.local(dlon[i],glon)
+        theta_local=SF.local(dlat[i],glat)
+        alts=zg[counter,:,theta_local,phi_local]/1e5
+        r_local=SF.local(dalt[i],alts)
+
+
+        if dlon[i] &gt;= 177.5 :
+            phi_local=len(glon)-2
+            lonbnd=1
+
+        if dlon[i] &lt;= -177.5:
+            phi_local=1
+
+        if dlat[i] &gt;= 87.5:
+            theta_local=len(glat)-2
+            latbnd=1
+
+        if dlat[i] &lt;= -87.5:
+            theta_local=0
+
+        p_0=[dlat[i],dlon[i],dalt[i]]
+
+        p_1=[glat[theta_local],glon[phi_local],alts[r_local]]
+        p_2=[glat[theta_local],glon[phi_local],alts[r_local+1]]
+        p_3=[glat[theta_local+1],glon[phi_local],alts[r_local]]
+        p_4=[glat[theta_local+1],glon[phi_local],alts[r_local+1]]
+        p_5=[glat[theta_local],glon[phi_local+1],alts[r_local]]
+        p_6=[glat[theta_local],glon[phi_local+1],alts[r_local+1]]
+        p_7=[glat[theta_local+1],glon[phi_local+1],alts[r_local]]
+        p_8=[glat[theta_local+1],glon[phi_local+1],alts[r_local+1]]
+
+        d_01=SF.euclidianDistance(p_0,p_1)
+        d_02=SF.euclidianDistance(p_0,p_2)
+        d_03=SF.euclidianDistance(p_0,p_3)
+        d_04=SF.euclidianDistance(p_0,p_4)
+        d_05=SF.euclidianDistance(p_0,p_5)
+        d_06=SF.euclidianDistance(p_0,p_6)
+        d_07=SF.euclidianDistance(p_0,p_7)
+        d_08=SF.euclidianDistance(p_0,p_8)
+
+        if d_01==0: m[i]=ne[counter,r_local,theta_local,phi_local] 
+        if d_02==0: m[i]=ne[counter,r_local+1,theta_local,phi_local] 
+        if d_03==0: m[i]=ne[counter,r_local,theta_local+1,phi_local] 
+        if d_03==0: m[i]=ne[counter,r_local+1,theta_local+1,phi_local] 
+        if d_04==0: m[i]=ne[counter,r_local,theta_local,phi_local+1] 
+        if d_05==0: m[i]=ne[counter,r_local+1,theta_local,phi_local+1] 
+        if d_06==0: m[i]=ne[counter,r_local,theta_local+1,phi_local+1] 
+        if d_07==0: m[i]=ne[counter,r_local+1,theta_local+1,phi_local+1] 
+
+        p_1_weight=1/d_01**p
+        p_2_weight=1/d_02**p
+        p_3_weight=1/d_03**p
+        p_4_weight=1/d_04**p
+        p_5_weight=1/d_05**p
+        p_6_weight=1/d_06**p
+        p_7_weight=1/d_07**p
+        p_8_weight=1/d_08**p
+        
+        WeightsSum = p_1_weight+p_2_weight+p_3_weight+p_4_weight+p_5_weight+p_6_weight+p_7_weight+p_8_weight
+        WeightsMultSum = p_1_weight*ne[counter,r_local,theta_local,phi_local]+p_2_weight*ne[counter,r_local+1,theta_local,phi_local]+\
+                        p_3_weight*ne[counter,r_local,theta_local+1,phi_local]+p_4_weight*ne[counter,r_local+1,theta_local+1,phi_local]+\
+                        p_5_weight*ne[counter,r_local,theta_local,phi_local+1]+p_6_weight*ne[counter,r_local+1,theta_local,phi_local+1]+\
+                        p_7_weight*ne[counter,r_local,theta_local+1,phi_local+1]+p_8_weight*ne[counter,r_local+1,theta_local+1,phi_local+1]
+
+        m[i] = WeightsMultSum / WeightsSum
+
+    return m</code></pre>
+</details>
+</dd>
+<dt id="daedalusmase_interpolation.interpolationmase_mainfunc.runinterpolator"><code class="name flex">
+<span>def <span class="ident">runinterpolator</span></span>(<span>model_data_file, orbit_file, tgvar='TN', interpolation='Trilinear', Save=True, outfilename='InterResults.nc')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>model_data_file</code></strong> :&ensp;<code>String</code></dt>
+<dd>name of TIEGCM input file, netCDF4 file</dd>
+<dt><strong><code>orbit_file</code></strong> :&ensp;<code>String</code></dt>
+<dd>name of orbit file, netCDF4 file</dd>
+<dt><strong><code>tgvar</code></strong> :&ensp;<code>String</code></dt>
+<dd>Variables for interpolation, select between 'XNMBAR','TI','TN',s'OP','DEN','HALL','HE','PEDERSEN','POTEN','TE','O2_CM3', 'EEX', 'EEY', 'EEZ', 'ELECDEN', 'N2_CM3', 'NOP_LAM', 'NPLUS', '02P', 'O_CM3', 'UN', 'VN', 'WN_lev', 'HALL', 'N2D', 'N4S', 'NO', 'Ui_lev', 'Vi_lev', 'WI_LEV' in case that "All" is selected then intepolation implemented on all of the above variables default selection is "TN"</dd>
+<dt><strong><code>interpolation</code></strong> :&ensp;<code>String</code></dt>
+<dd>Select between "Trilinear", "Tricubic" and "IDW"</dd>
+<dt><strong><code>Save</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Enables the saving of orbit parameters in the ouput file the results</dd>
+<dt><strong><code>outfilename</code></strong> :&ensp;<code>String</code></dt>
+<dd>The name of the output file, default name is "InterResults.nc"</dd>
+<dt><strong><code>dalt</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of altitudes of interpolation orbit</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def runinterpolator(model_data_file,orbit_file,tgvar=&#34;TN&#34;,interpolation=&#34;Trilinear&#34;,Save=True,outfilename=&#34;InterResults.nc&#34;):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            model_data_file (String): name of TIEGCM input file, netCDF4 file
+            orbit_file (String): name of orbit file, netCDF4 file
+            tgvar (String): Variables for interpolation, select between &#39;XNMBAR&#39;,&#39;TI&#39;,&#39;TN&#39;,s&#39;OP&#39;,&#39;DEN&#39;,&#39;HALL&#39;,&#39;HE&#39;,&#39;PEDERSEN&#39;,&#39;POTEN&#39;,&#39;TE&#39;,&#39;O2_CM3&#39;, &#39;EEX&#39;, &#39;EEY&#39;, &#39;EEZ&#39;, &#39;ELECDEN&#39;, &#39;N2_CM3&#39;, &#39;NOP_LAM&#39;, &#39;NPLUS&#39;, &#39;02P&#39;, &#39;O_CM3&#39;, &#39;UN&#39;, &#39;VN&#39;, &#39;WN_lev&#39;, &#39;HALL&#39;, &#39;N2D&#39;, &#39;N4S&#39;, &#39;NO&#39;, &#39;Ui_lev&#39;, &#39;Vi_lev&#39;, &#39;WI_LEV&#39; in case that &#34;All&#34; is selected then intepolation implemented on all of the above variables default selection is &#34;TN&#34;
+            interpolation (String): Select between &#34;Trilinear&#34;, &#34;Tricubic&#34; and &#34;IDW&#34;
+            Save (bool): Enables the saving of orbit parameters in the ouput file the results
+            outfilename (String): The name of the output file, default name is &#34;InterResults.nc&#34;
+            dalt (float): 1D array of altitudes of interpolation orbit
+    &#34;&#34;&#34;
+
+    model=inout.model(model_data_file ,500,100)  #initialize model
+    orbit=inout.orbit(orbit_file)                #initialize  orbit
+    outfile=outfilename
+    dtime,dlat,dlon,dalt,index,int_final=orbit.createorbit(orbit.name,model.minAltitude,model.maxAltitude,outfile,Save)
+    gtime,glat,glon,glev,zg=model.readGrid(model.name)                                     #get model stats
+    if tgvar==&#39;All&#39;:
+        tgvar=[&#39;XNMBAR&#39;,&#39;TI&#39;,&#39;TN&#39;,&#39;OP&#39;,&#39;DEN&#39;,&#39;HALL&#39;,&#39;HE&#39;,&#39;PEDERSEN&#39;,&#39;POTEN&#39;,&#39;TE&#39;,
+                &#39;O2_CM3&#39;, &#39;EEX&#39;, &#39;EEY&#39;, &#39;EEZ&#39;, &#39;ELECDEN&#39;, &#39;N2_CM3&#39;, &#39;NOP_LAM&#39;, &#39;NPLUS&#39;, &#39;02P&#39;, &#39;O_CM3&#39;
+                &#39;UN&#39;, &#39;VN&#39;, &#39;WN_lev&#39;, &#39;HALL&#39;, &#39;N2D&#39;, &#39;N4S&#39;, &#39;NO&#39;, &#39;Ui_lev&#39;, &#39;Vi_lev&#39;, &#39;WI_LEV&#39;]  
+    #select variable
+    if interpolation==&#34;Trilinear&#34;:
+        for jj in tqdm(range(len(tgvar))):
+            var=model.readvar(model.name,tgvar[jj])
+            interpolatedDataTrilinear=trilinearinterpolation(glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedData=orbit.mergedata(index,int_final,interpolatedDataTrilinear)
+
+            if Save == True: 
+                inout.write(outfile,interpolatedData,tgvar[jj])
+                
+    if interpolation==&#34;Tricubic&#34;:
+        for jj in tqdm(range(len(tgvar))):
+            var=model.readVar(model.name,tgvar[jj])
+
+            interpolatedDataTricubic=tricubicsplineinterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTricubic)
+            
+            if Save == True: 
+                inout.write(outfile,interpolatedData,tgvar[jj])
+
+    if interpolation==&#34;IDW&#34;:
+        for jj in tqdm(range(len(tgvar))):
+            var=model.readVar(model.name,tgvar[jj])
+
+            interpolatedDataTricubic=idwinterpolation(gtime,glat,glon,glev,dtime, dlat,dlon,dalt,zg,var)
+            interpolatedData=orbit.mergeData(index,int_final,interpolatedDataTricubic)
+            
+            if Save == True: 
+                inout.write(outfile,interpolatedData,tgvar[jj])</code></pre>
+</details>
+</dd>
+<dt id="daedalusmase_interpolation.interpolationmase_mainfunc.tricubicsplineinterpolation"><code class="name flex">
+<span>def <span class="ident">tricubicsplineinterpolation</span></span>(<span>gtime, glat, glon, dtime, dlat, dlon, dalt, zg, ne)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gtime</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of times of TIEGCM</dd>
+<dt><strong><code>glat</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of latitudes of TIEGCM</dd>
+<dt><strong><code>glon</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of longitudes of TIEGCM</dd>
+<dt><strong><code>dtime</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of time of interpolation orbit</dd>
+<dt><strong><code>dlat</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of latitudes of interpolation orbit</dd>
+<dt><strong><code>dlon</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of longitudes of interpolation orbit</dd>
+<dt><strong><code>dalt</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of altitudes of interpolation orbit</dd>
+<dt><strong><code>zg</code></strong> :&ensp;<code>float</code></dt>
+<dd>4D array of altitudes of TIEGCM midpoint levels</dd>
+<dt><strong><code>ne</code></strong> :&ensp;<code>float</code></dt>
+<dd>4D array of variable values on gridded point of TIEGCM grid</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>m (float): 1D array of Tricubic Spline Interpolation Results</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tricubicsplineinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            gtime (float): 1D array of times of TIEGCM
+            glat (float): 1D array of latitudes of TIEGCM
+            glon (float): 1D array of longitudes of TIEGCM
+            dtime (float): 1D array of time of interpolation orbit
+            dlat (float): 1D array of latitudes of interpolation orbit
+            dlon (float): 1D array of longitudes of interpolation orbit
+            dalt (float): 1D array of altitudes of interpolation orbit
+            zg (float): 4D array of altitudes of TIEGCM midpoint levels
+            ne (float): 4D array of variable values on gridded point of TIEGCM grid
+        Returns:
+            m (float): 1D array of Tricubic Spline Interpolation Results
+    &#34;&#34;&#34;
+    deltaphi= np.abs(glon[2]-glon[1])
+    deltatheta=np.abs(glat[2]-glat[1])
+    Re=6378137.0/1e3
+    # arc_theta=2*np.pi*Re*(deltatheta/360)
+    # arc_phi=2*np.pi*Re*(deltaphi/360)
+
+    m=np.zeros((len(dalt)))
+    fval=np.zeros(8)
+    fdx=np.zeros(8)
+    fdy=np.zeros(8)
+    fdz=np.zeros(8)
+    fdxdy=np.zeros(8)
+    fdxdz=np.zeros(8)
+    fdydz=np.zeros(8)
+    fdxdydz=np.zeros(8)
+    x=np.zeros(64)
+
+    for i in range(0,len(dalt)):
+        counter=SF.local(dtime[i],gtime)
+        phi_local=SF.local(dlon[i],glon)
+        theta_local=SF.local(dlat[i],glat)
+
+        if dlon[i] &gt;= 177.5 :
+            phi_local=len(glon)-2
+            lonbnd=1
+
+        if dlon[i] &lt;= -177.5:
+            phi_local=1
+
+        if dlat[i] &gt;= 87.5:
+            theta_local=len(glat)-2
+            latbnd=1
+
+        if dlat[i] &lt;= -87.5:
+            theta_local=0
+
+
+
+        alts=zg[counter,:,theta_local,phi_local]/1e5
+        r_local=SF.local(dalt[i],alts)
+        deltarho=alts[r_local+1]-alts[r_local]
+        dx=(((dalt[i]-alts[r_local])/deltarho))
+        dy=np.abs((((dlat[i]-glat[theta_local])/deltatheta)))
+        dz=np.abs(((dlon[i]-glon[phi_local])/deltaphi))
+        
+
+
+        # Get 8 Nearest Neighbors Values
+        fval[0]=ne[counter,r_local,theta_local,phi_local]
+        fval[1]=ne[counter,r_local+1,theta_local,phi_local]
+        fval[2]=ne[counter,r_local,theta_local+1,phi_local]
+        fval[3]=ne[counter,r_local+1,theta_local+1,phi_local]
+        fval[4]=ne[counter,r_local,theta_local,phi_local+1]
+        fval[5]=ne[counter,r_local+1,theta_local,phi_local+1]
+        fval[6]=ne[counter,r_local,theta_local+1,phi_local+1]
+        fval[7]=ne[counter,r_local+1,theta_local+1,phi_local+1]
+        
+        # Get 1st Order Derivatives Nearest Neighbors Values
+        fdx[0]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local,&#34;X&#34;)  
+        fdx[1]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;X&#34;)  
+        fdx[2]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;X&#34;)  
+        fdx[3]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;X&#34;)  
+        fdx[4]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;X&#34;)  
+        fdx[5]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;X&#34;)  
+        fdx[6]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;X&#34;)  
+        fdx[7]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;X&#34;)  
+
+        fdy[0]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local,&#34;Y&#34;)  
+        fdy[1]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;Y&#34;)  
+        fdy[2]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;Y&#34;)  
+        fdy[3]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;Y&#34;)  
+        fdy[4]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;Y&#34;)  
+        fdy[5]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;Y&#34;)  
+        fdy[6]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;Y&#34;)  
+        fdy[7]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;Y&#34;)  
+
+        fdz[0]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local,&#34;Z&#34;)  
+        fdz[1]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;Z&#34;)  
+        fdz[2]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;Z&#34;)  
+        fdz[3]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;Z&#34;)  
+        fdz[4]=SF.first_order_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;Z&#34;)  
+        fdz[5]=SF.first_order_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;Z&#34;)  
+        fdz[6]=SF.first_order_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;Z&#34;)  
+        fdz[7]=SF.first_order_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;Z&#34;)  
+
+
+     
+        # Get 2nd Order Mixed Derivatives Nearest Neighbors Values
+        fdxdy[0]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local,&#34;XY&#34;)  
+        fdxdy[1]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;XY&#34;)  
+        fdxdy[2]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;XY&#34;)  
+        fdxdy[3]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;XY&#34;)  
+        fdxdy[4]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;XY&#34;)  
+        fdxdy[5]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;XY&#34;)  
+        fdxdy[6]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;XY&#34;)  
+        fdxdy[7]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;XY&#34;)  
+
+        
+        fdxdz[0]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local,&#34;XZ&#34;)  
+        fdxdz[1]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;XZ&#34;)  
+        fdxdz[2]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;XZ&#34;)  
+        fdxdz[3]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;XZ&#34;)  
+        fdxdz[4]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;XZ&#34;)  
+        fdxdz[5]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;XZ&#34;)  
+        fdxdz[6]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;XZ&#34;)  
+        fdxdz[7]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;XZ&#34;)  
+        
+        fdydz[0]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local,&#34;YZ&#34;)  
+        fdydz[1]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local,&#34;YZ&#34;)  
+        fdydz[2]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local,&#34;YZ&#34;)  
+        fdydz[3]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local,&#34;YZ&#34;)  
+        fdydz[4]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1,&#34;YZ&#34;)  
+        fdydz[5]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1,&#34;YZ&#34;)  
+        fdydz[6]=SF.second_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1,&#34;YZ&#34;)  
+        fdydz[7]=SF.second_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1,&#34;YZ&#34;)  
+
+        
+        # Get 3rd Order Mixed Derivatives Nearest Neighbors Values
+
+        fdxdydz[0]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local)  
+        fdxdydz[1]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local)  
+        fdxdydz[2]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local)  
+        fdxdydz[3]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local)  
+        fdxdydz[4]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local,phi_local+1)  
+        fdxdydz[5]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local,phi_local+1)  
+        fdxdydz[6]=SF.third_order_mixed_derivative(ne,counter,r_local,theta_local+1,phi_local+1)  
+        fdxdydz[7]=SF.third_order_mixed_derivative(ne,counter,r_local+1,theta_local+1,phi_local+1)  
+
+
+        for ii in range(8):
+            x[0+ii]=fval[ii]
+            x[8+ii]=fdx[ii]
+            x[16+ii]=fdy[ii]
+            x[24+ii]=fdz[ii]
+            x[32+ii]=fdxdy[ii]
+            x[40+ii]=fdxdz[ii]
+            x[48+ii]=fdydz[ii]
+            x[56+ii]=fdxdydz[ii]
+
+
+        a =np.zeros(64)
+        for ii in range(64):
+            a[ii]=0.0
+            for j in range(64):
+                a[ii]+=SF.A[ii,j]*x[j]
+
+        m[i]=0.0
+
+        for ii in range(4):
+            for j in range(4):
+                for k in range(4):
+                    m[i]+=a[ii+4*j+16*k]*pow(dx,ii)*pow(dy,j)*pow(dz,k)
+
+        
+    min=np.zeros((len(dtime)))
+    for i in range(0,len(dtime)):
+        min[i] = (dtime[i] - SF.startTime)/1000/60
+        
+
+    return m</code></pre>
+</details>
+</dd>
+<dt id="daedalusmase_interpolation.interpolationmase_mainfunc.trilinearinterpolation"><code class="name flex">
+<span>def <span class="ident">trilinearinterpolation</span></span>(<span>gtime, glat, glon, dtime, dlat, dlon, dalt, zg, ne)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gtime</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of times of TIEGCM</dd>
+<dt><strong><code>glat</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of latitudes of TIEGCM</dd>
+<dt><strong><code>glon</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of longitudes of TIEGCM</dd>
+<dt><strong><code>dtime</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of time of interpolation orbit</dd>
+<dt><strong><code>dlat</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of latitudes of interpolation orbit</dd>
+<dt><strong><code>dlon</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of longitudes of interpolation orbit</dd>
+<dt><strong><code>dalt</code></strong> :&ensp;<code>float</code></dt>
+<dd>1D array of altitudes of interpolation orbit</dd>
+<dt><strong><code>zg</code></strong> :&ensp;<code>float</code></dt>
+<dd>4D array of altitudes of TIEGCM midpoint levels</dd>
+<dt><strong><code>ne</code></strong> :&ensp;<code>float</code></dt>
+<dd>4D array of variable values on gridded point of TIEGCM grid</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>m (float): 1D array of Trilinear Interpolation Results</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def trilinearinterpolation(gtime,glat,glon,dtime,dlat,dlon,dalt,zg,ne):
+    &#34;&#34;&#34;
+        This function performs Inverse Distanse Weight interpolation of a given orbit in TIEGCM grid, using 8 closest gridded points.
+        Args:
+            gtime (float): 1D array of times of TIEGCM
+            glat (float): 1D array of latitudes of TIEGCM
+            glon (float): 1D array of longitudes of TIEGCM
+            dtime (float): 1D array of time of interpolation orbit
+            dlat (float): 1D array of latitudes of interpolation orbit
+            dlon (float): 1D array of longitudes of interpolation orbit
+            dalt (float): 1D array of altitudes of interpolation orbit
+            zg (float): 4D array of altitudes of TIEGCM midpoint levels
+            ne (float): 4D array of variable values on gridded point of TIEGCM grid
+        Returns:
+            m (float): 1D array of Trilinear Interpolation Results
+    &#34;&#34;&#34;
+    deltaphi= np.abs(glon[2]-glon[1])
+    deltatheta=np.abs(glat[2]-glat[1])
+    Re=6378137.0/1e3
+    # arc_theta=2*np.pi*Re*(deltatheta/360)
+    # arc_phi=2*np.pi*Re*(deltaphi/360)
+
+    m=np.zeros((len(dalt)))
+    
+
+    for i in range(0,len(dalt)):
+        counter=SF.local(dtime[i],gtime)
+        phi_local=SF.local(dlon[i],glon)
+        theta_local=SF.local(dlat[i],glat)
+
+
+        if dlon[i] &gt;= 177.5 :
+            phi_local=len(glon)-2
+            lonbnd=1
+
+        if dlon[i] &lt;= -177.5:
+            phi_local=1
+
+        if dlat[i] &gt;= 87.5:
+            theta_local=len(glat)-2
+            latbnd=1
+
+        if dlat[i] &lt;= -87.5:
+            theta_local=0
+
+
+        alts=zg[counter,:,theta_local,phi_local]/1e5
+        r_local=SF.local(dalt[i],alts)
+        deltarho=alts[r_local+1]-alts[r_local]
+        dx=(((dalt[i]-alts[r_local])/deltarho))
+        dy=(((dlat[i]-glat[theta_local])/deltatheta))
+        dz=np.abs(((dlon[i]-glon[phi_local])/deltaphi))
+
+        # Calculate Weights
+                
+        w1=np.abs((1-dx)*(1-dy)*(1-dz))
+        w2=np.abs((dx)*(1-dy)*(1-dz))
+        w3=np.abs((1-dx)*(dy)*(1-dz))
+        w4=np.abs((dx)*(dy)*(1-dz))
+        w5=np.abs((1-dx)*(1-dy)*(dz))
+        w6=np.abs((dx)*(1-dy)*(dz))
+        w7=np.abs((1-dx)*(dy)*(dz))
+        w8=np.abs((dx)*(dy)*(dz))
+
+        
+        m[i]=0.0
+        m[i]=       ne[counter,r_local,theta_local,phi_local]*w1
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local,phi_local]*w2
+        m[i]=m[i]+  ne[counter,r_local,theta_local+1,phi_local]*w3
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local+1,phi_local]*w4
+
+        m[i]=m[i]+  ne[counter,r_local,theta_local,phi_local+1]*w5
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local,phi_local+1]*w6
+        m[i]=m[i]+  ne[counter,r_local,theta_local+1,phi_local+1]*w7
+        m[i]=m[i]+  ne[counter,r_local+1,theta_local+1,phi_local+1]*w8
+
+    return m</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="daedalusmase_interpolation" href="index.html">daedalusmase_interpolation</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="daedalusmase_interpolation.interpolationmase_mainfunc.idwinterpolation" href="#daedalusmase_interpolation.interpolationmase_mainfunc.idwinterpolation">idwinterpolation</a></code></li>
+<li><code><a title="daedalusmase_interpolation.interpolationmase_mainfunc.runinterpolator" href="#daedalusmase_interpolation.interpolationmase_mainfunc.runinterpolator">runinterpolator</a></code></li>
+<li><code><a title="daedalusmase_interpolation.interpolationmase_mainfunc.tricubicsplineinterpolation" href="#daedalusmase_interpolation.interpolationmase_mainfunc.tricubicsplineinterpolation">tricubicsplineinterpolation</a></code></li>
+<li><code><a title="daedalusmase_interpolation.interpolationmase_mainfunc.trilinearinterpolation" href="#daedalusmase_interpolation.interpolationmase_mainfunc.trilinearinterpolation">trilinearinterpolation</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
