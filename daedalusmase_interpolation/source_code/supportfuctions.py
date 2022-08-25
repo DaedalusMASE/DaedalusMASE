@@ -6,10 +6,10 @@ def geod_lat2geo_lat(phi):
 
     """
         Calculate geocentric latitude from geodetic latitude according to WGS 84
-        Arg:
-            phi(float):  geodetic latitude
+        Args:
+            phi (float):  geodetic latitude
         Returns:
-            geo_lat(float):  geocentric latitude
+            geo_lat (float):  geocentric latitude
     """
     a = 6378137  # meter semi major axis of earth
     f = 1 / 298.257  # flattening
@@ -27,11 +27,11 @@ def local(y,x):
         The function local is used to find the local neighbors of a specific component 
         in a non eqwually spaced array such as the pressure levels in the TIEGCM
         Args:
-            y(float): element to search for
-            x(float): array to search in
+            y (float): element to search for
+            x (float): array to search in
 
         Returns:
-            local_pos(int): index of the closest element of array
+            local_pos (int): index of the closest element of array
     """
     local_pos=0
     for i in range(0,len(x)-1):
@@ -114,18 +114,18 @@ A = [
 A=np.asarray(A)
 
 # Functions are used on order to calculate first,second and thrird order partial derivatives
-def FirstOrderDerivative(f,time,x,y,z,mode):
+def first_order_derivative(f,time,x,y,z,mode):
     """
-    Function to calculate First order Derivative
+        Function to calculate First order Derivative
         Args:
-            f(4D array): the variable of which derivative is going to calculated
-            time(int): time index
-            x(int): lev index, as in TIEGCM file
-            y(int): latitude index, as in TIEGCM file
-            z(int): longitute index, as in TIEGCM file
+            f (float): 4D array of the variable of which derivative is going to calculated
+            time (int): time index
+            x (int): lev index, as in TIEGCM file
+            y (int): latitude index, as in TIEGCM file
+            z (int): longitute index, as in TIEGCM file
             mode (String): X,Y or Z according to the dimension of derivation
         Returns:
-            retval(float): first order partial derivative or False in case of wrong setup
+            retval (float): first order partial derivative or False in case of wrong setup
     """
   
     if mode=="X":
@@ -148,18 +148,18 @@ def FirstOrderDerivative(f,time,x,y,z,mode):
     return False   
 
 
-def SecondOrderMixedDerivative(f,time,x,y,z,mode):
+def second_order_mixed_derivative(f,time,x,y,z,mode):
     """
-    Function to calculate Second Order Mixed Derivative
+        Function to calculate Second Order Mixed Derivative
         Args:
-            f(4D array): the variable of which derivative is going to calculated
-            time(int): time index
-            x(int): lev index, as in TIEGCM file
-            y(int): latitude index, as in TIEGCM file
-            z(int): longitute index, as in TIEGCM file
+            f (float): 4D array of the variable of which derivative is going to calculated
+            time (int): time index
+            x (int): lev index, as in TIEGCM file
+            y (int): latitude index, as in TIEGCM file
+            z (int): longitute index, as in TIEGCM file
             mode (String): XY,XZ or YZ according to the order of derivation
         Returns:
-            retval(float): Second order mixed derivative or False in case of wrong setup
+            retval (float): Second order mixed derivative or False in case of wrong setup
     """
  
     if x>=55 or x<=1 or y >=71 or y<=1 or z>=143 or z<=1:
@@ -184,17 +184,17 @@ def SecondOrderMixedDerivative(f,time,x,y,z,mode):
 
 
 
-def ThirdOrderMixedDerivative(f,time,x,y,z):
+def third_order_mixed_derivative(f,time,x,y,z):
     """
-    Function to calculate Second Order Mixed Derivative
+        Function to calculate Second Order Mixed Derivative
         Args:
-            f(4D array): the variable of which derivative is going to calculated
-            time(int): time index
-            x(int): lev index, as in TIEGCM file
-            y(int): latitude index, as in TIEGCM file
-            z(int): longitute index, as in TIEGCM file
+            f (float): 4D array of the variable of which derivative is going to calculated
+            time (int): time index
+            x (int): lev index, as in TIEGCM file
+            y (int): latitude index, as in TIEGCM file
+            z (int): longitute index, as in TIEGCM file
         Returns:
-            retval(float): Third order mixed derivative or False in case of wrong setup
+            retval (float): Third order mixed derivative or False in case of wrong setup
     """
 
     if x>=55 or x<=1 or y >=71 or y<=1 or z>=143 or z<=1:
@@ -206,14 +206,14 @@ def ThirdOrderMixedDerivative(f,time,x,y,z):
 
     return retval
 
-def euclidianDistance(p_r,  p_0):
+def euclidian_distance(p_r,  p_0):
     """
         Function to calculate EuclidianDistace detwwen two points in geodetic coordinates
         Args:
-            p_r(list): coordinates of first point in [lat,lon,alt]
-            p_0(list): coordinates of second point in [lat,lon,alt]
+            p_r (list): coordinates of first point in [lat,lon,alt]
+            p_0 (list): coordinates of second point in [lat,lon,alt]
         Returns:
-            dist(float): distance in km
+            dist (float): distance in km
     """
     lat_1 = (np.pi / 180.0) * (p_r[0])
     lat_2 = (np.pi / 180.0) * (p_0[0])

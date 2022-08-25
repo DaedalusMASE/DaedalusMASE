@@ -10,7 +10,7 @@ import supportfuctions as SF
 warnings.filterwarnings('ignore')
 
 
-class Model:
+class model:
 
     """
     Model class handles basic IO of the Model Data extracting grid quintities and variables as selected by the user to be used in the interpolation.
@@ -18,11 +18,11 @@ class Model:
     """
     def __init__(self,name, maxAltitude, minAltitude):
         """
-        Model class load the TIEGCM file and the corresponding variable for interpolation 
+            Model class load the TIEGCM file and the corresponding variable for interpolation 
             Args:
-            name (String): the name of TIEGCM input file
-            maxAltitude(float): maximum efficent altitude of model
-            minAltitude(float): 
+                name (String): the name of TIEGCM input file
+                maxAltitude (float): maximum efficent altitude of model
+                minAltitude (float): minimum efficent altitude of model
             
             
         """
@@ -32,20 +32,20 @@ class Model:
         self.dt=0.0
 
 
-    def readGrid(self,name):
+    def readgrid(self,name):
         """
-        readGrid is model class function used to read grid definition variables of TIEGCM grid using TIEGCM input file
-        Args to read grid:
-            name (String): the name of TIEGCM input file
-        returns:
-            glat: geodetic latitude as numpy array
-            glon: geodetic longitute as numpy array
-            glev: pressure level as numpy array
-            gtime: time as numpy as numpy array
-            zg: altitude of midpoint levels in km as numpy array
+            readgrid is model class function used to read TIEGCM grid
+            Args:
+                name (String): the name of TIEGCM input file
+            Returns:
+                glat (float): geodetic latitude as numpy array
+                glon (float): geodetic longitute as numpy array
+                glev (float): pressure level as numpy array
+                gtime (float): time as numpy as numpy array
+                zg (float): altitude of midpoint levels in km as numpy array
+        """
 
-        """
-        TIEGCM=Dataset(name+".nc")
+        TIEGCM=Dataset(name)
         glat=TIEGCM.variables['lat'][:]
         glon=TIEGCM.variables['lon'][:]
         glev=TIEGCM.variables['lev'][:]
@@ -53,29 +53,33 @@ class Model:
         zg=TIEGCM.variables['ZGMID'][:]
         TIEGCM.close()
         self.dt= gtime[2]- gtime[1]
-       
-        return np.asarray(gtime),np.asarray(glat),np.asarray(glon),np.asarray(glev),np.asarray(zg)
+        gtime=np.asarray(gtime)
+        glat=np.asarray(glat)
+        glon=np.asarray(glon)
+        glev=np.asarray(glev)
+        zg=np.asarray(zg)
+        return gtime,glat,glon,glev,zg
 
     
-    def readVar(self,model,name):
+    def readvar(self,modelname,name):
         """
-        readVar is model class function used to read variable for interpolation of TIEGCM input file
-        Args to read grid:
-            model (Model): the created model
-            name (String): the name of TIEGCM input file
-        returns:
-            var: Variable for interpolation
+            readvar is model class function used to read variable for interpolation of TIEGCM input file
+            Args:
+                modelname (Model): the created model
+                name (String): the name of TIEGCM input file
+            Returns:
+                var (String): Variable for interpolation
         """
-        TIEGCM=Dataset(model+".nc")
+        TIEGCM=Dataset(modelname)
         var=TIEGCM.variables[name][:]
         TIEGCM.close()
         return var
 
 
 
-class Orbit:
+class orbit:
     """
-        Orbit class handles basic IO of Daedalus' orbit allocating arrays for the spatial components. The longitudinal component is matched to TIEGCM's and points in a specific altitudinal range are extracted to be passed to the interpolation routine. There is also an option for creating a Rocket orbit for getting vertical profiles of the said model.
+        orbit class handles basic IO of Daedalus' orbit allocating arrays for the spatial components. The longitudinal component is matched to TIEGCM's and points in a specific altitudinal range are extracted to be passed to the interpolation routine. There is also an option for creating a Rocket orbit for getting vertical profiles of the said model.
 
     """
     
@@ -90,17 +94,17 @@ class Orbit:
 
    
 
-    def createorbit(self,filename,minAlt,maxAlt,outfile,Save=True):
+    def createorbit(self,filename,minalt,maxalt,outfile,save=True):
         """
-        Orbit class function reads the orbit definition variables
+            Orbit class function reads the orbit definition variables
             Args:
                 name (String): the name of orbit input file
                 minAlt (float): the minimum altitude for interpolation
                 maxAlt (float): the maximum altitude for interpolation
                 outfile (String): filename to save the Interpolation results
-                Save (bool): index to append orbit variables to interpolation results
+                save (bool): index to append orbit variables to interpolation results
         """
-        orbit=Dataset(filename+".nc","r")
+        orbit=Dataset(filename,"r")
         daed_lat_temp = orbit.variables['lat'][:]
         daed_lon_temp = orbit.variables['lon'][:]
         daed_alt_temp = orbit.variables['altitude'][:]
@@ -110,15 +114,15 @@ class Orbit:
         
 
 #         self.dt=daed_time_temp[2]-daed_time_temp[1]
-        self.Save=Save
+        self.save=save
         
-        if self.Save==True:
-            self.OpenFile(outfile,daed_time_temp,daed_lat_temp,daed_lon_temp,daed_alt_temp)
+        if self.save==True:
+            self.openfile(outfile,daed_time_temp,daed_lat_temp,daed_lon_temp,daed_alt_temp)
         
         stop=False
         counter=0
         for i in range(0,len(daed_alt_temp)):
-            if (daed_alt_temp[i] < maxAlt and daed_alt_temp[i] > minAlt):
+            if (daed_alt_temp[i] < maxalt and daed_alt_temp[i] > minalt):
                 counter=counter+1
 
         
@@ -134,7 +138,7 @@ class Orbit:
         
         for i in range(0,len(daed_alt_temp)):
     
-            if (daed_alt_temp[i] < maxAlt and daed_alt_temp[i] > minAlt):
+            if (daed_alt_temp[i] < maxalt and daed_alt_temp[i] > minalt):
          
                 daed_time[counter2]=daed_time_temp[i]
                 daed_lat[counter2]=daed_lat_temp[i]
@@ -150,28 +154,36 @@ class Orbit:
 
         return(daed_time,daed_lat,daed_lon,daed_alt,index,int_final)
 
-    def RockeOrbit(self,lat,lon,alt,nop,dz):
-        Rlat=np.zeros(nop)
-        Rlon=np.zeros(nop)
-        Ralt=np.zeros(nop)
+    # def rockeorbit(self,lat,lon,alt,nop,dz):
+    #     Rlat=np.zeros(nop)
+    #     Rlon=np.zeros(nop)
+    #     Ralt=np.zeros(nop)
 
-        Rlat[:]=lat
-        Rlon[:]=lon
-        Ralt[0]=alt
-        for i in range(1,nop):
-            Ralt[i]=Ralt[i-1]+dz
+    #     Rlat[:]=lat
+    #     Rlon[:]=lon
+    #     Ralt[0]=alt
+    #     for i in range(1,nop):
+    #         Ralt[i]=Ralt[i-1]+dz
 
-        return Rlat,Rlon,Ralt
+    #     return Rlat,Rlon,Ralt
 
-    def mergeData(self,index,int_final,m):
-        for i in range(0,len(m)):
-            int_final[index[i]]=m[i]
+    # def mergedata(self,index,int_final,m):
+    #     for i in range(0,len(m)):
+    #         int_final[index[i]]=m[i]
 
-        return int_final    
+    #     return int_final    
 
 
 
-    def OpenFile(self,outfile,time,lat,lon,alt):
+    def openfile(self,outfile,time,lat,lon,alt):
+        """
+            Function to save orbit parameters to netCDF output file
+            Args:
+                time (String): list of timesteps of orbit
+                lat (float): list of latitudes of orbit
+                lon (float): list of longitudes of orbit
+                alt (float): list of altitudes of orbit                
+        """
         print("Output File Path:",outfile)
         ncout = Dataset(outfile, "w", format="NETCDF4")    
         ncout.createDimension("time", len(time))
@@ -191,13 +203,13 @@ class Orbit:
         return True
 
 
-def Write(outfile,m,varname):
+def write(outfile,m,varname):
     """
-    Function to save interpolation results to netCDF output file
+        Function to save interpolation results to netCDF output file
         Args:
-            outfile(String): name of output file
-            m(1D array): interpolation results
-            varname(String): name of interpolated variable
+            outfile (String): name of output file
+            m (float): 1D array of interpolation results
+            varname (String): name of interpolated variable
     """
 
     ncout = Dataset(outfile, "a", format="NETCDF4")
