@@ -5,9 +5,10 @@ Values of simulated measuremets, are estimated using classes and functionslocate
 
 ## Usage
 A sample usage of the software is demonstrated in python code below:
+In jupyter_notebooks folder there another example using FUI to interact with daedalusmase_interpolator
 ```
 import sys
-sys.path.insert(0,"../daedalusmase_interpolation")
+sys.path.insert(0,"../source_code")
 import Interpolationmase_mainfunc as INT
 ModelName="tiegcm2.0_res2.5_3years_sech_016.nc"
 OrbitFile="orbit.nc"
