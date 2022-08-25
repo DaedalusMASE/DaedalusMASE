@@ -5,7 +5,17 @@ Values of products, errors and error contribution are calculated using proper fu
 
 ## Usage
 A sample usage of the software is demonstrated in python code below:
-In jupyter_notebooks folder there another example using FUI to interact with daedalusmase_errorpropagator
+```
+#import the required packages
+
+import sys
+sys.path.insert(0,"../source_code")
+import gui  #import gui to interact with daedalus mase error propagator
+gui.loadgui() #display gui
+```
+
+or
+
 ```
 #import the required packages
 sys.path.insert(0,"../source_code")

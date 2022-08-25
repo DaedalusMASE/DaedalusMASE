@@ -5,7 +5,15 @@ Values of simulated measuremets, are estimated using classes and functionslocate
 
 ## Usage
 A sample usage of the software is demonstrated in python code below:
-In jupyter_notebooks folder there another example using FUI to interact with daedalusmase_interpolator
+```
+import sys
+sys.path.insert(0,"../source_code")
+import gui
+display(gui.loadgui("*.nc","*.nc")) #create GUI calling this function, giving as arguments directory of TIE-GCM files and Orbit files
+
+```
+
+or
 ```
 import sys
 sys.path.insert(0,"../source_code")
