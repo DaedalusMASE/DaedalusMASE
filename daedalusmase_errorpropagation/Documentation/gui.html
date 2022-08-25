@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>source_code.gui API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>source_code.gui</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import sys
+import glob
+from ipywidgets import *
+import ipywidgets as widgets
+import factors
+import productderivation as pD
+import supportfunctions
+import plots as pl
+import errorprogation as EP
+# window creation
+style = {&#39;description_width&#39;: &#39;150px&#39;}
+layout1stcolumn = {&#39;width&#39;: &#39;300px&#39;}
+layout2ndcolumn = {&#39;width&#39;: &#39;250px&#39;}
+layout3rdcolumn = {&#39;width&#39;: &#39;100px&#39;}
+button_layout = {&#39;width&#39;: &#39;150px&#39;}
+style1 = {&#39;description_width&#39;: &#39;150px&#39;}
+layout1 = {&#39;width&#39;: &#39;850px&#39;}
+style2 = {&#39;description_width&#39;: &#39;95px&#39;}
+layout2 = {&#39;width&#39;: &#39;160px&#39;}
+layout3 = {&#39;width&#39;: &#39;350px&#39;}
+style3 = {&#39;description_width&#39;: &#39;60px&#39;}
+layout4 = {&#39;width&#39;: &#39;215px&#39;}
+
+
+def loadgui():
+    &#39;&#39;&#39;
+    This function used create GUI to interact with daedalusmase_errorPropagation module
+
+    &#39;&#39;&#39;
+    tiegcm_file=widgets.Dropdown(options=sorted(glob.glob(&#34;*.nc&#34;)), description=&#39;TIE-GCM files: &#39;, style=style1, layout=layout1)
+
+    lat_value = widgets.Dropdown(
+        options=[(&#39;-88.75&#39;, 0), (&#39;-86.25&#39;, 1), (&#39;-83.75&#39;, 2), (&#39;-81.25&#39;, 3), (&#39;-78.75&#39;, 4), (&#39;-76.25&#39;, 5), (&#39;-73.75&#39;, 6),(&#39;-71.25&#39;, 7),
+                (&#39;-68.75&#39;, 8), (&#39;-66.25&#39;, 9), (&#39;-63.75&#39;, 10), (&#39;-61.25&#39;, 11), (&#39;-58.75&#39;, 12), (&#39;-56.25&#39;, 13),
+                (&#39;-53.75&#39;, 14), (&#39;-51.25&#39;, 15),
+                (&#39;-48.75&#39;, 16), (&#39;-46.25&#39;, 17), (&#39;-43.75&#39;, 18), (&#39;-41.25&#39;, 19), (&#39;-38.75&#39;, 20), (&#39;-36.25&#39;, 21),
+                (&#39;-33.75&#39;, 22), (&#39;-31.25&#39;, 23),
+                (&#39;-28.75&#39;, 24), (&#39;-26.25&#39;, 25), (&#39;-23.75&#39;, 26), (&#39;-21.25&#39;, 27), (&#39;-18.75&#39;, 28), (&#39;-16.25&#39;, 29),
+                (&#39;-13.75&#39;, 30), (&#39;-11.25&#39;, 31),
+                (&#39;-8.75&#39;, 32), (&#39;-6.25&#39;, 33), (&#39;-3.75&#39;, 34), (&#39;-1.25&#39;, 35), (&#39;1.25&#39;, 36), (&#39;3.75&#39;, 37), (&#39;6.25&#39;, 38),
+                (&#39;8.75&#39;, 39),
+                (&#39;11.25&#39;, 40), (&#39;13.75&#39;, 41), (&#39;16.25&#39;, 42), (&#39;18.75&#39;, 43), (&#39;21.25&#39;, 44), (&#39;23.75&#39;, 45), (&#39;26.25&#39;, 46),
+                (&#39;28.75&#39;, 47),
+                (&#39;31.25&#39;, 48), (&#39;33.75&#39;, 49), (&#39;36.25&#39;, 50), (&#39;38.75&#39;, 51), (&#39;41.25&#39;, 52), (&#39;43.75&#39;, 53),
+                (&#39;46.25&#39;, 54), (&#39;48.75&#39;, 55), (&#39;51.25&#39;, 56), (&#39;53.75&#39;, 57), (&#39;56.25&#39;, 58), (&#39;58.75&#39;, 59),
+                (&#39;61.25&#39;, 60), (&#39;63.75&#39;, 61), (&#39;66.25&#39;, 62), (&#39;68.75&#39;, 63), (&#39;71.25&#39;, 64), (&#39;73.75&#39;, 65),
+                (&#39;76.25&#39;, 66), (&#39;78.75&#39;, 67), (&#39;81.25&#39;, 68), (&#39;83.75&#39;, 69), (&#39;84.25&#39;, 70), (&#39;87.75&#39;, 71)],
+        value=61,
+        description=&#39;Latitude (deg):&#39;,
+        layout=layout1stcolumn,
+        style=style
+    )
+    lon_value = widgets.Dropdown(
+        options=[(&#39;-180.0&#39;, 0),
+                (&#39;-177.5&#39;, 1), (&#39;-175.0&#39;, 2), (&#39;-172.5&#39;, 3), (&#39;-170.0&#39;, 4), (&#39;-167.5&#39;, 5), (&#39;-165.0&#39;, 6), (&#39;-162.5&#39;, 7),
+                (&#39;-160.0&#39;, 8),
+                (&#39;-157.5&#39;, 9), (&#39;-155.0&#39;, 10), (&#39;-152.5&#39;, 11), (&#39;-150.0&#39;, 12), (&#39;-147.5&#39;, 13), (&#39;-145.0&#39;, 14),
+                (&#39;-142.5&#39;, 15), (&#39;-140.0&#39;, 16),
+                (&#39;-137.5&#39;, 17), (&#39;-135.0&#39;, 18), (&#39;-132.5&#39;, 19), (&#39;-130.0&#39;, 20), (&#39;-127.5&#39;, 21), (&#39;-125.0&#39;, 22),
+                (&#39;-122.5&#39;, 23), (&#39;-120.0&#39;, 24),
+                (&#39;-117.5&#39;, 25), (&#39;-115.0&#39;, 26), (&#39;-112.5&#39;, 27), (&#39;-110.0&#39;, 28), (&#39;-107.5&#39;, 29), (&#39;-105.0&#39;, 30),
+                (&#39;-102.5&#39;, 31), (&#39;-100.0&#39;, 32),
+                (&#39;-97.5&#39;, 33), (&#39;-95.0&#39;, 34), (&#39;-92.5&#39;, 35), (&#39;-90.0&#39;, 36), (&#39;-87.5&#39;, 37), (&#39;-85.0&#39;, 38), (&#39;-82.5&#39;, 39),
+                (&#39;-80.0&#39;, 40),
+                (&#39;-77.5&#39;, 41), (&#39;-75.0&#39;, 42), (&#39;-72.5&#39;, 43), (&#39;-70.0&#39;, 44), (&#39;-67.5&#39;, 45), (&#39;-65.0&#39;, 46), (&#39;-62.5&#39;, 47),
+                (&#39;-60.0&#39;, 48),
+                (&#39;-57.5&#39;, 49), (&#39;-55.0&#39;, 50), (&#39;-52.5&#39;, 51), (&#39;-50.0&#39;, 52), (&#39;-47.5&#39;, 53), (&#39;-45.0&#39;, 54), (&#39;-42.5&#39;, 55),
+                (&#39;-40.0&#39;, 56),
+                (&#39;-37.5&#39;, 57), (&#39;-35.0&#39;, 58), (&#39;-32.5&#39;, 59), (&#39;-30.0&#39;, 60), (&#39;-27.5&#39;, 61), (&#39;-25.0&#39;, 62), (&#39;-22.5&#39;, 63),
+                (&#39;-20.0&#39;, 64),
+                (&#39;-17.5&#39;, 65), (&#39;-15.0&#39;, 66), (&#39;-12.5&#39;, 67), (&#39;-10.0&#39;, 68), (&#39;-7.5&#39;, 69), (&#39;-5.0&#39;, 70), (&#39;-2.5&#39;, 71),
+                (&#39;0.0&#39;, 72),
+                (&#39;2.5&#39;, 73), (&#39;5.0&#39;, 74), (&#39;7.5&#39;, 75), (&#39;10.0&#39;, 76), (&#39;12.5&#39;, 77), (&#39;15.0&#39;, 78), (&#39;17.5&#39;, 79),
+                (&#39;20.0&#39;, 80), (&#39;22.5&#39;, 81),
+                (&#39;25.0&#39;, 82), (&#39;27.5&#39;, 83), (&#39;30.0&#39;, 84), (&#39;32.5&#39;, 85), (&#39;35.0&#39;, 86), (&#39;37.5&#39;, 87), (&#39;40.0&#39;, 88),
+                (&#39;42.5&#39;, 89), (&#39;45.0&#39;, 90),
+                (&#39;47.5&#39;, 91), (&#39;50.0&#39;, 92), (&#39;52.5&#39;, 93), (&#39;55.0&#39;, 94), (&#39;57.5&#39;, 95), (&#39;60.0&#39;, 96), (&#39;62.5&#39;, 97),
+                (&#39;65.0&#39;, 98),
+                (&#39;67.5&#39;, 99), (&#39;70.0&#39;, 100), (&#39;72.5&#39;, 101), (&#39;75.0&#39;, 102), (&#39;77.5&#39;, 103), (&#39;80.0&#39;, 104), (&#39;82.5&#39;, 105),
+                (&#39;85.0&#39;, 106),
+                (&#39;87.5&#39;, 107), (&#39;90.0&#39;, 108), (&#39;92.5&#39;, 109), (&#39;95.0&#39;, 110), (&#39;97.5&#39;, 111), (&#39;100.0&#39;, 112), (&#39;102.5&#39;, 113),
+                (&#39;105.0&#39;, 114),
+                (&#39;107.5&#39;, 115), (&#39;110.0&#39;, 116), (&#39;112.5&#39;, 117), (&#39;115.0&#39;, 118), (&#39;117.5&#39;, 119), (&#39;120.0&#39;, 120),
+                (&#39;122.5&#39;, 121), (&#39;125.0&#39;, 122), (&#39;127.5&#39;, 123), (&#39;130.0&#39;, 124), (&#39;132.5&#39;, 125), (&#39;135.0&#39;, 126),
+                (&#39;137.5&#39;, 127), (&#39;140.0&#39;, 128), (&#39;142.5&#39;, 129), (&#39;145.0&#39;, 130), (&#39;147.5&#39;, 131), (&#39;150.0&#39;, 132),
+                (&#39;152.5&#39;, 133), (&#39;155.0&#39;, 134), (&#39;157.5&#39;, 135), (&#39;160.0&#39;, 136), (&#39;162.5&#39;, 137), (&#39;165.0&#39;, 138),
+                (&#39;167.5&#39;, 139), (&#39;170.0&#39;, 140), (&#39;172.5&#39;, 141), (&#39;175.0&#39;, 142), (&#39;177.5&#39;, 143),
+                ],
+        value=49,
+        description=&#39;Longitude (deg):&#39;,
+        layout=layout1stcolumn,
+        style=style
+    )
+    min_height_plot = widgets.Dropdown(value=110, options=range(100, 601, 10), description=&#39;min plotting altitude&#39;, style=style,
+        layout=layout1stcolumn)
+    max_height_plot = widgets.Dropdown(value=150, options=range(100, 601, 10), description=&#39;max plotting altitude&#39;, style=style,
+        layout=layout1stcolumn)
+
+    timer_value = widgets.Dropdown(value=9, options=range(0, 60), description=&#39;TimeStep:&#39;, style=style,
+        layout=layout1stcolumn)
+    pressure_level = widgets.Dropdown(value=0, options=range(0, 57), description=&#39;Pressure Level:&#39;, style=style,
+        layout=layout1stcolumn)
+    COLL_Freq_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Collision Frequencies&#34;, style=style1,
+        layout=layout1)
+    COND_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Conductivities&#34;, style=style1, layout=layout1)
+    HR_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Heating Rates&#34;, style=style1, layout=layout1)
+    CS_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Cross Section&#34;, style=style1, layout=layout1)
+    Currents_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Currents&#34;, style=style1, layout=layout1)
+
+    Error_COLL_Freq_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Collision Frequencies Error Propagation&#34;,
+        style=style1, layout=layout1)
+    Error_COND_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Conductivities Error Propagation&#34;,
+        style=style1, layout=layout1)
+    Error_HR_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Heating Rates Error Propagation&#34;, style=style1,
+        layout=layout1)
+    Error_CS_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Cross Section Error Propagation&#34;, style=style1,
+        layout=layout1)
+    Error_Currents_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Currents Error Propagation&#34;, style=style1,
+        layout=layout1)
+
+    night_checkbox = widgets.Checkbox(value=True,  description=&#34;Add Nightshade&#34;,style=style1, layout=layout1)
+
+    Error_Source = widgets.ToggleButton(
+        value=False,
+        description=&#39;Source of Errors&#39;,
+        disabled=False,
+        button_style=&#39;&#39;,  # &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;
+        tooltip=&#39;Select (dark grey) to use Errors from Daedalus Science Study&#39;,
+        icon=&#39;&#39;  # (FontAwesome names without the `fa-` prefix)
+    )
+    # B_error widget
+    B_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=1000,
+        step=1,
+        description=&#39;Absolute Error Of $B(nT)$:&#39;,
+        description_tooltip=&#39;Insert the absolute error of Magnetic Field(nT) &#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Ti_error widget
+    Ti_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of ($T_i$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Ion Temperature ($T_i$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Te_error widget
+    Te_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of ($T_e$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Electron Temperature ($T_e$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Tn_error widget
+    Tn_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of ($T_n$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Neutral Temperature ($T_n$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Ne_error widget
+    Ne_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($N_e$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Electron Density ($N_e$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # O_error widget
+    O_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Atomic Oxygen Density ($O$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # O2_error widget
+    O2_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O_2$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Molecule Oxygen Density ($O_2$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # N2_error widget
+    N2_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($N_2$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Nitrogen Density ($N_2$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # O2p_error widget
+    O2p_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O^{+}_{2}$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Density ($O^{+}_{2}$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Op_error widget
+    Op_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O^{+}$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Density ($O^{+}$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # NOp_error widget
+    NOp_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($NO^{+}$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Density ($NO^{+}$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # E_error widget
+    E_error = widgets.BoundedFloatText(
+        value=2,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error of ($E$) mV/m:&#39;,
+        description_tooltip=&#39;Insert the absolute error of ($E$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Un_error widget
+    Un_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error of ($Un$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of ($Un$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Ui_error widget
+    Ui_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error of ($Ui$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of ($Un$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    run_error_button = widgets.Button(
+        value=False,
+        description=&#39;Error Calculation&#39;,
+        disabled=False,
+        button_style=&#39;success&#39;,  # &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;
+        tooltip=&#39;Press to start Error Propagation Calculations, First you must hit &#34;Calculate Products Button&#34;&#39;,
+        icon=&#39;check&#39;,
+        layout=button_layout,
+        style=style,
+
+    )
+
+    run_Map_error_button = widgets.Button(
+        value=False,
+        description=&#39;Error Calculation&#39;,
+        disabled=False,
+        button_style=&#39;success&#39;,  # &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;
+        tooltip=&#39;Press to start Error Propagation Calculations, First you must hit &#34;Calculate Products Button&#34;&#39;,
+        icon=&#39;check&#39;,
+        layout=button_layout,
+        style=style,
+
+    )
+
+
+    def Error_Btn_Clicked(b):
+        print(&#34;Error Calculation started...&#34;)
+
+
+        EP.error(error_flag=Error_Source.value, B_error=B_error.value, E_error=E_error.value, 
+                NO_error=O_error.value, NO2_error=O2_error.value, NN2_error=N2_error.value, 
+                NOp_error=Op_error.value, NO2p_error=O2p_error.value, NNOp_error=NOp_error.value,
+                Ne_error=Ne_error.value, Te_error=Te_error.value, Ti_error=Ti_error.value, Tn_error=Tn_error.value, 
+                Un_error=Un_error.value, Vi_error=Ui_error.value, lat_value=lat_value.value, lon_value=lon_value.value,
+                pressure_level=-1)
+
+
+        if Error_COND_plot_checkbox.value == True:   
+            pl.plot_conductivities_contr(lat_value.value, lon_value.value,min_HP,max_HP)# plot Conductivities Error Calculations
+            pl.plot_conductivities_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_conductivities_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_conductivities_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+        if Error_COLL_Freq_plot_checkbox.value == True:
+            pl.plot_collisions_contr(lat_value.value, lon_value.value,min_HP,max_HP)  # plot Collision Frequencies Error Calculations
+            pl.plot_collisions_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_collisions_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_collisions_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+        if Error_HR_plot_checkbox.value == True:
+            pl.plot_heating_rates_contr(lat_value.value, lon_value.value,min_HP,max_HP)# call function to plot Heating Rates Errors
+            pl.plot_heating_rates_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_heating_rates_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_heating_rates_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+            
+        if Error_CS_plot_checkbox.value == True:
+            pl.plot_csections_error(lat_value.value, lon_value.value,min_HP,max_HP)# plot Cross Section Error Calculations
+            pl.plot_csections_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_csections_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+        if Error_Currents_plot_checkbox.value == True:
+            pl.plot_currents_error(lat_value.value, lon_value.value,min_HP,max_HP)     # plot Currents Error Calculations
+            pl.plot_currents_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_currents_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+
+
+
+    def Exec_Btn_Clicked(b):
+        print(&#34;Calculation started...&#34;)
+        global min_HP,max_HP
+        min_HP=min_height_plot.value
+        max_HP=max_height_plot.value
+        print(tiegcm_file.value, timer_value.value)
+        pD.models_input(tiegcm_file.value, timer_value.value, lat_value.value, lon_value.value)
+        pD.products(lat_value.value, lon_value.value)
+
+        # run(tiegcm_file.value, timer_value.value, lat_value=lat_value.value, lon_value=lon_value.value)
+        if COND_plot_checkbox.value == True:
+            pl.plot_conductivities(lat_value.value, lon_value.value,min_HP,max_HP)  # call function to plot conductivities
+        if COLL_Freq_plot_checkbox.value == True:
+            pl.plot_collisions(lat_value.value, lon_value.value,min_HP,max_HP)     # call function to plot Collision Frequencies
+        if HR_plot_checkbox.value == True:
+            pl.plot_heating_rates(lat_value.value, lon_value.value,min_HP,max_HP)   # call function to plot Heating Rates
+        if CS_plot_checkbox.value == True:
+            pl.plot_cross_sections(lat_value.value, lon_value.value,min_HP,max_HP)      # call function to plot Cross Sections
+        if Currents_plot_checkbox.value == True:
+            pl.plot_currents()            # call function to plot currents
+
+
+    def Error_Map_Btn_Clicked(b):
+        print(&#34;Error Map Calculation started...&#34;)
+        error_flag=True
+        EP.error(error_flag=error_flag, B_error=B_error.value, E_error=E_error.value, 
+                NO_error=O_error.value, NO2_error=O2_error.value, NN2_error=N2_error.value, 
+                NOp_error=Op_error.value, NO2p_error=O2p_error.value, NNOp_error=NOp_error.value,
+                Ne_error=Ne_error.value, Te_error=Te_error.value, Ti_error=Ti_error.value, Tn_error=Tn_error.value, 
+                Un_error=Un_error.value, Vi_error=Ui_error.value, 
+                pressure_level=pressure_level.value)
+    
+
+        if Error_COND_plot_checkbox.value == True:
+            pl.mapla_conductivities_rel_error_plot(pressure_level.value,night_checkbox.value)
+            pl.mapll_conductivities_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+        if Error_COLL_Freq_plot_checkbox.value == True: 
+            pl.mapll_collisions_rel_error_plot(pressure_level.value,night_checkbox.value)# plot Collision Frequencies Error Calculations
+            pl.mapll_conductivities_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+        if Error_HR_plot_checkbox.value == True:     
+            pl.mapla_heating_rates_rel_error_plot(pressure_level.value,night_checkbox.value)# call function to plot Heating Rates Errors
+            pl.mapll_heating_rates_rel_error_plot(pressure_level.value,night_checkbox.value)
+           
+        if Error_CS_plot_checkbox.value == True:
+            pl.mapla_cross_section_rel_error_plot(pressure_level.value,night_checkbox.value)# plot Cross Section Error Calculations
+            pl.mapll_csection_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+        if Error_Currents_plot_checkbox.value == True:
+            pl.mapla_currents_rel_error_plot(pressure_level.value,night_checkbox.value)# plot Currents Error Calculations
+            pl.mapll_currents_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+
+
+
+    def Exec_Map_Btn_Clicked(b):
+        print(&#34;Calculation Map started...&#34;)
+
+        global min_HP,max_HP
+        min_HP=min_height_plot.value
+        max_HP=max_height_plot.value
+        print(tiegcm_file.value, timer_value.value)
+        pD.models_input(tiegcm_file.value, timer_value.value,  pressure_level=pressure_level.value)
+        pD.products( pressure_level=pressure_level.value)
+
+        # run(tiegcm_file.value, timer_value.value, lat_value=lat_value.value, lon_value=lon_value.value)
+        if COND_plot_checkbox.value == True:
+            pl.mapla_conductivities_plot(pressure_level.value,night_checkbox.value)# call function to plot conductivities
+            pl.mapll_conductivities_plot(pressure_level.value,night_checkbox.value)
+        if COLL_Freq_plot_checkbox.value == True:
+            pl.mapll_conductivities_plot(pressure_level.value,night_checkbox.value)# call function to plot Collision Frequencies
+            pl.mapla_collisions_rel_error_plot(pressure_level.value,night_checkbox.value)      
+        if HR_plot_checkbox.value == True:
+            pl.mapla_heating_rates_plot(pressure_level.value,night_checkbox.value)# call function to plot Heating Rates
+            pl.mapll_heating_rates_plot(pressure_level.value,night_checkbox.value)
+        if CS_plot_checkbox.value == True:
+            pl.mapla_cross_section_plot(pressure_level.value,night_checkbox.value)# call function to plot Cross Sections
+            pl.mapll_csection_plot(pressure_level.value,night_checkbox.value)
+        if Currents_plot_checkbox.value == True:
+            pl.mapla_currents_plot(pressure_level.value,night_checkbox.value)# call function to plot Currents
+            pl.mapll_currents_plot(pressure_level.value,night_checkbox.value)
+
+
+    def createGUI():
+        ## the top level visual elements
+        print(&#34;GUI creating...&#34;)
+        MainPanel = widgets.VBox()
+        MainTab = widgets.Tab()
+        # ############################################################################
+        VerticalPanel = widgets.VBox()
+        BasicVerticalPanel = widgets.VBox()
+        BasicVerticalPanel.children = [lat_value, lon_value, timer_value]
+        PlottingHeight=widgets.HBox()
+        PlottingHeight.children=[min_height_plot,max_height_plot]
+        ErrorPanel1 = widgets.VBox()
+        ErrorPanel1.children = [O_error, O2_error, N2_error, Op_error, O2p_error, NOp_error]
+        ErrorPanel2 = widgets.VBox()
+        ErrorPanel2.children = [B_error, Ti_error, Te_error, Tn_error, Ne_error]
+        ErrorPanel3 = widgets.VBox()
+        ErrorPanel3.children = [E_error, Un_error, Ui_error]
+        ErrorPanel = widgets.HBox()
+        ErrorPanel.children = [ErrorPanel1, ErrorPanel2, ErrorPanel3]
+        PlotSelectPanel1 = widgets.HBox()
+        PlotSelectPanel1.children = [COLL_Freq_plot_checkbox, COND_plot_checkbox]
+        PlotSelectPanel2 = widgets.HBox()
+        PlotSelectPanel2.children = [HR_plot_checkbox, CS_plot_checkbox, Currents_plot_checkbox]
+        PlotSelectPanel = widgets.VBox()
+        PlotSelectPanel.children = [PlotSelectPanel1, PlotSelectPanel2]
+        PlotErrorSelectPanel1 = widgets.HBox()
+        PlotErrorSelectPanel1.children = [Error_COLL_Freq_plot_checkbox, Error_COND_plot_checkbox]
+        PlotErrorSelectPanel2 = widgets.HBox()
+        PlotErrorSelectPanel2.children = [Error_HR_plot_checkbox, Error_CS_plot_checkbox, Error_Currents_plot_checkbox]
+        PlotErrorSelectPanel = widgets.VBox()
+        PlotErrorSelectPanel.children = [PlotErrorSelectPanel1, PlotErrorSelectPanel2]
+        Btn_panel = widgets.HBox()
+        # ###############################################################################
+        MapPanel = widgets.VBox()
+        BasicMapPanel = widgets.VBox()
+        BasicMapPanel.children = [pressure_level, timer_value]
+        MapErrorPanel1 = widgets.VBox()
+        MapErrorPanel1.children = [O_error, O2_error, N2_error, Op_error, O2p_error]
+        MapErrorPanel2 = widgets.VBox()
+        MapErrorPanel2.children = [B_error, Ti_error, Te_error, Tn_error, Ne_error]
+        MapErrorPanel3 = widgets.VBox()
+        MapErrorPanel3.children = [E_error, Un_error]
+        MapErrorPanel = widgets.HBox()
+        MapErrorPanel.children = [MapErrorPanel1, MapErrorPanel2, MapErrorPanel3]
+        Btn_Map_panel = widgets.HBox()
+        # #################################################################################
+        MainTab.children = [VerticalPanel, MapPanel]
+        MainTab.set_title(0, &#39;Vertical Profiles&#39;)
+        MainTab.set_title(1, &#39;Maps&#39;)
+        MainPanel.children = [MainTab]
+        # #################################################################################
+        Exec_Btn = widgets.Button(description=&#39;Calculate Products&#39;, tooltip=&#34;Click here to calculate Daedalus products&#34;, )
+        Exec_Btn.style.button_color = &#39;MediumTurquoise&#39;
+        Exec_Btn.on_click(Exec_Btn_Clicked)
+        run_error_button.on_click(Error_Btn_Clicked)
+        Btn_panel.children = [Exec_Btn, run_error_button]
+        VerticalPanel.children = [tiegcm_file, BasicVerticalPanel,PlottingHeight, PlotSelectPanel, ErrorPanel, PlotErrorSelectPanel,
+                                Error_Source, Btn_panel]
+
+        Exec_Map_Btn = widgets.Button(description=&#39;Calculate Products&#39;,
+                                    tooltip=&#34;Click here to calculate Daedalus products&#34;, )
+        Exec_Map_Btn.style.button_color = &#39;MediumTurquoise&#39;
+        Exec_Map_Btn.on_click(Exec_Map_Btn_Clicked)
+        run_Map_error_button.on_click(Error_Map_Btn_Clicked)
+        Btn_Map_panel.children = [Exec_Map_Btn, run_Map_error_button]
+        MapPanel.children = [tiegcm_file, BasicMapPanel, MapErrorPanel, night_checkbox, Btn_Map_panel]
+
+        return MainPanel
+
+    display(createGUI())</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="source_code.gui.loadgui"><code class="name flex">
+<span>def <span class="ident">loadgui</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function used create GUI to interact with daedalusmase_errorPropagation module</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loadgui():
+    &#39;&#39;&#39;
+    This function used create GUI to interact with daedalusmase_errorPropagation module
+
+    &#39;&#39;&#39;
+    tiegcm_file=widgets.Dropdown(options=sorted(glob.glob(&#34;*.nc&#34;)), description=&#39;TIE-GCM files: &#39;, style=style1, layout=layout1)
+
+    lat_value = widgets.Dropdown(
+        options=[(&#39;-88.75&#39;, 0), (&#39;-86.25&#39;, 1), (&#39;-83.75&#39;, 2), (&#39;-81.25&#39;, 3), (&#39;-78.75&#39;, 4), (&#39;-76.25&#39;, 5), (&#39;-73.75&#39;, 6),(&#39;-71.25&#39;, 7),
+                (&#39;-68.75&#39;, 8), (&#39;-66.25&#39;, 9), (&#39;-63.75&#39;, 10), (&#39;-61.25&#39;, 11), (&#39;-58.75&#39;, 12), (&#39;-56.25&#39;, 13),
+                (&#39;-53.75&#39;, 14), (&#39;-51.25&#39;, 15),
+                (&#39;-48.75&#39;, 16), (&#39;-46.25&#39;, 17), (&#39;-43.75&#39;, 18), (&#39;-41.25&#39;, 19), (&#39;-38.75&#39;, 20), (&#39;-36.25&#39;, 21),
+                (&#39;-33.75&#39;, 22), (&#39;-31.25&#39;, 23),
+                (&#39;-28.75&#39;, 24), (&#39;-26.25&#39;, 25), (&#39;-23.75&#39;, 26), (&#39;-21.25&#39;, 27), (&#39;-18.75&#39;, 28), (&#39;-16.25&#39;, 29),
+                (&#39;-13.75&#39;, 30), (&#39;-11.25&#39;, 31),
+                (&#39;-8.75&#39;, 32), (&#39;-6.25&#39;, 33), (&#39;-3.75&#39;, 34), (&#39;-1.25&#39;, 35), (&#39;1.25&#39;, 36), (&#39;3.75&#39;, 37), (&#39;6.25&#39;, 38),
+                (&#39;8.75&#39;, 39),
+                (&#39;11.25&#39;, 40), (&#39;13.75&#39;, 41), (&#39;16.25&#39;, 42), (&#39;18.75&#39;, 43), (&#39;21.25&#39;, 44), (&#39;23.75&#39;, 45), (&#39;26.25&#39;, 46),
+                (&#39;28.75&#39;, 47),
+                (&#39;31.25&#39;, 48), (&#39;33.75&#39;, 49), (&#39;36.25&#39;, 50), (&#39;38.75&#39;, 51), (&#39;41.25&#39;, 52), (&#39;43.75&#39;, 53),
+                (&#39;46.25&#39;, 54), (&#39;48.75&#39;, 55), (&#39;51.25&#39;, 56), (&#39;53.75&#39;, 57), (&#39;56.25&#39;, 58), (&#39;58.75&#39;, 59),
+                (&#39;61.25&#39;, 60), (&#39;63.75&#39;, 61), (&#39;66.25&#39;, 62), (&#39;68.75&#39;, 63), (&#39;71.25&#39;, 64), (&#39;73.75&#39;, 65),
+                (&#39;76.25&#39;, 66), (&#39;78.75&#39;, 67), (&#39;81.25&#39;, 68), (&#39;83.75&#39;, 69), (&#39;84.25&#39;, 70), (&#39;87.75&#39;, 71)],
+        value=61,
+        description=&#39;Latitude (deg):&#39;,
+        layout=layout1stcolumn,
+        style=style
+    )
+    lon_value = widgets.Dropdown(
+        options=[(&#39;-180.0&#39;, 0),
+                (&#39;-177.5&#39;, 1), (&#39;-175.0&#39;, 2), (&#39;-172.5&#39;, 3), (&#39;-170.0&#39;, 4), (&#39;-167.5&#39;, 5), (&#39;-165.0&#39;, 6), (&#39;-162.5&#39;, 7),
+                (&#39;-160.0&#39;, 8),
+                (&#39;-157.5&#39;, 9), (&#39;-155.0&#39;, 10), (&#39;-152.5&#39;, 11), (&#39;-150.0&#39;, 12), (&#39;-147.5&#39;, 13), (&#39;-145.0&#39;, 14),
+                (&#39;-142.5&#39;, 15), (&#39;-140.0&#39;, 16),
+                (&#39;-137.5&#39;, 17), (&#39;-135.0&#39;, 18), (&#39;-132.5&#39;, 19), (&#39;-130.0&#39;, 20), (&#39;-127.5&#39;, 21), (&#39;-125.0&#39;, 22),
+                (&#39;-122.5&#39;, 23), (&#39;-120.0&#39;, 24),
+                (&#39;-117.5&#39;, 25), (&#39;-115.0&#39;, 26), (&#39;-112.5&#39;, 27), (&#39;-110.0&#39;, 28), (&#39;-107.5&#39;, 29), (&#39;-105.0&#39;, 30),
+                (&#39;-102.5&#39;, 31), (&#39;-100.0&#39;, 32),
+                (&#39;-97.5&#39;, 33), (&#39;-95.0&#39;, 34), (&#39;-92.5&#39;, 35), (&#39;-90.0&#39;, 36), (&#39;-87.5&#39;, 37), (&#39;-85.0&#39;, 38), (&#39;-82.5&#39;, 39),
+                (&#39;-80.0&#39;, 40),
+                (&#39;-77.5&#39;, 41), (&#39;-75.0&#39;, 42), (&#39;-72.5&#39;, 43), (&#39;-70.0&#39;, 44), (&#39;-67.5&#39;, 45), (&#39;-65.0&#39;, 46), (&#39;-62.5&#39;, 47),
+                (&#39;-60.0&#39;, 48),
+                (&#39;-57.5&#39;, 49), (&#39;-55.0&#39;, 50), (&#39;-52.5&#39;, 51), (&#39;-50.0&#39;, 52), (&#39;-47.5&#39;, 53), (&#39;-45.0&#39;, 54), (&#39;-42.5&#39;, 55),
+                (&#39;-40.0&#39;, 56),
+                (&#39;-37.5&#39;, 57), (&#39;-35.0&#39;, 58), (&#39;-32.5&#39;, 59), (&#39;-30.0&#39;, 60), (&#39;-27.5&#39;, 61), (&#39;-25.0&#39;, 62), (&#39;-22.5&#39;, 63),
+                (&#39;-20.0&#39;, 64),
+                (&#39;-17.5&#39;, 65), (&#39;-15.0&#39;, 66), (&#39;-12.5&#39;, 67), (&#39;-10.0&#39;, 68), (&#39;-7.5&#39;, 69), (&#39;-5.0&#39;, 70), (&#39;-2.5&#39;, 71),
+                (&#39;0.0&#39;, 72),
+                (&#39;2.5&#39;, 73), (&#39;5.0&#39;, 74), (&#39;7.5&#39;, 75), (&#39;10.0&#39;, 76), (&#39;12.5&#39;, 77), (&#39;15.0&#39;, 78), (&#39;17.5&#39;, 79),
+                (&#39;20.0&#39;, 80), (&#39;22.5&#39;, 81),
+                (&#39;25.0&#39;, 82), (&#39;27.5&#39;, 83), (&#39;30.0&#39;, 84), (&#39;32.5&#39;, 85), (&#39;35.0&#39;, 86), (&#39;37.5&#39;, 87), (&#39;40.0&#39;, 88),
+                (&#39;42.5&#39;, 89), (&#39;45.0&#39;, 90),
+                (&#39;47.5&#39;, 91), (&#39;50.0&#39;, 92), (&#39;52.5&#39;, 93), (&#39;55.0&#39;, 94), (&#39;57.5&#39;, 95), (&#39;60.0&#39;, 96), (&#39;62.5&#39;, 97),
+                (&#39;65.0&#39;, 98),
+                (&#39;67.5&#39;, 99), (&#39;70.0&#39;, 100), (&#39;72.5&#39;, 101), (&#39;75.0&#39;, 102), (&#39;77.5&#39;, 103), (&#39;80.0&#39;, 104), (&#39;82.5&#39;, 105),
+                (&#39;85.0&#39;, 106),
+                (&#39;87.5&#39;, 107), (&#39;90.0&#39;, 108), (&#39;92.5&#39;, 109), (&#39;95.0&#39;, 110), (&#39;97.5&#39;, 111), (&#39;100.0&#39;, 112), (&#39;102.5&#39;, 113),
+                (&#39;105.0&#39;, 114),
+                (&#39;107.5&#39;, 115), (&#39;110.0&#39;, 116), (&#39;112.5&#39;, 117), (&#39;115.0&#39;, 118), (&#39;117.5&#39;, 119), (&#39;120.0&#39;, 120),
+                (&#39;122.5&#39;, 121), (&#39;125.0&#39;, 122), (&#39;127.5&#39;, 123), (&#39;130.0&#39;, 124), (&#39;132.5&#39;, 125), (&#39;135.0&#39;, 126),
+                (&#39;137.5&#39;, 127), (&#39;140.0&#39;, 128), (&#39;142.5&#39;, 129), (&#39;145.0&#39;, 130), (&#39;147.5&#39;, 131), (&#39;150.0&#39;, 132),
+                (&#39;152.5&#39;, 133), (&#39;155.0&#39;, 134), (&#39;157.5&#39;, 135), (&#39;160.0&#39;, 136), (&#39;162.5&#39;, 137), (&#39;165.0&#39;, 138),
+                (&#39;167.5&#39;, 139), (&#39;170.0&#39;, 140), (&#39;172.5&#39;, 141), (&#39;175.0&#39;, 142), (&#39;177.5&#39;, 143),
+                ],
+        value=49,
+        description=&#39;Longitude (deg):&#39;,
+        layout=layout1stcolumn,
+        style=style
+    )
+    min_height_plot = widgets.Dropdown(value=110, options=range(100, 601, 10), description=&#39;min plotting altitude&#39;, style=style,
+        layout=layout1stcolumn)
+    max_height_plot = widgets.Dropdown(value=150, options=range(100, 601, 10), description=&#39;max plotting altitude&#39;, style=style,
+        layout=layout1stcolumn)
+
+    timer_value = widgets.Dropdown(value=9, options=range(0, 60), description=&#39;TimeStep:&#39;, style=style,
+        layout=layout1stcolumn)
+    pressure_level = widgets.Dropdown(value=0, options=range(0, 57), description=&#39;Pressure Level:&#39;, style=style,
+        layout=layout1stcolumn)
+    COLL_Freq_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Collision Frequencies&#34;, style=style1,
+        layout=layout1)
+    COND_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Conductivities&#34;, style=style1, layout=layout1)
+    HR_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Heating Rates&#34;, style=style1, layout=layout1)
+    CS_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Cross Section&#34;, style=style1, layout=layout1)
+    Currents_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Currents&#34;, style=style1, layout=layout1)
+
+    Error_COLL_Freq_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Collision Frequencies Error Propagation&#34;,
+        style=style1, layout=layout1)
+    Error_COND_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Conductivities Error Propagation&#34;,
+        style=style1, layout=layout1)
+    Error_HR_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Plot Heating Rates Error Propagation&#34;, style=style1,
+        layout=layout1)
+    Error_CS_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Cross Section Error Propagation&#34;, style=style1,
+        layout=layout1)
+    Error_Currents_plot_checkbox = widgets.Checkbox(value=False, description=&#34;Currents Error Propagation&#34;, style=style1,
+        layout=layout1)
+
+    night_checkbox = widgets.Checkbox(value=True,  description=&#34;Add Nightshade&#34;,style=style1, layout=layout1)
+
+    Error_Source = widgets.ToggleButton(
+        value=False,
+        description=&#39;Source of Errors&#39;,
+        disabled=False,
+        button_style=&#39;&#39;,  # &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;
+        tooltip=&#39;Select (dark grey) to use Errors from Daedalus Science Study&#39;,
+        icon=&#39;&#39;  # (FontAwesome names without the `fa-` prefix)
+    )
+    # B_error widget
+    B_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=1000,
+        step=1,
+        description=&#39;Absolute Error Of $B(nT)$:&#39;,
+        description_tooltip=&#39;Insert the absolute error of Magnetic Field(nT) &#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Ti_error widget
+    Ti_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of ($T_i$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Ion Temperature ($T_i$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Te_error widget
+    Te_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of ($T_e$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Electron Temperature ($T_e$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Tn_error widget
+    Tn_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of ($T_n$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Neutral Temperature ($T_n$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Ne_error widget
+    Ne_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($N_e$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Electron Density ($N_e$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # O_error widget
+    O_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Atomic Oxygen Density ($O$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # O2_error widget
+    O2_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O_2$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Molecule Oxygen Density ($O_2$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # N2_error widget
+    N2_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($N_2$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Nitrogen Density ($N_2$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # O2p_error widget
+    O2p_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O^{+}_{2}$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Density ($O^{+}_{2}$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Op_error widget
+    Op_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($O^{+}$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Density ($O^{+}$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # NOp_error widget
+    NOp_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error Of Density ($NO^{+}$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of Density ($NO^{+}$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # E_error widget
+    E_error = widgets.BoundedFloatText(
+        value=2,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error of ($E$) mV/m:&#39;,
+        description_tooltip=&#39;Insert the absolute error of ($E$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Un_error widget
+    Un_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error of ($Un$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of ($Un$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    # Ui_error widget
+    Ui_error = widgets.BoundedFloatText(
+        value=5,
+        min=0,
+        max=100,
+        step=0.01,
+        description=&#39;Error of ($Ui$) %:&#39;,
+        description_tooltip=&#39;Insert the % percentage of ($Un$)&#39;,
+        disabled=False,
+        layout=layout1stcolumn,
+        style=style,
+    )
+
+    run_error_button = widgets.Button(
+        value=False,
+        description=&#39;Error Calculation&#39;,
+        disabled=False,
+        button_style=&#39;success&#39;,  # &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;
+        tooltip=&#39;Press to start Error Propagation Calculations, First you must hit &#34;Calculate Products Button&#34;&#39;,
+        icon=&#39;check&#39;,
+        layout=button_layout,
+        style=style,
+
+    )
+
+    run_Map_error_button = widgets.Button(
+        value=False,
+        description=&#39;Error Calculation&#39;,
+        disabled=False,
+        button_style=&#39;success&#39;,  # &#39;success&#39;, &#39;info&#39;, &#39;warning&#39;, &#39;danger&#39; or &#39;&#39;
+        tooltip=&#39;Press to start Error Propagation Calculations, First you must hit &#34;Calculate Products Button&#34;&#39;,
+        icon=&#39;check&#39;,
+        layout=button_layout,
+        style=style,
+
+    )
+
+
+    def Error_Btn_Clicked(b):
+        print(&#34;Error Calculation started...&#34;)
+
+
+        EP.error(error_flag=Error_Source.value, B_error=B_error.value, E_error=E_error.value, 
+                NO_error=O_error.value, NO2_error=O2_error.value, NN2_error=N2_error.value, 
+                NOp_error=Op_error.value, NO2p_error=O2p_error.value, NNOp_error=NOp_error.value,
+                Ne_error=Ne_error.value, Te_error=Te_error.value, Ti_error=Ti_error.value, Tn_error=Tn_error.value, 
+                Un_error=Un_error.value, Vi_error=Ui_error.value, lat_value=lat_value.value, lon_value=lon_value.value,
+                pressure_level=-1)
+
+
+        if Error_COND_plot_checkbox.value == True:   
+            pl.plot_conductivities_contr(lat_value.value, lon_value.value,min_HP,max_HP)# plot Conductivities Error Calculations
+            pl.plot_conductivities_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_conductivities_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_conductivities_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+        if Error_COLL_Freq_plot_checkbox.value == True:
+            pl.plot_collisions_contr(lat_value.value, lon_value.value,min_HP,max_HP)  # plot Collision Frequencies Error Calculations
+            pl.plot_collisions_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_collisions_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_collisions_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+        if Error_HR_plot_checkbox.value == True:
+            pl.plot_heating_rates_contr(lat_value.value, lon_value.value,min_HP,max_HP)# call function to plot Heating Rates Errors
+            pl.plot_heating_rates_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_heating_rates_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_heating_rates_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+            
+        if Error_CS_plot_checkbox.value == True:
+            pl.plot_csections_error(lat_value.value, lon_value.value,min_HP,max_HP)# plot Cross Section Error Calculations
+            pl.plot_csections_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_csections_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+        if Error_Currents_plot_checkbox.value == True:
+            pl.plot_currents_error(lat_value.value, lon_value.value,min_HP,max_HP)     # plot Currents Error Calculations
+            pl.plot_currents_plus_error(lat_value.value, lon_value.value,min_HP,max_HP)
+            pl.plot_currents_rel_error(lat_value.value, lon_value.value,min_HP,max_HP)
+
+
+
+
+    def Exec_Btn_Clicked(b):
+        print(&#34;Calculation started...&#34;)
+        global min_HP,max_HP
+        min_HP=min_height_plot.value
+        max_HP=max_height_plot.value
+        print(tiegcm_file.value, timer_value.value)
+        pD.models_input(tiegcm_file.value, timer_value.value, lat_value.value, lon_value.value)
+        pD.products(lat_value.value, lon_value.value)
+
+        # run(tiegcm_file.value, timer_value.value, lat_value=lat_value.value, lon_value=lon_value.value)
+        if COND_plot_checkbox.value == True:
+            pl.plot_conductivities(lat_value.value, lon_value.value,min_HP,max_HP)  # call function to plot conductivities
+        if COLL_Freq_plot_checkbox.value == True:
+            pl.plot_collisions(lat_value.value, lon_value.value,min_HP,max_HP)     # call function to plot Collision Frequencies
+        if HR_plot_checkbox.value == True:
+            pl.plot_heating_rates(lat_value.value, lon_value.value,min_HP,max_HP)   # call function to plot Heating Rates
+        if CS_plot_checkbox.value == True:
+            pl.plot_cross_sections(lat_value.value, lon_value.value,min_HP,max_HP)      # call function to plot Cross Sections
+        if Currents_plot_checkbox.value == True:
+            pl.plot_currents()            # call function to plot currents
+
+
+    def Error_Map_Btn_Clicked(b):
+        print(&#34;Error Map Calculation started...&#34;)
+        error_flag=True
+        EP.error(error_flag=error_flag, B_error=B_error.value, E_error=E_error.value, 
+                NO_error=O_error.value, NO2_error=O2_error.value, NN2_error=N2_error.value, 
+                NOp_error=Op_error.value, NO2p_error=O2p_error.value, NNOp_error=NOp_error.value,
+                Ne_error=Ne_error.value, Te_error=Te_error.value, Ti_error=Ti_error.value, Tn_error=Tn_error.value, 
+                Un_error=Un_error.value, Vi_error=Ui_error.value, 
+                pressure_level=pressure_level.value)
+    
+
+        if Error_COND_plot_checkbox.value == True:
+            pl.mapla_conductivities_rel_error_plot(pressure_level.value,night_checkbox.value)
+            pl.mapll_conductivities_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+        if Error_COLL_Freq_plot_checkbox.value == True: 
+            pl.mapll_collisions_rel_error_plot(pressure_level.value,night_checkbox.value)# plot Collision Frequencies Error Calculations
+            pl.mapll_conductivities_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+        if Error_HR_plot_checkbox.value == True:     
+            pl.mapla_heating_rates_rel_error_plot(pressure_level.value,night_checkbox.value)# call function to plot Heating Rates Errors
+            pl.mapll_heating_rates_rel_error_plot(pressure_level.value,night_checkbox.value)
+           
+        if Error_CS_plot_checkbox.value == True:
+            pl.mapla_cross_section_rel_error_plot(pressure_level.value,night_checkbox.value)# plot Cross Section Error Calculations
+            pl.mapll_csection_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+        if Error_Currents_plot_checkbox.value == True:
+            pl.mapla_currents_rel_error_plot(pressure_level.value,night_checkbox.value)# plot Currents Error Calculations
+            pl.mapll_currents_rel_error_plot(pressure_level.value,night_checkbox.value)
+
+
+
+
+    def Exec_Map_Btn_Clicked(b):
+        print(&#34;Calculation Map started...&#34;)
+
+        global min_HP,max_HP
+        min_HP=min_height_plot.value
+        max_HP=max_height_plot.value
+        print(tiegcm_file.value, timer_value.value)
+        pD.models_input(tiegcm_file.value, timer_value.value,  pressure_level=pressure_level.value)
+        pD.products( pressure_level=pressure_level.value)
+
+        # run(tiegcm_file.value, timer_value.value, lat_value=lat_value.value, lon_value=lon_value.value)
+        if COND_plot_checkbox.value == True:
+            pl.mapla_conductivities_plot(pressure_level.value,night_checkbox.value)# call function to plot conductivities
+            pl.mapll_conductivities_plot(pressure_level.value,night_checkbox.value)
+        if COLL_Freq_plot_checkbox.value == True:
+            pl.mapll_conductivities_plot(pressure_level.value,night_checkbox.value)# call function to plot Collision Frequencies
+            pl.mapla_collisions_rel_error_plot(pressure_level.value,night_checkbox.value)      
+        if HR_plot_checkbox.value == True:
+            pl.mapla_heating_rates_plot(pressure_level.value,night_checkbox.value)# call function to plot Heating Rates
+            pl.mapll_heating_rates_plot(pressure_level.value,night_checkbox.value)
+        if CS_plot_checkbox.value == True:
+            pl.mapla_cross_section_plot(pressure_level.value,night_checkbox.value)# call function to plot Cross Sections
+            pl.mapll_csection_plot(pressure_level.value,night_checkbox.value)
+        if Currents_plot_checkbox.value == True:
+            pl.mapla_currents_plot(pressure_level.value,night_checkbox.value)# call function to plot Currents
+            pl.mapll_currents_plot(pressure_level.value,night_checkbox.value)
+
+
+    def createGUI():
+        ## the top level visual elements
+        print(&#34;GUI creating...&#34;)
+        MainPanel = widgets.VBox()
+        MainTab = widgets.Tab()
+        # ############################################################################
+        VerticalPanel = widgets.VBox()
+        BasicVerticalPanel = widgets.VBox()
+        BasicVerticalPanel.children = [lat_value, lon_value, timer_value]
+        PlottingHeight=widgets.HBox()
+        PlottingHeight.children=[min_height_plot,max_height_plot]
+        ErrorPanel1 = widgets.VBox()
+        ErrorPanel1.children = [O_error, O2_error, N2_error, Op_error, O2p_error, NOp_error]
+        ErrorPanel2 = widgets.VBox()
+        ErrorPanel2.children = [B_error, Ti_error, Te_error, Tn_error, Ne_error]
+        ErrorPanel3 = widgets.VBox()
+        ErrorPanel3.children = [E_error, Un_error, Ui_error]
+        ErrorPanel = widgets.HBox()
+        ErrorPanel.children = [ErrorPanel1, ErrorPanel2, ErrorPanel3]
+        PlotSelectPanel1 = widgets.HBox()
+        PlotSelectPanel1.children = [COLL_Freq_plot_checkbox, COND_plot_checkbox]
+        PlotSelectPanel2 = widgets.HBox()
+        PlotSelectPanel2.children = [HR_plot_checkbox, CS_plot_checkbox, Currents_plot_checkbox]
+        PlotSelectPanel = widgets.VBox()
+        PlotSelectPanel.children = [PlotSelectPanel1, PlotSelectPanel2]
+        PlotErrorSelectPanel1 = widgets.HBox()
+        PlotErrorSelectPanel1.children = [Error_COLL_Freq_plot_checkbox, Error_COND_plot_checkbox]
+        PlotErrorSelectPanel2 = widgets.HBox()
+        PlotErrorSelectPanel2.children = [Error_HR_plot_checkbox, Error_CS_plot_checkbox, Error_Currents_plot_checkbox]
+        PlotErrorSelectPanel = widgets.VBox()
+        PlotErrorSelectPanel.children = [PlotErrorSelectPanel1, PlotErrorSelectPanel2]
+        Btn_panel = widgets.HBox()
+        # ###############################################################################
+        MapPanel = widgets.VBox()
+        BasicMapPanel = widgets.VBox()
+        BasicMapPanel.children = [pressure_level, timer_value]
+        MapErrorPanel1 = widgets.VBox()
+        MapErrorPanel1.children = [O_error, O2_error, N2_error, Op_error, O2p_error]
+        MapErrorPanel2 = widgets.VBox()
+        MapErrorPanel2.children = [B_error, Ti_error, Te_error, Tn_error, Ne_error]
+        MapErrorPanel3 = widgets.VBox()
+        MapErrorPanel3.children = [E_error, Un_error]
+        MapErrorPanel = widgets.HBox()
+        MapErrorPanel.children = [MapErrorPanel1, MapErrorPanel2, MapErrorPanel3]
+        Btn_Map_panel = widgets.HBox()
+        # #################################################################################
+        MainTab.children = [VerticalPanel, MapPanel]
+        MainTab.set_title(0, &#39;Vertical Profiles&#39;)
+        MainTab.set_title(1, &#39;Maps&#39;)
+        MainPanel.children = [MainTab]
+        # #################################################################################
+        Exec_Btn = widgets.Button(description=&#39;Calculate Products&#39;, tooltip=&#34;Click here to calculate Daedalus products&#34;, )
+        Exec_Btn.style.button_color = &#39;MediumTurquoise&#39;
+        Exec_Btn.on_click(Exec_Btn_Clicked)
+        run_error_button.on_click(Error_Btn_Clicked)
+        Btn_panel.children = [Exec_Btn, run_error_button]
+        VerticalPanel.children = [tiegcm_file, BasicVerticalPanel,PlottingHeight, PlotSelectPanel, ErrorPanel, PlotErrorSelectPanel,
+                                Error_Source, Btn_panel]
+
+        Exec_Map_Btn = widgets.Button(description=&#39;Calculate Products&#39;,
+                                    tooltip=&#34;Click here to calculate Daedalus products&#34;, )
+        Exec_Map_Btn.style.button_color = &#39;MediumTurquoise&#39;
+        Exec_Map_Btn.on_click(Exec_Map_Btn_Clicked)
+        run_Map_error_button.on_click(Error_Map_Btn_Clicked)
+        Btn_Map_panel.children = [Exec_Map_Btn, run_Map_error_button]
+        MapPanel.children = [tiegcm_file, BasicMapPanel, MapErrorPanel, night_checkbox, Btn_Map_panel]
+
+        return MainPanel
+
+    display(createGUI())</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="source_code" href="index.html">source_code</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="source_code.gui.loadgui" href="#source_code.gui.loadgui">loadgui</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
