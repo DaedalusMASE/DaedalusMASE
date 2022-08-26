@@ -1,0 +1,2 @@
+The result netcdf files are stored here.
+It can be a single netcdf file for calculations based on Orbit data and a folder with several netcdf files based on TIEGCM data.
