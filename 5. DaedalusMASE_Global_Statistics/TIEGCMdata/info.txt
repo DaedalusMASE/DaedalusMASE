@@ -1,1 +1,0 @@
-TIEGCM netcdf files are stored here, separated by year.
