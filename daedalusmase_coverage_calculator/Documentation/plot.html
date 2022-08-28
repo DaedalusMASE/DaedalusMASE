@@ -50,7 +50,7 @@ import calendar
 MyColors = [&#34;#217ca3&#34;, &#34;#e29930&#34;, &#34;#919636&#34;, &#34;#af1c1c&#34;, &#34;#e7552c&#34;, &#34;#1b4b5a&#34;, &#34;#e4535e&#34;, &#34;#aebd38&#34;, &#34;#ffbb00&#34;, &#34;#2c7873&#34;]
 
 
-def PlotCoverage_Bars( PlotTitle = &#34;&#34; ):
+def plot_coverage_bars( PlotTitle = &#34;&#34; ):
     &#34;&#34;&#34;
     Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
     Bins are colored and labeled according to the time the satellite spends inside them.
@@ -142,7 +142,7 @@ def PlotCoverage_Bars( PlotTitle = &#34;&#34; ):
         plotly.offline.iplot(fig) 
         
         
-def PlotCoverage_Bars_GroupedByRegion(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;AEE&#34;, &#34;AEM&#34;,&#34;AED&#34;],  [&#34;AFM&#34;,&#34;CF&#34;,&#34;PCF&#34;],  [&#34;EPB&#34;, &#34;SQ&#34;],  [&#34;EEJ&#34;]]):
+def plot_coverage_bars_grouped_by_region(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;AEE&#34;, &#34;AEM&#34;,&#34;AED&#34;],  [&#34;AFM&#34;,&#34;CF&#34;,&#34;PCF&#34;],  [&#34;EPB&#34;, &#34;SQ&#34;],  [&#34;EEJ&#34;]]):
     &#34;&#34;&#34;
     Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
     Bins are colored and labeled according to the time the satellite spends inside them.
@@ -246,7 +246,7 @@ def PlotCoverage_Bars_GroupedByRegion(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;
         
         
         
-def PlotCoverage_PolarChart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
+def plot_coverage_polar_chart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
     &#34;&#34;&#34;
     Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
     Bins are colored and the coverage results are displayed beside the chart.
@@ -347,7 +347,7 @@ def PlotCoverage_PolarChart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
         
 
         
-def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
+def plot_orbit_kp_scatter(OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
     &#34;&#34;&#34;
     This plot displays all satellite positions as points colored by Kp-index. 
     The Kp-indexes related to the orbit can be chosen by setting kp_startYear.
@@ -481,7 +481,7 @@ def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str,
 
     
     
-def PlotOrbit_Heatmap( OrbitFileName ):
+def plot_orbit_heatmap( OrbitFileName ):
     &#34;&#34;&#34;
     Plots the satellite positions as heatmap using seaborn.JointGrid.
     Altitude is at the Vertical Axis and Magnetic Latitude at the Horizontal Axis.
@@ -534,8 +534,8 @@ def PlotOrbit_Heatmap( OrbitFileName ):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="daedalusmase_coverage_calculator.plot.PlotCoverage_Bars"><code class="name flex">
-<span>def <span class="ident">PlotCoverage_Bars</span></span>(<span>PlotTitle='')</span>
+<dt id="daedalusmase_coverage_calculator.plot.plot_coverage_bars"><code class="name flex">
+<span>def <span class="ident">plot_coverage_bars</span></span>(<span>PlotTitle='')</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
@@ -550,7 +550,7 @@ One plot per Magnetic Latitude range is created.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def PlotCoverage_Bars( PlotTitle = &#34;&#34; ):
+<pre><code class="python">def plot_coverage_bars( PlotTitle = &#34;&#34; ):
     &#34;&#34;&#34;
     Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
     Bins are colored and labeled according to the time the satellite spends inside them.
@@ -642,8 +642,8 @@ One plot per Magnetic Latitude range is created.</p>
         plotly.offline.iplot(fig) </code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.plot.PlotCoverage_Bars_GroupedByRegion"><code class="name flex">
-<span>def <span class="ident">PlotCoverage_Bars_GroupedByRegion</span></span>(<span>PlotTitle='', RegionGroups=[['AEE', 'AEM', 'AED'], ['AFM', 'CF', 'PCF'], ['EPB', 'SQ'], ['EEJ']])</span>
+<dt id="daedalusmase_coverage_calculator.plot.plot_coverage_bars_grouped_by_region"><code class="name flex">
+<span>def <span class="ident">plot_coverage_bars_grouped_by_region</span></span>(<span>PlotTitle='', RegionGroups=[['AEE', 'AEM', 'AED'], ['AFM', 'CF', 'PCF'], ['EPB', 'SQ'], ['EEJ']])</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
@@ -660,7 +660,7 @@ One plot per Region Group is created.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def PlotCoverage_Bars_GroupedByRegion(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;AEE&#34;, &#34;AEM&#34;,&#34;AED&#34;],  [&#34;AFM&#34;,&#34;CF&#34;,&#34;PCF&#34;],  [&#34;EPB&#34;, &#34;SQ&#34;],  [&#34;EEJ&#34;]]):
+<pre><code class="python">def plot_coverage_bars_grouped_by_region(PlotTitle=&#34;&#34;, RegionGroups=[[&#34;AEE&#34;, &#34;AEM&#34;,&#34;AED&#34;],  [&#34;AFM&#34;,&#34;CF&#34;,&#34;PCF&#34;],  [&#34;EPB&#34;, &#34;SQ&#34;],  [&#34;EEJ&#34;]]):
     &#34;&#34;&#34;
     Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
     Bins are colored and labeled according to the time the satellite spends inside them.
@@ -762,8 +762,8 @@ One plot per Region Group is created.</p>
         plotly.offline.iplot(fig) </code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.plot.PlotCoverage_PolarChart"><code class="name flex">
-<span>def <span class="ident">PlotCoverage_PolarChart</span></span>(<span>PlotTitle='', size_multiplicator=1)</span>
+<dt id="daedalusmase_coverage_calculator.plot.plot_coverage_polar_chart"><code class="name flex">
+<span>def <span class="ident">plot_coverage_polar_chart</span></span>(<span>PlotTitle='', size_multiplicator=1)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
@@ -780,7 +780,7 @@ One plot per Altitude range is created.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def PlotCoverage_PolarChart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
+<pre><code class="python">def plot_coverage_polar_chart( PlotTitle = &#34;&#34;,  size_multiplicator = 1 ):
     &#34;&#34;&#34;
     Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
     Bins are colored and the coverage results are displayed beside the chart.
@@ -880,8 +880,8 @@ One plot per Altitude range is created.</p>
         plotly.offline.iplot(fig) </code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.plot.PlotOrbit_Heatmap"><code class="name flex">
-<span>def <span class="ident">PlotOrbit_Heatmap</span></span>(<span>OrbitFileName)</span>
+<dt id="daedalusmase_coverage_calculator.plot.plot_orbit_heatmap"><code class="name flex">
+<span>def <span class="ident">plot_orbit_heatmap</span></span>(<span>OrbitFileName)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Plots the satellite positions as heatmap using seaborn.JointGrid.
@@ -896,7 +896,7 @@ The color represents the time spent at each area.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def PlotOrbit_Heatmap( OrbitFileName ):
+<pre><code class="python">def plot_orbit_heatmap( OrbitFileName ):
     &#34;&#34;&#34;
     Plots the satellite positions as heatmap using seaborn.JointGrid.
     Altitude is at the Vertical Axis and Magnetic Latitude at the Horizontal Axis.
@@ -941,8 +941,8 @@ The color represents the time spent at each area.</p>
     matplt.show()</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.plot.PlotOrbit_KpScatter"><code class="name flex">
-<span>def <span class="ident">PlotOrbit_KpScatter</span></span>(<span>OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude)</span>
+<dt id="daedalusmase_coverage_calculator.plot.plot_orbit_kp_scatter"><code class="name flex">
+<span>def <span class="ident">plot_orbit_kp_scatter</span></span>(<span>OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>This plot displays all satellite positions as points colored by Kp-index.
@@ -967,7 +967,7 @@ The Magnetic Latitude is at Vertical Axis and Magnetic Local Time is at the Hori
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def PlotOrbit_KpScatter(OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
+<pre><code class="python">def plot_orbit_kp_scatter(OrbitFileName, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
     &#34;&#34;&#34;
     This plot displays all satellite positions as points colored by Kp-index. 
     The Kp-indexes related to the orbit can be chosen by setting kp_startYear.
@@ -1118,11 +1118,11 @@ The Magnetic Latitude is at Vertical Axis and Magnetic Local Time is at the Hori
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="daedalusmase_coverage_calculator.plot.PlotCoverage_Bars" href="#daedalusmase_coverage_calculator.plot.PlotCoverage_Bars">PlotCoverage_Bars</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.plot.PlotCoverage_Bars_GroupedByRegion" href="#daedalusmase_coverage_calculator.plot.PlotCoverage_Bars_GroupedByRegion">PlotCoverage_Bars_GroupedByRegion</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.plot.PlotCoverage_PolarChart" href="#daedalusmase_coverage_calculator.plot.PlotCoverage_PolarChart">PlotCoverage_PolarChart</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.plot.PlotOrbit_Heatmap" href="#daedalusmase_coverage_calculator.plot.PlotOrbit_Heatmap">PlotOrbit_Heatmap</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.plot.PlotOrbit_KpScatter" href="#daedalusmase_coverage_calculator.plot.PlotOrbit_KpScatter">PlotOrbit_KpScatter</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.plot.plot_coverage_bars" href="#daedalusmase_coverage_calculator.plot.plot_coverage_bars">plot_coverage_bars</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.plot.plot_coverage_bars_grouped_by_region" href="#daedalusmase_coverage_calculator.plot.plot_coverage_bars_grouped_by_region">plot_coverage_bars_grouped_by_region</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.plot.plot_coverage_polar_chart" href="#daedalusmase_coverage_calculator.plot.plot_coverage_polar_chart">plot_coverage_polar_chart</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.plot.plot_orbit_heatmap" href="#daedalusmase_coverage_calculator.plot.plot_orbit_heatmap">plot_orbit_heatmap</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.plot.plot_orbit_kp_scatter" href="#daedalusmase_coverage_calculator.plot.plot_orbit_kp_scatter">plot_orbit_kp_scatter</a></code></li>
 </ul>
 </li>
 </ul>

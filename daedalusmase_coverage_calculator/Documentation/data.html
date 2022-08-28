@@ -49,7 +49,7 @@ CoverageResults_Files_Path = &#34;./ResultFiles/&#34;  # holds the files
 GeomagneticIndices_Files_Path = &#34;./GeomagneticIndices/&#34;  # holds the files with the Kp index of the sun for several years. 
 
 
-def set_OrbitFilesPath( path ):
+def set_orbit_files_path( path ):
     &#34;&#34;&#34;
         Sets the path where the csv files describing the satellite orbit are located.
         The csv file must contain the following columns:
@@ -60,7 +60,7 @@ def set_OrbitFilesPath( path ):
     &#34;&#34;&#34;
     Orbit_Files_Path = path
     
-def set_CoverageResultsFilesPath( path ):
+def set_coverage_results_files_path( path ):
     &#34;&#34;&#34;
         Sets the path where the results of the coverage calculation are stored.
         The results are plain text files which describe the coverage results for each bin.
@@ -70,7 +70,7 @@ def set_CoverageResultsFilesPath( path ):
     &#34;&#34;&#34;
     CoverageResults_Files_Path = path
     
-def set_GeomagneticIndicesFilesPath( path ):
+def set_geomagnetic_indices_files_path( path ):
     &#34;&#34;&#34;
         Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
         The Kp-index is a value from 0 to 9 which characterizes the magnitude of geomagnetic storms. 
@@ -259,18 +259,18 @@ Bins.append( Bin(&#34;PCF_H1&#34;, &#34;Polar cap F-region&#34;,              14
 Bins.append( Bin(&#34;PCF_H2&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   260, 380,               4, 9,   20*60 ) )
 Bins.append( Bin(&#34;PCF_H3&#34;, &#34;Polar cap F-region&#34;,              14, 10,   70,  90,   380, 500,               4, 9,   20*60 ) )
 
-def ClearBins():
+def clear_bins():
     &#34;&#34;&#34;
         Removes all Bins.
     &#34;&#34;&#34;
     Bins.clear()     
 
-def CreateNewBin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
+def create_new_bin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
     &#34;&#34;&#34;
         Defines a new Bin according to the specified ranges.
         All satellite positions which fall in these ranges will be assigned to this Bin. 
         The plots will be created according to all the defined Bins.
-        The library initializes certain predefined Bins. Call ClearBins() in order to remove them.
+        The library initializes certain predefined Bins. Call clear_bins() in order to remove them.
         Args:
             ID (string): a code name for this Bin. It will be displayed on the plots.
             Description (string): a description for this Bin. It will be displayed on the plots.
@@ -366,7 +366,7 @@ def getBinByItsID( IDstr ):
 # Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
 # Data Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
 # Data Source (download)   : ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_DATA/INDICES/KP_AP
-def readGeomagneticIndices(fromYear, toYear):
+def read_geomagnetic_indices(fromYear, toYear):
     &#34;&#34;&#34;
         Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
         Geomagnetic kp Indices Files Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
@@ -419,14 +419,14 @@ def is_MLT_inside_range( MLT, MLT_min, MLT_max ):
 
             
             
-def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear, ResultsFilename="" ):
+def calculate_coverage( Title, Description, OrbitFilename, KpStartYear, ResultsFilename="" ):
     &#34;&#34;&#34;
         Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
         The results are stored in a text file for later usage.
         Args:
             Title: to be stored inside the results text file
             Description: to be stored inside the results text file
-            OrbitFilename: the csv file which describes a satellite orbit. Can be relative path or full path. If not found, the function tries to find the file in Orbit_Files_Path which can br set by set_OrbitFilesPath function.
+            OrbitFilename: the csv file which describes a satellite orbit. Can be relative path or full path. If not found, the function tries to find the file in Orbit_Files_Path which can br set by set_orbit_files_path function.
             KpStartYear (string): the Kp-indexes to be used for the calculation. Choose a period during which the Sun&#39;s activity was similar to the one anticipated during your future satellite mission. 
 			ResultsFilename (string): At this file the calculation results will be saved for later loading. if it is an empty string then a file at the CoverageResults_Files_Path location will be created with the name OrbitFilename+.+KpStartYear+.CoverageResults.txt
         Returns: 
@@ -525,7 +525,7 @@ def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear, ResultsFi
             
     
     
-def LoadCoverageResults( ResultsFilename ):
+def load_coverage_results( ResultsFilename ):
     &#34;&#34;&#34;
         Loads a coverage-results file and store the information in the Bins. 
         Args:
@@ -570,8 +570,8 @@ def LoadCoverageResults( ResultsFilename ):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="daedalusmase_coverage_calculator.data.CalculateCoverage"><code class="name flex">
-<span>def <span class="ident">CalculateCoverage</span></span>(<span>Title, Description, OrbitFilename, KpStartYear, ResultsFilename="")</span>
+<dt id="daedalusmase_coverage_calculator.data.calculate_coverage"><code class="name flex">
+<span>def <span class="ident">calculate_coverage</span></span>(<span>Title, Description, OrbitFilename, KpStartYear, ResultsFilename="")</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
@@ -598,7 +598,7 @@ int: the duration of execution in seconds</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear ):
+<pre><code class="python">def calculate_coverage( Title, Description, OrbitFilename, KpStartYear ):
     &#34;&#34;&#34;
         Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
         The results are stored in a text file for later usage.
@@ -702,8 +702,8 @@ int: the duration of execution in seconds</p></div>
     return BinMisses, BinHits, ResultsFilename, DurationOfExecution</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.ClearBins"><code class="name flex">
-<span>def <span class="ident">ClearBins</span></span>(<span>)</span>
+<dt id="daedalusmase_coverage_calculator.data.clear_bins"><code class="name flex">
+<span>def <span class="ident">clear_bins</span></span>(<span>)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Removes all Bins.</p></div>
@@ -711,21 +711,21 @@ int: the duration of execution in seconds</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def ClearBins():
+<pre><code class="python">def clear_bins():
     &#34;&#34;&#34;
         Removes all Bins.
     &#34;&#34;&#34;
     Bins.clear()     </code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.CreateNewBin"><code class="name flex">
-<span>def <span class="ident">CreateNewBin</span></span>(<span>ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime)</span>
+<dt id="daedalusmase_coverage_calculator.data.create_new_bin"><code class="name flex">
+<span>def <span class="ident">create_new_bin</span></span>(<span>ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Defines a new Bin according to the specified ranges.
 All satellite positions which fall in these ranges will be assigned to this Bin.
 The plots will be created according to all the defined Bins.
-The library initializes certain predefined Bins. Call ClearBins() in order to remove them.</p>
+The library initializes certain predefined Bins. Call clear_bins() in order to remove them.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>ID</code></strong> :&ensp;<code>string</code></dt>
@@ -755,12 +755,12 @@ The library initializes certain predefined Bins. Call ClearBins() in order to re
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def CreateNewBin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
+<pre><code class="python">def create_new_bin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
     &#34;&#34;&#34;
         Defines a new Bin according to the specified ranges.
         All satellite positions which fall in these ranges will be assigned to this Bin. 
         The plots will be created according to all the defined Bins.
-        The library initializes certain predefined Bins. Call ClearBins() in order to remove them.
+        The library initializes certain predefined Bins. Call clear_bins() in order to remove them.
         Args:
             ID (string): a code name for this Bin. It will be displayed on the plots.
             Description (string): a description for this Bin. It will be displayed on the plots.
@@ -829,8 +829,8 @@ The library initializes certain predefined Bins. Call ClearBins() in order to re
     return MatchedBin</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.LoadCoverageResults"><code class="name flex">
-<span>def <span class="ident">LoadCoverageResults</span></span>(<span>ResultsFilename)</span>
+<dt id="daedalusmase_coverage_calculator.data.load_coverage_results"><code class="name flex">
+<span>def <span class="ident">load_coverage_results</span></span>(<span>ResultsFilename)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Loads a coverage-results file and store the information in the Bins. </p>
@@ -848,7 +848,7 @@ The library initializes certain predefined Bins. Call ClearBins() in order to re
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def LoadCoverageResults( ResultsFilename ):
+<pre><code class="python">def load_coverage_results( ResultsFilename ):
     &#34;&#34;&#34;
         Loads a coverage-results file and store the information in the Bins. 
         Args:
@@ -1002,8 +1002,8 @@ The library initializes certain predefined Bins. Call ClearBins() in order to re
         return (MLT &gt; MLT_min  or   MLT &lt;= MLT_max)</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.readGeomagneticIndices"><code class="name flex">
-<span>def <span class="ident">readGeomagneticIndices</span></span>(<span>fromYear, toYear)</span>
+<dt id="daedalusmase_coverage_calculator.data.read_geomagnetic_indices"><code class="name flex">
+<span>def <span class="ident">read_geomagnetic_indices</span></span>(<span>fromYear, toYear)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
@@ -1023,7 +1023,7 @@ Geomagnetic kp Indices Files Source (download)
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def readGeomagneticIndices(fromYear, toYear):
+<pre><code class="python">def read_geomagnetic_indices(fromYear, toYear):
     &#34;&#34;&#34;
         Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
         Geomagnetic kp Indices Files Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
@@ -1062,8 +1062,8 @@ Geomagnetic kp Indices Files Source (download)
             fp.close()</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.set_CoverageResultsFilesPath"><code class="name flex">
-<span>def <span class="ident">set_CoverageResultsFilesPath</span></span>(<span>path)</span>
+<dt id="daedalusmase_coverage_calculator.data.set_coverage_results_files_path"><code class="name flex">
+<span>def <span class="ident">set_coverage_results_files_path</span></span>(<span>path)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets the path where the results of the coverage calculation are stored.
@@ -1077,7 +1077,7 @@ The results are plain text files which describe the coverage results for each bi
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_CoverageResultsFilesPath( path ):
+<pre><code class="python">def set_coverage_results_files_path( path ):
     &#34;&#34;&#34;
         Sets the path where the results of the coverage calculation are stored.
         The results are plain text files which describe the coverage results for each bin.
@@ -1088,8 +1088,8 @@ The results are plain text files which describe the coverage results for each bi
     CoverageResults_Files_Path = path</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.set_GeomagneticIndicesFilesPath"><code class="name flex">
-<span>def <span class="ident">set_GeomagneticIndicesFilesPath</span></span>(<span>path)</span>
+<dt id="daedalusmase_coverage_calculator.data.set_geomagnetic_indices_files_path"><code class="name flex">
+<span>def <span class="ident">set_geomagnetic_indices_files_path</span></span>(<span>path)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
@@ -1106,7 +1106,7 @@ Download location of Kp files: <a href="ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_GeomagneticIndicesFilesPath( path ):
+<pre><code class="python">def set_geomagnetic_indices_files_path( path ):
     &#34;&#34;&#34;
         Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
         The Kp-index is a value from 0 to 9 which characterizes the magnitude of geomagnetic storms. 
@@ -1119,8 +1119,8 @@ Download location of Kp files: <a href="ftp://ftp.ngdc.noaa.gov/STP/GEOMAGNETIC_
     GeomagneticIndices_Files_Path = path</code></pre>
 </details>
 </dd>
-<dt id="daedalusmase_coverage_calculator.data.set_OrbitFilesPath"><code class="name flex">
-<span>def <span class="ident">set_OrbitFilesPath</span></span>(<span>path)</span>
+<dt id="daedalusmase_coverage_calculator.data.set_orbit_files_path"><code class="name flex">
+<span>def <span class="ident">set_orbit_files_path</span></span>(<span>path)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Sets the path where the csv files describing the satellite orbit are located.
@@ -1135,7 +1135,7 @@ Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magn
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_OrbitFilesPath( path ):
+<pre><code class="python">def set_orbit_files_path( path ):
     &#34;&#34;&#34;
         Sets the path where the csv files describing the satellite orbit are located.
         The csv file must contain the following columns:
@@ -1322,18 +1322,18 @@ Epoch(UTCG),Lat_GEOD(deg),Lon_GEOD(deg),Height_WGS84 (km),Magnetic Latitude,Magn
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="daedalusmase_coverage_calculator.data.CalculateCoverage" href="#daedalusmase_coverage_calculator.data.CalculateCoverage">CalculateCoverage</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.ClearBins" href="#daedalusmase_coverage_calculator.data.ClearBins">ClearBins</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.CreateNewBin" href="#daedalusmase_coverage_calculator.data.CreateNewBin">CreateNewBin</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.calculate_coverage" href="#daedalusmase_coverage_calculator.data.calculate_coverage">calculate_coverage</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.clear_bins" href="#daedalusmase_coverage_calculator.data.clear_bins">clear_bins</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.create_new_bin" href="#daedalusmase_coverage_calculator.data.create_new_bin">create_new_bin</a></code></li>
 <li><code><a title="daedalusmase_coverage_calculator.data.GetMatchedBin" href="#daedalusmase_coverage_calculator.data.GetMatchedBin">GetMatchedBin</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.LoadCoverageResults" href="#daedalusmase_coverage_calculator.data.LoadCoverageResults">LoadCoverageResults</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.load_coverage_results" href="#daedalusmase_coverage_calculator.data.load_coverage_results">load_coverage_results</a></code></li>
 <li><code><a title="daedalusmase_coverage_calculator.data.getBinByItsID" href="#daedalusmase_coverage_calculator.data.getBinByItsID">getBinByItsID</a></code></li>
 <li><code><a title="daedalusmase_coverage_calculator.data.getBinByItsProperties" href="#daedalusmase_coverage_calculator.data.getBinByItsProperties">getBinByItsProperties</a></code></li>
 <li><code><a title="daedalusmase_coverage_calculator.data.is_MLT_inside_range" href="#daedalusmase_coverage_calculator.data.is_MLT_inside_range">is_MLT_inside_range</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.readGeomagneticIndices" href="#daedalusmase_coverage_calculator.data.readGeomagneticIndices">readGeomagneticIndices</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.set_CoverageResultsFilesPath" href="#daedalusmase_coverage_calculator.data.set_CoverageResultsFilesPath">set_CoverageResultsFilesPath</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.set_GeomagneticIndicesFilesPath" href="#daedalusmase_coverage_calculator.data.set_GeomagneticIndicesFilesPath">set_GeomagneticIndicesFilesPath</a></code></li>
-<li><code><a title="daedalusmase_coverage_calculator.data.set_OrbitFilesPath" href="#daedalusmase_coverage_calculator.data.set_OrbitFilesPath">set_OrbitFilesPath</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.read_geomagnetic_indices" href="#daedalusmase_coverage_calculator.data.read_geomagnetic_indices">read_geomagnetic_indices</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.set_coverage_results_files_path" href="#daedalusmase_coverage_calculator.data.set_coverage_results_files_path">set_coverage_results_files_path</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.set_geomagnetic_indices_files_path" href="#daedalusmase_coverage_calculator.data.set_geomagnetic_indices_files_path">set_geomagnetic_indices_files_path</a></code></li>
+<li><code><a title="daedalusmase_coverage_calculator.data.set_orbit_files_path" href="#daedalusmase_coverage_calculator.data.set_orbit_files_path">set_orbit_files_path</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
