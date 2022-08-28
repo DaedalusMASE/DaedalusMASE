@@ -16,7 +16,7 @@ CoverageResults_Files_Path = "../ResultFiles/"  # holds the files
 GeomagneticIndices_Files_Path = "../../Sample_Data/geomagnetic_indices/"  # holds the files with the Kp index of the sun for several years. 
 
 
-def set_OrbitFilesPath( path ):
+def set_orbit_files_path( path ):
     """
         Sets the path where the csv files describing the satellite orbit are located.
         The csv file must contain the following columns:
@@ -27,7 +27,7 @@ def set_OrbitFilesPath( path ):
     """
     Orbit_Files_Path = path
     
-def set_CoverageResultsFilesPath( path ):
+def set_coverage_results_files_path( path ):
     """
         Sets the path where the results of the coverage calculation are stored.
         The results are plain text files which describe the coverage results for each bin.
@@ -37,7 +37,7 @@ def set_CoverageResultsFilesPath( path ):
     """
     CoverageResults_Files_Path = path
     
-def set_GeomagneticIndicesFilesPath( path ):
+def set_geomagnetic_indices_files_path( path ):
     """
         Sets the path where the files holding the Kp indexes are located. There must be òne file for each year of interest.
         The Kp-index is a value from 0 to 9 which characterizes the magnitude of geomagnetic storms. 
@@ -226,13 +226,13 @@ Bins.append( Bin("PCF_H1", "Polar cap F-region",              14, 10,   70,  90,
 Bins.append( Bin("PCF_H2", "Polar cap F-region",              14, 10,   70,  90,   260, 380,               4, 9,   20*60 ) )
 Bins.append( Bin("PCF_H3", "Polar cap F-region",              14, 10,   70,  90,   380, 500,               4, 9,   20*60 ) )
 
-def ClearBins():
+def clear_bins():
     """
         Removes all Bins.
     """
     Bins.clear()     
 
-def CreateNewBin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
+def create_new_bin( ID, Description, MagneticLocalTime_from, MagneticLocalTime_to, MagneticLatitude_from, MagneticLatitude_to, Altitude_from, Altitude_to, Kp_from, Kp_to, DesirableTime ):
     """
         Defines a new Bin according to the specified ranges.
         All satellite positions which fall in these ranges will be assigned to this Bin. 
@@ -330,7 +330,7 @@ def getBinByItsID( IDstr ):
     return CorrectBin
 
 
-def readGeomagneticIndices(fromYear, toYear):
+def read_geomagnetic_indices(fromYear, toYear):
     """
         Reads the Geomagnetic kp Indices from text files and stores them in a dictionary.
         Geomagnetic kp Indices Files Source (explanation): https://www.ngdc.noaa.gov/stp/GEOMAG/kp_ap.html
@@ -384,7 +384,7 @@ def is_MLT_inside_range( MLT, MLT_min, MLT_max ):
 
             
             
-def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear, ResultsFilename="" ):
+def calculate_coverage( Title, Description, OrbitFilename, KpStartYear, ResultsFilename="" ):
     """
         Read an orbit file and for each position of the satellite calculates how much time the satellite spends inside each bin.
         The results are stored in a text file for later usage.
@@ -508,7 +508,7 @@ def CalculateCoverage( Title, Description, OrbitFilename, KpStartYear, ResultsFi
             
     
     
-def LoadCoverageResults( ResultsFilename ):
+def load_coverage_results( ResultsFilename ):
     """
         Loads a coverage-results file and store the information in the Bins. 
         Args:

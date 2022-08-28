@@ -21,7 +21,7 @@ import calendar
 MyColors = ["#217ca3", "#e29930", "#919636", "#af1c1c", "#e7552c", "#1b4b5a", "#e4535e", "#aebd38", "#ffbb00", "#2c7873"]
 
 
-def PlotCoverage_Bars( PlotTitle = "" ):
+def plot_coverage_bars( PlotTitle = "" ):
     """
     Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index and Magnetic Local Time is at the Horizontal Axis.
     Bins are colored and labeled according to the time the satellite spends inside them.
@@ -113,7 +113,7 @@ def PlotCoverage_Bars( PlotTitle = "" ):
         plotly.offline.iplot(fig) 
         
         
-def PlotCoverage_Bars_GroupedByRegion(PlotTitle="", RegionGroups=[["AEE", "AEM","AED"],  ["AFM","CF","PCF"],  ["EPB", "SQ"],  ["EEJ"]]):
+def plot_coverage_bars_grouped_by_region(PlotTitle="", RegionGroups=[["AEE", "AEM","AED"],  ["AFM","CF","PCF"],  ["EPB", "SQ"],  ["EEJ"]]):
     """
     Plots the Bins as vertical bars. The altitude is at the Vertical Axis. Kp index Magnetic Local Time and Magnetic Latitude is at the Horizontal Axis.
     Bins are colored and labeled according to the time the satellite spends inside them.
@@ -224,7 +224,7 @@ def PlotCoverage_Bars_GroupedByRegion(PlotTitle="", RegionGroups=[["AEE", "AEM",
         
         
         
-def PlotCoverage_PolarChart( PlotTitle = "",  size_multiplicator = 1 ):
+def plot_coverage_polar_chart( PlotTitle = "",  size_multiplicator = 1 ):
     """
     Plots the Bins in a polar chart. The radial axis contains the Magnetic Latitude and the Arcs represent Magnetic Local Time.
     Bins are colored and the coverage results are displayed beside the chart.
@@ -325,7 +325,7 @@ def PlotCoverage_PolarChart( PlotTitle = "",  size_multiplicator = 1 ):
         
 
         
-def PlotOrbit_KpScatter(OrbitFilename, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
+def plot_orbit_kp_scatter(OrbitFilename, kp_startYear, from_date_str, to_date_str, from_Altitude, to_Altitude):
     """
     This plot displays all satellite positions as points colored by Kp-index. 
     The Kp-indexes related to the orbit can be chosen by setting kp_startYear.
@@ -474,7 +474,7 @@ def PlotOrbit_KpScatter(OrbitFilename, kp_startYear, from_date_str, to_date_str,
 
     
     
-def PlotOrbit_Heatmap( OrbitFilename ):
+def plot_orbit_heatmap( OrbitFilename ):
     """
     Plots the satellite positions as heatmap using seaborn.JointGrid.
     Altitude is at the Vertical Axis and Magnetic Latitude at the Horizontal Axis.
