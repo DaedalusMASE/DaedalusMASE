@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>daedalusmase_derived_products.mod_tiegcm_utils.allocations API documentation</title>
+<meta name="description" content="environment_mod.const …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>daedalusmase_derived_products.mod_tiegcm_utils.allocations</code></h1>
+</header>
+<section id="section-intro">
+<p>environment_mod.const</p>
+<p><strong>Description</strong>:</p>
+<hr>
+<p>File with all the needed constants for the simulations</p>
+<hr>
+<hr>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+environment_mod.const
+
+**Description**:
+_____________________________________________________________________________________________________________________
+
+File with all the needed constants for the simulations
+_____________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________
+
+&#34;&#34;&#34;
+import numpy as np
+
+#1D allocations
+zg_1D=[]
+lat_1D=[]
+lon_1D=[]
+Ti_1D=[]
+Te_1D=[]
+Tn_1D=[]
+Ne_1D=[]
+NOp_1D=[]
+NO2p_1D=[]
+Np_1D=[]
+NNOp_1D=[]
+NO_1D=[]
+NO2_1D=[]
+NN2_1D=[]
+NHe_1D=[]
+Be_1D=[]
+Bn_1D=[]
+Bu_1D=[]
+Bmag_1D=[]
+Une_1D=[]
+Unn_1D=[]
+Unu_1D=[]
+Uie_1D=[]
+Uin_1D=[]
+Uiu_1D=[]
+Ee_1D=[]
+En_1D=[]
+Eu_1D=[]
+omega_e_1D=[] 
+omega_op_1D=[]
+omega_o2p_1D=[]
+omega_nop_1D=[]
+omega_np_1D=[]
+ve_i_1D=[] 
+ve_op_1D=[]
+ve_o2p_1D=[]
+ve_nop_1D=[]
+ve_np_1D=[]
+ven_1D=[]
+ve_n2_1D=[]
+ve_o_1D=[]
+ve_o2_1D=[]
+ve_he_1D=[]
+vi_i_1D=[]
+vi_op_1D=[]
+vi_o2p_1D=[]
+vi_nop_1D=[]
+vi_np_1D=[]
+vin_1D=[]
+vop_o_1D=[]
+vop_o2_1D=[]
+vop_n2_1D=[]
+vop_he_1D=[]
+vo2p_o_1D=[]
+vo2p_o2_1D=[]
+vo2p_n2_1D=[]
+vo2p_he_1D=[]
+vnp_o_1D=[]
+vnp_o2_1D=[]
+vnp_n2_1D=[]
+vnp_he_1D=[]
+vnop_o_1D=[]
+vnop_o2_1D=[]
+vnop_n2_1D=[]
+vnop_he_1D=[]
+pedersen_1D=[]
+hall_1D=[]
+parallel_1D=[]                
+                    
+qDTi_n_1D=[]
+qDTop_n_1D=[]
+qDTo2p_n_1D=[]
+qDTnop_n_1D=[]
+qDTnp_n_1D=[]
+qFop_o_1D=[]
+qFop_o2_1D=[]
+qFop_n2_1D=[]
+qFop_he_1D=[]
+qFo2p_o_1D=[]
+qFo2p_o2_1D=[]
+qFo2p_n2_1D=[]
+qFo2p_he_1D=[]
+qFnop_o_1D=[]
+qFnop_o2_1D=[]
+qFnop_n2_1D=[]
+qFnop_he_1D=[]
+qFnp_o_1D=[]
+qFnp_o2_1D=[]
+qFnp_n2_1D=[]
+qFnp_he_1D=[]
+qFop_n_1D=[]
+qFo2p_n_1D=[]
+qFnop_n_1D=[]
+qFnp_n_1D=[]
+qFi_n_1D=[]
+qFop_e_1D=[]
+qFo2p_e_1D=[]
+qFnop_e_1D=[]
+qFnp_e_1D=[]
+qFe_i_1D=[]   
+qFop_o2p_1D=[]
+qFop_nop_1D=[]
+qFop_np_1D=[]
+qFo2p_nop_1D=[]
+qFo2p_np_1D=[]
+qFnop_np_1D=[]
+qFi_i_1D=[]
+L_eN2_elast_rees_1D=[]
+L_eO2_elast_rees_1D=[]
+L_eO_elast_rees_1D=[]
+L_eHe_elast_rees_1D=[]
+L_eN2_elast_schunk_1D=[]
+L_eO2_elast_schunk_1D=[]
+L_eO_elast_schunk_1D=[]
+L_eHe_elast_schunk_1D=[]
+L_en_schunk_1D=[]
+L_en_rees_1D=[]
+qDTe_op_1D=[]
+qDTe_o2p_1D=[]
+qDTe_nop_1D=[]
+qDTe_np_1D=[]
+qDTe_i_1D=[] 
+Le_N2_rot_schunk_1D=[]
+Le_N2_rot_rees_1D=[]
+Le_N2_rot_tiegcm_1D=[]
+Le_O2_rot_schunk_1D=[]
+Le_O2_rot_rees_1D=[]
+Le_O2_rot_tiegcm_1D=[]
+Le_N2_vib_schunk_1D=[]
+Le_N2_vib_rees_1D=[]
+Le_N2_vib_tiegcm_1D=[]
+Le_O2_vib_schunk_1D=[]
+Le_O2_vib_rees_1D=[]
+Le_O2_vib_tiegcm_1D=[]
+Le_O_fine_schunk_1D=[]
+Le_O_fine_rees_1D=[]
+Le_O_fine_tiegcm_1D=[]
+wind_heating_1D=[]                    
+convection_heating_1D=[]
+ohmic_1D=[]
+ohmic_mass_1D=[]
+joule_1D=[]
+joule_op_1D=[]
+joule_o2p_1D=[]
+joule_nop_1D=[]
+frictional_1D=[]
+frictional_op_1D=[]
+frictional_o2p_1D=[]
+frictional_nop_1D=[]
+jpede_1D=[]
+jpedn_1D=[]
+jpedu_1D=[]
+jhalle_1D=[]
+jhalln_1D=[]
+jhallu_1D=[]
+jperpe_1D=[]
+jperpn_1D=[]
+jperpu_1D=[]
+mech_power_1D=[]
+ion_vele_1D=[]
+ion_veln_1D=[]
+ion_velu_1D=[]
+cross_in_1D=[]
+cross_op_1D=[]
+cross_o2p_1D=[]
+cross_nop_1D=[]             
+maplat=np.zeros((72),order=&#39;F&#39;)
+maplon=np.zeros((144),order=&#39;F&#39;)
+maptime=np.zeros((24),order=&#39;F&#39;)
+
+#2D allocations
+
+zg_2D=np.zeros((72, 144),order=&#39;F&#39;)
+lat_2D=np.zeros((72, 144),order=&#39;F&#39;)
+lon_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Ti_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Te_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Tn_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Ne_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NOp_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NO2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NNOp_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NO_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NO2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NN2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+NHe_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Be_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Bn_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Bu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Bmag_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Une_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Unn_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Unu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Uie_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Uin_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Uiu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Ee_2D=np.zeros((72, 144),order=&#39;F&#39;)
+En_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Eu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+omega_e_2D=np.zeros((72, 144),order=&#39;F&#39;) 
+omega_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+omega_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+omega_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+omega_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_i_2D=np.zeros((72, 144),order=&#39;F&#39;) 
+ve_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ven_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ve_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vi_i_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vi_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vi_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vi_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vi_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vin_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vop_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vop_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vop_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vop_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vo2p_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vo2p_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vo2p_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vo2p_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnp_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnp_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnp_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnp_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnop_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnop_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnop_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vnop_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+pedersen_2D=np.zeros((72, 144),order=&#39;F&#39;)
+hall_2D=np.zeros((72, 144),order=&#39;F&#39;)
+parallel_2D=np.zeros((72, 144),order=&#39;F&#39;)                
+                    
+qDTi_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTop_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTo2p_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTnop_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTnp_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnp_o_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnp_o2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnp_n2_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnp_he_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnp_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFi_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_e_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_e_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_e_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnp_e_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFe_i_2D=np.zeros((72, 144),order=&#39;F&#39;)   
+qFop_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFop_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFo2p_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFnop_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qFi_i_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eN2_elast_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eO2_elast_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eO_elast_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eHe_elast_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eN2_elast_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eO2_elast_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eO_elast_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_eHe_elast_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_en_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+L_en_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTe_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTe_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTe_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTe_np_2D=np.zeros((72, 144),order=&#39;F&#39;)
+qDTe_i_2D=np.zeros((72, 144),order=&#39;F&#39;) 
+Le_N2_rot_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_N2_rot_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_N2_rot_tiegcm_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O2_rot_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O2_rot_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O2_rot_tiegcm_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_N2_vib_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_N2_vib_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_N2_vib_tiegcm_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O2_vib_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O2_vib_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O2_vib_tiegcm_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O_fine_schunk_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O_fine_rees_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Le_O_fine_tiegcm_2D=np.zeros((72, 144),order=&#39;F&#39;)
+wind_heating_2D=np.zeros((72, 144),order=&#39;F&#39;)                    
+convection_heating_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ohmic_2D=np.zeros((72, 144),order=&#39;F&#39;)
+ohmic_mass_2D=np.zeros((72, 144),order=&#39;F&#39;)
+joule_2D=np.zeros((72, 144),order=&#39;F&#39;)
+joule_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+joule_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+joule_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+frictional_2D=np.zeros((72, 144),order=&#39;F&#39;)
+frictional_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+frictional_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+frictional_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jpede_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jpedn_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jpedu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jhalle_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jhalln_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jhallu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jperpe_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jperpn_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jperpu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+cross_in_2D=np.zeros((72, 144),order=&#39;F&#39;)
+cross_op_2D=np.zeros((72, 144),order=&#39;F&#39;)
+cross_o2p_2D=np.zeros((72, 144),order=&#39;F&#39;)
+cross_nop_2D=np.zeros((72, 144),order=&#39;F&#39;)
+Pot_2D=np.zeros((72, 144),order=&#39;F&#39;)
+mech_power_2D=np.zeros((72, 144),order=&#39;F&#39;)
+J_mag_2D=np.zeros((72, 144),order=&#39;F&#39;)
+vi_mag_2D=np.zeros((72, 144),order=&#39;F&#39;)
+veli_e_2D=np.zeros((72, 144),order=&#39;F&#39;)
+veli_n_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jxbe_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jxbn_2D=np.zeros((72, 144),order=&#39;F&#39;)
+jxbu_2D=np.zeros((72, 144),order=&#39;F&#39;)
+
+#lat_lon allocations
+zgl=np.zeros((57, 72),order=&#39;F&#39;)
+latl=np.zeros((57, 72),order=&#39;F&#39;)
+lonl=np.zeros((57, 72),order=&#39;F&#39;)
+Til=np.zeros((57, 72),order=&#39;F&#39;)
+Tel=np.zeros((57, 72),order=&#39;F&#39;)
+Tnl=np.zeros((57, 72),order=&#39;F&#39;)
+Nel=np.zeros((57, 72),order=&#39;F&#39;)
+NOpl=np.zeros((57, 72),order=&#39;F&#39;)
+NO2pl=np.zeros((57, 72),order=&#39;F&#39;)
+Npl=np.zeros((57, 72),order=&#39;F&#39;)
+NNOpl=np.zeros((57, 72),order=&#39;F&#39;)
+NOl=np.zeros((57, 72),order=&#39;F&#39;)
+NO2l=np.zeros((57, 72),order=&#39;F&#39;)
+NN2l=np.zeros((57, 72),order=&#39;F&#39;)
+NHel=np.zeros((57, 72),order=&#39;F&#39;)
+Bel=np.zeros((57, 72),order=&#39;F&#39;)
+Bnl=np.zeros((57, 72),order=&#39;F&#39;)
+Bul=np.zeros((57, 72),order=&#39;F&#39;)
+Bmagl=np.zeros((57, 72),order=&#39;F&#39;)
+Unel=np.zeros((57, 72),order=&#39;F&#39;)
+Unnl=np.zeros((57, 72),order=&#39;F&#39;)
+Unul=np.zeros((57, 72),order=&#39;F&#39;)
+Uiel=np.zeros((57, 72),order=&#39;F&#39;)
+Uinl=np.zeros((57, 72),order=&#39;F&#39;)
+Uiul=np.zeros((57, 72),order=&#39;F&#39;)
+Eel=np.zeros((57, 72),order=&#39;F&#39;)
+Enl=np.zeros((57, 72),order=&#39;F&#39;)
+Eul=np.zeros((57, 72),order=&#39;F&#39;)
+omega_el=np.zeros((57, 72),order=&#39;F&#39;) 
+omega_opl=np.zeros((57, 72),order=&#39;F&#39;)
+omega_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+omega_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+omega_npl=np.zeros((57, 72),order=&#39;F&#39;)
+ve_il=np.zeros((57, 72),order=&#39;F&#39;) 
+ve_opl=np.zeros((57, 72),order=&#39;F&#39;)
+ve_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+ve_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+ve_npl=np.zeros((57, 72),order=&#39;F&#39;)
+venl=np.zeros((57, 72),order=&#39;F&#39;)
+ve_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+ve_ol=np.zeros((57, 72),order=&#39;F&#39;)
+ve_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+ve_hel=np.zeros((57, 72),order=&#39;F&#39;)
+vi_il=np.zeros((57, 72),order=&#39;F&#39;)
+vi_opl=np.zeros((57, 72),order=&#39;F&#39;)
+vi_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+vi_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+vi_npl=np.zeros((57, 72),order=&#39;F&#39;)
+vinl=np.zeros((57, 72),order=&#39;F&#39;)
+vop_ol=np.zeros((57, 72),order=&#39;F&#39;)
+vop_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+vop_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+vop_hel=np.zeros((57, 72),order=&#39;F&#39;)
+vo2p_ol=np.zeros((57, 72),order=&#39;F&#39;)
+vo2p_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+vo2p_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+vo2p_hel=np.zeros((57, 72),order=&#39;F&#39;)
+vnp_ol=np.zeros((57, 72),order=&#39;F&#39;)
+vnp_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+vnp_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+vnp_hel=np.zeros((57, 72),order=&#39;F&#39;)
+vnop_ol=np.zeros((57, 72),order=&#39;F&#39;)
+vnop_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+vnop_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+vnop_hel=np.zeros((57, 72),order=&#39;F&#39;)
+pedersenl=np.zeros((57, 72),order=&#39;F&#39;)
+halll=np.zeros((57, 72),order=&#39;F&#39;)
+parallell=np.zeros((57, 72),order=&#39;F&#39;)                
+                    
+qDTi_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTop_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTo2p_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTnop_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTnp_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_ol=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_hel=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_ol=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_hel=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_ol=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_hel=np.zeros((57, 72),order=&#39;F&#39;)
+qFnp_ol=np.zeros((57, 72),order=&#39;F&#39;)
+qFnp_o2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFnp_n2l=np.zeros((57, 72),order=&#39;F&#39;)
+qFnp_hel=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qFnp_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qFi_nl=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_el=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_el=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_el=np.zeros((57, 72),order=&#39;F&#39;)
+qFnp_el=np.zeros((57, 72),order=&#39;F&#39;)
+qFe_il=np.zeros((57, 72),order=&#39;F&#39;)   
+qFop_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+qFop_npl=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+qFo2p_npl=np.zeros((57, 72),order=&#39;F&#39;)
+qFnop_npl=np.zeros((57, 72),order=&#39;F&#39;)
+qFi_il=np.zeros((57, 72),order=&#39;F&#39;)
+L_eN2_elast_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eO2_elast_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eO_elast_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eHe_elast_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eN2_elast_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eO2_elast_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eO_elast_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+L_eHe_elast_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+L_en_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+L_en_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTe_opl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTe_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTe_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTe_npl=np.zeros((57, 72),order=&#39;F&#39;)
+qDTe_il=np.zeros((57, 72),order=&#39;F&#39;) 
+Le_N2_rot_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_N2_rot_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_N2_rot_tiegcml=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O2_rot_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O2_rot_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O2_rot_tiegcml=np.zeros((57, 72),order=&#39;F&#39;)
+Le_N2_vib_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_N2_vib_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_N2_vib_tiegcml=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O2_vib_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O2_vib_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O2_vib_tiegcml=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O_fine_schunkl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O_fine_reesl=np.zeros((57, 72),order=&#39;F&#39;)
+Le_O_fine_tiegcml=np.zeros((57, 72),order=&#39;F&#39;)
+wind_heatingl=np.zeros((57, 72),order=&#39;F&#39;)                    
+convection_heatingl=np.zeros((57, 72),order=&#39;F&#39;)
+ohmicl=np.zeros((57, 72),order=&#39;F&#39;)
+ohmic_massl=np.zeros((57, 72),order=&#39;F&#39;)
+joulel=np.zeros((57, 72),order=&#39;F&#39;)
+joule_opl=np.zeros((57, 72),order=&#39;F&#39;)
+joule_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+joule_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+frictionall=np.zeros((57, 72),order=&#39;F&#39;)
+frictional_opl=np.zeros((57, 72),order=&#39;F&#39;)
+frictional_o2pl=np.zeros((57, 72),order=&#39;F&#39;)
+frictional_nopl=np.zeros((57, 72),order=&#39;F&#39;)
+jpedel=np.zeros((57, 72),order=&#39;F&#39;)
+jpednl=np.zeros((57, 72),order=&#39;F&#39;)
+jpedul=np.zeros((57, 72),order=&#39;F&#39;)
+jhallel=np.zeros((57, 72),order=&#39;F&#39;)
+jhallnl=np.zeros((57, 72),order=&#39;F&#39;)
+jhallul=np.zeros((57, 72),order=&#39;F&#39;)
+jperpel=np.zeros((57, 72),order=&#39;F&#39;)
+jperpnl=np.zeros((57, 72),order=&#39;F&#39;)
+jperpul=np.zeros((57, 72),order=&#39;F&#39;)
+mech_powerl=np.zeros((57, 72),order=&#39;F&#39;)
+Potl=np.zeros((72),order=&#39;F&#39;)
+maplatl=np.zeros((72),order=&#39;F&#39;)
+mapaltl=np.zeros((57),order=&#39;F&#39;)
+maptimel=np.zeros((24),order=&#39;F&#39;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="daedalusmase_derived_products.mod_tiegcm_utils" href="index.html">daedalusmase_derived_products.mod_tiegcm_utils</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
