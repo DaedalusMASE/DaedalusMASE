@@ -1362,6 +1362,10 @@ def execute_stat_test( TIEGCMresults_filename, ORBITresults_filename, RegionName
     (Z-test, Wilcoxon, scipy-ranksums, mannwhitneyu)
     The results are printed as text on screen
     """
+    
+    # create temporary folder
+    if( os.path.exists("../RESULTS/tmp/") == False ): os.makedirs("../RESULTS/tmp/")
+    
     # Region info:
     print("REGION =", RegionName )
 
