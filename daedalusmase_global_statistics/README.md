@@ -104,38 +104,40 @@ Executes several statistical tests in order to compare the distributions of two 
 ## Usage
 A sample usage is demonstrated in python code below:
 ```
+import sys
+sys.path.append( "../daedalusmase_global_statistics/" )
+
 from data import *
 from plot import *
 
 # Calculate statistics upon data from the satellite orbit. Data are read from files at "./ORBITdata/" and "./TIEGCMdata/" and stored inito "./RESULTS/". "./TIEGCMdata/" is needed to read the corresponding Kp-index for each satellite position
-AssignJouleHeatingValuesToBins_AlongOrbit( "./TIEGCMdata/", "./ORBITdata/", "./RESULTS/orbit_stats.cdf" )
-# Load the produced results 
-LoadResults_CDF( "./RESULTS/orbit_stats.cdf", "Ohmic" )
+calc_stats_for_orbit( "../../Sample_Data/tiegcm_data/", "../../Sample_Data/orbital_data/", "../RESULTS/orbit_stats.nc" )
+# Load the results 
+load_results( "../RESULTS/orbit_stats.nc", "Ohmic" )
 # Print some general values for each bin
 for B in Bins:
     B.printMe()
 
 # Calculate statistics upon data produced by the TIEGCM model. Data are read from files at "./TIEGCMdata/" and stored inito "./RESULTS/"
-AssignValuesPerBin_MultipleResultFiles("./TIEGCMdata/", "./RESULTS/")
-# Load the produced results 
-LoadResults_CDF( "./RESULTS/tiegcm074.stats.nc", "Ohmic" )    
+calc_stats_for_tiegcm("../../Sample_Data/tiegcm_data/", "../RESULTS/tiegcm/")
+# Load the results 
+load_results( "../RESULTS/tiegcm/", "Ohmic" )     #load_results( "../RESULTS/tiegcm010.stats.nc", "Ohmic" )    
 # Print some general values for each bin
 for B in Bins:
     B.printMe()
 
 # Plot the most-recently loaded results for a certain region (AAA) and a certain variable (Ohmic heating)
-plotVariable( "AAA", "Ohmic" )
-plotVariable_KpSeparated( "AAA", "Ohmic" )
-Plot_Distributions( "AAA", "Ohmic")
-plotColorSpread_KpSeparated( "AAA", "Ohmic" )
-plotAltProfiles_perKpRange( "AAA", "Ohmic", 0, 4, 10**8, "Altitude Profiles of Joule Heating for Auroral E region, midnight sector (10^-8W/m^3) - Sample Plot" )
+plot_variable( "AAA", "Ohmic" )
+plot_variable_KpSeparated( "AAA", "Ohmic" )
+plot_distributions( "AAA", "Ohmic")
+plot_ColorSpread_KpSeparated( "AAA", "Ohmic" )
 
 # Plot comparison charts between to result-files
-plotComparisonOfResults( "./RESULTS/tiegcm/", "./RESULTS/orbit_stats.cdf", "Ohmic", "Comparison of mean values" )
-plotPDFperSubBin( "./RESULTS/tiegcm/", "./RESULTS/orbit_stats.cdf", "AAA", "Ohmic", "10-8W/m3" )
+plot_comparison( "../RESULTS/tiegcm/", "../RESULTS/orbit_stats.nc", "Ohmic", "Comparison of mean values" )
+plot_PDFperSubBin( "../RESULTS/tiegcm/", "../RESULTS/orbit_stats.nc", "AAA", "Ohmic", "10-8W/m3" )
 
 # Print the result of statistical tests and comparisons
-executeStatTest("./RESULTS/tiegcm/", "./RESULTS/orbit_stats.cdf", "AAA", "Ohmic")
+execute_stat_test("../RESULTS/tiegcm/", "../RESULTS/orbit_stats.nc", "AAA", "Ohmic")
 ```
 
 ## Algorithms Description
