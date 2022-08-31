@@ -131,11 +131,11 @@ plotColorSpread_KpSeparated( "AAA", "Ohmic" )
 plotAltProfiles_perKpRange( "AAA", "Ohmic", 0, 4, 10**8, "Altitude Profiles of Joule Heating for Auroral E region, midnight sector (10^-8W/m^3) - Sample Plot" )
 
 # Plot comparison charts between to result-files
-plotComparisonOfResults( "./RESULTS/tiegcm010.stats.nc", "./RESULTS/orbit_stats.cdf", "Ohmic", "Comparison of mean values" )
-plotPDFperSubBin( "./RESULTS/tiegcm010.stats.nc", "./RESULTS/orbit_stats.cdf", "AAA", "Ohmic", "10-8W/m3" )
+plotComparisonOfResults( "./RESULTS/tiegcm/", "./RESULTS/orbit_stats.cdf", "Ohmic", "Comparison of mean values" )
+plotPDFperSubBin( "./RESULTS/tiegcm/", "./RESULTS/orbit_stats.cdf", "AAA", "Ohmic", "10-8W/m3" )
 
 # Print the result of statistical tests and comparisons
-executeStatTest("./RESULTS/tiegcm010.stats.nc", "./RESULTS/orbit_stats.cdf", "AAA", "Ohmic")
+executeStatTest("./RESULTS/tiegcm/", "./RESULTS/orbit_stats.cdf", "AAA", "Ohmic")
 ```
 
 ## Algorithms Description
