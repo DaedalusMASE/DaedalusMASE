@@ -22,31 +22,36 @@ The bin boundaries are defined by ranges of:
 ## Usage
 A sample usage is demonstrated in python code below:
 ```
-# python imports
-import ipywidgets as w
-import glob
-from os import path
+import sys
+sys.path.append("../daedalusmase_coverage_calculator/")
+
 # module imports
 from data import *
 from plot import *
 
+# The following function adds magnetic coordinates information to a csv orbit file. 
+# Takes as input the fields Time, Latitude, Longitude, Altitude and adds the fields Magnetic Latitude, Magnetic Longitude and Magnetic Local Time
+# It requires the apexpy library
+#from orbit_file_conversions import add_magnetic_coordinates
+#add_magnetic_coordinates( "orbit1.csv", "orbit2.csv" )
+
 # -------- initialization --------
-#set_OrbitFilesPath("") # call this to define another path than the default "./OrbitFiles"
-#set_CoverageResultsFilesPath("")  # call this to define another path than the default "./ResultFiles"
-#set_GeomagneticIndicesFilesPath("") # call this to define another path than the default "./GeomagneticIndices"
+#set_orbit_files_path("") # call this to define another path than the default "../../Sample_Data/orbital_data/"
+#set_coverage_results_files_path("")  # call this to define another path than the default "../ResultFiles/"
+#set_geomagnetic_indices_files_path("") # call this to define another path than the default "../../Sample_Data/geomagnetic_indices/"
 #ClearBins() # call this if you do not want to work with the predefined Bins 
-CreateNewBin( "SMP_A1", "Sample region", 22, 2,   70, 80,   100, 150,               4, 9,   20*60 )
-readGeomagneticIndices(2015, 2016) # read as few ass possible for speed/memory reasons
+create_new_bin( "SMP_A1", "Sample region", 22, 2,   70, 80,   100, 150,               4, 9,   20*60 )
+read_geomagnetic_indices(2015, 2016) # read as few as possible for speed/memory reasons
 
 # -------- Calculation --------
-BinMisses, BinHits, ResultsFilename, Duration = CalculateCoverage( "Sample Execution", 
-                                                                   "These results are created for demonstration purposes.", 
-                                                                   "OrbitSample.csv", 
-                                                                   "2015" )
+BinMisses, BinHits, ResultsFilename, Duration = calculate_coverage( "Sample Execution", 
+                                                                    "These results are created for demonstration purposes.", 
+                                                                    "OrbitSample.csv", 
+                                                                    "2015" )
 
 if(BinMisses==0 and BinHits==0 and Duration==0): # the calculation has been executed before and the results are stored. So load them.
     # -------- Loading --------
-    LoadCoverageResults( CoverageResults_Files_Path + "OrbitSample.csv.2015.CoverageResults.txt" )
+    load_coverage_results( CoverageResults_Files_Path + "OrbitSample.csv.2015.CoverageResults.txt" )
 else:
     print("Number of Bin hits:", BinHits )
     print("Number of Bin misses:", BinMisses)
@@ -54,11 +59,11 @@ else:
     print("Calculation took", Duration, "sec")
     
 # -------- Ploting --------
-PlotCoverage_Bars( "My Title" )
-PlotCoverage_Bars_GroupedByRegion( "My Title", [ ["SMP"], ["AEE", "AEM","AED"],  ["AFM","CF","PCF"],  ["EPB", "SQ"],  ["EEJ"] ] )
-PlotCoverage_PolarChart( "My Title", 1.4 )
-PlotOrbit_KpScatter("OrbitSample.csv", 2015, "01-01-2015", "20-01-2015", 100, 220 )
-PlotOrbit_Heatmap( "OrbitSample.csv" )
+plot_coverage_bars( "My Title" )
+plot_coverage_bars_grouped_by_region( "My Title", [ ["SMP"], ["AEE", "AEM","AED"],  ["AFM","CF","PCF"],  ["EPB", "SQ"],  ["EEJ"] ] )
+plot_coverage_polar_chart( "My Title", 1.4 )
+plot_orbit_kp_scatter("OrbitSample.csv", 2015, "01-01-2015", "20-01-2015", 100, 220 )
+plot_orbit_heatmap( "OrbitSample.csv" )
 ```
 
 
