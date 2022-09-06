@@ -11,56 +11,56 @@ ________________________________________________________________________________
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-ve_starx:
+ve_starx: electron velocity in \(m/s\) [east]
 
-ve_stary:
+ve_stary: electron velocity in \(m/s\) [north]
 
-ve_starz:
+ve_starz: electron velocity in \(m/s\) [up]
 
-vi_op_starx:
+`vi_op_starx`: \(O^+\) velocity in \(m/s\) [east]
 
-vi_op_stary:
+`vi_op_stary`: \(O^+\) velocity in \(m/s\) [north]
 
-vi_op_starz:
+`vi_op_starz`: \(O^+\) velocity in \(m/s\) [up]
 
-vi_o2p_starx:
+`vi_o2p_starx`: \(O_2^+\) velocity in \(m/s\) [east]
 
-vi_o2p_stary:
+`vi_o2p_stary`: \(O_2^+\) velocity in \(m/s\) [north]
 
-vi_o2p_starz:
+`vi_o2p_starz`: \(O_2^+\) velocity in \(m/s\) [up]
 
-vi_nop_starx:
+`vi_nop_starx`: \(NO^+\) velocity in \(m/s\) [east]
 
-vi_nop_stary:
+`vi_nop_stary`: \(NO^+\) velocity in \(m/s\) [north]
 
-vi_nop_starz:
+`vi_nop_starz`: \(NO^+\) velocity in \(m/s\) [up]
 
-vi_np_starx:
+`vi_np_starx`: \(N^+\) velocity in \(m/s\) [east]
 
-vi_np_stary:
+`vi_np_stary`: \(N^+\) velocity in \(m/s\) [north]
 
-vi_np_starz
+`vi_np_starz`: \(N^+\) velocity in \(m/s\) [up]
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-ue_uop:
+`ue_uop`: electron- \(O^+\) relative velocity vector in \(m/s\) [ENU]
 
-ue_uo2p:
+`ue_uo2p`: electron- \(O_2^+\) relative velocity vector in \(m/s\) [ENU]
 
-ue_unop:
+`ue_unop`: electron- \(NO^+\) relative velocity vector in \(m/s\) [ENU]
 
-ue_unp:
+`ue_unp`: electron- \(N^+\) relative velocity vector in \(m/s\) [ENU]
 
-ue_uop_mag:
+`ue_uop_mag`: electron- \(O^+\) relative velocity magnitude in \(m/s\)
 
-ue_uo2p_mag:
+`ue_uo2p_mag`: electron- \(O_2^+\) relative velocity magnitude in \(m/s\)
 
-ue_unop_mag:
+`ue_unop_mag`: electron- \(NO^+\) relative velocity magnitude in \(m/s\)
 
-ue_unp_mag
+`ue_unp_mag`: electron- \(N^+\) relative velocity magnitude in \(m/s\)
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

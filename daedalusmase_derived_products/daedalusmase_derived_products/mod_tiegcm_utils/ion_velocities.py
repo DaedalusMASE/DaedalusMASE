@@ -1,25 +1,27 @@
 """
-sub_Heating_Sources.Op_velocities
+sub_Heating_Sources.ion_velocities
 
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate O+ by solving the coresponding momentum equation
+Calculate ion velocity by solving the coresponding momentum equation
+
+$$\\vec{v_{i\\bot}^{*}}= \\frac{\\nu_{in} \\Omega_{i} \\vec{E_{\\bot}^{*}} - \\Omega_{i}^2 \\hat{b} \\times \\vec{E_{\\bot}^{*}} }{B(\\nu_{in}^2+\\Omega_{i}^2)}$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-vin: O+-neutral collision frequency
+`vin`: ion-neutral collision frequency
 
-omega_op: O+ cyclotron frequency
+`omega_op`: ion cyclotron frequency
 
-Estar: Perpendicular electric field in neutral atmosphere reference frame in V/m      
+`Estar`: Perpendicular electric field in neutral atmosphere reference frame in \(V/m\)      
 
-B_enu: magnetic field vector in ENU
+`B_enu`: magnetic field vector in \(T\) [ENU]
 
-Un: Neutral velocity in m/s [ENU]
+`Un`: Neutral velocity in \(m/s\) [ENU]
 
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
@@ -27,19 +29,21 @@ ________________________________________________________________________________
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-vi_starx
+`vi_starx`: ion velocity in \(m/s\) in neutral reference frame [east]
 
-vi_stary
+`vi_stary`: ion velocity in \(m/s\) in neutral reference frame [north]
 
-vi_starz
+`vi_starz`: ion velocity in \(m/s\) in neutral reference frame [up]
 
-vi_starmag
+`vi_starmag`: ion velocity magnitude in \(m/s\) in neutral reference frame 
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Richmond, A. and Thayer, J. (2000). Ionospheric electrodynamics: A tutorial. Magnetospheric current
+systems 118, 131–146
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

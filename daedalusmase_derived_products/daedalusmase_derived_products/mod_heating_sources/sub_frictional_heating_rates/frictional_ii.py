@@ -4,46 +4,44 @@ sub_Heating_Sources.frictional_ii
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate ion-ion frictional heating rate in W/m^3
+Calculate ion-ion frictional heating rate in \(W/m^{3}\)
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
+`NOp`: \(O^+\) density in \(cm^{-3}\)
 
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\)
 
-NOp: O+ density in cm^-3
+`NNOp`: \(NO^+\) density in \(cm^{-3}\)
 
-NO2p: O2+ density in cm^-3
+`NNp`: \(N^+\) density in \(cm^{-3}\)
 
-NNOp: NO+ density in cm^-3
+`vop_o2p`: \(O^+\)-\(O_2^+\) collision frequency
 
-NNp: N+ density in cm^-3
+`vop_nop`: \(O^+\)-\(NO^+\) collision frequency
 
-vop_o2p: O+-O2+ collision frequency
+`vop_np`: \(O^+\)-\(N^+\) collision frequency
 
-vop_nop: O+-NO+ collision frequency
+`vo2p_nop`: \(O_2^+\)-\(NO^+\) collision frequency
 
-vop_np: O+-N+ collision frequency
+`vo2p_np`: \(O_2^+\)-\(N^+\) collision frequency
 
-vo2p_nop: O2+-NO+ collision frequency
+`vnop_np`: \(NO^+\)-\(N^+\) collision frequency
 
-vo2p_np: O2+-N+ collision frequency
+`uop_o2p_mag`: \(O^+\)-\(O_2^+\) relative velocity
 
-vnop_np: NO+-N+ collision frequency
+`uop_nop_mag`: \(O^+\)-\(NO^+\) relative velocity
 
-uop_o2p_mag: O+-O2+ relative velocity
+`uop_np_mag`: \(O^+\)-\(N^+\) relative velocity
 
-uop_nop_mag: O+-NO+ relative velocity
+`uo2p_nop_mag`: \(O_2^+\)-\(NO^+\) relative velocity
 
-uop_np_mag: O+-N+ relative velocity
+`unp_o2p_mag`: \(N^+\)-\(O_2^+\) relative velocity
 
-uo2p_nop_mag: O2+-NO+ relative velocity
-
-unp_o2p_mag: N+-O2+ relative velocity
-
-unop_np_mag: NO+-N+ relative velocity
+`unop_np_mag`: \(NO^+\)-\(N^+\) relative velocity
 
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
@@ -51,19 +49,19 @@ ________________________________________________________________________________
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-qFi_i: ion-ion frictional heating rate in W/m^3
+`qFi_i`: ion-ion frictional heating rate in \(W/m^{3}\)
 
-qFop_o2p: O+-O2+ frictional heating rate in W/m^3
+`qFop_o2p`: \(O^+\)-\(O_2^+\) frictional heating rate in \(W/m^{3}\)
 
-qFop_nop: O+-NO+ frictional heating rate in W/m^3
+`qFop_nop`: \(O^+\)-\(NO^+\) frictional heating rate in \(W/m^{3}\)
 
-qFop_np: O+-N+ frictional heating rate in W/m^3
+`qFop_np`: \(O^+\)-\(N^+\) frictional heating rate in \(W/m^{3}\)
 
-qFo2p_nop: O2+-O+ frictional heating rate in W/m^3
+`qFo2p_nop`: \(O_2^+\)-\(NO^+\) frictional heating rate in \(W/m^{3}\)
 
-qFo2p_np: O2+-N+ frictional heating rate in W/m^3
+`qFo2p_np`: \(O_2^+\)-\(N^+\) frictional heating rate in \(W/m^{3}\)
 
-qFnop_np: NO+-N+ frictional heating rate in W/m^3
+`qFnop_np`: \(NO^+\)-\(N^+\) frictional heating rate in \(W/m^{3}\)
 
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
@@ -71,6 +69,8 @@ ________________________________________________________________________________
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Schunk, R. and Nagy, A. (2009). Ionospheres: physics, plasma physics, and chemistry (Cambridge
+university press)
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

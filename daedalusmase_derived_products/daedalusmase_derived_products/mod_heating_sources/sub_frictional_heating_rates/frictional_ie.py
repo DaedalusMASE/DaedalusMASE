@@ -4,57 +4,59 @@ sub_Heating_Sources.frictional_ie
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate ion-electron frictional heating rate in W/m^3
+Calculate ion-electron frictional heating rate in \(W/m^{3}\)
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-NOp: O+ density in cm^-3
+`NOp`: \(O^+\) density in \(cm^{-3}\)
 
-NO2p: O2+ density in cm^-3
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\)
 
-NNOp: NO+ density in cm^-3
+`NNOp`: \(NO^+\) density in \(cm^{-3}\)
 
-Nplus: N+ density in cm^-3
+`Nplus`: \(N^+\) density in \(cm^{-3}\)
 
-ve_op: e-O+ collision frequency
+`ve_op`: e-\(O^+\) collision frequency
 
-ve_o2p: e-O2+ collision frequency
+`ve_o2p`: e-\(O_2^+\) collision frequency
 
-ve_nop: e-NO+ collision frequency
+`ve_nop`: e-\(NO^+\) collision frequency
 
-ve_np: e-N+ collision frequency
+`ve_np`: e-\(N^+\) collision frequency
 
-ue_uop_mag: electron-O+ relative velocity
+`ue_uop_mag`: electron-\(O^+\) relative velocity
 
-ue_uo2p_mag: electron-O2+ relative velocity
+`ue_uo2p_mag`: electron-\(O_2^+\) relative velocity
 
-ue_unop_mag: electron-NO+ relative velocity
+`ue_unop_mag`: electron-\(NO^+\) relative velocity
 
-ue_unp_mag: electron-N+ relative velocity 
+`ue_unp_mag`: electron-\(N^+\) relative velocity 
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-qFe_i: electron-ion frictional heating rate in W/m^3
+`qFe_i`: electron-ion frictional heating rate in \(W/m^{3}\)
 
-qFop_e: O+-e frictional heating rate in W/m^3
+`qFop_e`: \(O^+\)-e frictional heating rate in \(W/m^{3}\)
 
-qFo2p_e: O2+-e frictional heating rate in W/m^3
+`qFo2p_e`: \(O_2^+\)+-e frictional heating rate in \(W/m^{3}\)
 
-qFnop_e: NO+-e frictional heating rate in W/m^3
+`qFnop_e`: \(NO^+\)-e frictional heating rate in \(W/m^{3}\)
 
-qFnp_e: N+-e frictional heating rate in W/m^3
+`qFnp_e`: \(N^+\)-e frictional heating rate in \(W/m^{3}\)
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Schunk, R. and Nagy, A. (2009). Ionospheres: physics, plasma physics, and chemistry (Cambridge
+university press)
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
