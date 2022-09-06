@@ -4,61 +4,66 @@ sub_Heating_Sources.joule
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate Joule heating rate
+Calculate Joule heating rate in \(W/m^{3}\)
+
+$$q_j=e\\sum_{i=O_2^+, NO^+, O^+,...}N_i\\vec{v}_i(\\vec{E}_{\\perp}+ \\vec{u}_n \\times \\vec{B})$$
+
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-NOp:
+`NOp`: \(O^+\) density in \(cm^{-3}\)
 
-NO2p:
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\)
 
-NNOp:
+`NNOp`: \(NO^+\) density in \(cm^{-3}\)
 
-vi_op_starx:
+`vi_op_starx`: \(O^+\) velocity in \(m/s\) [east]
 
-vi_op_stary:
+`vi_op_stary`: \(O^+\) velocity in \(m/s\) [north]
 
-vi_op_starz:
+`vi_op_starz`: \(O^+\) velocity in \(m/s\) [up]
 
-vi_o2p_starx:
+`vi_o2p_starx`: \(O_2^+\) velocity in \(m/s\) [east]
 
-vi_o2p_stary:
+`vi_o2p_stary`: \(O_2^+\) velocity in \(m/s\) [north]
 
-vi_o2p_starz:
+`vi_o2p_starz`: \(O_2^+\) velocity in \(m/s\) [up]
 
-vi_nop_starx:
+`vi_nop_starx`: \(NO^+\) velocity in \(m/s\) [east]
 
-vi_nop_stary:
+`vi_nop_stary`: \(NO^+\) velocity in \(m/s\) [north]
 
-vi_nop_starz:
+`vi_nop_starz`: \(NO^+\) velocity in \(m/s\) [up]
 
-E_T_vert:
+`E_T_vert`:
 
-Unvert:
+`Un`:
 
-B:
+`B_enu`:
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-Joule1: joule heating rate in W/m^3
+`Joule1`: joule heating rate in \(W/m^{3}\)
 
-Joule_op: O+ joule heating rate in W/m^3
+`Joule_op`: \(O^+\) joule heating rate in \(W/m^{3}\)
 
-Joule_o2p: O2+ joule heating rate in W/m^3
+`Joule_o2p`: \(O_2^+\) joule heating rate in \(W/m^{3}\)
 
-Joule_nop: NO+ joule heating rate in W/m^3
+`Joule_nop`: \(NO^+\) joule heating rate in \(W/m^{3}\)
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Strangeway, R. J. (2012). The equivalence of joule dissipation and frictional heating in the collisional
+ionosphere. Journal of Geophysical Research: Space Physics 117
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

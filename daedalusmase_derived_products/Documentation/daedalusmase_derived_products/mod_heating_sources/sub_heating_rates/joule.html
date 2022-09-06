@@ -26,38 +26,41 @@
 <p>sub_Heating_Sources.joule</p>
 <p><strong>Description</strong>:</p>
 <hr>
-<p>Calculate Joule heating rate</p>
+<p>Calculate Joule heating rate in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><span><span class="MathJax_Preview">q_j=e\sum_{i=O_2^+, NO^+, O^+,...}N_i\vec{v}_i(\vec{E}_{\perp}+ \vec{u}_n \times \vec{B})</span><script type="math/tex; mode=display">q_j=e\sum_{i=O_2^+, NO^+, O^+,...}N_i\vec{v}_i(\vec{E}_{\perp}+ \vec{u}_n \times \vec{B})</script></span></p>
 <hr>
 <hr>
 <p><strong>Inputs</strong>:</p>
 <hr>
-<p>NOp:</p>
-<p>NO2p:</p>
-<p>NNOp:</p>
-<p>vi_op_starx:</p>
-<p>vi_op_stary:</p>
-<p>vi_op_starz:</p>
-<p>vi_o2p_starx:</p>
-<p>vi_o2p_stary:</p>
-<p>vi_o2p_starz:</p>
-<p>vi_nop_starx:</p>
-<p>vi_nop_stary:</p>
-<p>vi_nop_starz:</p>
-<p>E_T_vert:</p>
-<p>Unvert:</p>
-<p>B:</p>
+<p><code>NOp</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span></p>
+<p><code>NO2p</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span></p>
+<p><code>NNOp</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span></p>
+<p><code>vi_op_starx</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [east]</p>
+<p><code>vi_op_stary</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [north]</p>
+<p><code>vi_op_starz</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [up]</p>
+<p><code>vi_o2p_starx</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [east]</p>
+<p><code>vi_o2p_stary</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [north]</p>
+<p><code>vi_o2p_starz</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [up]</p>
+<p><code>vi_nop_starx</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [east]</p>
+<p><code>vi_nop_stary</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [north]</p>
+<p><code>vi_nop_starz</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> velocity in <span><span class="MathJax_Preview">m/s</span><script type="math/tex">m/s</script></span> [up]</p>
+<p><code>E_T_vert</code>:</p>
+<p><code>Un</code>:</p>
+<p><code>B_enu</code>:</p>
 <hr>
 <hr>
 <p><strong>Outputs</strong>:</p>
 <hr>
-<p>Joule1: joule heating rate in W/m^3</p>
-<p>Joule_op: O+ joule heating rate in W/m^3</p>
-<p>Joule_o2p: O2+ joule heating rate in W/m^3</p>
-<p>Joule_nop: NO+ joule heating rate in W/m^3</p>
+<p><code>Joule1</code>: joule heating rate in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>Joule_op</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> joule heating rate in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>Joule_o2p</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> joule heating rate in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>Joule_nop</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> joule heating rate in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
 <hr>
 <hr>
 <p><strong>Reference</strong>:</p>
 <hr>
+<p>Strangeway, R. J. (2012). The equivalence of joule dissipation and frictional heating in the collisional
+ionosphere. Journal of Geophysical Research: Space Physics 117</p>
 <hr>
 <hr>
 <details class="source">
@@ -70,61 +73,66 @@ sub_Heating_Sources.joule
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate Joule heating rate
+Calculate Joule heating rate in \(W/m^{3}\)
+
+$$q_j=e\\sum_{i=O_2^+, NO^+, O^+,...}N_i\\vec{v}_i(\\vec{E}_{\\perp}+ \\vec{u}_n \\times \\vec{B})$$
+
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-NOp:
+`NOp`: \(O^+\) density in \(cm^{-3}\)
 
-NO2p:
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\)
 
-NNOp:
+`NNOp`: \(NO^+\) density in \(cm^{-3}\)
 
-vi_op_starx:
+`vi_op_starx`: \(O^+\) velocity in \(m/s\) [east]
 
-vi_op_stary:
+`vi_op_stary`: \(O^+\) velocity in \(m/s\) [north]
 
-vi_op_starz:
+`vi_op_starz`: \(O^+\) velocity in \(m/s\) [up]
 
-vi_o2p_starx:
+`vi_o2p_starx`: \(O_2^+\) velocity in \(m/s\) [east]
 
-vi_o2p_stary:
+`vi_o2p_stary`: \(O_2^+\) velocity in \(m/s\) [north]
 
-vi_o2p_starz:
+`vi_o2p_starz`: \(O_2^+\) velocity in \(m/s\) [up]
 
-vi_nop_starx:
+`vi_nop_starx`: \(NO^+\) velocity in \(m/s\) [east]
 
-vi_nop_stary:
+`vi_nop_stary`: \(NO^+\) velocity in \(m/s\) [north]
 
-vi_nop_starz:
+`vi_nop_starz`: \(NO^+\) velocity in \(m/s\) [up]
 
-E_T_vert:
+`E_T_vert`:
 
-Unvert:
+`Un`:
 
-B:
+`B_enu`:
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-Joule1: joule heating rate in W/m^3
+`Joule1`: joule heating rate in \(W/m^{3}\)
 
-Joule_op: O+ joule heating rate in W/m^3
+`Joule_op`: \(O^+\) joule heating rate in \(W/m^{3}\)
 
-Joule_o2p: O2+ joule heating rate in W/m^3
+`Joule_o2p`: \(O_2^+\) joule heating rate in \(W/m^{3}\)
 
-Joule_nop: NO+ joule heating rate in W/m^3
+`Joule_nop`: \(NO^+\) joule heating rate in \(W/m^{3}\)
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Strangeway, R. J. (2012). The equivalence of joule dissipation and frictional heating in the collisional
+ionosphere. Journal of Geophysical Research: Space Physics 117
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

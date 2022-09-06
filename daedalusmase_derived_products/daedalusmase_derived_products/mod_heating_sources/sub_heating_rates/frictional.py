@@ -4,49 +4,53 @@ sub_Heating_Sources.frictional
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate frictional heating rate in W/m^3
+Calculate frictional heating rate in \(W/m^{3}\)
+
+$$q_f= m_i\\nu_{in}N_e|\\vec{v}_{i,\\perp}-\\vec{u}_{n,\\perp}|^2$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-vOp: O+- neutral collision frequency
+`vOp`: \(O^+\)- neutral collision frequency
 
-vO2p: O2+- neutral collision frequency
+`vO2p`: \(O_2^+\)- neutral collision frequency
 
-vNOp: NO+- neutral collision frequency
+`vNOp`: \(NO^+\)- neutral collision frequency
 
-NOp: O+ density in cm^-3
+`NOp`: \(O^+\) density in \(cm^{-3}\)
 
-NO2p: O2+ density in cm^-3
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\)
 
-NNOp: NO+ density in cm^-3
+`NNOp`: \(NO^+\) density in \(cm^{-3}\)
 
-vi_op_starmag: O+ velcoity magnitude
+`vi_op_starmag`: \(O^+\) velcoity magnitude
 
-vi_o2p_starmag: O2+ velcoity magnitude
+`vi_o2p_starmag`: \(O_2^+\) velcoity magnitude
 
-vi_nop_starmag: NO+ velcoity magnitude
+`vi_nop_starmag`: \(NO^+\) velcoity magnitude
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-Frictional1: frictional heating in W/m^3
+`Frictional1`: frictional heating in \(W/m^{3}\)
 
-Frictional_op: O+ frictional heating in W/m^3
+`Frictional_op`: \(O^+\) frictional heating in \(W/m^{3}\)
 
-Frictional_o2p: O2+ frictional heating in W/m^3
+`Frictional_o2p`: \(O_2^+\) frictional heating in \(W/m^{3}\)
 
-Frictional_nop: NO+ frictional heating in W/m^3
+`Frictional_nop`: \(NO^+\) frictional heating in \(W/m^{3}\)
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Strangeway, R. J. (2012). The equivalence of joule dissipation and frictional heating in the collisional
+ionosphere. Journal of Geophysical Research: Space Physics 117
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

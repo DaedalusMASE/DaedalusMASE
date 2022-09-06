@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.wind_heat API documentation</title>
-<meta name="description" content="sub_Heating_Sources.wind_heat …" />
+<title>daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.frictional API documentation</title>
+<meta name="description" content="sub_Heating_Sources.frictional …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -20,37 +20,41 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.wind_heat</code></h1>
+<h1 class="title">Module <code>daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.frictional</code></h1>
 </header>
 <section id="section-intro">
-<p>sub_Heating_Sources.wind_heat</p>
+<p>sub_Heating_Sources.frictional</p>
 <p><strong>Description</strong>:</p>
 <hr>
-<p>Calculate wind heating rate in W/m^3</p>
+<p>Calculate frictional heating rate in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><span><span class="MathJax_Preview">q_f= m_i\nu_{in}N_e|\vec{v}_{i,\perp}-\vec{u}_{n,\perp}|^2</span><script type="math/tex; mode=display">q_f= m_i\nu_{in}N_e|\vec{v}_{i,\perp}-\vec{u}_{n,\perp}|^2</script></span></p>
 <hr>
 <hr>
 <p><strong>Inputs</strong>:</p>
 <hr>
-<p>sigmaPed:</p>
-<p>bnorm:</p>
-<p>tm2:</p>
-<p>tm1:</p>
-<p>tm3:</p>
-<p>Un_x:</p>
-<p>Un_y:</p>
-<p>Un_z:</p>
-<p>Ui_x:</p>
-<p>Ui_y:</p>
-<p>Ui_z</p>
+<p><code>vOp</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span>- neutral collision frequency</p>
+<p><code>vO2p</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span>- neutral collision frequency</p>
+<p><code>vNOp</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span>- neutral collision frequency</p>
+<p><code>NOp</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span></p>
+<p><code>NO2p</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span></p>
+<p><code>NNOp</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span></p>
+<p><code>vi_op_starmag</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> velcoity magnitude</p>
+<p><code>vi_o2p_starmag</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> velcoity magnitude</p>
+<p><code>vi_nop_starmag</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> velcoity magnitude</p>
 <hr>
 <hr>
 <p><strong>Outputs</strong>:</p>
 <hr>
-<p>Wind_heating: wind heating rate in W/m^3</p>
+<p><code>Frictional1</code>: frictional heating in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>Frictional_op</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> frictional heating in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>Frictional_o2p</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> frictional heating in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>Frictional_nop</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> frictional heating in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
 <hr>
 <hr>
 <p><strong>Reference</strong>:</p>
 <hr>
+<p>Strangeway, R. J. (2012). The equivalence of joule dissipation and frictional heating in the collisional
+ionosphere. Journal of Geophysical Research: Space Physics 117</p>
 <hr>
 <hr>
 <details class="source">
@@ -58,70 +62,82 @@
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">&#34;&#34;&#34;
-sub_Heating_Sources.wind_heat
+sub_Heating_Sources.frictional
 
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate wind heating rate in W/m^3
+Calculate frictional heating rate in \(W/m^{3}\)
+
+$$q_f= m_i\\nu_{in}N_e|\\vec{v}_{i,\\perp}-\\vec{u}_{n,\\perp}|^2$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-sigmaPed:
+`vOp`: \(O^+\)- neutral collision frequency
 
-bnorm:
+`vO2p`: \(O_2^+\)- neutral collision frequency
 
-tm2:
+`vNOp`: \(NO^+\)- neutral collision frequency
 
-tm1:
+`NOp`: \(O^+\) density in \(cm^{-3}\)
 
-tm3:
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\)
 
-Un_x:
+`NNOp`: \(NO^+\) density in \(cm^{-3}\)
 
-Un_y:
+`vi_op_starmag`: \(O^+\) velcoity magnitude
 
-Un_z:
+`vi_o2p_starmag`: \(O_2^+\) velcoity magnitude
 
-Ui_x:
-
-Ui_y:
-
-Ui_z
+`vi_nop_starmag`: \(NO^+\) velcoity magnitude
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-Wind_heating: wind heating rate in W/m^3
+`Frictional1`: frictional heating in \(W/m^{3}\)
 
-_________________________________________________________________________________________________________
+`Frictional_op`: \(O^+\) frictional heating in \(W/m^{3}\)
+
+`Frictional_o2p`: \(O_2^+\) frictional heating in \(W/m^{3}\)
+
+`Frictional_nop`: \(NO^+\) frictional heating in \(W/m^{3}\)
+_____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Strangeway, R. J. (2012). The equivalence of joule dissipation and frictional heating in the collisional
+ionosphere. Journal of Geophysical Research: Space Physics 117
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 &#34;&#34;&#34;
 
 import numpy as np
+from daedalusmase_derived_products.mod_tiegcm_utils import const
 
-def wind_heat(sigmaPed,E_enu,B_enu,Un):
-
-    UnxB_wind=np.cross(Un,B_enu)
-    unxb_mag_wind=np.sqrt(UnxB_wind[0]*UnxB_wind[0]+UnxB_wind[1]*UnxB_wind[1]+UnxB_wind[2]*UnxB_wind[2])
-    exb_wind=np.cross(E_enu,B_enu)
-    dot_wind=np.dot(Un,exb_wind)
+def frictional(vOp,vO2p,vNOp,NOp,NO2p,NNOp,vi_op_starmag,vi_o2p_starmag,vi_nop_starmag):
     
-    Wind_heating=sigmaPed*unxb_mag_wind*unxb_mag_wind-2*sigmaPed*dot_wind
-                    
-    return Wind_heating</code></pre>
+    MO=const.mO/(const.NA*1000)  # Atomic oxygen mass in kg
+    MO2=(2*const.mO)/(const.NA*1000) # Molecular oxygen mass in kg
+    MNO=(const.mNO)/(const.NA*1000) #Nitric oxide mass in kg                    
+    MN2=28/(const.NA*1000)   #Nitrogen mass in kg
+    MHe=4/(const.NA*1000)
+    MN=14/(const.NA*1000)
+    MHE=4/(const.NA*1000)
+
+    Frictional_op=MO*NOp*(10**6)*vOp*vi_op_starmag*vi_op_starmag
+    Frictional_o2p=MO2*NO2p*(10**6)*vO2p*vi_o2p_starmag*vi_o2p_starmag
+    Frictional_nop=MNO*NNOp*(10**6)*vNOp*vi_nop_starmag*vi_nop_starmag
+    Frictional1=Frictional_op+Frictional_o2p+Frictional_nop
+    
+    return Frictional1,Frictional_op,Frictional_o2p,Frictional_nop</code></pre>
 </details>
 </section>
 <section>
@@ -131,8 +147,8 @@ def wind_heat(sigmaPed,E_enu,B_enu,Un):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.wind_heat.wind_heat"><code class="name flex">
-<span>def <span class="ident">wind_heat</span></span>(<span>sigmaPed, E_enu, B_enu, Un)</span>
+<dt id="daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.frictional.frictional"><code class="name flex">
+<span>def <span class="ident">frictional</span></span>(<span>vOp, vO2p, vNOp, NOp, NO2p, NNOp, vi_op_starmag, vi_o2p_starmag, vi_nop_starmag)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -140,16 +156,22 @@ def wind_heat(sigmaPed,E_enu,B_enu,Un):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def wind_heat(sigmaPed,E_enu,B_enu,Un):
-
-    UnxB_wind=np.cross(Un,B_enu)
-    unxb_mag_wind=np.sqrt(UnxB_wind[0]*UnxB_wind[0]+UnxB_wind[1]*UnxB_wind[1]+UnxB_wind[2]*UnxB_wind[2])
-    exb_wind=np.cross(E_enu,B_enu)
-    dot_wind=np.dot(Un,exb_wind)
+<pre><code class="python">def frictional(vOp,vO2p,vNOp,NOp,NO2p,NNOp,vi_op_starmag,vi_o2p_starmag,vi_nop_starmag):
     
-    Wind_heating=sigmaPed*unxb_mag_wind*unxb_mag_wind-2*sigmaPed*dot_wind
-                    
-    return Wind_heating</code></pre>
+    MO=const.mO/(const.NA*1000)  # Atomic oxygen mass in kg
+    MO2=(2*const.mO)/(const.NA*1000) # Molecular oxygen mass in kg
+    MNO=(const.mNO)/(const.NA*1000) #Nitric oxide mass in kg                    
+    MN2=28/(const.NA*1000)   #Nitrogen mass in kg
+    MHe=4/(const.NA*1000)
+    MN=14/(const.NA*1000)
+    MHE=4/(const.NA*1000)
+
+    Frictional_op=MO*NOp*(10**6)*vOp*vi_op_starmag*vi_op_starmag
+    Frictional_o2p=MO2*NO2p*(10**6)*vO2p*vi_o2p_starmag*vi_o2p_starmag
+    Frictional_nop=MNO*NNOp*(10**6)*vNOp*vi_nop_starmag*vi_nop_starmag
+    Frictional1=Frictional_op+Frictional_o2p+Frictional_nop
+    
+    return Frictional1,Frictional_op,Frictional_o2p,Frictional_nop</code></pre>
 </details>
 </dd>
 </dl>
@@ -170,7 +192,7 @@ def wind_heat(sigmaPed,E_enu,B_enu,Un):
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.wind_heat.wind_heat" href="#daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.wind_heat.wind_heat">wind_heat</a></code></li>
+<li><code><a title="daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.frictional.frictional" href="#daedalusmase_derived_products.mod_heating_sources.sub_heating_rates.frictional.frictional">frictional</a></code></li>
 </ul>
 </li>
 </ul>
