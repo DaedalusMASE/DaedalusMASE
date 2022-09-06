@@ -4,7 +4,9 @@ sub_Heating_Sources.heat_transfer_in
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate heat transfer rate between ions and neutrals in W/m^3
+Calculate heat transfer rate between ions and neutrals in \(W/m^{3}\)
+
+$$q_{\\Delta T_{in}}=N_e \\nu_{in} \\frac{m_i}{m_i+m_n} 3 k_B \\Big(T_i - T_n \\Big)$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
@@ -12,27 +14,49 @@ ________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 
-Necm: electron density in cm^-3
+`NOp`: \(O^+\) density in \(cm^{-3}\) 
 
-NN2: N2 density in cm^-3
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\) 
 
-NO2: O2 density in cm^-3
+`NNOp`: \(NO^+\) density in \(cm^{-3}\) 
 
-NO: O density in cm^-3
+`Nplus`: \(N^+\) density in \(cm^{-3}\) 
 
-helium_f: He density in cm^-3
+`vop_o`: \(O^+\)-\(O\) collision frequency
 
-Te: electron temperature in K
+`vop_o2`: \(O^+\)-\(O_2\) collision frequency
 
-Tn: neutral temperature in K
+`vop_n2`: \(O^+\)-\(N_2\) collision frequency
 
-ve_o: e-O collision frequency
+`vop_he`: \(O^+\)-\(He\) collision frequency
 
-ve_o2: e-O2 collision frequency
+`vo2p_o`: \(O_2^+\)-\(O\) collision frequency
 
-ve_n2: e-N2 collision frequency
+`vo2p_o2`: \(O_2^+\)-\(O_2\) collision frequency
 
-ve_he: e-He collision frequency
+`vo2p_n2`: \(O_2^+\)-\(N_2\) collision frequency
+
+`vo2p_he`: \(O_2^+\)-\(He\) collision frequency
+
+`vnop_o`: \(NO^+\)-\(O\) collision frequency
+
+`vnop_o2`: \(NO^+\)-\(O_2\) collision frequency
+
+`vnop_n2`: \(NO^+\)-\(N_2\) collision frequency
+
+`vnop_he`: \(NO^+\)-\(He\) collision frequency
+
+`vnp_o`: \(N^+\)-\(O\) collision frequency
+
+`vnp_o2`: \(N^+\)-\(O_2\) collision frequency
+
+`vnp_n2`: \(N^+\)-\(N_2\) collision frequency
+
+`vnp_he`: \(N^+\)-\(He\) collision frequency
+
+`Ti`: ion temperature in \(K\)
+
+`Tn`: neutral temperature in \(K\)
 
 
 
@@ -42,15 +66,15 @@ ________________________________________________________________________________
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-qDTi_n: heat transfer rate between ions and neutrals in W/m^3
+`qDTi_n`: heat transfer rate between ions and neutrals in \(W/m^{3}\)
 
-qDTop_n: heat transfer rate between neutrals and O+ in W/m^3
+`qDTop_n`: heat transfer rate between neutrals and O+ in \(W/m^{3}\)
 
-qDTo2p_n: heat transfer rate between neutrals and O2+ in W/m^3
+`qDTo2p_n`: heat transfer rate between neutrals and O2+ in \(W/m^{3}\)
 
-qDTnop_n: heat transfer rate between neutrals and O+ in W/m^3
+`qDTnop_n`: heat transfer rate between neutrals and O+ in \(W/m^{3}\)
 
-qDTnp_n: heat transfer rate between neutrals and N+ in W/m^3
+`qDTnp_n`: heat transfer rate between neutrals and N+ in \(W/m^{3}\)
 
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
@@ -58,6 +82,9 @@ ________________________________________________________________________________
 **Reference**: 
 _____________________________________________________________________________________________________________________
 
+Killeen, T., Hays, P., Carignan, G., Heelis, R., Hanson, W., Spencer, N., et al. (1984). Ion-neutral coupling
+in the high-latitude f region: Evaluation of ion heating terms from dynamics explorer 2. Journal of
+Geophysical Research: Space Physics 89, 7495–7508
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

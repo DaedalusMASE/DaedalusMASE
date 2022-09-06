@@ -26,35 +26,50 @@
 <p>sub_Heating_Sources.heat_transfer_in</p>
 <p><strong>Description</strong>:</p>
 <hr>
-<p>Calculate heat transfer rate between ions and neutrals in W/m^3</p>
+<p>Calculate heat transfer rate between ions and neutrals in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><span><span class="MathJax_Preview">q_{\Delta T_{in}}=N_e \nu_{in} \frac{m_i}{m_i+m_n} 3 k_B \Big(T_i - T_n \Big)</span><script type="math/tex; mode=display">q_{\Delta T_{in}}=N_e \nu_{in} \frac{m_i}{m_i+m_n} 3 k_B \Big(T_i - T_n \Big)</script></span></p>
 <hr>
 <hr>
 <p><strong>Inputs</strong>:</p>
 <hr>
-<p>Necm: electron density in cm^-3</p>
-<p>NN2: N2 density in cm^-3</p>
-<p>NO2: O2 density in cm^-3</p>
-<p>NO: O density in cm^-3</p>
-<p>helium_f: He density in cm^-3</p>
-<p>Te: electron temperature in K</p>
-<p>Tn: neutral temperature in K</p>
-<p>ve_o: e-O collision frequency</p>
-<p>ve_o2: e-O2 collision frequency</p>
-<p>ve_n2: e-N2 collision frequency</p>
-<p>ve_he: e-He collision frequency</p>
+<p><code>NOp</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span> </p>
+<p><code>NO2p</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span> </p>
+<p><code>NNOp</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span> </p>
+<p><code>Nplus</code>: <span><span class="MathJax_Preview">N^+</span><script type="math/tex">N^+</script></span> density in <span><span class="MathJax_Preview">cm^{-3}</span><script type="math/tex">cm^{-3}</script></span> </p>
+<p><code>vop_o</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span>-(O) collision frequency</p>
+<p><code>vop_o2</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span>-(O_2) collision frequency</p>
+<p><code>vop_n2</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span>-(N_2) collision frequency</p>
+<p><code>vop_he</code>: <span><span class="MathJax_Preview">O^+</span><script type="math/tex">O^+</script></span>-(He) collision frequency</p>
+<p><code>vo2p_o</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span>-(O) collision frequency</p>
+<p><code>vo2p_o2</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span>-(O_2) collision frequency</p>
+<p><code>vo2p_n2</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span>-(N_2) collision frequency</p>
+<p><code>vo2p_he</code>: <span><span class="MathJax_Preview">O_2^+</span><script type="math/tex">O_2^+</script></span>-(He) collision frequency</p>
+<p><code>vnop_o</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span>-(O) collision frequency</p>
+<p><code>vnop_o2</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span>-(O_2) collision frequency</p>
+<p><code>vnop_n2</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span>-(N_2) collision frequency</p>
+<p><code>vnop_he</code>: <span><span class="MathJax_Preview">NO^+</span><script type="math/tex">NO^+</script></span>-(He) collision frequency</p>
+<p><code>vnp_o</code>: <span><span class="MathJax_Preview">N^+</span><script type="math/tex">N^+</script></span>-(O) collision frequency</p>
+<p><code>vnp_o2</code>: <span><span class="MathJax_Preview">N^+</span><script type="math/tex">N^+</script></span>-(O_2) collision frequency</p>
+<p><code>vnp_n2</code>: <span><span class="MathJax_Preview">N^+</span><script type="math/tex">N^+</script></span>-(N_2) collision frequency</p>
+<p><code>vnp_he</code>: <span><span class="MathJax_Preview">N^+</span><script type="math/tex">N^+</script></span>-(He) collision frequency</p>
+<p><code>Ti</code>: ion temperature in <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span></p>
+<p><code>Tn</code>: neutral temperature in <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span></p>
 <hr>
 <hr>
 <p><strong>Outputs</strong>:</p>
 <hr>
-<p>qDTi_n: heat transfer rate between ions and neutrals in W/m^3</p>
-<p>qDTop_n: heat transfer rate between neutrals and O+ in W/m^3</p>
-<p>qDTo2p_n: heat transfer rate between neutrals and O2+ in W/m^3</p>
-<p>qDTnop_n: heat transfer rate between neutrals and O+ in W/m^3</p>
-<p>qDTnp_n: heat transfer rate between neutrals and N+ in W/m^3</p>
+<p><code>qDTi_n</code>: heat transfer rate between ions and neutrals in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>qDTop_n</code>: heat transfer rate between neutrals and O+ in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>qDTo2p_n</code>: heat transfer rate between neutrals and O2+ in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>qDTnop_n</code>: heat transfer rate between neutrals and O+ in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
+<p><code>qDTnp_n</code>: heat transfer rate between neutrals and N+ in <span><span class="MathJax_Preview">W/m^{3}</span><script type="math/tex">W/m^{3}</script></span></p>
 <hr>
 <hr>
 <p><strong>Reference</strong>: </p>
 <hr>
+<p>Killeen, T., Hays, P., Carignan, G., Heelis, R., Hanson, W., Spencer, N., et al. (1984). Ion-neutral coupling
+in the high-latitude f region: Evaluation of ion heating terms from dynamics explorer 2. Journal of
+Geophysical Research: Space Physics 89, 7495–7508</p>
 <hr>
 <hr>
 <details class="source">
@@ -67,7 +82,9 @@ sub_Heating_Sources.heat_transfer_in
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate heat transfer rate between ions and neutrals in W/m^3
+Calculate heat transfer rate between ions and neutrals in \(W/m^{3}\)
+
+$$q_{\\Delta T_{in}}=N_e \\nu_{in} \\frac{m_i}{m_i+m_n} 3 k_B \\Big(T_i - T_n \\Big)$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
@@ -75,27 +92,49 @@ ________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 
-Necm: electron density in cm^-3
+`NOp`: \(O^+\) density in \(cm^{-3}\) 
 
-NN2: N2 density in cm^-3
+`NO2p`: \(O_2^+\) density in \(cm^{-3}\) 
 
-NO2: O2 density in cm^-3
+`NNOp`: \(NO^+\) density in \(cm^{-3}\) 
 
-NO: O density in cm^-3
+`Nplus`: \(N^+\) density in \(cm^{-3}\) 
 
-helium_f: He density in cm^-3
+`vop_o`: \(O^+\)-\(O\) collision frequency
 
-Te: electron temperature in K
+`vop_o2`: \(O^+\)-\(O_2\) collision frequency
 
-Tn: neutral temperature in K
+`vop_n2`: \(O^+\)-\(N_2\) collision frequency
 
-ve_o: e-O collision frequency
+`vop_he`: \(O^+\)-\(He\) collision frequency
 
-ve_o2: e-O2 collision frequency
+`vo2p_o`: \(O_2^+\)-\(O\) collision frequency
 
-ve_n2: e-N2 collision frequency
+`vo2p_o2`: \(O_2^+\)-\(O_2\) collision frequency
 
-ve_he: e-He collision frequency
+`vo2p_n2`: \(O_2^+\)-\(N_2\) collision frequency
+
+`vo2p_he`: \(O_2^+\)-\(He\) collision frequency
+
+`vnop_o`: \(NO^+\)-\(O\) collision frequency
+
+`vnop_o2`: \(NO^+\)-\(O_2\) collision frequency
+
+`vnop_n2`: \(NO^+\)-\(N_2\) collision frequency
+
+`vnop_he`: \(NO^+\)-\(He\) collision frequency
+
+`vnp_o`: \(N^+\)-\(O\) collision frequency
+
+`vnp_o2`: \(N^+\)-\(O_2\) collision frequency
+
+`vnp_n2`: \(N^+\)-\(N_2\) collision frequency
+
+`vnp_he`: \(N^+\)-\(He\) collision frequency
+
+`Ti`: ion temperature in \(K\)
+
+`Tn`: neutral temperature in \(K\)
 
 
 
@@ -105,15 +144,15 @@ ________________________________________________________________________________
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-qDTi_n: heat transfer rate between ions and neutrals in W/m^3
+`qDTi_n`: heat transfer rate between ions and neutrals in \(W/m^{3}\)
 
-qDTop_n: heat transfer rate between neutrals and O+ in W/m^3
+`qDTop_n`: heat transfer rate between neutrals and O+ in \(W/m^{3}\)
 
-qDTo2p_n: heat transfer rate between neutrals and O2+ in W/m^3
+`qDTo2p_n`: heat transfer rate between neutrals and O2+ in \(W/m^{3}\)
 
-qDTnop_n: heat transfer rate between neutrals and O+ in W/m^3
+`qDTnop_n`: heat transfer rate between neutrals and O+ in \(W/m^{3}\)
 
-qDTnp_n: heat transfer rate between neutrals and N+ in W/m^3
+`qDTnp_n`: heat transfer rate between neutrals and N+ in \(W/m^{3}\)
 
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
@@ -121,6 +160,9 @@ ________________________________________________________________________________
 **Reference**: 
 _____________________________________________________________________________________________________________________
 
+Killeen, T., Hays, P., Carignan, G., Heelis, R., Hanson, W., Spencer, N., et al. (1984). Ion-neutral coupling
+in the high-latitude f region: Evaluation of ion heating terms from dynamics explorer 2. Journal of
+Geophysical Research: Space Physics 89, 7495–7508
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

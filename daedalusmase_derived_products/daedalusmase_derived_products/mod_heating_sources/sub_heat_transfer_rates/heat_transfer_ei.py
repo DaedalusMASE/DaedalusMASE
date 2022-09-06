@@ -4,26 +4,28 @@ sub_Heating_Sources.heat_transfer_ei
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate heating rate due to electron-ion coulomb collisions in W/m^3
+Calculate heating rate due to electron-ion coulomb collisions in \(W/m^{3}\)
+
+$$q_{\\Delta T_{ie}}=N_e \\nu_{ie} \\frac{m_i}{m_i+m_e} 3 k_B \\Big(T_i - T_e \\Big)$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-Necm: electron density in cm^-3
+`Necm`: electron density in \(cm^{-3}\)
 
-ve_op: electron-O+ collision frequency
+`ve_op`: electron-\(O^+\) collision frequency
 
-ve_o2p: electron-O2+ collision frequency
+`ve_o2p`: electron-\(O_2^+\) collision frequency
 
-ve_nop: electron-NO+ collision frequency
+`ve_nop`: electron-\(NO^+\) collision frequency
 
-ve_np: electron-N+ collision frequency
+`ve_np`: electron-\(N^+\) collision frequency
 
-Te: electron temperature in K
+`Te`: electron temperature in \(K\)
 
-Ti: ion temperature in K
+`Ti`: ion temperature in \(K\)
 
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
@@ -31,15 +33,15 @@ ________________________________________________________________________________
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-qDTe_if: heating rate due to electron-ion coulomb collisions in W/m^3
+`qDTe_if`: heating rate due to electron-ion coulomb collisions in \(W/m^{3}\)
 
-qDTe_opf: heating rate due to electron-O+ coulomb collisions in W/m^3
+`qDTe_opf`: heating rate due to electron-\(O^+\) coulomb collisions in \(W/m^{3}\)
  
-qDTe_o2pf: heating rate due to electron-O2+ coulomb collisions in W/m^3
+`qDTe_o2pf`: heating rate due to electron-\(O_2^+\) coulomb collisions in \(W/m^{3}\)
 
-qDTe_nopf: heating rate due to electron-NO+ coulomb collisions in W/m^3
+`qDTe_nopf`: heating rate due to electron-\(NO^+\) coulomb collisions in\(W/m^{3}\)
 
-qDTe_npf: heating rate due to electron-N+ coulomb collisions in W/m^3
+`qDTe_npf`: heating rate due to electron-\(N^+\) coulomb collisions in \(W/m^{3}\)
 
 
 _____________________________________________________________________________________________________________________
@@ -48,6 +50,8 @@ ________________________________________________________________________________
 **Reference**: 
 _____________________________________________________________________________________________________________________
 
+Schunk, R. and Nagy, A. (2009). Ionospheres: physics, plasma physics, and chemistry (Cambridge
+university press)
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 

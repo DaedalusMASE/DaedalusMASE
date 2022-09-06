@@ -4,7 +4,9 @@ sub_Heating_Sources.heat_transfer_en_elastic
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate heating rate due to electron neutral collisions in W/m^3
+Calculate heating rate due to electron neutral collisions in \(W/m^{3}\)
+
+$$q_{\\Delta T_{en}}=N_e \\nu_{en} \\frac{m_e}{m_e+m_n} 3 k_B \\Big(T_e - T_n \\Big)$$
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
@@ -12,29 +14,27 @@ ________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 
-Necm: electron density in cm^-3
+`Necm`: electron density in \(cm^{-3}\)
 
-NN2: N2 density in cm^-3
+`NN2`: \(N_2\) density in \(cm^{-3}\)
 
-NO2: O2 density in cm^-3
+`NO2`: \(O_2\) density in \(cm^{-3}\)
 
-NO: O density in cm^-3
+`NO`: \(O\) density in \(cm^{-3}\)
 
-helium_f: He density in cm^-3
+`helium_f`: \(He\) density in \(cm^{-3}\)
 
-Te: electron temperature in K
+`Te`: electron temperature in K
 
-Tn: neutral temperature in K
+`Tn`: neutral temperature in K
 
-ve_o: e-O collision frequency
+`ve_o`: \(e\)-\(O\) collision frequency
 
-ve_o2: e-O2 collision frequency
+`ve_o2`: \(e\)-\(O_2\) collision frequency
 
-ve_n2: e-N2 collision frequency
+`ve_n2`: \(e\)-\(N_2\) collision frequency
 
-ve_he: e-He collision frequency
-
-
+`ve_he`: \(e\)-\(He\) collision frequency
 
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
@@ -42,15 +42,15 @@ ________________________________________________________________________________
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-qDTe_n: heating rate due to electron neutral collisions in W/m^3
+`qDTe_n`: heating rate due to electron-neutral collisions in \(W/m^{3}\)
 
-qDTe_of: heating rate due to electron-O collisions in W/m^3
+`qDTe_of`: heating rate due to \(e\)-\(O\) collisions in \(W/m^{3}\)
 
-qDTe_o2f: heating rate due to electron-O2 collisions in W/m^3
+`qDTe_o2f`: heating rate due to \(e\)-\(O_2\) collisions in \(W/m^{3}\)
 
-qDTe_n2f: heating rate due to electron-N2 collisions in W/m^3
+`qDTe_n2f`: heating rate due to \(e\)-\(N_2\) collisions in \(W/m^{3}\)
 
-qDTe_hef: heating rate due to electron-He collisions in W/m^3
+`qDTe_hef`: heating rate due to \(e\)-\(He\) collisions in \(W/m^{3}\)
 
 
 _____________________________________________________________________________________________________________________
@@ -59,6 +59,8 @@ ________________________________________________________________________________
 **Reference**: 
 _____________________________________________________________________________________________________________________
 
+Schunk, R. and Nagy, A. (2009). Ionospheres: physics, plasma physics, and chemistry (Cambridge
+university press)
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
