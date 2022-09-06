@@ -1,38 +1,63 @@
 """
-sub_Heating_Sources.igrf_B
+sub_Heating_Sources.op_o_temps
 
 **Description**:
 _____________________________________________________________________________________________________________________
 
-Calculate IGRF magnetic field in ENU and ECEF
+Calculate dependence of different \(O^+-O\) collision frequency formulas on temperatures
 _____________________________________________________________________________________________________________________
 _____________________________________________________________________________________________________________________
 
 **Inputs**:
 _____________________________________________________________________________________________________________________
 
-time_p: time (datetime object) 
+`Tmin`: minimum temperature
 
-lat_p: latitude in deg 
+`Tmax`: maximum temperature
 
-lon_p: longitude in deg 
-
-alt_p: altitude in km
+`dT`: temperature resolution
 _____________________________________________________________________________________________________________________
 _______________________________________________________________________________________________________________________
 
 **Outputs**:
 _____________________________________________________________________________________________________________________
 
-B_enu: Magnetic field vector in ENU
-
-b_unit_enu: Magnetic field unit vector in ENU
+Plot of \(O^+-O\) collision frequencies vs temperature
 _____________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
 **Reference**:
 _____________________________________________________________________________________________________________________
 
+Dalgarno, A., Henry, R., and Stewart, A. (1964). The photoionization of atomic oxygen. Planetary and
+Space Science 12, 235–246
+
+Banks, P. (1966). Collision frequencies and energy transfer electrons. Planetary and Space Science 14,
+1085–1103
+
+Stubbe, P. (1968). Frictional forces and collision frequencies between moving ion and neutral gases.
+Journal of Atmospheric and Terrestrial Physics 30, 1965–1985
+
+Schunk, R. and Walker, J. (1973). Theoretical ion densities in the lower ionosphere. Planetary and Space
+Science 21, 1875–1896
+
+Salah, J. E. (1993). Interim standard for the ion-neutral atomic oxygen collision frequency. Geophysical
+research letters 20, 1543–1546
+
+Pesnell, W. D., Omidvar, K., and Hoegy, W. R. (1993). Momentum transfer collision frequency of o+-o.
+Geophysical Research Letters 20, 1343–1346
+
+Hickman, A., Medikeri-Naphade, M., Chapin, C., and Huestis, D. (1997). Fine structure effects in the o+-o
+collision frequency. Geophysical research letters 24, 119–122
+
+Schunk, R. and Nagy, A. (2009). Ionospheres: physics, plasma physics, and chemistry (Cambridge
+university press)
+
+Richmond, A. D. (2017). Ionospheric electrodynamics. In Handbook of atmospheric electrodynamics,
+volume II (CRC Press). 249–290
+
+Ieda, A. (2020). Ion-neutral collision frequencies for calculating ionospheric conductivity. Journal of
+Geophysical Research: Space Physics 125, e2019JA027128
 ______________________________________________________________________________________________________________________
 ________________________________________________________________________________________________________________________
 
