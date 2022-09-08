@@ -14,7 +14,6 @@ import datetime
 import sys
 import warnings
 import time
-import pyglow
 import matplotlib.pyplot as plt
 import numpy as np
 from netCDF4 import Dataset
@@ -148,17 +147,16 @@ def models_input(file_name, timer, lat_value=-1, lon_value=-1, pressure_level=-1
                 # Average altitude for Lat-Lon map
                 temp_lat_lon = temp_lat_lon +factors.heights[lat, lon, lev]
 
-                # Run I-GRF model using pyglow to get magnetic field
-                # Create pyglow point
-                pt = pyglow.Point(real_time, factors.glat_in[lat], factors.glon_in[lon], factors.heights[lat, lon, lev], user_ind=False)
-
-                # Run I-GRF
-                pt.run_igrf()  # default version is I-GRF-12
+                # Run IGRF12 model using igrf12 to get magnetic field
+                               
+                ##################################
+                Benu,b_unit_enu=supportfunctions.igrf_B(real_time, factors.glat_in[lat], factors.glon_in[lon], factors.heights[lat, lon, lev])
+                
 
                 # Magnetic field in ENU
-                Be = pt.Bx  # in tesla
-                Bn = pt.By  # in tesla
-                Bu = pt.Bz  # in tesla
+                Be = Be[0]  # in tesla
+                Bn = Bn[1]  # in tesla
+                Bu = Bu[2]  # in tesla
 
                 # Magnetic field from ENU to ECEF (in tesla)
                 factors.Bx[lat, lon, lev], factors.By[lat, lon, lev], factors.Bz[lat, lon, lev] = supportfunctions.enu_ecef(factors.glat_in[lat], factors.glon_in[lon], Be, Bn, Bu)
