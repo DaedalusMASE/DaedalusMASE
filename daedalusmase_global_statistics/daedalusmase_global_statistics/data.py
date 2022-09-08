@@ -39,7 +39,6 @@ import numpy as np
 
 import os
 import time
-import numpy as np 
 import threading
 import glob
 import copy
