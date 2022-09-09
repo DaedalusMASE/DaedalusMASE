@@ -11,7 +11,6 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 from plotly.subplots import make_subplots
 from scicolorscales import *
-import seaborn as sns
 import matplotlib.cm
 import matplotlib.pyplot as matplt
 import math
