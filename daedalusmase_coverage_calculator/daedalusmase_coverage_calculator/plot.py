@@ -519,7 +519,7 @@ def plot_orbit_heatmap( OrbitFilename ):
 
     # Create a JointGrid seaborn-plot
     joint_kws=dict(gridsize=50) #hex bin size; the higher the gridsize number the smaller the bins
-    plot = sns.jointplot(X, Y, kind="hex", cmap='rainbow', joint_kws=joint_kws)
+    plot = sns.jointplot(x=X, y=Y, kind="hex", cmap='rainbow', joint_kws=joint_kws)
     # style Axes
     sns.set(style="ticks")
     plot.ax_marg_x.set_xlim(-90, 90)
