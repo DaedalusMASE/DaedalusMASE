@@ -1560,11 +1560,11 @@ def calc_stats_for_tiegcm( TIEGCMfilesPath, ResultFilesPath ):
     AllThreads = list()
     AllDataFiles = sorted( glob.glob( TIEGCMfilesPath + "/*/*.nc", recursive=True ) )
     for currentDataFile in AllDataFiles:
-        if '\\' in currentDataFile: #windows
+        if '\\' in currentDataFile: # windows
             prefix = currentDataFile[ currentDataFile.rfind('\\')+1 : -3 ]
         else: # linux
             prefix = currentDataFile[ currentDataFile.rfind('/')+1 : -3 ]
-        ResultsFilename = ResultFilesPath + currentDataFile[ currentDataFile.rfind('\\')+1 : -3 ] + ".stats.nc"
+        ResultsFilename = ResultFilesPath + prefix + ".stats.nc"
         if path.exists( ResultsFilename ): 
             print("Skipping because exists:", ResultsFilename)
             continue
