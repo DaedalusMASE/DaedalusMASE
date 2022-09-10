@@ -17,8 +17,6 @@ import plotly
 import chart_studio.plotly as py 
 import plotly.graph_objects as go
 
-import Conversions
-
 def parseDaedalusDate( dateString ):
     """
     utility which parses a string to a date object.
