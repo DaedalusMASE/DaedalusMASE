@@ -174,6 +174,6 @@ Then the result files are read by the function LoadResults_CDF() and mean, varia
 
 The user can also select to execute statistical tests. They are executed by the function executeStatTest().
 
-##Attribution
+## Attribution
 This software uses the Scientific colour maps, created by Fabio Crameri (https://www.fabiocrameri.ch/colourmaps/).
 
